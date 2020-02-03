@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://gpp-note.top/2020-02-02-node-Http.html</loc>
+    
+    <lastmod>2020-02-03T02:49:39.698Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://gpp-note.top/2020-02-02-node-global.html</loc>
+    
+    <lastmod>2020-02-02T10:27:27.693Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://gpp-note.top/2020-02-01-node-fs.html</loc>
     
-    <lastmod>2020-02-01T13:46:49.927Z</lastmod>
+    <lastmod>2020-02-02T10:16:30.613Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://gpp-note.top/about/index.html</loc>
+    
+    <lastmod>2020-02-02T09:14:31.852Z</lastmod>
     
   </url>
   
@@ -86,13 +107,6 @@
   </url>
   
   <url>
-    <loc>http://gpp-note.top/about1/index.html</loc>
-    
-    <lastmod>2020-01-31T15:24:44.045Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://gpp-note.top/2020-01-31-code-tools.html</loc>
     
     <lastmod>2020-01-31T15:23:24.502Z</lastmod>
@@ -117,20 +131,6 @@
     <loc>http://gpp-note.top/2020-01-30-git.html</loc>
     
     <lastmod>2020-01-31T15:11:48.403Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://gpp-note.top/about1/detail/resume.html</loc>
-    
-    <lastmod>2020-01-31T15:03:20.601Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://gpp-note.top/about1/detail/index1.html</loc>
-    
-    <lastmod>2020-01-31T14:21:43.117Z</lastmod>
     
   </url>
   

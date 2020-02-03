@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gpp-note.top/"/>
-  <updated>2020-02-01T13:46:49.927Z</updated>
+  <updated>2020-02-03T02:49:39.698Z</updated>
   <id>http://gpp-note.top/</id>
   
   <author>
@@ -17,13 +17,66 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>NodeJs之Http</title>
+    <link href="http://gpp-note.top/2020-02-02-node-Http.html"/>
+    <id>http://gpp-note.top/2020-02-02-node-Http.html</id>
+    <published>2020-02-02T10:28:32.000Z</published>
+    <updated>2020-02-03T02:49:39.698Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>要使用HTTP服务器和客户端，必须require(‘http’);</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HTTP&quot;&gt;&lt;a href=&quot;#HTTP&quot; class=&quot;headerlink&quot; title=&quot;HTTP&quot;&gt;&lt;/a&gt;HTTP&lt;/h2&gt;&lt;p&gt;要使用HTTP服务器和客户端，必须require(‘http’);&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="Node" scheme="http://gpp-note.top/categories/Node/"/>
+    
+    
+      <category term="Node" scheme="http://gpp-note.top/tags/Node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NodeJs之global</title>
+    <link href="http://gpp-note.top/2020-02-02-node-global.html"/>
+    <id>http://gpp-note.top/2020-02-02-node-global.html</id>
+    <published>2020-02-02T10:17:08.000Z</published>
+    <updated>2020-02-02T10:27:27.693Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="global"><a href="#global" class="headerlink" title="global"></a>global</h2><p>全局变量。</p><p>所有模块都提供这些对象。</p><h4 id="Buffer类"><a href="#Buffer类" class="headerlink" title="Buffer类"></a>Buffer类</h4><p>用于处理二进制数据。</p><h4 id="dirname"><a href="#dirname" class="headerlink" title="__dirname"></a>__dirname</h4><p>此变量虽然看起来是全局的，但实际上不是。</p><a id="more"></a><h4 id="filename"><a href="#filename" class="headerlink" title="__filename"></a>__filename</h4><p>此变量虽然看起来是全局的，但实际上不是。</p><h4 id="clearImmediate-immediateObject"><a href="#clearImmediate-immediateObject" class="headerlink" title="clearImmediate(immediateObject)"></a>clearImmediate(immediateObject)</h4><h4 id="clearInterval-intervalObject"><a href="#clearInterval-intervalObject" class="headerlink" title="clearInterval(intervalObject)"></a>clearInterval(intervalObject)</h4><h4 id="clearTimeout-timeoutObject"><a href="#clearTimeout-timeoutObject" class="headerlink" title="clearTimeout(timeoutObject)"></a>clearTimeout(timeoutObject)</h4><h4 id="console"><a href="#console" class="headerlink" title="console"></a>console</h4><h4 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h4><p>此变量虽然看起来是全局的，但实际上不是。</p><h4 id="global-1"><a href="#global-1" class="headerlink" title="global"></a>global</h4><p>在浏览器中，顶层作用域是全局作用域。<br>在nodejs中，顶层作用于不是全局作用域，nodejs模块中的var something的作用域只在该模块内。</p><h4 id="module"><a href="#module" class="headerlink" title="module"></a>module</h4><p>此变量虽然看起来是全局的，但实际上不是。</p><h4 id="process"><a href="#process" class="headerlink" title="process"></a>process</h4><p>进程对象。</p><h4 id="require"><a href="#require" class="headerlink" title="require()"></a>require()</h4><p>此变量虽然看起来是全局的，但实际上不是。</p><h4 id="setImmediate-callback-…args"><a href="#setImmediate-callback-…args" class="headerlink" title="setImmediate(callback[,…args])"></a>setImmediate(callback[,…args])</h4><h4 id="setInterval-callback-delay-…args"><a href="#setInterval-callback-delay-…args" class="headerlink" title="setInterval(callback, delay[,…args])"></a>setInterval(callback, delay[,…args])</h4><h4 id="setTimeout-callback-delay-…-args"><a href="#setTimeout-callback-delay-…-args" class="headerlink" title="setTimeout(callback, delay[, ….args])"></a>setTimeout(callback, delay[, ….args])</h4><h4 id="TextDecoder"><a href="#TextDecoder" class="headerlink" title="TextDecoder"></a>TextDecoder</h4><h4 id="TextEncoder"><a href="#TextEncoder" class="headerlink" title="TextEncoder"></a>TextEncoder</h4><h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h4>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;global&quot;&gt;&lt;a href=&quot;#global&quot; class=&quot;headerlink&quot; title=&quot;global&quot;&gt;&lt;/a&gt;global&lt;/h2&gt;&lt;p&gt;全局变量。&lt;/p&gt;
+&lt;p&gt;所有模块都提供这些对象。&lt;/p&gt;
+&lt;h4 id=&quot;Buffer类&quot;&gt;&lt;a href=&quot;#Buffer类&quot; class=&quot;headerlink&quot; title=&quot;Buffer类&quot;&gt;&lt;/a&gt;Buffer类&lt;/h4&gt;&lt;p&gt;用于处理二进制数据。&lt;/p&gt;
+&lt;h4 id=&quot;dirname&quot;&gt;&lt;a href=&quot;#dirname&quot; class=&quot;headerlink&quot; title=&quot;__dirname&quot;&gt;&lt;/a&gt;__dirname&lt;/h4&gt;&lt;p&gt;此变量虽然看起来是全局的，但实际上不是。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Node" scheme="http://gpp-note.top/categories/Node/"/>
+    
+    
+      <category term="Node" scheme="http://gpp-note.top/tags/Node/"/>
+    
+  </entry>
+  
+  <entry>
     <title>NodeJs之fs</title>
     <link href="http://gpp-note.top/2020-02-01-node-fs.html"/>
     <id>http://gpp-note.top/2020-02-01-node-fs.html</id>
     <published>2020-02-01T13:31:29.000Z</published>
-    <updated>2020-02-01T13:46:49.927Z</updated>
+    <updated>2020-02-02T10:16:30.613Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="fs"><a href="#fs" class="headerlink" title="fs"></a>fs</h2><p>文件系统</p><p>fs模块提供了一个API，用于模仿标准的POSIX函数的方式与文件系统进行交互。</p><p>引用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const fs &#x3D; require(&#39;fs&#39;);</span><br></pre></td></tr></table></figure><p>所有文件系统操作都具有同步和异步的形式；</p><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<h2 id="fs"><a href="#fs" class="headerlink" title="fs"></a>fs</h2><p>文件系统</p><p>fs模块提供了一个API，用于模仿标准的POSIX函数的方式与文件系统进行交互。</p><p>引用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const fs &#x3D; require(&#39;fs&#39;);</span><br></pre></td></tr></table></figure><p>所有文件系统操作都具有同步和异步的形式；</p><a id="more"></a><h4 id="文件路径"><a href="#文件路径" class="headerlink" title="文件路径"></a>文件路径</h4><p>fs操作接受的文件路径可以指定为字符串、Buffer、或使用file：协议的URL对象。</p><h4 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h4><p>fs.open()方法用于分配新的文件描述符。一旦被分配，则文件描述符可用于从文件读取数据、写入数据或请求关于文件的信息。</p><h4 id="线程池的使用"><a href="#线程池的使用" class="headerlink" title="线程池的使用"></a>线程池的使用</h4><p>所有的文件系统API，除了fs.FSWatcher()和那些显示同步之外，都使用libuv的线程池。</p><h4 id="fs-Dir类"><a href="#fs-Dir类" class="headerlink" title="fs.Dir类"></a>fs.Dir类</h4><p>目录流的类。<br>由fs.opendir(), fs.opendirSync()和fsPromises.opendir()创建。</p><h5 id="dir-close"><a href="#dir-close" class="headerlink" title="dir.close()"></a>dir.close()</h5><p>异步的关闭目录的底层资源句柄。随后的读取将会导致错误。<br>返回一个Promise，将会在关闭资源之后被解决。</p><h5 id="dir-close-callback"><a href="#dir-close-callback" class="headerlink" title="dir.close(callback)"></a>dir.close(callback)</h5><p>异步的关闭目录的底层资源句柄。随后的读取将会导致错误。<br>关闭资源句柄之后就会调用callback</p><h5 id="dir-closeSync"><a href="#dir-closeSync" class="headerlink" title="dir.closeSync()"></a>dir.closeSync()</h5><p>同步的关闭目录的底层资源句柄。</p><h5 id="dir-path"><a href="#dir-path" class="headerlink" title="dir.path"></a>dir.path</h5><p>此目录的只读路径。</p><h4 id="文件写入"><a href="#文件写入" class="headerlink" title="文件写入"></a>文件写入</h4><h5 id="同步文件的写入"><a href="#同步文件的写入" class="headerlink" title="同步文件的写入"></a>同步文件的写入</h5><p>代码逐条执行，会阻塞。</p><p>打开文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.openSync(path, flags[,mode])</span><br></pre></td></tr></table></figure><p>写入文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.writeSync(fd, string[, position[,encoding]])</span><br></pre></td></tr></table></figure><p>保存并关闭文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.closeSync(fd)</span><br></pre></td></tr></table></figure><h5 id="异步文件写入"><a href="#异步文件写入" class="headerlink" title="异步文件写入"></a>异步文件写入</h5><p>代码会一起执行不会阻塞。</p><p>打开文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.open(path, flags[,mode], callback)</span><br></pre></td></tr></table></figure><p>写入文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.write(fd, string[, position[,encoding]], callback)</span><br></pre></td></tr></table></figure><p>保存并关闭文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.close(fd, callback)</span><br></pre></td></tr></table></figure><h5 id="流式文件写入"><a href="#流式文件写入" class="headerlink" title="流式文件写入"></a>流式文件写入</h5><p>同步异步简单文件的写入不适合大文件的写入，性能较差，容易导致内存溢出，<br>而流式文件写入会一点一点的写进去，不会导致内存溢出的状况。</p><p>创建一个可写流</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.createWriteStream(path[,options])</span><br></pre></td></tr></table></figure><p>打开文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const ws &#x3D; fs.createWriteStream(&#39;hello.txt&#39;)</span><br><span class="line"></span><br><span class="line">监听流可选：</span><br><span class="line">ws.once(&#39;open&#39;, function() &#123;</span><br><span class="line">    console.log(&#39;流打开了&#39;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">ws.once(&#39;close&#39;, function() &#123;</span><br><span class="line">    console.log(&#39;流关闭了&#39;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>通过ws向文件中输出内容：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ws.write(&#39;hhhhhhhh&#39;)</span><br><span class="line">ws.write(&#39;gggggggg&#39;)</span><br></pre></td></tr></table></figure><p>关闭流</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ws.end()</span><br></pre></td></tr></table></figure><h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><h5 id="pipe"><a href="#pipe" class="headerlink" title="pipe"></a>pipe</h5><p>将可读流中的内容，直接输出到可写流里。</p><h5 id="fs-existsSync-path"><a href="#fs-existsSync-path" class="headerlink" title="fs.existsSync(path)"></a>fs.existsSync(path)</h5><p>检查一个文件是否存在。</p><h5 id="fs-stat-path-options-callback-fs-statSync-path-options"><a href="#fs-stat-path-options-callback-fs-statSync-path-options" class="headerlink" title="fs.stat(path[,options], callback) / fs.statSync(path[,options])"></a>fs.stat(path[,options], callback) / fs.statSync(path[,options])</h5><p>获取文件状态。</p><h5 id="fs-unlink-path-callback-fs-unlinkSync-path"><a href="#fs-unlink-path-callback-fs-unlinkSync-path" class="headerlink" title="fs.unlink(path, callback) / fs.unlinkSync(path)"></a>fs.unlink(path, callback) / fs.unlinkSync(path)</h5><p>删除文件。</p><h5 id="fs-readdir-path-options-callback-fs-readdirSync-path-options"><a href="#fs-readdir-path-options-callback-fs-readdirSync-path-options" class="headerlink" title="fs.readdir(path[,options], callback) / fs.readdirSync(path[,options])"></a>fs.readdir(path[,options], callback) / fs.readdirSync(path[,options])</h5><p>读取一个目录的目录结构。</p><h5 id="fs-truncate-path-len-callback-fs-truncateSync-path-len"><a href="#fs-truncate-path-len-callback-fs-truncateSync-path-len" class="headerlink" title="fs.truncate(path[, len], callback) / fs.truncateSync(path[, len])"></a>fs.truncate(path[, len], callback) / fs.truncateSync(path[, len])</h5><p>截断文件。</p><h5 id="fs-mkdir-path-mode-callback-fs-mkdirSync-path-mode"><a href="#fs-mkdir-path-mode-callback-fs-mkdirSync-path-mode" class="headerlink" title="fs.mkdir(path[, mode], callback) / fs.mkdirSync(path[, mode])"></a>fs.mkdir(path[, mode], callback) / fs.mkdirSync(path[, mode])</h5><p>创建一个文件夹。</p><h5 id="fs-rmdir-path-callback-fs-rmdirSync-path"><a href="#fs-rmdir-path-callback-fs-rmdirSync-path" class="headerlink" title="fs.rmdir(path, callback) / fs.rmdirSync(path)"></a>fs.rmdir(path, callback) / fs.rmdirSync(path)</h5><p>删除一个目录。</p><h5 id="fs-rename-oldPath-newPath-callback-fs-renameSync-oldPath-newPath"><a href="#fs-rename-oldPath-newPath-callback-fs-renameSync-oldPath-newPath" class="headerlink" title="fs.rename(oldPath, newPath, callback) / fs.renameSync(oldPath, newPath)"></a>fs.rename(oldPath, newPath, callback) / fs.renameSync(oldPath, newPath)</h5><p>重命名文件夹。</p><h5 id="fs-watchFile-filename-options-listener"><a href="#fs-watchFile-filename-options-listener" class="headerlink" title="fs.watchFile(filename[,options], listener)"></a>fs.watchFile(filename[,options], listener)</h5><p>监视文件的修改。</p>]]></content>
     
     <summary type="html">
     
