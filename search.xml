@@ -1,10 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>NodeJs之module</title>
+    <url>/2020-02-05-node-module.html</url>
+    <content><![CDATA[<h2 id="module"><a href="#module" class="headerlink" title="module"></a>module</h2><p>模块。</p>
+<p>在Nodejs模块系统中，每个文件都被视为一个独立的模块。</p>
+<a id="more"></a>
+
+<h4 id="访问主模块"><a href="#访问主模块" class="headerlink" title="访问主模块"></a>访问主模块</h4><p>当Nodejs直接运行一个文件时mrequire.main会被视为module。</p>
+<h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4><p>模块在第一次加载后会被缓存。<br>每次调用相同的模块都解析到同一个文件，则返回相同的对象。</p>
+<h5 id="模块缓存的注意事项"><a href="#模块缓存的注意事项" class="headerlink" title="模块缓存的注意事项"></a>模块缓存的注意事项</h5><p>模块是基于其解析的文件名进行缓存的。由于调用模块的位置不同，模块可能被解析成不同的<br>文件名，这样就不能保证总能返回完全相同的对象。</p>
+<p>此外，在不区分大小写的文件系统或操作系统中，被解析成不同的文件名可以指向同一文件，<br>但缓存仍然会将它们视为不同的模块，并多次重新加载。</p>
+<h4 id="核心模块"><a href="#核心模块" class="headerlink" title="核心模块"></a>核心模块</h4><p>核心模块定义在Nodejs原代码的lib/目录下。<br>require()总是会优先加载核心模块。</p>
+<h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><p>当循环调用require()时，一个模块可能在未完成执行时被返回。</p>
+<h4 id="目录作为模块"><a href="#目录作为模块" class="headerlink" title="目录作为模块"></a>目录作为模块</h4><p>提供一个单一的入口来指向它。</p>
+<h4 id="从node-modules目录加载"><a href="#从node-modules目录加载" class="headerlink" title="从node_modules目录加载"></a>从node_modules目录加载</h4><h4 id="从全局目录加载"><a href="#从全局目录加载" class="headerlink" title="从全局目录加载"></a>从全局目录加载</h4><h4 id="模块封装器"><a href="#模块封装器" class="headerlink" title="模块封装器"></a>模块封装器</h4><p>在指向模块代码之前，Nodejs会使用一个如下的函数封装器将其封装：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(function(exports, require, module, __filename, __dirname) &#123;</span><br><span class="line">&#x2F;&#x2F; 模块的代码实际上在这里</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>通过这样做，Nodejs实现了以下几点：</p>
+<ul>
+<li>它保持了顶层的变量（用var、const或let定义）作用在模块范围内，而不是全局对象；</li>
+<li>它有助于提高一些看似全局但实际是模块特定的变量；</li>
+</ul>
+<h4 id="模块作用域"><a href="#模块作用域" class="headerlink" title="模块作用域"></a>模块作用域</h4><h5 id="dirname"><a href="#dirname" class="headerlink" title="__dirname"></a>__dirname</h5><p>当前模块的目录名。</p>
+<h5 id="filename"><a href="#filename" class="headerlink" title="__filename"></a>__filename</h5><p>当前模块的文件名。</p>
+<h5 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h5><h5 id="module-1"><a href="#module-1" class="headerlink" title="module"></a>module</h5><p>对当前模块的引用。</p>
+<h5 id="require-id"><a href="#require-id" class="headerlink" title="require(id)"></a>require(id)</h5><h5 id="require-cache"><a href="#require-cache" class="headerlink" title="require.cache"></a>require.cache</h5><p>被引入的模块江北诶缓存在这个对象中，从此对象中删除键值对将会导致下一次require重新加载<br>被删除的模块。这不适用原生插件，因为它们的重载将会导致错误。</p>
+<h4 id="module对象"><a href="#module对象" class="headerlink" title="module对象"></a>module对象</h4><p>module的自由变量是对表示当前模块的对象的引用。</p>
+<h5 id="module-children"><a href="#module-children" class="headerlink" title="module.children"></a>module.children</h5><p>被该模块引用的模块对象。</p>
+<h5 id="module-exports"><a href="#module-exports" class="headerlink" title="module.exports"></a>module.exports</h5><p>module.exports对象由Module系统创建。</p>
+<h5 id="exports快捷方式"><a href="#exports快捷方式" class="headerlink" title="exports快捷方式"></a>exports快捷方式</h5><p>exports变量是在模块的文件级作用域内可用的，且在模块执行之前赋值给module。exports。</p>
+<h5 id="module-filename"><a href="#module-filename" class="headerlink" title="module.filename"></a>module.filename</h5><p>模块的完全解析后的文件名。</p>
+<h5 id="module-id"><a href="#module-id" class="headerlink" title="module.id"></a>module.id</h5><p>模块的标识符。通常是完全解析后的文件名。</p>
+<h5 id="module-loaded"><a href="#module-loaded" class="headerlink" title="module.loaded"></a>module.loaded</h5><p>模块是否已经加载完成，或正在加载中。</p>
+<h5 id="module-parent"><a href="#module-parent" class="headerlink" title="module.parent"></a>module.parent</h5><p>最先引用该模块的模块。</p>
+<h5 id="module-paths"><a href="#module-paths" class="headerlink" title="module.paths"></a>module.paths</h5><p>模块的搜索路径。</p>
+<h5 id="module-require-id"><a href="#module-require-id" class="headerlink" title="module.require(id)"></a>module.require(id)</h5><p>提供一种加载模块的方法。</p>
+]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NodeJs之inspector</title>
+    <url>/2020-02-05-node-inspector.html</url>
+    <content><![CDATA[<h2 id="inspector"><a href="#inspector" class="headerlink" title="inspector"></a>inspector</h2><p>检查器。</p>
+<p>inspector模块提供了一个用户与V8 inspector交互的API。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const inspector &#x3D; require(&#39;inspector&#39;)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<h4 id="inspector-close"><a href="#inspector-close" class="headerlink" title="inspector.close()"></a>inspector.close()</h4><h4 id="inspector-close-1"><a href="#inspector-close-1" class="headerlink" title="inspector.close"></a>inspector.close</h4><h4 id="inspector-open-port-host-wait"><a href="#inspector-open-port-host-wait" class="headerlink" title="inspector.open([port[, host[, wait]]])"></a>inspector.open([port[, host[, wait]]])</h4><h4 id="inspector-url"><a href="#inspector-url" class="headerlink" title="inspector.url()"></a>inspector.url()</h4><h4 id="inspector-waitForDebugger"><a href="#inspector-waitForDebugger" class="headerlink" title="inspector.waitForDebugger()"></a>inspector.waitForDebugger()</h4><h4 id="inspector-Session类"><a href="#inspector-Session类" class="headerlink" title="inspector.Session类"></a>inspector.Session类</h4><h5 id="new-inspector-Session"><a href="#new-inspector-Session" class="headerlink" title="new inspector.Session()"></a>new inspector.Session()</h5>]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NodeJs之HTTPS</title>
+    <url>/2020-02-05-node-HTTPS.html</url>
+    <content><![CDATA[<h2 id="https-HTTPS"><a href="#https-HTTPS" class="headerlink" title="https(HTTPS)"></a>https(HTTPS)</h2><p>HTTPS是基于TLS/SSL的HTTP协议。在NodeJS中，作为一个单独的模块实现。</p>
+<a id="more"></a>
+
+<h4 id="https-Agent类"><a href="#https-Agent类" class="headerlink" title="https.Agent类"></a>https.Agent类</h4><p>HTTPS的Agent对象，类似于http.Agent.</p>
+<h5 id="new-Agent-options"><a href="#new-Agent-options" class="headerlink" title="new Agent([options])"></a>new Agent([options])</h5><h4 id="https-Server类"><a href="#https-Server类" class="headerlink" title="https.Server类"></a>https.Server类</h4><h5 id="server-close-callback"><a href="#server-close-callback" class="headerlink" title="server.close([callback])"></a>server.close([callback])</h5><h5 id="server-headersTimeout"><a href="#server-headersTimeout" class="headerlink" title="server.headersTimeout"></a>server.headersTimeout</h5><h5 id="server-listen"><a href="#server-listen" class="headerlink" title="server.listen()"></a>server.listen()</h5><h5 id="server-maxHeadersCount"><a href="#server-maxHeadersCount" class="headerlink" title="server.maxHeadersCount"></a>server.maxHeadersCount</h5><h5 id="server-setTimeout-msecs-callback"><a href="#server-setTimeout-msecs-callback" class="headerlink" title="server.setTimeout([msecs][,callback])"></a>server.setTimeout([msecs][,callback])</h5><h5 id="server-timeout"><a href="#server-timeout" class="headerlink" title="server.timeout"></a>server.timeout</h5><h5 id="server-keepAliveTimeout"><a href="#server-keepAliveTimeout" class="headerlink" title="server.keepAliveTimeout"></a>server.keepAliveTimeout</h5><h5 id="heeps-createServer-options-requestListener"><a href="#heeps-createServer-options-requestListener" class="headerlink" title="heeps.createServer([options][,requestListener])"></a>heeps.createServer([options][,requestListener])</h5><h5 id="https-get-options-callback"><a href="#https-get-options-callback" class="headerlink" title="https.get(options[,callback])"></a>https.get(options[,callback])</h5><h5 id="https-get-url-options-callback"><a href="#https-get-url-options-callback" class="headerlink" title="https.get(url[,options][,callback])"></a>https.get(url[,options][,callback])</h5><h5 id="https-request-options-callback"><a href="#https-request-options-callback" class="headerlink" title="https.request(options[,callback])"></a>https.request(options[,callback])</h5><h5 id="https-request-url-options-callback"><a href="#https-request-url-options-callback" class="headerlink" title="https.request(url[,options][,callback])"></a>https.request(url[,options][,callback])</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const https &#x3D; require(&#39;https&#39;);</span><br><span class="line"></span><br><span class="line">const options &#x3D; &#123;</span><br><span class="line">  hostname: &#39;encrypted.google.com&#39;,</span><br><span class="line">  port: 443,</span><br><span class="line">  path: &#39;&#x2F;&#39;,</span><br><span class="line">  method: &#39;GET&#39;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const req &#x3D; https.request(options, (res) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(&#39;状态码:&#39;, res.statusCode);</span><br><span class="line">  console.log(&#39;请求头:&#39;, res.headers);</span><br><span class="line"></span><br><span class="line">  res.on(&#39;data&#39;, (d) &#x3D;&gt; &#123;</span><br><span class="line">    process.stdout.write(d);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">req.on(&#39;error&#39;, (e) &#x3D;&gt; &#123;</span><br><span class="line">  console.error(e);</span><br><span class="line">&#125;);</span><br><span class="line">req.end();</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NodeJS之HTTP/2</title>
+    <url>/2020-02-05-node-Http-2.html</url>
+    <content><![CDATA[<h2 id="http2-HTTP-2"><a href="#http2-HTTP-2" class="headerlink" title="http2 (HTTP/2)"></a>http2 (HTTP/2)</h2><p>http2模块提供了HTTP/2协议的实现。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const http2 &#x3D; require(&#39;http2)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<h4 id="核心API"><a href="#核心API" class="headerlink" title="核心API"></a>核心API</h4><p>核心API提供了专门针对支持HTTP/2协议的特性而设计的底层接口。</p>
+<p>http2核心API在客户端和服务器之间比http API更加对称。</p>
+<h4 id="Http2Session类"><a href="#Http2Session类" class="headerlink" title="Http2Session类"></a>Http2Session类</h4><p>Http2Session类的实例代表了HTTP/2客户端与服务器之间的一个活跃的通信会话。</p>
+<p>每个Http2Session实例会有略有不同的行为，这取决于它是作为服务器还是客户端运行。<br>Http2Session.type属性可用于判断Http2Session的运行模式。</p>
+<p>用户代码不会直接的创建Http2Session实例。<br>当接收到新的http/2连接时，服务端的Http2Session实例由Http2Server实例创建。</p>
+<h5 id="Http2Session与Socket"><a href="#Http2Session与Socket" class="headerlink" title="Http2Session与Socket"></a>Http2Session与Socket</h5><p>每个Http2Session实例在创建时都会与一个net.Socket或tls.TLSSocket关联。<br>当Socket或Http2Session被销毁时，两者都会被销毁。</p>
+<p>一旦将Socket绑定到Http2Session，则用户代码应仅依赖于Http2Session的API。</p>
+<h5 id="close事件"><a href="#close事件" class="headerlink" title="close事件"></a>close事件</h5><h5 id="connect事件"><a href="#connect事件" class="headerlink" title="connect事件"></a>connect事件</h5><h5 id="error事件"><a href="#error事件" class="headerlink" title="error事件"></a>error事件</h5><h5 id="stream事件"><a href="#stream事件" class="headerlink" title="stream事件"></a>stream事件</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const http2 &#x3D; require(&#39;http2&#39;);</span><br><span class="line">session.on(&#39;stream&#39;, (stream, headers, flags) &#x3D;&gt; &#123;</span><br><span class="line">  const method &#x3D; headers[&#39;:method&#39;];</span><br><span class="line">  const path &#x3D; headers[&#39;:path&#39;];</span><br><span class="line">  &#x2F;&#x2F; ...</span><br><span class="line">  stream.respond(&#123;</span><br><span class="line">    &#39;:status&#39;: 200,</span><br><span class="line">    &#39;content-type&#39;: &#39;text&#x2F;plain&#39;</span><br><span class="line">  &#125;);</span><br><span class="line">  stream.write(&#39;hello &#39;);</span><br><span class="line">  stream.end(&#39;world&#39;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const http2 &#x3D; require(&#39;http2&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Create an unencrypted HTTP&#x2F;2 server</span><br><span class="line">const server &#x3D; http2.createServer();</span><br><span class="line"></span><br><span class="line">server.on(&#39;stream&#39;, (stream, headers) &#x3D;&gt; &#123;</span><br><span class="line">  stream.respond(&#123;</span><br><span class="line">    &#39;content-type&#39;: &#39;text&#x2F;html&#39;,</span><br><span class="line">    &#39;:status&#39;: 200</span><br><span class="line">  &#125;);</span><br><span class="line">  stream.on(&#39;error&#39;, (error) &#x3D;&gt; console.error(error));</span><br><span class="line">  stream.end(&#39;&lt;h1&gt;Hello World&lt;&#x2F;h1&gt;&#39;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(80);</span><br></pre></td></tr></table></figure>
+
+<h5 id="timeout事件"><a href="#timeout事件" class="headerlink" title="timeout事件"></a>timeout事件</h5><h4 id="ClientHttp2Session类"><a href="#ClientHttp2Session类" class="headerlink" title="ClientHttp2Session类"></a>ClientHttp2Session类</h4><h4 id="Http2Stream类"><a href="#Http2Stream类" class="headerlink" title="Http2Stream类"></a>Http2Stream类</h4><h5 id="Http2Stream的生命周期"><a href="#Http2Stream的生命周期" class="headerlink" title="Http2Stream的生命周期"></a>Http2Stream的生命周期</h5><p>创建、销毁、</p>
+<h4 id="ClientHttp2Stream类"><a href="#ClientHttp2Stream类" class="headerlink" title="ClientHttp2Stream类"></a>ClientHttp2Stream类</h4><h4 id="ServerHttp2Stream类"><a href="#ServerHttp2Stream类" class="headerlink" title="ServerHttp2Stream类"></a>ServerHttp2Stream类</h4><h4 id="Http2Server类"><a href="#Http2Server类" class="headerlink" title="Http2Server类"></a>Http2Server类</h4><h4 id="Http2SecureServer类"><a href="#Http2SecureServer类" class="headerlink" title="Http2SecureServer类"></a>Http2SecureServer类</h4><h4 id="http2-Http2ServerRequest类"><a href="#http2-Http2ServerRequest类" class="headerlink" title="http2.Http2ServerRequest类"></a>http2.Http2ServerRequest类</h4><h4 id="http2-Http2ServerResponse类"><a href="#http2-Http2ServerResponse类" class="headerlink" title="http2.Http2ServerResponse类"></a>http2.Http2ServerResponse类</h4>]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>NodeJs之Http</title>
     <url>/2020-02-02-node-Http.html</url>
     <content><![CDATA[<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>要使用HTTP服务器和客户端，必须require(‘http’);</p>
-]]></content>
+<a id="more"></a>
+
+<h4 id="http-Agent类"><a href="#http-Agent类" class="headerlink" title="http.Agent类"></a>http.Agent类</h4><p>Agent负责管理HTTP客户端的链接持久性和重用。</p>
+<p>它为给定的主机和端口维护一个待处理请求队列，为每个请求重用单独的套接字连接，<br>直到队列为空，此时套接字被销毁或放入连接池，以便再次用于请求到同一个主机和端口。</p>
+<p>销毁还是放入连接池取决于keepAlive选项。</p>
+<p>连接池中的连接已启用TCP Keep-Alive，但服务器仍可能关闭空闲连接，<br>这种情况下，它们将从连接池中删除，并且当为该主机和端口发出新的HTTP请求时将建立新的连接。<br>服务器也可以拒绝通过同一连接允许多个请求，在这种情况下，必须为每个请求重新建立连接，<br>并且不能放入连接池。Agent仍将向该服务器发出请求，但每个请求都将通过新连接发生。</p>
+<p>当客户端或服务器关闭连接时，它将从连接池中删除。连接池中任何未使用的套接字都将被销毁，<br>以便当没有未完成的请求时不用保持Nodejs进程运行。</p>
+<p>当不再使用时最好destrory() Agent实例，因为未使用的套接字会消耗操作系统资源。</p>
+<p>当套接字触发close事件或agentRemove事件时，则套接字从代理中删除。<br>当打算长时间保持一个HTTP请求打开而不将其保留在代理中时，可以执行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http.get(options, (res) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; 做些事情。</span><br><span class="line">&#125;).on(&#39;socket&#39;, (socket) &#x3D;&gt; &#123;</span><br><span class="line">  socket.emit(&#39;agentRemove&#39;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>代理也可以用于单个请求，通过提供{agent:false}作为http.get()或http.request()<br>函数的选项，则将使用一次性的具有默认选项的Agent用于客户端的连接。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http.get(&#123;</span><br><span class="line">  hostname: &#39;localhost&#39;,</span><br><span class="line">  port: 80,</span><br><span class="line">  path: &#39;&#x2F;&#39;,</span><br><span class="line">  agent: false  &#x2F;&#x2F; 仅为此一个请求创建一个新代理。</span><br><span class="line">&#125;, (res) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; 用响应做些事情。</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="new-Agent-options"><a href="#new-Agent-options" class="headerlink" title="new Agent([options])"></a>new Agent([options])</h5><p>options要在代理上设置的可配置选项集。</p>
+<p>要配置其中任何一个，则必须创建自定义的http.Agent实例。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const http &#x3D; require(&#39;http&#39;);</span><br><span class="line">const keepAliveAgent &#x3D; new http.Agent(&#123; keepAlive: true &#125;);</span><br><span class="line">options.agent &#x3D; keepAliveAgent;</span><br><span class="line">http.request(options, onResponseCallback);</span><br></pre></td></tr></table></figure>
+
+<h5 id="agent-createConnection-options-callback"><a href="#agent-createConnection-options-callback" class="headerlink" title="agent.createConnection(options[, callback])"></a>agent.createConnection(options[, callback])</h5><p>生成用于http请求的套接字或流。</p>
+<h5 id="agent-keepSocketAlive-socket"><a href="#agent-keepSocketAlive-socket" class="headerlink" title="agent.keepSocketAlive(socket)"></a>agent.keepSocketAlive(socket)</h5><p>当socket与请求分离并且可以由Agent保留时调用，默认行为是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">socket.setKeepAlive(true, this.keepAliveMsecs);</span><br><span class="line">socket.unref();</span><br><span class="line">return true;</span><br></pre></td></tr></table></figure>
+
+<h5 id="agent-reuseSocket-socket-request"><a href="#agent-reuseSocket-socket-request" class="headerlink" title="agent.reuseSocket(socket, request)"></a>agent.reuseSocket(socket, request)</h5><p>由于keep-alive选项而在持久化后将socket附加到request时调用。<br>默认行为是<code>socket.ref()</code></p>
+<h5 id="agent-destroy"><a href="#agent-destroy" class="headerlink" title="agent.destroy()"></a>agent.destroy()</h5><p>销毁代理当前使用的所有套接字。</p>
+<h5 id="agent-maxSockets"><a href="#agent-maxSockets" class="headerlink" title="agent.maxSockets"></a>agent.maxSockets</h5><p>决定代理可以为每个来源打开多少并发套接字。</p>
+<h5 id="agent-requests"><a href="#agent-requests" class="headerlink" title="agent.requests"></a>agent.requests</h5><p>一个对象，包含尚未分配给套接字的请求队列，不要修改。</p>
+<h5 id="agent-sockets"><a href="#agent-sockets" class="headerlink" title="agent.sockets"></a>agent.sockets</h5><p>一个对象，包含当前代理正在使用的套接字数组，不要修改。</p>
+<h4 id="http-ClientRequest类"><a href="#http-ClientRequest类" class="headerlink" title="http.ClientRequest类"></a>http.ClientRequest类</h4><h4 id="http-Server类"><a href="#http-Server类" class="headerlink" title="http.Server类"></a>http.Server类</h4><h4 id="http-ServerResponse类"><a href="#http-ServerResponse类" class="headerlink" title="http.ServerResponse类"></a>http.ServerResponse类</h4><h4 id="http-IncomingMessage类"><a href="#http-IncomingMessage类" class="headerlink" title="http.IncomingMessage类"></a>http.IncomingMessage类</h4><h4 id="http-METHODS"><a href="#http-METHODS" class="headerlink" title="http.METHODS"></a>http.METHODS</h4><h4 id="http-STATUS-CODES"><a href="#http-STATUS-CODES" class="headerlink" title="http.STATUS_CODES"></a>http.STATUS_CODES</h4><h4 id="http-createServer-options-requestListener"><a href="#http-createServer-options-requestListener" class="headerlink" title="http.createServer([options][, requestListener])"></a>http.createServer([options][, requestListener])</h4><h4 id="http-get-options-callback"><a href="#http-get-options-callback" class="headerlink" title="http.get(options[,callback])"></a>http.get(options[,callback])</h4><h4 id="http-get-url-options-callback"><a href="#http-get-url-options-callback" class="headerlink" title="http.get(url[,options][,callback])"></a>http.get(url[,options][,callback])</h4><h4 id="http-globalAgent"><a href="#http-globalAgent" class="headerlink" title="http.globalAgent"></a>http.globalAgent</h4><h4 id="http-maxHeaderSize"><a href="#http-maxHeaderSize" class="headerlink" title="http.maxHeaderSize"></a>http.maxHeaderSize</h4><h4 id="http-request-options-callback"><a href="#http-request-options-callback" class="headerlink" title="http.request(options[,callback])"></a>http.request(options[,callback])</h4><h4 id="http-request-url-options-callback"><a href="#http-request-url-options-callback" class="headerlink" title="http.request(url[,options][,callback])"></a>http.request(url[,options][,callback])</h4>]]></content>
       <categories>
         <category>Node</category>
       </categories>
