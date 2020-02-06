@@ -18,8 +18,8 @@
   
   <entry>
     <title>NodeJs之timer</title>
-    <link href="http://gpp-note.top/tags/2020-02-06-node-timer.html"/>
-    <id>http://gpp-note.top/tags/2020-02-06-node-timer.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-06-node-timer.html"/>
+    <id>http://gpp-note.top/articles/2020-02-06-node-timer.html</id>
     <published>2020-02-06T14:11:32.000Z</published>
     <updated>2020-02-06T14:12:02.658Z</updated>
     
@@ -45,8 +45,8 @@
   
   <entry>
     <title>NodeJs之string_decoder</title>
-    <link href="http://gpp-note.top/tags/2020-02-06-node-string-decoder.html"/>
-    <id>http://gpp-note.top/tags/2020-02-06-node-string-decoder.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-06-node-string-decoder.html"/>
+    <id>http://gpp-note.top/articles/2020-02-06-node-string-decoder.html</id>
     <published>2020-02-06T14:04:27.000Z</published>
     <updated>2020-02-06T14:11:06.662Z</updated>
     
@@ -70,8 +70,8 @@
   
   <entry>
     <title>NodeJs之stream</title>
-    <link href="http://gpp-note.top/tags/2020-02-06-node-stream.html"/>
-    <id>http://gpp-note.top/tags/2020-02-06-node-stream.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-06-node-stream.html"/>
+    <id>http://gpp-note.top/articles/2020-02-06-node-stream.html</id>
     <published>2020-02-06T14:04:10.000Z</published>
     <updated>2020-02-06T14:05:32.337Z</updated>
     
@@ -96,8 +96,8 @@
   
   <entry>
     <title>NodeJs之repl</title>
-    <link href="http://gpp-note.top/tags/2020-02-06-node-repl.html"/>
-    <id>http://gpp-note.top/tags/2020-02-06-node-repl.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-06-node-repl.html"/>
+    <id>http://gpp-note.top/articles/2020-02-06-node-repl.html</id>
     <published>2020-02-06T13:41:23.000Z</published>
     <updated>2020-02-06T14:03:43.380Z</updated>
     
@@ -121,8 +121,8 @@
   
   <entry>
     <title>NodeJs之readline</title>
-    <link href="http://gpp-note.top/tags/2020-02-06-node-readline.html"/>
-    <id>http://gpp-note.top/tags/2020-02-06-node-readline.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-06-node-readline.html"/>
+    <id>http://gpp-note.top/articles/2020-02-06-node-readline.html</id>
     <published>2020-02-06T13:02:01.000Z</published>
     <updated>2020-02-06T13:41:00.275Z</updated>
     
@@ -145,8 +145,8 @@
   
   <entry>
     <title>NodeJs之querystring</title>
-    <link href="http://gpp-note.top/tags/2020-02-06-node-querystring.html"/>
-    <id>http://gpp-note.top/tags/2020-02-06-node-querystring.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-06-node-querystring.html"/>
+    <id>http://gpp-note.top/articles/2020-02-06-node-querystring.html</id>
     <published>2020-02-06T12:53:13.000Z</published>
     <updated>2020-02-06T13:01:26.875Z</updated>
     
@@ -169,8 +169,8 @@
   
   <entry>
     <title>NodeJs之process</title>
-    <link href="http://gpp-note.top/tags/2020-02-06-node-process.html"/>
-    <id>http://gpp-note.top/tags/2020-02-06-node-process.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-06-node-process.html"/>
+    <id>http://gpp-note.top/articles/2020-02-06-node-process.html</id>
     <published>2020-02-06T11:42:00.000Z</published>
     <updated>2020-02-06T12:52:49.265Z</updated>
     
@@ -193,8 +193,8 @@
   
   <entry>
     <title>NodeJs之perf_hooks</title>
-    <link href="http://gpp-note.top/tags/2020-02-06-node-perf-hooks.html"/>
-    <id>http://gpp-note.top/tags/2020-02-06-node-perf-hooks.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-06-node-perf-hooks.html"/>
+    <id>http://gpp-note.top/articles/2020-02-06-node-perf-hooks.html</id>
     <published>2020-02-06T11:08:11.000Z</published>
     <updated>2020-02-06T11:41:24.256Z</updated>
     
@@ -217,8 +217,8 @@
   
   <entry>
     <title>NodeJs之path</title>
-    <link href="http://gpp-note.top/tags/2020-02-06-node-path.html"/>
-    <id>http://gpp-note.top/tags/2020-02-06-node-path.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-06-node-path.html"/>
+    <id>http://gpp-note.top/articles/2020-02-06-node-path.html</id>
     <published>2020-02-06T08:57:18.000Z</published>
     <updated>2020-02-06T11:07:20.510Z</updated>
     
@@ -241,8 +241,8 @@
   
   <entry>
     <title>NodeJs之os</title>
-    <link href="http://gpp-note.top/tags/2020-02-06-node-os.html"/>
-    <id>http://gpp-note.top/tags/2020-02-06-node-os.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-06-node-os.html"/>
+    <id>http://gpp-note.top/articles/2020-02-06-node-os.html</id>
     <published>2020-02-06T08:41:50.000Z</published>
     <updated>2020-02-06T08:56:58.642Z</updated>
     
@@ -266,8 +266,8 @@
   
   <entry>
     <title>NodeJs之net</title>
-    <link href="http://gpp-note.top/tags/2020-02-05-node-net.html"/>
-    <id>http://gpp-note.top/tags/2020-02-05-node-net.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-05-node-net.html"/>
+    <id>http://gpp-note.top/articles/2020-02-05-node-net.html</id>
     <published>2020-02-05T13:59:35.000Z</published>
     <updated>2020-02-06T08:41:26.810Z</updated>
     
@@ -291,8 +291,8 @@
   
   <entry>
     <title>NodeJs之module</title>
-    <link href="http://gpp-note.top/tags/2020-02-05-node-module.html"/>
-    <id>http://gpp-note.top/tags/2020-02-05-node-module.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-05-node-module.html"/>
+    <id>http://gpp-note.top/articles/2020-02-05-node-module.html</id>
     <published>2020-02-05T12:41:18.000Z</published>
     <updated>2020-02-05T13:58:12.274Z</updated>
     
@@ -315,8 +315,8 @@
   
   <entry>
     <title>NodeJs之inspector</title>
-    <link href="http://gpp-note.top/tags/2020-02-05-node-inspector.html"/>
-    <id>http://gpp-note.top/tags/2020-02-05-node-inspector.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-05-node-inspector.html"/>
+    <id>http://gpp-note.top/articles/2020-02-05-node-inspector.html</id>
     <published>2020-02-05T12:25:11.000Z</published>
     <updated>2020-02-05T12:41:02.149Z</updated>
     
@@ -340,8 +340,8 @@
   
   <entry>
     <title>NodeJs之HTTPS</title>
-    <link href="http://gpp-note.top/tags/2020-02-05-node-HTTPS.html"/>
-    <id>http://gpp-note.top/tags/2020-02-05-node-HTTPS.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-05-node-HTTPS.html"/>
+    <id>http://gpp-note.top/articles/2020-02-05-node-HTTPS.html</id>
     <published>2020-02-05T11:40:37.000Z</published>
     <updated>2020-02-05T12:24:46.211Z</updated>
     
@@ -363,8 +363,8 @@
   
   <entry>
     <title>NodeJS之HTTP/2</title>
-    <link href="http://gpp-note.top/tags/2020-02-05-node-Http-2.html"/>
-    <id>http://gpp-note.top/tags/2020-02-05-node-Http-2.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-05-node-Http-2.html"/>
+    <id>http://gpp-note.top/articles/2020-02-05-node-Http-2.html</id>
     <published>2020-02-05T11:38:10.000Z</published>
     <updated>2020-02-05T12:17:36.965Z</updated>
     
@@ -387,8 +387,8 @@
   
   <entry>
     <title>NodeJs之Http</title>
-    <link href="http://gpp-note.top/tags/2020-02-02-node-Http.html"/>
-    <id>http://gpp-note.top/tags/2020-02-02-node-Http.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-02-node-Http.html"/>
+    <id>http://gpp-note.top/articles/2020-02-02-node-Http.html</id>
     <published>2020-02-02T10:28:32.000Z</published>
     <updated>2020-02-05T11:38:37.118Z</updated>
     
@@ -410,8 +410,8 @@
   
   <entry>
     <title>NodeJs之global</title>
-    <link href="http://gpp-note.top/tags/2020-02-02-node-global.html"/>
-    <id>http://gpp-note.top/tags/2020-02-02-node-global.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-02-node-global.html"/>
+    <id>http://gpp-note.top/articles/2020-02-02-node-global.html</id>
     <published>2020-02-02T10:17:08.000Z</published>
     <updated>2020-02-02T10:27:27.693Z</updated>
     
@@ -436,8 +436,8 @@
   
   <entry>
     <title>NodeJs之fs</title>
-    <link href="http://gpp-note.top/tags/2020-02-01-node-fs.html"/>
-    <id>http://gpp-note.top/tags/2020-02-01-node-fs.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-01-node-fs.html"/>
+    <id>http://gpp-note.top/articles/2020-02-01-node-fs.html</id>
     <published>2020-02-01T13:31:29.000Z</published>
     <updated>2020-02-02T10:16:30.613Z</updated>
     
@@ -464,8 +464,8 @@
   
   <entry>
     <title>NodeJs之events</title>
-    <link href="http://gpp-note.top/tags/2020-02-01-node-events.html"/>
-    <id>http://gpp-note.top/tags/2020-02-01-node-events.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-01-node-events.html"/>
+    <id>http://gpp-note.top/articles/2020-02-01-node-events.html</id>
     <published>2020-02-01T08:26:59.000Z</published>
     <updated>2020-02-01T13:31:19.719Z</updated>
     
@@ -489,8 +489,8 @@
   
   <entry>
     <title>NodeJs之error</title>
-    <link href="http://gpp-note.top/tags/2020-02-01-node-error.html"/>
-    <id>http://gpp-note.top/tags/2020-02-01-node-error.html</id>
+    <link href="http://gpp-note.top/articles/2020-02-01-node-error.html"/>
+    <id>http://gpp-note.top/articles/2020-02-01-node-error.html</id>
     <published>2020-02-01T06:38:21.000Z</published>
     <updated>2020-02-01T08:24:36.903Z</updated>
     

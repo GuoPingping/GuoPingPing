@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Node," />
 
 
 
@@ -81,13 +81,16 @@
 
 
 
-<meta name="description" content="关于学习 关于成长">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Welcome to my-blog">
-<meta property="og:url" content="http://gpp-note.top/tags/Node/page/3/index.html">
+<meta name="description" content="events事件触发器。 eventEmitter.on()：用于注册监听器；eventEmitter.emit()：用于触发事件； 123456789const EventEmitter &#x3D; require(&#39;events&#39;);class MyEmitter extends EventEmitter &amp;#123;&amp;#125;const myEmitter &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NodeJs之events">
+<meta property="og:url" content="http://gpp-note.top/articles/2020-02-01-node-events.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="关于学习 关于成长">
+<meta property="og:description" content="events事件触发器。 eventEmitter.on()：用于注册监听器；eventEmitter.emit()：用于触发事件； 123456789const EventEmitter &#x3D; require(&#39;events&#39;);class MyEmitter extends EventEmitter &amp;#123;&amp;#125;const myEmitter &#x3D;">
+<meta property="article:published_time" content="2020-02-01T08:26:59.000Z">
+<meta property="article:modified_time" content="2020-02-01T13:31:19.719Z">
 <meta property="article:author" content="Guopp">
+<meta property="article:tag" content="Node">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://gpp-note.top/tags/Node/page/3/"/>
+  <link rel="canonical" href="http://gpp-note.top/articles/2020-02-01-node-events.html"/>
 
 
 
 
 
-  <title>标签: Node | Welcome to my-blog</title>
+  <title>NodeJs之events | Welcome to my-blog</title>
   
 
 
@@ -143,7 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -269,310 +272,254 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Node<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-01-node-events.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guopp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to my-blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/articles/2020-02-01-node-domain.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之domain</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">NodeJs之events</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:36:06+08:00"
-              content="2020-02-01 14:36:06" >
-          02-01
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-01T16:26:59+08:00">
+                2020-02-01 16:26:59
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/articles/2020-02-01-node-events.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-01-node-events.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-dns.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之dns</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:34:33+08:00"
-              content="2020-02-01 14:34:33" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
+        <h2 id="events"><a href="#events" class="headerlink" title="events"></a>events</h2><p>事件触发器。</p>
+<p>eventEmitter.on()：用于注册监听器；<br>eventEmitter.emit()：用于触发事件；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const EventEmitter &#x3D; require(&#39;events&#39;);</span><br><span class="line"></span><br><span class="line">class MyEmitter extends EventEmitter &#123;&#125;</span><br><span class="line"></span><br><span class="line">const myEmitter &#x3D; new MyEmitter();</span><br><span class="line">myEmitter.on(&#39;event&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">  console.log(&#39;触发事件&#39;);</span><br><span class="line">&#125;);</span><br><span class="line">myEmitter.emit(&#39;event&#39;);</span><br></pre></td></tr></table></figure>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<a id="more"></a>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-dgram.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之dgram</span>
-              
-            </a>
-        
-      </h2>
+<h4 id="将参数和this传给监听器"><a href="#将参数和this传给监听器" class="headerlink" title="将参数和this传给监听器"></a>将参数和this传给监听器</h4><p>eventEmitter.emit()方法可以传任意数量的参数到监听器函数。<br>当监听器函数被调用时，this关键词被指向监听器所绑定的EventEmitter实例。<br>当使用ES6de箭头函数作为监听器，this不会指向EventEmitter实例。</p>
+<h4 id="异步-VS-同步"><a href="#异步-VS-同步" class="headerlink" title="异步 VS 同步"></a>异步 VS 同步</h4><p>EventEmitter以注册的顺序同步调用所有监听器。<br>监听器函数可以使用setImmediate()和process.nextTick()方法切换到异步的操作模式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const myEmitter &#x3D; new MyEmitter();</span><br><span class="line">myEmitter.on(&#39;event&#39;, (a, b) &#x3D;&gt; &#123;</span><br><span class="line">  setImmediate(() &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;异步地发生&#39;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">myEmitter.emit(&#39;event&#39;, &#39;a&#39;, &#39;b&#39;);</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:32:02+08:00"
-              content="2020-02-01 14:32:02" >
-          02-01
-        </time>
-      </div>
+<h4 id="仅处理事件一次"><a href="#仅处理事件一次" class="headerlink" title="仅处理事件一次"></a>仅处理事件一次</h4><p>eventEmitter.on()注册监听器时，监听器会在每次触发命名事件时调用。<br>eventEmitter.once()可以注册最多可调用一次的监听器，当事件被触发时，监听器会被注销，然后再调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const myEmitter &#x3D; new MyEmitter();</span><br><span class="line">let m &#x3D; 0;</span><br><span class="line">myEmitter.on(&#39;event&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">  console.log(++m);</span><br><span class="line">&#125;);</span><br><span class="line">myEmitter.emit(&#39;event&#39;);</span><br><span class="line">&#x2F;&#x2F; 打印: 1</span><br><span class="line">myEmitter.emit(&#39;event&#39;);</span><br><span class="line">&#x2F;&#x2F; 打印: 2</span><br><span class="line"></span><br><span class="line">myEmitter.once(&#39;event&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">  console.log(++m);</span><br><span class="line">&#125;);</span><br><span class="line">myEmitter.emit(&#39;event&#39;);</span><br><span class="line">&#x2F;&#x2F; 打印: 1</span><br><span class="line">myEmitter.emit(&#39;event&#39;);</span><br><span class="line">&#x2F;&#x2F; 不触发</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </article>
+<h4 id="错误事件"><a href="#错误事件" class="headerlink" title="错误事件"></a>错误事件</h4><p>EventEmitter实例出错时，应该触发error事件，<br>如果没有为error事件注册监听器，当error事件触发时，会抛出错误、打印堆栈跟踪、并退出Node进程。</p>
+<p>为了防止崩溃Node进程，可以使用domain模块，不推荐。<br>最佳是应该始终为error事件注册监听器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const myEmitter &#x3D; new MyEmitter();</span><br><span class="line">myEmitter.on(&#39;error&#39;, (err) &#x3D;&gt; &#123;</span><br><span class="line">  console.error(&#39;错误信息&#39;);</span><br><span class="line">&#125;);</span><br><span class="line">myEmitter.emit(&#39;error&#39;, new Error(&#39;错误&#39;));</span><br><span class="line">&#x2F;&#x2F; 打印: 错误信息</span><br></pre></td></tr></table></figure>
 
+<h4 id="EventEmitter类"><a href="#EventEmitter类" class="headerlink" title="EventEmitter类"></a>EventEmitter类</h4><p>由events模块定义。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const EventEmitter &#x3D; require(&#39;events&#39;);</span><br></pre></td></tr></table></figure>
+<p>当新增监听器时，会触发newListener事件；<br>当移除已存在的监听器时，则触发removeListener事件；</p>
+<p>emitter.addListener(eventName, listener)：emitter.on(eventName, listener)的别名。<br>emitter.emit(eventName[, …args])：按照监听器注册的顺序，同步调用每个注册到名为eventName事件的监听器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">const EventEmitter &#x3D; require(&#39;events&#39;);</span><br><span class="line">const myEmitter &#x3D; new EventEmitter();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 第一个监听器。</span><br><span class="line">myEmitter.on(&#39;event&#39;, function firstListener() &#123;</span><br><span class="line">  console.log(&#39;第一个监听器&#39;);</span><br><span class="line">&#125;);</span><br><span class="line">&#x2F;&#x2F; 第二个监听器。</span><br><span class="line">myEmitter.on(&#39;event&#39;, function secondListener(arg1, arg2) &#123;</span><br><span class="line">  console.log(&#96;第二个监听器中的事件有参数 $&#123;arg1&#125;、$&#123;arg2&#125;&#96;);</span><br><span class="line">&#125;);</span><br><span class="line">&#x2F;&#x2F; 第三个监听器</span><br><span class="line">myEmitter.on(&#39;event&#39;, function thirdListener(...args) &#123;</span><br><span class="line">  const parameters &#x3D; args.join(&#39;, &#39;);</span><br><span class="line">  console.log(&#96;第三个监听器中的事件有参数 $&#123;parameters&#125;&#96;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(myEmitter.listeners(&#39;event&#39;));</span><br><span class="line"></span><br><span class="line">myEmitter.emit(&#39;event&#39;, 1, 2, 3, 4, 5);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Prints:</span><br><span class="line">&#x2F;&#x2F; [</span><br><span class="line">&#x2F;&#x2F;   [Function: firstListener],</span><br><span class="line">&#x2F;&#x2F;   [Function: secondListener],</span><br><span class="line">&#x2F;&#x2F;   [Function: thirdListener]</span><br><span class="line">&#x2F;&#x2F; ]</span><br><span class="line">&#x2F;&#x2F; 第一个监听器</span><br><span class="line">&#x2F;&#x2F; 第二个监听器中的事件有参数 1、2</span><br><span class="line">&#x2F;&#x2F; 第三个监听器中的事件有参数 1, 2, 3, 4, 5</span><br></pre></td></tr></table></figure>
 
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-crypto.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之crypto</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:26:14+08:00"
-              content="2020-02-01 14:26:14" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-cluster.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之cluster</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:24:30+08:00"
-              content="2020-02-01 14:24:30" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-child-process.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之child_process</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:23:11+08:00"
-              content="2020-02-01 14:23:11" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-buffer.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之buffer</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:21:53+08:00"
-              content="2020-02-01 14:21:53" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-async-hooks.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之async_hooks</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:20:43+08:00"
-              content="2020-02-01 14:20:43" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-assert.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之assert</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:16:57+08:00"
-              content="2020-02-01 14:16:57" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-01-31-node-cannot-find-module.html" itemprop="url">
-              
-                <span itemprop="name">解决出现Cannot find module 'XXX’的错误</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-31T23:17:59+08:00"
-              content="2020-01-31 23:17:59" >
-          01-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+<p>emitter.eventNames()：返回已注册监听器的事件名数组。</p>
 
       
     </div>
+    
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
 
+    <div>
+        
+            
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>NodeJs之events</a></p>
+  <p><span>文章作者:</span>Guopp</a></p>
+  <p><span>原始链接:</span><a href="/articles/2020-02-01-node-events.html" title="NodeJs之events">http://gpp-note.top/articles/2020-02-01-node-events.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/articles/2020-02-01-node-events.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+
+
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Node/" rel="tag"># Node</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/2020-02-01-node-error.html" rel="next" title="NodeJs之error">
+                <i class="fa fa-chevron-left"></i> NodeJs之error
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/articles/2020-02-01-node-fs.html" rel="prev" title="NodeJs之fs">
+                NodeJs之fs <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/Node/page/2/">上一页</a><a class="page-number" href="/tags/Node/">1</a><a class="page-number" href="/tags/Node/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -580,6 +527,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="articles/2020-02-01-node-events.html"
+           data-title="NodeJs之events" data-url="http://gpp-note.top/articles/2020-02-01-node-events.html">
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -600,8 +558,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -684,6 +651,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#events"><span class="nav-text">events</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将参数和this传给监听器"><span class="nav-text">将参数和this传给监听器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步-VS-同步"><span class="nav-text">异步 VS 同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#仅处理事件一次"><span class="nav-text">仅处理事件一次</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#错误事件"><span class="nav-text">错误事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EventEmitter类"><span class="nav-text">EventEmitter类</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -854,6 +837,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

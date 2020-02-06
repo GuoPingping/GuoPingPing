@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Node," />
 
 
 
@@ -81,13 +81,16 @@
 
 
 
-<meta name="description" content="关于学习 关于成长">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Welcome to my-blog">
-<meta property="og:url" content="http://gpp-note.top/tags/Node/page/3/index.html">
+<meta name="description" content="child_processchild_process提供了衍生子进程的能力。 node单线程的问题就是会导致无法充分利用CPU等资源，通过child_process实现子进程，从而实现1个主进程(master)，多个子进程的模式(工作进程)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NodeJs之child_process">
+<meta property="og:url" content="http://gpp-note.top/articles/2020-02-01-node-child-process.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="关于学习 关于成长">
+<meta property="og:description" content="child_processchild_process提供了衍生子进程的能力。 node单线程的问题就是会导致无法充分利用CPU等资源，通过child_process实现子进程，从而实现1个主进程(master)，多个子进程的模式(工作进程)。">
+<meta property="article:published_time" content="2020-02-01T06:23:11.000Z">
+<meta property="article:modified_time" content="2020-02-01T06:23:51.707Z">
 <meta property="article:author" content="Guopp">
+<meta property="article:tag" content="Node">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://gpp-note.top/tags/Node/page/3/"/>
+  <link rel="canonical" href="http://gpp-note.top/articles/2020-02-01-node-child-process.html"/>
 
 
 
 
 
-  <title>标签: Node | Welcome to my-blog</title>
+  <title>NodeJs之child_process | Welcome to my-blog</title>
   
 
 
@@ -143,7 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -269,310 +272,277 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Node<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-01-node-child-process.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guopp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to my-blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/articles/2020-02-01-node-domain.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之domain</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">NodeJs之child_process</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:36:06+08:00"
-              content="2020-02-01 14:36:06" >
-          02-01
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-01T14:23:11+08:00">
+                2020-02-01 14:23:11
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/articles/2020-02-01-node-child-process.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-01-node-child-process.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-dns.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之dns</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:34:33+08:00"
-              content="2020-02-01 14:34:33" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
+        <h2 id="child-process"><a href="#child-process" class="headerlink" title="child_process"></a>child_process</h2><p>child_process提供了衍生子进程的能力。</p>
+<p>node单线程的问题就是会导致无法充分利用CPU等资源，通过child_process实现子进程，从而实现1个主进程(master)，多个子进程的模式(工作进程)。</p>
+<a id="more"></a>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h4 id="创建异步的子进程"><a href="#创建异步的子进程" class="headerlink" title="创建异步的子进程"></a>创建异步的子进程</h4><ul>
+<li><p>child_process.exec(command[, options][, callback])<br>执行的是非node程序，是一个shell命令，执行结果以回调的形式返回。</p>
+<p>  【注意】</p>
+<pre><code> 1、command 是一个 shell 命令的字符串，一般是 shell 内置的 命令或shell脚本组成的文件，如 ls、cat、start.sh等，包含了命令的参数；
+2、可以使用 callback；
+3、执行成功，error为null；失败，error为Error的实例，error.code为错误码；
+4、若timeout大于0，则当子进程运行超过timeout毫秒，会给进程发送killSignal指定的信号；</code></pre> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1. 回调函数</span><br><span class="line">const &#123; exec &#125; &#x3D; require(&#39;child_process&#39;);</span><br><span class="line">exec(&#39;cat *.js missing_file | wc -l&#39;, (error, stdout, stderr) &#x3D;&gt; &#123;</span><br><span class="line">  if (error) &#123;</span><br><span class="line">    console.error(&#96;执行的错误: $&#123;error&#125;&#96;);</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(&#96;stdout: $&#123;stdout&#125;&#96;);</span><br><span class="line">  console.error(&#96;stderr: $&#123;stderr&#125;&#96;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">   2. Promise</span><br><span class="line">const util &#x3D; require(&#39;util&#39;);</span><br><span class="line">const exec &#x3D; util.promisify(require(&#39;child_process&#39;).exec);</span><br><span class="line"></span><br><span class="line">async function lsExample() &#123;</span><br><span class="line">  const &#123; stdout, stderr &#125; &#x3D; await exec(&#39;ls&#39;);</span><br><span class="line">  console.log(&#39;stdout:&#39;, stdout);</span><br><span class="line">  console.error(&#39;stderr:&#39;, stderr);</span><br><span class="line">&#125;</span><br><span class="line">lsExample();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>child_process.execFile(file[, args][, options][, callback])<br>执行的是非node程序，是一个可执行文件或应用，执行结果以回调的形式返回。</p>
+<p> 【注意】<br> 1、比exec更高效，更安全；<br> 2、命令的参数只能作为第二个参数传递；<br> 3、默认情况下不会衍生 shell（和exec的最大差别），指定的可执行 file 直接作为新进程衍生；<br> 3、file 是要运行的可执行文件的名称或路径，如 node.exe，不能是 start.js 这种脚本文件；<br> 4、不支持I/O重定向，文件glob等；</p>
+</li>
+</ul>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1. 回调函数</span><br><span class="line">const &#123; execFile &#125; &#x3D; require(&#39;child_process&#39;);</span><br><span class="line">const child &#x3D; execFile(&#39;node&#39;, [&#39;--version&#39;], (error, stdout, stderr) &#x3D;&gt; &#123;</span><br><span class="line">  if (error) &#123;</span><br><span class="line">    throw error;</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(stdout);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">2. Promise</span><br><span class="line">const util &#x3D; require(&#39;util&#39;);</span><br><span class="line">const execFile &#x3D; util.promisify(require(&#39;child_process&#39;).execFile);</span><br><span class="line">async function getVersion() &#123;</span><br><span class="line">  const &#123; stdout &#125; &#x3D; await execFile(&#39;node&#39;, [&#39;--version&#39;]);</span><br><span class="line">  console.log(stdout);</span><br><span class="line">&#125;</span><br><span class="line">getVersion();</span><br></pre></td></tr></table></figure></code></pre><ul>
+<li><p>child_process.spawn(command[, args][, options])<br>执行的是非node程序，是一个shell命令，不需要获取执行结果，执行结果以流的形式返回。</p>
+<p> 【注意】<br> 1、 使用给定的 command 衍生一个新进程，并带上 args 中的命令行参数，默认是空数组；<br> 2、以流的形式，可以减少内存占用提高输入输出效率；</p>
+</li>
+</ul>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">1. 检查失败的spawn</span><br><span class="line">const &#123; spawn &#125; &#x3D; require(&#39;child_process&#39;);</span><br><span class="line">const subprocess &#x3D; spawn(&#39;bad_command&#39;);</span><br><span class="line"></span><br><span class="line">subprocess.on(&#39;error&#39;, (err) &#x3D;&gt; &#123;</span><br><span class="line">  console.error(&#39;启动子进程失败&#39;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">2. 运行ls -lh &#x2F;usr，并捕获stdout、stderr、退出码</span><br><span class="line">const &#123; spawn &#125; &#x3D; require(&#39;child_process&#39;);</span><br><span class="line">const ls &#x3D; spawn(&#39;ls&#39;, [&#39;-lh&#39;, &#39;&#x2F;usr&#39;]);</span><br><span class="line"></span><br><span class="line">ls.stdout.on(&#39;data&#39;, (data) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(&#96;stdout: $&#123;data&#125;&#96;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">ls.stderr.on(&#39;data&#39;, (data) &#x3D;&gt; &#123;</span><br><span class="line">  console.error(&#96;stderr: $&#123;data&#125;&#96;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">ls.on(&#39;close&#39;, (code) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(&#96;子进程退出，退出码 $&#123;code&#125;&#96;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></code></pre><ul>
+<li><p>child_process.fork(modulePath[, args][, options])<br>执行的是node程序，是一个.js文件，不需要获取执行结果，执行结果以流的形式返回，fork出来的进程一定是node进程。</p>
+<p>  【注意】<br> 1、专门用于衍生新的 node进程；<br> 2、返回子进程ChildProcess对象，并内置为一个额外的IPC通信通道，允许消息在父进程和子进程之间来回传递，子进程独立于父进程；<br> 3、modulePath 要在node子进程中运行的模块，由于是 node.js 的进程，所以可以是 .js 文件；<br> 4、无回调，参数要以第二个参数传入；</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">通过process.on(&#39;message&#39;)和process.send()的机制来接收和发送消息</span><br><span class="line">child.js</span><br><span class="line">process.on(&#39;message&#39;,function(msg)&#123;</span><br><span class="line">   process.send(msg)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">parent.js</span><br><span class="line">let cp&#x3D;require(&#39;child_process&#39;);</span><br><span class="line">let child&#x3D;cp.fork(&#39;.&#x2F;child&#39;);</span><br><span class="line">child.on(&#39;message&#39;,function(msg)&#123;</span><br><span class="line">  console.log(&#39;got a message is&#39;,msg);</span><br><span class="line">&#125;);</span><br><span class="line">child.send(&#39;hello world&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; child.disconnect() 父进程中调用， 断开父子间IPC通信</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; got a message is hello world</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-dgram.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之dgram</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:32:02+08:00"
-              content="2020-02-01 14:32:02" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-crypto.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之crypto</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:26:14+08:00"
-              content="2020-02-01 14:26:14" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-cluster.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之cluster</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:24:30+08:00"
-              content="2020-02-01 14:24:30" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-child-process.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之child_process</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:23:11+08:00"
-              content="2020-02-01 14:23:11" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-buffer.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之buffer</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:21:53+08:00"
-              content="2020-02-01 14:21:53" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-async-hooks.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之async_hooks</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:20:43+08:00"
-              content="2020-02-01 14:20:43" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-02-01-node-assert.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之assert</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-01T14:16:57+08:00"
-              content="2020-02-01 14:16:57" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/articles/2020-01-31-node-cannot-find-module.html" itemprop="url">
-              
-                <span itemprop="name">解决出现Cannot find module 'XXX’的错误</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-31T23:17:59+08:00"
-              content="2020-01-31 23:17:59" >
-          01-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+<h4 id="ChildProcess类"><a href="#ChildProcess类" class="headerlink" title="ChildProcess类"></a>ChildProcess类</h4><p>1、childProcess的实例代表衍生的子进程；<br>2、每个实例都有stdout、stdin、stderr三个流对象；</p>
+<ul>
+<li><p>subprocess.stderr 子进程的stderr可读流，subprocess.stderr 是 subprocess.stdio[2] 的别名。 两个属性都将会指向相同的值；</p>
+</li>
+<li><p>subprocess.stdin 子进程的stdin的可写流，subprocess.stdin 是 subprocess.stdio[0] 的别名。 两个属性都将会指向相同的值；</p>
+</li>
+<li><p>subprocess.stdio 一个到子进程的稀疏数组，subprocess.stdio[0]、 subprocess.stdio[1] 和 subprocess.stdio[2] 也分别可用作 subprocess.stdin、 subprocess.stdout 和 subprocess.stderr；</p>
+</li>
+<li><p>subprocess.stdout 子进程的stdout的可读流，subprocess.stdout 是 subprocess.stdio[1] 的别名。 两个属性都将会指向相同的值；</p>
+</li>
+</ul>
+<p>3、通过fork产生的子进程与父进程可以用send即监听message来相互通信；<br>4、事件：error、close、message、exit、disconnect</p>
+<ul>
+<li>close当子进程的stdio流已被关闭时会触发close事件；</li>
+<li>disconnect断开连接，不再发送或接收消息；</li>
+<li>error出现情况有4中：<br>  1）无法衍生进程；<br>  2）无法杀死进程；<br>  3）向子进程发送消息失败；</li>
+<li>exit子进程结束后退出，但子进程的stdio流可能仍然是打开的；</li>
+<li>message子进程使用process.send()发送消息时会触发message事件；</li>
+</ul>
 
       
     </div>
+    
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
 
+    <div>
+        
+            
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>NodeJs之child_process</a></p>
+  <p><span>文章作者:</span>Guopp</a></p>
+  <p><span>原始链接:</span><a href="/articles/2020-02-01-node-child-process.html" title="NodeJs之child_process">http://gpp-note.top/articles/2020-02-01-node-child-process.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/articles/2020-02-01-node-child-process.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+
+
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Node/" rel="tag"># Node</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/2020-02-01-node-buffer.html" rel="next" title="NodeJs之buffer">
+                <i class="fa fa-chevron-left"></i> NodeJs之buffer
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/articles/2020-02-01-node-cluster.html" rel="prev" title="NodeJs之cluster">
+                NodeJs之cluster <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/Node/page/2/">上一页</a><a class="page-number" href="/tags/Node/">1</a><a class="page-number" href="/tags/Node/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -580,6 +550,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="articles/2020-02-01-node-child-process.html"
+           data-title="NodeJs之child_process" data-url="http://gpp-note.top/articles/2020-02-01-node-child-process.html">
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -600,8 +581,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -684,6 +674,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#child-process"><span class="nav-text">child_process</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建异步的子进程"><span class="nav-text">创建异步的子进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ChildProcess类"><span class="nav-text">ChildProcess类</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -854,6 +860,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
