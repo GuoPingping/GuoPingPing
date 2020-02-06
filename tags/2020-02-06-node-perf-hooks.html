@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Node," />
 
 
 
@@ -81,13 +81,16 @@
 
 
 
-<meta name="description" content="关于学习 关于成长">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Welcome to my-blog">
-<meta property="og:url" content="http://gpp-note.top/tags/Node/index.html">
+<meta name="description" content="perf_hooks性能钩子。 性能计时API提供了W3C性能的实现，该API目的是支持高精度性能指标的收集，保存和获取性能相关的度量数据。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NodeJs之perf_hooks">
+<meta property="og:url" content="http://gpp-note.top/tags/2020-02-06-node-perf-hooks.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="关于学习 关于成长">
+<meta property="og:description" content="perf_hooks性能钩子。 性能计时API提供了W3C性能的实现，该API目的是支持高精度性能指标的收集，保存和获取性能相关的度量数据。">
+<meta property="article:published_time" content="2020-02-06T11:08:11.000Z">
+<meta property="article:modified_time" content="2020-02-06T11:41:24.256Z">
 <meta property="article:author" content="Guopp">
+<meta property="article:tag" content="Node">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://gpp-note.top/tags/Node/"/>
+  <link rel="canonical" href="http://gpp-note.top/tags/2020-02-06-node-perf-hooks.html"/>
 
 
 
 
 
-  <title>标签: Node | Welcome to my-blog</title>
+  <title>NodeJs之perf_hooks | Welcome to my-blog</title>
   
 
 
@@ -143,7 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -269,310 +272,243 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Node<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/tags/2020-02-06-node-perf-hooks.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guopp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to my-blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/tags/2020-02-06-node-timer.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之timer</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">NodeJs之perf_hooks</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-06T22:11:32+08:00"
-              content="2020-02-06 22:11:32" >
-          02-06
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-06T19:08:11+08:00">
+                2020-02-06 19:08:11
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/tags/2020-02-06-node-perf-hooks.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="tags/2020-02-06-node-perf-hooks.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/tags/2020-02-06-node-string-decoder.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之string_decoder</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-06T22:04:27+08:00"
-              content="2020-02-06 22:04:27" >
-          02-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
+        <h2 id="perf-hooks"><a href="#perf-hooks" class="headerlink" title="perf_hooks"></a>perf_hooks</h2><p>性能钩子。</p>
+<p>性能计时API提供了W3C性能的实现，该API目的是支持高精度性能指标的收集，保存和获取性能相关的度量数据。</p>
+<a id="more"></a>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const &#123; PerformanceObserver, performance &#125; &#x3D; require(&#39;perf_hooks&#39;);</span><br><span class="line"></span><br><span class="line">const obs &#x3D; new PerformanceObserver((items) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(items.getEntries()[0].duration);</span><br><span class="line">  performance.clearMarks();</span><br><span class="line">&#125;);</span><br><span class="line">obs.observe(&#123; entryTypes: [&#39;measure&#39;] &#125;);</span><br><span class="line"></span><br><span class="line">performance.mark(&#39;A&#39;);</span><br><span class="line">doSomeLongRunningProcess(() &#x3D;&gt; &#123;</span><br><span class="line">  performance.mark(&#39;B&#39;);</span><br><span class="line">  performance.measure(&#39;A to B&#39;, &#39;A&#39;, &#39;B&#39;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/tags/2020-02-06-node-stream.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之stream</span>
-              
-            </a>
-        
-      </h2>
+<h4 id="Performance类"><a href="#Performance类" class="headerlink" title="Performance类"></a>Performance类</h4><h5 id="performance-clearMarks-name"><a href="#performance-clearMarks-name" class="headerlink" title="performance.clearMarks([name])"></a>performance.clearMarks([name])</h5><h5 id="performance-mark-name"><a href="#performance-mark-name" class="headerlink" title="performance.mark([name])"></a>performance.mark([name])</h5><p>创建一个新的PerformanceMark实体。</p>
+<h5 id="performance-measure-name-startMark-endMark"><a href="#performance-measure-name-startMark-endMark" class="headerlink" title="performance.measure(name, startMark, endMark)"></a>performance.measure(name, startMark, endMark)</h5><h5 id="performance-nodeTiming"><a href="#performance-nodeTiming" class="headerlink" title="performance.nodeTiming"></a>performance.nodeTiming</h5><h5 id="performance-now"><a href="#performance-now" class="headerlink" title="performance.now()"></a>performance.now()</h5><h5 id="performance-timeOrigin"><a href="#performance-timeOrigin" class="headerlink" title="performance.timeOrigin"></a>performance.timeOrigin</h5><h5 id="performance-timerify-fn"><a href="#performance-timerify-fn" class="headerlink" title="performance.timerify(fn)"></a>performance.timerify(fn)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const &#123;</span><br><span class="line">  performance,</span><br><span class="line">  PerformanceObserver</span><br><span class="line">&#125; &#x3D; require(&#39;perf_hooks&#39;);</span><br><span class="line"></span><br><span class="line">function someFunction() &#123;</span><br><span class="line">  console.log(&#39;hello world&#39;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const wrapped &#x3D; performance.timerify(someFunction);</span><br><span class="line"></span><br><span class="line">const obs &#x3D; new PerformanceObserver((list) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(list.getEntries()[0].duration);</span><br><span class="line">  obs.disconnect();</span><br><span class="line">&#125;);</span><br><span class="line">obs.observe(&#123; entryTypes: [&#39;function&#39;] &#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; A performance timeline entry will be created</span><br><span class="line">wrapped();</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-06T22:04:10+08:00"
-              content="2020-02-06 22:04:10" >
-          02-06
-        </time>
-      </div>
+<h4 id="PerformanceEntry类"><a href="#PerformanceEntry类" class="headerlink" title="PerformanceEntry类"></a>PerformanceEntry类</h4><h5 id="performanceEntry-duration"><a href="#performanceEntry-duration" class="headerlink" title="performanceEntry.duration"></a>performanceEntry.duration</h5><h5 id="performanceEntry-name"><a href="#performanceEntry-name" class="headerlink" title="performanceEntry.name"></a>performanceEntry.name</h5><h5 id="performanceEntry-startTime"><a href="#performanceEntry-startTime" class="headerlink" title="performanceEntry.startTime"></a>performanceEntry.startTime</h5><h5 id="performanceEntry-entryType"><a href="#performanceEntry-entryType" class="headerlink" title="performanceEntry.entryType"></a>performanceEntry.entryType</h5><h5 id="performanceEntry-kind"><a href="#performanceEntry-kind" class="headerlink" title="performanceEntry.kind"></a>performanceEntry.kind</h5><h4 id="PerformanceObserver类"><a href="#PerformanceObserver类" class="headerlink" title="PerformanceObserver类"></a>PerformanceObserver类</h4><h5 id="new-PerformanceObserver-callback"><a href="#new-PerformanceObserver-callback" class="headerlink" title="new PerformanceObserver(callback)"></a>new PerformanceObserver(callback)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const &#123;</span><br><span class="line">  performance,</span><br><span class="line">  PerformanceObserver</span><br><span class="line">&#125; &#x3D; require(&#39;perf_hooks&#39;);</span><br><span class="line"></span><br><span class="line">const obs &#x3D; new PerformanceObserver((list, observer) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(list.getEntries());</span><br><span class="line">  observer.disconnect();</span><br><span class="line">&#125;);</span><br><span class="line">obs.observe(&#123; entryTypes: [&#39;mark&#39;], buffered: true &#125;);</span><br><span class="line"></span><br><span class="line">performance.mark(&#39;test&#39;);</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </article>
+<h5 id="performanceObserver-disconnect"><a href="#performanceObserver-disconnect" class="headerlink" title="performanceObserver.disconnect()"></a>performanceObserver.disconnect()</h5><h5 id="performanceObserver-observe-options"><a href="#performanceObserver-observe-options" class="headerlink" title="performanceObserver.observe(options)"></a>performanceObserver.observe(options)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">const &#123;</span><br><span class="line">  performance,</span><br><span class="line">  PerformanceObserver</span><br><span class="line">&#125; &#x3D; require(&#39;perf_hooks&#39;);</span><br><span class="line"></span><br><span class="line">const obs &#x3D; new PerformanceObserver((list, observer) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; Called three times synchronously. &#96;list&#96; contains one item.</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;buffered是false的时候，callback会在每次PerformanceEntry的时候回调。</span><br><span class="line">obs.observe(&#123; entryTypes: [&#39;mark&#39;] &#125;);</span><br><span class="line"></span><br><span class="line">for (let n &#x3D; 0; n &lt; 3; n++)</span><br><span class="line">  performance.mark(&#96;test$&#123;n&#125;&#96;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const &#123;</span><br><span class="line">  performance,</span><br><span class="line">  PerformanceObserver</span><br><span class="line">&#125; &#x3D; require(&#39;perf_hooks&#39;);</span><br><span class="line"></span><br><span class="line">const obs &#x3D; new PerformanceObserver((list, observer) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; Called once. &#96;list&#96; contains three items.</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">obs.observe(&#123; entryTypes: [&#39;mark&#39;], buffered: true &#125;);</span><br><span class="line"></span><br><span class="line">for (let n &#x3D; 0; n &lt; 3; n++)</span><br><span class="line">  performance.mark(&#96;test$&#123;n&#125;&#96;);</span><br></pre></td></tr></table></figure>
 
-
+<h5 id="PerformanceObserverEntryList类"><a href="#PerformanceObserverEntryList类" class="headerlink" title="PerformanceObserverEntryList类"></a>PerformanceObserverEntryList类</h5><h5 id="performanceObserverEntryList-getEntries"><a href="#performanceObserverEntryList-getEntries" class="headerlink" title="performanceObserverEntryList.getEntries()"></a>performanceObserverEntryList.getEntries()</h5><h5 id="performanceObserverEntryList-getEntriesByName-name-type"><a href="#performanceObserverEntryList-getEntriesByName-name-type" class="headerlink" title="performanceObserverEntryList.getEntriesByName(name[,type])"></a>performanceObserverEntryList.getEntriesByName(name[,type])</h5><h4 id="Histogram类"><a href="#Histogram类" class="headerlink" title="Histogram类"></a>Histogram类</h4><h5 id="histogram-disable"><a href="#histogram-disable" class="headerlink" title="histogram.disable()"></a>histogram.disable()</h5><h5 id="histogram-enable"><a href="#histogram-enable" class="headerlink" title="histogram.enable()"></a>histogram.enable()</h5><h5 id="histogram-exceeds"><a href="#histogram-exceeds" class="headerlink" title="histogram.exceeds"></a>histogram.exceeds</h5><h5 id="histogram-max"><a href="#histogram-max" class="headerlink" title="histogram.max"></a>histogram.max</h5><h5 id="histogram-mean"><a href="#histogram-mean" class="headerlink" title="histogram.mean"></a>histogram.mean</h5><h5 id="histogram-min"><a href="#histogram-min" class="headerlink" title="histogram.min"></a>histogram.min</h5><h5 id="histogram-reset"><a href="#histogram-reset" class="headerlink" title="histogram.reset()"></a>histogram.reset()</h5>
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/tags/2020-02-06-node-repl.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之repl</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-06T21:41:23+08:00"
-              content="2020-02-06 21:41:23" >
-          02-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    </div>
+    
+    
+    
+    
+    <div>
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/tags/2020-02-06-node-readline.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之readline</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-06T21:02:01+08:00"
-              content="2020-02-06 21:02:01" >
-          02-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/tags/2020-02-06-node-querystring.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之querystring</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-06T20:53:13+08:00"
-              content="2020-02-06 20:53:13" >
-          02-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/tags/2020-02-06-node-process.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之process</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-06T19:42:00+08:00"
-              content="2020-02-06 19:42:00" >
-          02-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/tags/2020-02-06-node-perf-hooks.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之perf_hooks</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-06T19:08:11+08:00"
-              content="2020-02-06 19:08:11" >
-          02-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/tags/2020-02-06-node-path.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之path</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-06T16:57:18+08:00"
-              content="2020-02-06 16:57:18" >
-          02-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/tags/2020-02-06-node-os.html" itemprop="url">
-              
-                <span itemprop="name">NodeJs之os</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-06T16:41:50+08:00"
-              content="2020-02-06 16:41:50" >
-          02-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
       
     </div>
 
+    <div>
+        
+            
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>NodeJs之perf_hooks</a></p>
+  <p><span>文章作者:</span>Guopp</a></p>
+  <p><span>原始链接:</span><a href="/tags/2020-02-06-node-perf-hooks.html" title="NodeJs之perf_hooks">http://gpp-note.top/tags/2020-02-06-node-perf-hooks.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/tags/2020-02-06-node-perf-hooks.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+
+
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Node/" rel="tag"># Node</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/tags/2020-02-06-node-path.html" rel="next" title="NodeJs之path">
+                <i class="fa fa-chevron-left"></i> NodeJs之path
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/tags/2020-02-06-node-process.html" rel="prev" title="NodeJs之process">
+                NodeJs之process <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/tags/Node/page/2/">2</a><a class="page-number" href="/tags/Node/page/3/">3</a><a class="extend next" rel="next" href="/tags/Node/page/2/">下一页</a>
-  </nav>
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -580,6 +516,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="tags/2020-02-06-node-perf-hooks.html"
+           data-title="NodeJs之perf_hooks" data-url="http://gpp-note.top/tags/2020-02-06-node-perf-hooks.html">
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -600,8 +547,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -684,6 +640,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#perf-hooks"><span class="nav-text">perf_hooks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Performance类"><span class="nav-text">Performance类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#performance-clearMarks-name"><span class="nav-text">performance.clearMarks([name])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#performance-mark-name"><span class="nav-text">performance.mark([name])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#performance-measure-name-startMark-endMark"><span class="nav-text">performance.measure(name, startMark, endMark)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#performance-nodeTiming"><span class="nav-text">performance.nodeTiming</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#performance-now"><span class="nav-text">performance.now()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#performance-timeOrigin"><span class="nav-text">performance.timeOrigin</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#performance-timerify-fn"><span class="nav-text">performance.timerify(fn)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PerformanceEntry类"><span class="nav-text">PerformanceEntry类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#performanceEntry-duration"><span class="nav-text">performanceEntry.duration</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#performanceEntry-name"><span class="nav-text">performanceEntry.name</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#performanceEntry-startTime"><span class="nav-text">performanceEntry.startTime</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#performanceEntry-entryType"><span class="nav-text">performanceEntry.entryType</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#performanceEntry-kind"><span class="nav-text">performanceEntry.kind</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PerformanceObserver类"><span class="nav-text">PerformanceObserver类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#new-PerformanceObserver-callback"><span class="nav-text">new PerformanceObserver(callback)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#performanceObserver-disconnect"><span class="nav-text">performanceObserver.disconnect()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#performanceObserver-observe-options"><span class="nav-text">performanceObserver.observe(options)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PerformanceObserverEntryList类"><span class="nav-text">PerformanceObserverEntryList类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#performanceObserverEntryList-getEntries"><span class="nav-text">performanceObserverEntryList.getEntries()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#performanceObserverEntryList-getEntriesByName-name-type"><span class="nav-text">performanceObserverEntryList.getEntriesByName(name[,type])</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Histogram类"><span class="nav-text">Histogram类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#histogram-disable"><span class="nav-text">histogram.disable()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#histogram-enable"><span class="nav-text">histogram.enable()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#histogram-exceeds"><span class="nav-text">histogram.exceeds</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#histogram-max"><span class="nav-text">histogram.max</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#histogram-mean"><span class="nav-text">histogram.mean</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#histogram-min"><span class="nav-text">histogram.min</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#histogram-reset"><span class="nav-text">histogram.reset()</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -854,6 +826,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

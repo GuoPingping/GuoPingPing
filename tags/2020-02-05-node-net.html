@@ -81,14 +81,14 @@
 
 
 
-<meta name="description" content="在进行webpack打包的时候，会出现Cannot find module ‘XXX’的错误，找不到某个模块的错误，今天给出解决方法： 1、直接进行npm install重新打包；2、如果npm install重新打包之后，仍然出现这个问题，可以进行删除node_modules文件夹，同时清除缓存，如下命令： 12345rm -rf node_modulesnpm cache clean --fo">
+<meta name="description" content="net网络。 net模块用于创建基于流的TCP或IPC的服务器与客户端。 1const net &#x3D; require(&#39;net&#39;)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决出现Cannot find module &#39;XXX’的错误">
-<meta property="og:url" content="http://gpp-note.top/2020-01-31-node-cannot-find-module.html">
+<meta property="og:title" content="NodeJs之net">
+<meta property="og:url" content="http://gpp-note.top/tags/2020-02-05-node-net.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="在进行webpack打包的时候，会出现Cannot find module ‘XXX’的错误，找不到某个模块的错误，今天给出解决方法： 1、直接进行npm install重新打包；2、如果npm install重新打包之后，仍然出现这个问题，可以进行删除node_modules文件夹，同时清除缓存，如下命令： 12345rm -rf node_modulesnpm cache clean --fo">
-<meta property="article:published_time" content="2020-01-31T15:17:59.000Z">
-<meta property="article:modified_time" content="2020-01-31T15:20:08.348Z">
+<meta property="og:description" content="net网络。 net模块用于创建基于流的TCP或IPC的服务器与客户端。 1const net &#x3D; require(&#39;net&#39;)">
+<meta property="article:published_time" content="2020-02-05T13:59:35.000Z">
+<meta property="article:modified_time" content="2020-02-06T08:41:26.810Z">
 <meta property="article:author" content="Guopp">
 <meta property="article:tag" content="Node">
 <meta name="twitter:card" content="summary">
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://gpp-note.top/2020-01-31-node-cannot-find-module.html"/>
+  <link rel="canonical" href="http://gpp-note.top/tags/2020-02-05-node-net.html"/>
 
 
 
 
 
-  <title>解决出现Cannot find module 'XXX’的错误 | Welcome to my-blog</title>
+  <title>NodeJs之net | Welcome to my-blog</title>
   
 
 
@@ -286,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/2020-01-31-node-cannot-find-module.html">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/tags/2020-02-05-node-net.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guopp">
@@ -303,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">解决出现Cannot find module 'XXX’的错误</h1>
+          <h1 class="post-title" itemprop="name headline">NodeJs之net</h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-31T23:17:59+08:00">
-                2020-01-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-05T21:59:35+08:00">
+                2020-02-05 21:59:35
               </time>
             
 
@@ -356,8 +356,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020-01-31-node-cannot-find-module.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2020-01-31-node-cannot-find-module.html" itemprop="commentCount"></span>
+                <a href="/tags/2020-02-05-node-net.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="tags/2020-02-05-node-net.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -385,9 +385,53 @@
       
 
       
-        <p>在进行webpack打包的时候，会出现Cannot find module ‘XXX’的错误，找不到某个模块的错误，今天给出解决方法：</p>
-<p>1、直接进行npm install重新打包；<br>2、如果npm install重新打包之后，仍然出现这个问题，可以进行删除node_modules文件夹，同时清除缓存，如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rm -rf node_modules</span><br><span class="line"></span><br><span class="line">npm cache clean --force</span><br><span class="line"></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+        <h2 id="net"><a href="#net" class="headerlink" title="net"></a>net</h2><p>网络。</p>
+<p>net模块用于创建基于流的TCP或IPC的服务器与客户端。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const net &#x3D; require(&#39;net&#39;)</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h4 id="IPC支持"><a href="#IPC支持" class="headerlink" title="IPC支持"></a>IPC支持</h4><p>net模块在windows上支持命名管道IPC，在其他操作系统上支持Unix域套接字。</p>
+<h4 id="net-Server类"><a href="#net-Server类" class="headerlink" title="net.Server类"></a>net.Server类</h4><p>此类用于创建TCP或IPC服务器。</p>
+<h5 id="new-net-Server-options-connectionListener"><a href="#new-net-Server-options-connectionListener" class="headerlink" title="new net.Server([options][,connectionListener])"></a>new net.Server([options][,connectionListener])</h5><p>net.Server是一个EventEmitter，实现了以下事件：</p>
+<ul>
+<li><p>close事件<br>  当Server关闭的时候触发，如果有连接存在，直到所有的连接结束才会触发这个事件。</p>
+</li>
+<li><p>connection事件<br>  当一个新的连接建立的时候触发。socket是一个net.Socket实例。</p>
+</li>
+<li><p>error事件<br>  当错误出现的时候触发。</p>
+</li>
+<li><p>listening事件<br>  当调用server.listen()绑定服务器之后触发。</p>
+</li>
+</ul>
+<h5 id="server-address"><a href="#server-address" class="headerlink" title="server.address()"></a>server.address()</h5><p>如果在IP socket上监听，则返回操作系统报告的绑定的address、地址family名称、以及服务器port（<br>用于查找在获取操作系统分配的地址时分配的端口）：<code>{port:12346, family:&#39;IPv4&#39;, address:&#39;127.0.0.1&#39;}</code></p>
+<p>对于在管道或Unix域套接字上监听的server，该名称返回为字符串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const server &#x3D; net.createServer((socket) &#x3D;&gt; &#123;</span><br><span class="line">  socket.end(&#39;再见\n&#39;);</span><br><span class="line">&#125;).on(&#39;error&#39;, (err) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; 处理错误</span><br><span class="line">  throw err;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 获取任意未使用的端口。</span><br><span class="line">server.listen(() &#x3D;&gt; &#123;</span><br><span class="line">  console.log(&#39;打开服务器&#39;, server.address());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>不要在listening事件触发之前调用server.address()</p>
+<h5 id="server-close-callback"><a href="#server-close-callback" class="headerlink" title="server.close([callback])"></a>server.close([callback])</h5><p>组织server接受新的连接并保持现有的连接。<br>该函数是异步的，server将在所有连接结束后关闭并触发close事件。<br>可选的callback将在close事件发生时被调用。</p>
+<h5 id="server-getConnections-callback"><a href="#server-getConnections-callback" class="headerlink" title="server.getConnections(callback)"></a>server.getConnections(callback)</h5><p>异步获取服务器的当前并发连接数。当socket被传递给子进程时工作。<br>回调函数的两个参数是err和count。</p>
+<h5 id="server-listen"><a href="#server-listen" class="headerlink" title="server.listen()"></a>server.listen()</h5><p>启动一个服务器来监听连接。</p>
+<h5 id="server-listening"><a href="#server-listening" class="headerlink" title="server.listening"></a>server.listening</h5><p>表明server是否正在监听连接。</p>
+<h5 id="server-maxConnections"><a href="#server-maxConnections" class="headerlink" title="server.maxConnections"></a>server.maxConnections</h5><p>该属性使得server连接数过多时拒绝连接。</p>
+<h5 id="server-ref"><a href="#server-ref" class="headerlink" title="server.ref()"></a>server.ref()</h5><p>与unref()相反，在一个已经调用unref的server中调用ref，如果server是仅存的server，<br>则程序不会退出。对一个已经调用ref的server再次调用ref()将不会再有效果。</p>
+<h5 id="server-unref"><a href="#server-unref" class="headerlink" title="server.unref()"></a>server.unref()</h5><p>如果这个server在事件系统中是唯一有效的，那么对server调用unref()将允许程序退出。<br>如果这个server已经调用过unref那么再次调用unref()将不会再有效果。</p>
+<h4 id="net-Socket类"><a href="#net-Socket类" class="headerlink" title="net.Socket类"></a>net.Socket类</h4><p>net.Socket可以由用户创建并且直接与服务器进行交互。<br>也可以由Nodejs创建，并在收到连接时传给用户。</p>
+<h5 id="new-net-Socket-options"><a href="#new-net-Socket-options" class="headerlink" title="new net.Socket([options])"></a>new net.Socket([options])</h5><p>创建一个socket对象。</p>
+<h5 id="close事件"><a href="#close事件" class="headerlink" title="close事件"></a>close事件</h5><p>一旦socket完全关闭就发出该事件。</p>
+<h5 id="connect事件"><a href="#connect事件" class="headerlink" title="connect事件"></a>connect事件</h5><p>当一个socket连接成功建立的时候触发该事件。</p>
+<h5 id="data事件"><a href="#data事件" class="headerlink" title="data事件"></a>data事件</h5><p>当接收到数据的时候触发该事件。<br>data参数是一个Buffer或String<br>当Socket触发data事件的时候，如果没有监听器则数据将会丢失。</p>
+<h5 id="drain事件"><a href="#drain事件" class="headerlink" title="drain事件"></a>drain事件</h5><p>当写入缓冲区变为空时触发。可以用来做上传节流。</p>
+<h5 id="end事件"><a href="#end事件" class="headerlink" title="end事件"></a>end事件</h5><p>当socket的另一端发送一个FIN包的时候触发，从而结束socket的可读流。</p>
+<h5 id="error事件"><a href="#error事件" class="headerlink" title="error事件"></a>error事件</h5><p>当错误发生时触发。close事件也会紧接着该事件被触发。</p>
+<h5 id="lookup事件"><a href="#lookup事件" class="headerlink" title="lookup事件"></a>lookup事件</h5><p>当找到主机之后创建连接之前触发。</p>
+<h5 id="ready事件"><a href="#ready事件" class="headerlink" title="ready事件"></a>ready事件</h5><p>套接字准备好使用时触发。<br>connect后立即触发。</p>
+<h5 id="timeout事件"><a href="#timeout事件" class="headerlink" title="timeout事件"></a>timeout事件</h5><p>当socket超时的时候触发。</p>
+<h5 id="socket-connect"><a href="#socket-connect" class="headerlink" title="socket.connect()"></a>socket.connect()</h5><h5 id="socket-connecting"><a href="#socket-connecting" class="headerlink" title="socket.connecting()"></a>socket.connecting()</h5><h5 id="socket-destrory-exception"><a href="#socket-destrory-exception" class="headerlink" title="socket.destrory([exception])"></a>socket.destrory([exception])</h5><h5 id="socket-destroyed"><a href="#socket-destroyed" class="headerlink" title="socket.destroyed"></a>socket.destroyed</h5><p>指示连接是否已经被销毁。<br>一旦连接被销毁就不能再使用它传输任何数据。</p>
+<h5 id="socket-end-data-encoding-callback"><a href="#socket-end-data-encoding-callback" class="headerlink" title="socket.end([data[,encoding]][, callback])"></a>socket.end([data[,encoding]][, callback])</h5><p>半关闭socket。</p>
+<h4 id="net-isIP-input"><a href="#net-isIP-input" class="headerlink" title="net.isIP(input)"></a>net.isIP(input)</h4><p>测试输入是否是IP地址。<br>无效的字符串则返回0<br>IPv4地址则返回4<br>IPv6的地址则返回6</p>
+<h4 id="net-isIPv4-input"><a href="#net-isIPv4-input" class="headerlink" title="net.isIPv4(input)"></a>net.isIPv4(input)</h4><p>如果输入是IPv4地址返回true，否则返回false</p>
+<h4 id="net-isIPv6-input"><a href="#net-isIPv6-input" class="headerlink" title="net.isIPv6(input)"></a>net.isIPv6(input)</h4><p>如果输入是IPv6地址返回true，否则返回false</p>
+
       
     </div>
     
@@ -415,10 +459,10 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>解决出现Cannot find module 'XXX’的错误</a></p>
+  <p><span>本文标题:</span>NodeJs之net</a></p>
   <p><span>文章作者:</span>Guopp</a></p>
-  <p><span>原始链接:</span><a href="/2020-01-31-node-cannot-find-module.html" title="解决出现Cannot find module 'XXX’的错误">http://gpp-note.top/2020-01-31-node-cannot-find-module.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/2020-01-31-node-cannot-find-module.html"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/tags/2020-02-05-node-net.html" title="NodeJs之net">http://gpp-note.top/tags/2020-02-05-node-net.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/tags/2020-02-05-node-net.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者</p>  
 </div>
@@ -465,8 +509,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020-01-31-node-modules.html" rel="next" title="删除node_modules文件夹">
-                <i class="fa fa-chevron-left"></i> 删除node_modules文件夹
+              <a href="/tags/2020-02-05-node-module.html" rel="next" title="NodeJs之module">
+                <i class="fa fa-chevron-left"></i> NodeJs之module
               </a>
             
           </div>
@@ -475,8 +519,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020-01-31-code-tools.html" rel="prev" title="编程常用的工具汇总">
-                编程常用的工具汇总 <i class="fa fa-chevron-right"></i>
+              <a href="/tags/2020-02-06-node-os.html" rel="prev" title="NodeJs之os">
+                NodeJs之os <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -508,8 +552,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2020-01-31-node-cannot-find-module.html"
-           data-title="解决出现Cannot find module 'XXX’的错误" data-url="http://gpp-note.top/2020-01-31-node-cannot-find-module.html">
+      <div class="ds-thread" data-thread-key="tags/2020-02-05-node-net.html"
+           data-title="NodeJs之net" data-url="http://gpp-note.top/tags/2020-02-05-node-net.html">
       </div>
     </div>
 
@@ -536,8 +580,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -552,7 +605,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -621,6 +674,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#net"><span class="nav-text">net</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IPC支持"><span class="nav-text">IPC支持</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#net-Server类"><span class="nav-text">net.Server类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#new-net-Server-options-connectionListener"><span class="nav-text">new net.Server([options][,connectionListener])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-address"><span class="nav-text">server.address()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-close-callback"><span class="nav-text">server.close([callback])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-getConnections-callback"><span class="nav-text">server.getConnections(callback)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-listen"><span class="nav-text">server.listen()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-listening"><span class="nav-text">server.listening</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-maxConnections"><span class="nav-text">server.maxConnections</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-ref"><span class="nav-text">server.ref()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-unref"><span class="nav-text">server.unref()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#net-Socket类"><span class="nav-text">net.Socket类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#new-net-Socket-options"><span class="nav-text">new net.Socket([options])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#close事件"><span class="nav-text">close事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#connect事件"><span class="nav-text">connect事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#data事件"><span class="nav-text">data事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#drain事件"><span class="nav-text">drain事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#end事件"><span class="nav-text">end事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#error事件"><span class="nav-text">error事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lookup事件"><span class="nav-text">lookup事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ready事件"><span class="nav-text">ready事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#timeout事件"><span class="nav-text">timeout事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#socket-connect"><span class="nav-text">socket.connect()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#socket-connecting"><span class="nav-text">socket.connecting()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#socket-destrory-exception"><span class="nav-text">socket.destrory([exception])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#socket-destroyed"><span class="nav-text">socket.destroyed</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#socket-end-data-encoding-callback"><span class="nav-text">socket.end([data[,encoding]][, callback])</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#net-isIP-input"><span class="nav-text">net.isIP(input)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#net-isIPv4-input"><span class="nav-text">net.isIPv4(input)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#net-isIPv6-input"><span class="nav-text">net.isIPv6(input)</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -632,7 +701,7 @@
           <h3 class="widget-title">标签</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>

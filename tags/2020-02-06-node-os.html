@@ -81,14 +81,14 @@
 
 
 
-<meta name="description" content="HTTP要使用HTTP服务器和客户端，必须require(‘http’);">
+<meta name="description" content="os操作系统。 os模块提供了与操作系统相关的实用方法和属性。 1const os &#x3D; require(&#39;os&#39;)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NodeJs之Http">
-<meta property="og:url" content="http://gpp-note.top/2020-02-02-node-Http.html">
+<meta property="og:title" content="NodeJs之os">
+<meta property="og:url" content="http://gpp-note.top/tags/2020-02-06-node-os.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="HTTP要使用HTTP服务器和客户端，必须require(‘http’);">
-<meta property="article:published_time" content="2020-02-02T10:28:32.000Z">
-<meta property="article:modified_time" content="2020-02-05T11:38:37.118Z">
+<meta property="og:description" content="os操作系统。 os模块提供了与操作系统相关的实用方法和属性。 1const os &#x3D; require(&#39;os&#39;)">
+<meta property="article:published_time" content="2020-02-06T08:41:50.000Z">
+<meta property="article:modified_time" content="2020-02-06T08:56:58.642Z">
 <meta property="article:author" content="Guopp">
 <meta property="article:tag" content="Node">
 <meta name="twitter:card" content="summary">
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://gpp-note.top/2020-02-02-node-Http.html"/>
+  <link rel="canonical" href="http://gpp-note.top/tags/2020-02-06-node-os.html"/>
 
 
 
 
 
-  <title>NodeJs之Http | Welcome to my-blog</title>
+  <title>NodeJs之os | Welcome to my-blog</title>
   
 
 
@@ -286,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/2020-02-02-node-Http.html">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/tags/2020-02-06-node-os.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guopp">
@@ -303,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">NodeJs之Http</h1>
+          <h1 class="post-title" itemprop="name headline">NodeJs之os</h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-02T18:28:32+08:00">
-                2020-02-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-06T16:41:50+08:00">
+                2020-02-06 16:41:50
               </time>
             
 
@@ -356,8 +356,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020-02-02-node-Http.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2020-02-02-node-Http.html" itemprop="commentCount"></span>
+                <a href="/tags/2020-02-06-node-os.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="tags/2020-02-06-node-os.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -385,35 +385,35 @@
       
 
       
-        <h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>要使用HTTP服务器和客户端，必须require(‘http’);</p>
+        <h2 id="os"><a href="#os" class="headerlink" title="os"></a>os</h2><p>操作系统。</p>
+<p>os模块提供了与操作系统相关的实用方法和属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const os &#x3D; require(&#39;os&#39;)</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<h4 id="http-Agent类"><a href="#http-Agent类" class="headerlink" title="http.Agent类"></a>http.Agent类</h4><p>Agent负责管理HTTP客户端的链接持久性和重用。</p>
-<p>它为给定的主机和端口维护一个待处理请求队列，为每个请求重用单独的套接字连接，<br>直到队列为空，此时套接字被销毁或放入连接池，以便再次用于请求到同一个主机和端口。</p>
-<p>销毁还是放入连接池取决于keepAlive选项。</p>
-<p>连接池中的连接已启用TCP Keep-Alive，但服务器仍可能关闭空闲连接，<br>这种情况下，它们将从连接池中删除，并且当为该主机和端口发出新的HTTP请求时将建立新的连接。<br>服务器也可以拒绝通过同一连接允许多个请求，在这种情况下，必须为每个请求重新建立连接，<br>并且不能放入连接池。Agent仍将向该服务器发出请求，但每个请求都将通过新连接发生。</p>
-<p>当客户端或服务器关闭连接时，它将从连接池中删除。连接池中任何未使用的套接字都将被销毁，<br>以便当没有未完成的请求时不用保持Nodejs进程运行。</p>
-<p>当不再使用时最好destrory() Agent实例，因为未使用的套接字会消耗操作系统资源。</p>
-<p>当套接字触发close事件或agentRemove事件时，则套接字从代理中删除。<br>当打算长时间保持一个HTTP请求打开而不将其保留在代理中时，可以执行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">http.get(options, (res) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; 做些事情。</span><br><span class="line">&#125;).on(&#39;socket&#39;, (socket) &#x3D;&gt; &#123;</span><br><span class="line">  socket.emit(&#39;agentRemove&#39;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>代理也可以用于单个请求，通过提供{agent:false}作为http.get()或http.request()<br>函数的选项，则将使用一次性的具有默认选项的Agent用于客户端的连接。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">http.get(&#123;</span><br><span class="line">  hostname: &#39;localhost&#39;,</span><br><span class="line">  port: 80,</span><br><span class="line">  path: &#39;&#x2F;&#39;,</span><br><span class="line">  agent: false  &#x2F;&#x2F; 仅为此一个请求创建一个新代理。</span><br><span class="line">&#125;, (res) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; 用响应做些事情。</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h5 id="new-Agent-options"><a href="#new-Agent-options" class="headerlink" title="new Agent([options])"></a>new Agent([options])</h5><p>options要在代理上设置的可配置选项集。</p>
-<p>要配置其中任何一个，则必须创建自定义的http.Agent实例。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const http &#x3D; require(&#39;http&#39;);</span><br><span class="line">const keepAliveAgent &#x3D; new http.Agent(&#123; keepAlive: true &#125;);</span><br><span class="line">options.agent &#x3D; keepAliveAgent;</span><br><span class="line">http.request(options, onResponseCallback);</span><br></pre></td></tr></table></figure>
-
-<h5 id="agent-createConnection-options-callback"><a href="#agent-createConnection-options-callback" class="headerlink" title="agent.createConnection(options[, callback])"></a>agent.createConnection(options[, callback])</h5><p>生成用于http请求的套接字或流。</p>
-<h5 id="agent-keepSocketAlive-socket"><a href="#agent-keepSocketAlive-socket" class="headerlink" title="agent.keepSocketAlive(socket)"></a>agent.keepSocketAlive(socket)</h5><p>当socket与请求分离并且可以由Agent保留时调用，默认行为是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">socket.setKeepAlive(true, this.keepAliveMsecs);</span><br><span class="line">socket.unref();</span><br><span class="line">return true;</span><br></pre></td></tr></table></figure>
-
-<h5 id="agent-reuseSocket-socket-request"><a href="#agent-reuseSocket-socket-request" class="headerlink" title="agent.reuseSocket(socket, request)"></a>agent.reuseSocket(socket, request)</h5><p>由于keep-alive选项而在持久化后将socket附加到request时调用。<br>默认行为是<code>socket.ref()</code></p>
-<h5 id="agent-destroy"><a href="#agent-destroy" class="headerlink" title="agent.destroy()"></a>agent.destroy()</h5><p>销毁代理当前使用的所有套接字。</p>
-<h5 id="agent-maxSockets"><a href="#agent-maxSockets" class="headerlink" title="agent.maxSockets"></a>agent.maxSockets</h5><p>决定代理可以为每个来源打开多少并发套接字。</p>
-<h5 id="agent-requests"><a href="#agent-requests" class="headerlink" title="agent.requests"></a>agent.requests</h5><p>一个对象，包含尚未分配给套接字的请求队列，不要修改。</p>
-<h5 id="agent-sockets"><a href="#agent-sockets" class="headerlink" title="agent.sockets"></a>agent.sockets</h5><p>一个对象，包含当前代理正在使用的套接字数组，不要修改。</p>
-<h4 id="http-ClientRequest类"><a href="#http-ClientRequest类" class="headerlink" title="http.ClientRequest类"></a>http.ClientRequest类</h4><h4 id="http-Server类"><a href="#http-Server类" class="headerlink" title="http.Server类"></a>http.Server类</h4><h4 id="http-ServerResponse类"><a href="#http-ServerResponse类" class="headerlink" title="http.ServerResponse类"></a>http.ServerResponse类</h4><h4 id="http-IncomingMessage类"><a href="#http-IncomingMessage类" class="headerlink" title="http.IncomingMessage类"></a>http.IncomingMessage类</h4><h4 id="http-METHODS"><a href="#http-METHODS" class="headerlink" title="http.METHODS"></a>http.METHODS</h4><h4 id="http-STATUS-CODES"><a href="#http-STATUS-CODES" class="headerlink" title="http.STATUS_CODES"></a>http.STATUS_CODES</h4><h4 id="http-createServer-options-requestListener"><a href="#http-createServer-options-requestListener" class="headerlink" title="http.createServer([options][, requestListener])"></a>http.createServer([options][, requestListener])</h4><h4 id="http-get-options-callback"><a href="#http-get-options-callback" class="headerlink" title="http.get(options[,callback])"></a>http.get(options[,callback])</h4><h4 id="http-get-url-options-callback"><a href="#http-get-url-options-callback" class="headerlink" title="http.get(url[,options][,callback])"></a>http.get(url[,options][,callback])</h4><h4 id="http-globalAgent"><a href="#http-globalAgent" class="headerlink" title="http.globalAgent"></a>http.globalAgent</h4><h4 id="http-maxHeaderSize"><a href="#http-maxHeaderSize" class="headerlink" title="http.maxHeaderSize"></a>http.maxHeaderSize</h4><h4 id="http-request-options-callback"><a href="#http-request-options-callback" class="headerlink" title="http.request(options[,callback])"></a>http.request(options[,callback])</h4><h4 id="http-request-url-options-callback"><a href="#http-request-url-options-callback" class="headerlink" title="http.request(url[,options][,callback])"></a>http.request(url[,options][,callback])</h4>
+<h4 id="os-EOL"><a href="#os-EOL" class="headerlink" title="os.EOL"></a>os.EOL</h4><p>操作系统特定的行末标志。</p>
+<ul>
+<li>在POSIX上是\n</li>
+<li>在Windows上是\r\n</li>
+</ul>
+<h4 id="os-constants"><a href="#os-constants" class="headerlink" title="os.constants"></a>os.constants</h4><p>包含错误码、进程信号等常用的操作系统特定的常量。<br>定义的特定常量在os常量中定义。</p>
+<h4 id="os-cpus"><a href="#os-cpus" class="headerlink" title="os.cpus()"></a>os.cpus()</h4><p>返回一个对象数组，其中包含有关每个逻辑CPU内核的信息。</p>
+<h4 id="os-endianness"><a href="#os-endianness" class="headerlink" title="os.endianness()"></a>os.endianness()</h4><p>返回一个字符串，该字符串标识为其编译Nodejs二进制文件的CPU的字节序。<br>可能的值有，BE用于大端字节序，LE用于小端字节序。</p>
+<h4 id="os-freemem"><a href="#os-freemem" class="headerlink" title="os.freemem()"></a>os.freemem()</h4><p>以整数的形式返回空闲的系统内存量。</p>
+<h4 id="os-getPriority-pid"><a href="#os-getPriority-pid" class="headerlink" title="os.getPriority([pid])"></a>os.getPriority([pid])</h4><p>返回由pid指定的进程的调度优先级。如果未提供pid或为0，则返回当前进程的优先级。</p>
+<h4 id="os-homedir"><a href="#os-homedir" class="headerlink" title="os.homedir()"></a>os.homedir()</h4><p>返回当前用户的主目录的字符串路径。</p>
+<h4 id="os-hostname"><a href="#os-hostname" class="headerlink" title="os.hostname()"></a>os.hostname()</h4><p>以字符串的形式返回操作系统的主机名。</p>
+<h4 id="os-platform"><a href="#os-platform" class="headerlink" title="os.platform()"></a>os.platform()</h4><p>返回标识操作系统平台的字符串。</p>
+<h4 id="os-release"><a href="#os-release" class="headerlink" title="os.release()"></a>os.release()</h4><p>以字符串的形式返回操作系统。</p>
+<h4 id="os-tmpdir"><a href="#os-tmpdir" class="headerlink" title="os.tmpdir()"></a>os.tmpdir()</h4><p>以字符串的形式返回操作系统的默认临时文件目录。</p>
+<h4 id="os-totalmem"><a href="#os-totalmem" class="headerlink" title="os.totalmem()"></a>os.totalmem()</h4><p>以整数的形式返回系统的内存总量。</p>
+<h4 id="os-type"><a href="#os-type" class="headerlink" title="os.type()"></a>os.type()</h4><p>返回与uname(3)返回一样的操作系统名字。</p>
+<h4 id="os-uptime"><a href="#os-uptime" class="headerlink" title="os.uptime()"></a>os.uptime()</h4><p>返回系统的正常运行时间</p>
+<h4 id="os-userInfo-options"><a href="#os-userInfo-options" class="headerlink" title="os.userInfo([options])"></a>os.userInfo([options])</h4><p>返回关于当前有效的用户信息。</p>
+<h4 id="os常量"><a href="#os常量" class="headerlink" title="os常量"></a>os常量</h4><p>并不是所有的常量在每一个操作系统上都是可用的。<br>下面的常量被os.constants所输出。</p>
+<h5 id="信号常量"><a href="#信号常量" class="headerlink" title="信号常量"></a>信号常量</h5><p>os.constants.signals</p>
+<h5 id="错误常量"><a href="#错误常量" class="headerlink" title="错误常量"></a>错误常量</h5><p>os.constants.errno</p>
+<h5 id="POSIX错误常量"><a href="#POSIX错误常量" class="headerlink" title="POSIX错误常量"></a>POSIX错误常量</h5><h5 id="Windows系统特有的错误常量"><a href="#Windows系统特有的错误常量" class="headerlink" title="Windows系统特有的错误常量"></a>Windows系统特有的错误常量</h5><h5 id="dlopen常量"><a href="#dlopen常量" class="headerlink" title="dlopen常量"></a>dlopen常量</h5><h5 id="优先级常量"><a href="#优先级常量" class="headerlink" title="优先级常量"></a>优先级常量</h5><h5 id="libuv常量"><a href="#libuv常量" class="headerlink" title="libuv常量"></a>libuv常量</h5>
       
     </div>
     
@@ -441,10 +441,10 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>NodeJs之Http</a></p>
+  <p><span>本文标题:</span>NodeJs之os</a></p>
   <p><span>文章作者:</span>Guopp</a></p>
-  <p><span>原始链接:</span><a href="/2020-02-02-node-Http.html" title="NodeJs之Http">http://gpp-note.top/2020-02-02-node-Http.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/2020-02-02-node-Http.html"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/tags/2020-02-06-node-os.html" title="NodeJs之os">http://gpp-note.top/tags/2020-02-06-node-os.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/tags/2020-02-06-node-os.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者</p>  
 </div>
@@ -491,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020-02-02-node-global.html" rel="next" title="NodeJs之global">
-                <i class="fa fa-chevron-left"></i> NodeJs之global
+              <a href="/tags/2020-02-05-node-net.html" rel="next" title="NodeJs之net">
+                <i class="fa fa-chevron-left"></i> NodeJs之net
               </a>
             
           </div>
@@ -501,8 +501,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020-02-05-node-Http-2.html" rel="prev" title="NodeJS之HTTP/2">
-                NodeJS之HTTP/2 <i class="fa fa-chevron-right"></i>
+              <a href="/tags/2020-02-06-node-path.html" rel="prev" title="NodeJs之path">
+                NodeJs之path <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -534,8 +534,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2020-02-02-node-Http.html"
-           data-title="NodeJs之Http" data-url="http://gpp-note.top/2020-02-02-node-Http.html">
+      <div class="ds-thread" data-thread-key="tags/2020-02-06-node-os.html"
+           data-title="NodeJs之os" data-url="http://gpp-note.top/tags/2020-02-06-node-os.html">
       </div>
     </div>
 
@@ -587,7 +587,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -665,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP"><span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#http-Agent类"><span class="nav-text">http.Agent类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#new-Agent-options"><span class="nav-text">new Agent([options])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#agent-createConnection-options-callback"><span class="nav-text">agent.createConnection(options[, callback])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#agent-keepSocketAlive-socket"><span class="nav-text">agent.keepSocketAlive(socket)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#agent-reuseSocket-socket-request"><span class="nav-text">agent.reuseSocket(socket, request)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#agent-destroy"><span class="nav-text">agent.destroy()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#agent-maxSockets"><span class="nav-text">agent.maxSockets</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#agent-requests"><span class="nav-text">agent.requests</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#agent-sockets"><span class="nav-text">agent.sockets</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-ClientRequest类"><span class="nav-text">http.ClientRequest类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-Server类"><span class="nav-text">http.Server类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-ServerResponse类"><span class="nav-text">http.ServerResponse类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-IncomingMessage类"><span class="nav-text">http.IncomingMessage类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-METHODS"><span class="nav-text">http.METHODS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-STATUS-CODES"><span class="nav-text">http.STATUS_CODES</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-createServer-options-requestListener"><span class="nav-text">http.createServer([options][, requestListener])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-get-options-callback"><span class="nav-text">http.get(options[,callback])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-get-url-options-callback"><span class="nav-text">http.get(url[,options][,callback])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-globalAgent"><span class="nav-text">http.globalAgent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-maxHeaderSize"><span class="nav-text">http.maxHeaderSize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-request-options-callback"><span class="nav-text">http.request(options[,callback])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-request-url-options-callback"><span class="nav-text">http.request(url[,options][,callback])</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#os"><span class="nav-text">os</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#os-EOL"><span class="nav-text">os.EOL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os-constants"><span class="nav-text">os.constants</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os-cpus"><span class="nav-text">os.cpus()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os-endianness"><span class="nav-text">os.endianness()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os-freemem"><span class="nav-text">os.freemem()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os-getPriority-pid"><span class="nav-text">os.getPriority([pid])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os-homedir"><span class="nav-text">os.homedir()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os-hostname"><span class="nav-text">os.hostname()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os-platform"><span class="nav-text">os.platform()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os-release"><span class="nav-text">os.release()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os-tmpdir"><span class="nav-text">os.tmpdir()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os-totalmem"><span class="nav-text">os.totalmem()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os-type"><span class="nav-text">os.type()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os-uptime"><span class="nav-text">os.uptime()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os-userInfo-options"><span class="nav-text">os.userInfo([options])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#os常量"><span class="nav-text">os常量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#信号常量"><span class="nav-text">信号常量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#错误常量"><span class="nav-text">错误常量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#POSIX错误常量"><span class="nav-text">POSIX错误常量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Windows系统特有的错误常量"><span class="nav-text">Windows系统特有的错误常量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#dlopen常量"><span class="nav-text">dlopen常量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#优先级常量"><span class="nav-text">优先级常量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#libuv常量"><span class="nav-text">libuv常量</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -683,7 +683,7 @@
           <h3 class="widget-title">标签</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>

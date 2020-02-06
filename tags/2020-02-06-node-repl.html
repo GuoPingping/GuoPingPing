@@ -81,14 +81,14 @@
 
 
 
-<meta name="description" content="global全局变量。 所有模块都提供这些对象。 Buffer类用于处理二进制数据。 __dirname此变量虽然看起来是全局的，但实际上不是。">
+<meta name="description" content="repl交互式解释器 repl模块提供了一种“读取-求值-输出”循环（REPL）的实现，它可作为一个独立的程序或其它应用中。 1const repl &#x3D; require(&#39;repl&#39;)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NodeJs之global">
-<meta property="og:url" content="http://gpp-note.top/2020-02-02-node-global.html">
+<meta property="og:title" content="NodeJs之repl">
+<meta property="og:url" content="http://gpp-note.top/tags/2020-02-06-node-repl.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="global全局变量。 所有模块都提供这些对象。 Buffer类用于处理二进制数据。 __dirname此变量虽然看起来是全局的，但实际上不是。">
-<meta property="article:published_time" content="2020-02-02T10:17:08.000Z">
-<meta property="article:modified_time" content="2020-02-02T10:27:27.693Z">
+<meta property="og:description" content="repl交互式解释器 repl模块提供了一种“读取-求值-输出”循环（REPL）的实现，它可作为一个独立的程序或其它应用中。 1const repl &#x3D; require(&#39;repl&#39;)">
+<meta property="article:published_time" content="2020-02-06T13:41:23.000Z">
+<meta property="article:modified_time" content="2020-02-06T14:03:43.380Z">
 <meta property="article:author" content="Guopp">
 <meta property="article:tag" content="Node">
 <meta name="twitter:card" content="summary">
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://gpp-note.top/2020-02-02-node-global.html"/>
+  <link rel="canonical" href="http://gpp-note.top/tags/2020-02-06-node-repl.html"/>
 
 
 
 
 
-  <title>NodeJs之global | Welcome to my-blog</title>
+  <title>NodeJs之repl | Welcome to my-blog</title>
   
 
 
@@ -286,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/2020-02-02-node-global.html">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/tags/2020-02-06-node-repl.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guopp">
@@ -303,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">NodeJs之global</h1>
+          <h1 class="post-title" itemprop="name headline">NodeJs之repl</h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-02T18:17:08+08:00">
-                2020-02-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-06T21:41:23+08:00">
+                2020-02-06 21:41:23
               </time>
             
 
@@ -356,8 +356,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020-02-02-node-global.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2020-02-02-node-global.html" itemprop="commentCount"></span>
+                <a href="/tags/2020-02-06-node-repl.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="tags/2020-02-06-node-repl.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -385,19 +385,86 @@
       
 
       
-        <h2 id="global"><a href="#global" class="headerlink" title="global"></a>global</h2><p>全局变量。</p>
-<p>所有模块都提供这些对象。</p>
-<h4 id="Buffer类"><a href="#Buffer类" class="headerlink" title="Buffer类"></a>Buffer类</h4><p>用于处理二进制数据。</p>
-<h4 id="dirname"><a href="#dirname" class="headerlink" title="__dirname"></a>__dirname</h4><p>此变量虽然看起来是全局的，但实际上不是。</p>
+        <h2 id="repl"><a href="#repl" class="headerlink" title="repl"></a>repl</h2><p>交互式解释器</p>
+<p>repl模块提供了一种“读取-求值-输出”循环（REPL）的实现，它可作为一个独立的程序或其它应用中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const repl &#x3D; require(&#39;repl&#39;)</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<h4 id="filename"><a href="#filename" class="headerlink" title="__filename"></a>__filename</h4><p>此变量虽然看起来是全局的，但实际上不是。</p>
-<h4 id="clearImmediate-immediateObject"><a href="#clearImmediate-immediateObject" class="headerlink" title="clearImmediate(immediateObject)"></a>clearImmediate(immediateObject)</h4><h4 id="clearInterval-intervalObject"><a href="#clearInterval-intervalObject" class="headerlink" title="clearInterval(intervalObject)"></a>clearInterval(intervalObject)</h4><h4 id="clearTimeout-timeoutObject"><a href="#clearTimeout-timeoutObject" class="headerlink" title="clearTimeout(timeoutObject)"></a>clearTimeout(timeoutObject)</h4><h4 id="console"><a href="#console" class="headerlink" title="console"></a>console</h4><h4 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h4><p>此变量虽然看起来是全局的，但实际上不是。</p>
-<h4 id="global-1"><a href="#global-1" class="headerlink" title="global"></a>global</h4><p>在浏览器中，顶层作用域是全局作用域。<br>在nodejs中，顶层作用于不是全局作用域，nodejs模块中的var something的作用域只在该模块内。</p>
-<h4 id="module"><a href="#module" class="headerlink" title="module"></a>module</h4><p>此变量虽然看起来是全局的，但实际上不是。</p>
-<h4 id="process"><a href="#process" class="headerlink" title="process"></a>process</h4><p>进程对象。</p>
-<h4 id="require"><a href="#require" class="headerlink" title="require()"></a>require()</h4><p>此变量虽然看起来是全局的，但实际上不是。</p>
-<h4 id="setImmediate-callback-…args"><a href="#setImmediate-callback-…args" class="headerlink" title="setImmediate(callback[,…args])"></a>setImmediate(callback[,…args])</h4><h4 id="setInterval-callback-delay-…args"><a href="#setInterval-callback-delay-…args" class="headerlink" title="setInterval(callback, delay[,…args])"></a>setInterval(callback, delay[,…args])</h4><h4 id="setTimeout-callback-delay-…-args"><a href="#setTimeout-callback-delay-…-args" class="headerlink" title="setTimeout(callback, delay[, ….args])"></a>setTimeout(callback, delay[, ….args])</h4><h4 id="TextDecoder"><a href="#TextDecoder" class="headerlink" title="TextDecoder"></a>TextDecoder</h4><h4 id="TextEncoder"><a href="#TextEncoder" class="headerlink" title="TextEncoder"></a>TextEncoder</h4><h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h4>
+<h4 id="设计与特性"><a href="#设计与特性" class="headerlink" title="设计与特性"></a>设计与特性</h4><p>repl模块导出了repl.REPLServer类。当repl.REPLServer实例运行时，它接收用户输入的每一行，根据用户定义的解释函数解释这些输入，然后输出结果。<br>repl.REPLServer实例支持输入的自动补全、精简Emacs风格的行编辑、多行输入、ANSI风格的输出、当前REPL会话状态的保存于恢复、错误校正、以及可定制的解释函数。</p>
+<h4 id="命令与特殊键"><a href="#命令与特殊键" class="headerlink" title="命令与特殊键"></a>命令与特殊键</h4><ul>
+<li>.break - 在输入一个多行表达式的过程中，输入 .break 命令（或按下 <ctrl>-C 组合键）将终止表达式的继续输入。</li>
+<li>.clear - 重置 REPL 的 context 为一个空对象，并清除当前正输入的所有多行表达式。</li>
+<li>.exit - 关闭输入输出流，退出 REPL。</li>
+<li>.help - 显示特定命令的帮助列表。</li>
+<li>.save - 保存当前 REPL 会话到一个文件： &gt; .save ./file/to/save.js</li>
+<li>.load - 读取一个文件到当前 REPL 会话。 &gt; .load ./file/to/load.js</li>
+<li>.editor 进入编辑模式（<ctrl>-D 完成， <ctrl>-C 取消）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; .editor</span><br><span class="line">&#x2F;&#x2F; 进入编辑模式（^D 完成，^C 取消）</span><br><span class="line">function welcome(name) &#123;</span><br><span class="line">  return &#96;你好 $&#123;name&#125;！&#96;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">welcome(&#39;Node.js 用户&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; ^D</span><br><span class="line">&#39;你好 Node.js 用户！&#39;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="默认的解释器"><a href="#默认的解释器" class="headerlink" title="默认的解释器"></a>默认的解释器</h4><p>默认情况下，所有repl.REPLServer实例使用了一个解释函数，它可以解释JavaScript表达式、提供对Nodejs内置模块的访问。当repl.REPLServer实例被创建时可以传入一个替换的解释函数，覆盖其默认的功能。</p>
+<h5 id="JavaScript表达式"><a href="#JavaScript表达式" class="headerlink" title="JavaScript表达式"></a>JavaScript表达式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; 1 + 1</span><br><span class="line">2</span><br><span class="line">&gt; const m &#x3D; 2</span><br><span class="line">undefined</span><br><span class="line">&gt; m + 1</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<h5 id="全局作用域与局部作用域"><a href="#全局作用域与局部作用域" class="headerlink" title="全局作用域与局部作用域"></a>全局作用域与局部作用域</h5><p>默认的解释器提供了获取存在于全局作用域中的任何变量的途径。 可以通过给每个 REPLServer 绑定的 context 对象指定变量，来显式地把变量暴露给 REPL。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const repl &#x3D; require(&#39;repl&#39;);</span><br><span class="line">const msg &#x3D; &#39;message&#39;;</span><br><span class="line"></span><br><span class="line">repl.start(&#39;&gt; &#39;).context.m &#x3D; msg;</span><br></pre></td></tr></table></figure>
+
+<p>context 对象的属性表现为 REPL 中的局部变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ node repl_test.js</span><br><span class="line">&gt; m</span><br><span class="line">&#39;message&#39;</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下 context 的属性不是只读的。 要指定只读的全局变量， context 的属性必须使用 Object.defineProperty() 来定义:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const repl &#x3D; require(&#39;repl&#39;);</span><br><span class="line">const msg &#x3D; &#39;message&#39;;</span><br><span class="line"></span><br><span class="line">const r &#x3D; repl.start(&#39;&gt; &#39;);</span><br><span class="line">Object.defineProperty(r.context, &#39;m&#39;, &#123;</span><br><span class="line">  configurable: false,</span><br><span class="line">  enumerable: true,</span><br><span class="line">  value: msg</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="访问Nodejs核心模块"><a href="#访问Nodejs核心模块" class="headerlink" title="访问Nodejs核心模块"></a>访问Nodejs核心模块</h5><p>默认的解释器会自动加载被调用的 Node.js 核心模块到 REPL 环境中。 例如，除非被声明为一个全局变量或一个有限范围的变量，否则输入 fs 会被解释为 global.fs = require(‘fs’)。</p>
+<figure class="highlight plain"><figcaption><span>fs.createReadStream('./some/file');```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### 全局的未捕获异常</span><br><span class="line">REPL 使用 domain 模块来捕获该 REPL 会话的所有未捕获的异常。</span><br><span class="line"></span><br><span class="line">在 REPL 中对 domain 模块的这种使用具有以下的副作用：</span><br><span class="line"></span><br><span class="line">* 未捕获的异常仅在独立的 REPL 中触发 &#39;uncaughtException&#39; 事件。 在另一个 Node.js 程序的 REPL 中添加此事件的监听器会抛出 ERR_INVALID_REPL_INPUT。</span><br><span class="line"></span><br><span class="line">* 尝试使用 process.setUncaughtExceptionCaptureCallback() 会抛出 ERR_DOMAIN_CANNOT_SET_UNCAUGHT_EXCEPTION_CAPTURE 错误。</span><br><span class="line"></span><br><span class="line">作为独立程序：</span><br></pre></td></tr></table></figure>
+<p>process.on(‘uncaughtException’, () =&gt; console.log(‘未捕获的异常’));</p>
+<p>throw new Error(‘foobar’);<br>// 未捕获的异常</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">当在另一个应用程序中使用时：</span><br></pre></td></tr></table></figure>
+<p>process.on(‘uncaughtException’, () =&gt; console.log(‘未捕获的异常’));<br>// TypeError [ERR_INVALID_REPL_INPUT]: Listeners for <code>uncaughtException</code><br>// cannot be used in the REPL</p>
+<p>throw new Error(‘foobar’);<br>// 抛出:<br>// Error: foobar</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### _ 变量的赋值</span><br><span class="line"></span><br><span class="line">默认的解释器会把最近一次解释的表达式的结果赋值给变量 _ （下划线）。 显式地设置 _ 为某个值能禁用该特性。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>[ ‘a’, ‘b’, ‘c’ ]<br>[ ‘a’, ‘b’, ‘c’ ]<br>_.length<br>3<br>_ += 1<br>Expression assignment to _ now disabled.<br>4<br>1 + 1<br>2<br>_<br>4</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">同样， _error 将指向最后一次看到的错误（如果有的话）。 将 _error 显式设置为值将禁用此行为</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>throw new Error(‘foo’);<br>Error: foo<br>_error.message<br>‘foo’</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### await关键词</span><br><span class="line">使用 --experimental-repl-await 命令行选项，将启用对 await 关键字的实验性支持。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>await Promise.resolve(123)<br>123<br>await Promise.reject(new Error(‘REPL await’))<br>Error: REPL await<br>    at repl:1:45<br>const timeout = util.promisify(setTimeout);<br>undefined<br>const old = Date.now(); await timeout(1000); console.log(Date.now() - old);<br>1002<br>undefined</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 自定义的解释函数</span><br><span class="line">当创建一个新的 repl.REPLServer 时，可以提供一个自定义的解释函数。 这可以用于实现完全定制化的 REPL 应用。</span><br><span class="line"></span><br><span class="line">以下是 REPL 的一个假设的示例，执行从一种语言到另一种语言的文本转换：</span><br></pre></td></tr></table></figure>
+<p>const repl = require(‘repl’);<br>const { Translator } = require(‘translator’);</p>
+<p>const myTranslator = new Translator(‘en’, ‘fr’);</p>
+<p>function myEval(cmd, context, filename, callback) {<br>  callback(null, myTranslator.translate(cmd));<br>}</p>
+<p>repl.start({ prompt: ‘&gt; ‘, eval: myEval });</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### 可恢复的错误</span><br><span class="line">当用户正在 REPL 中输入时，按下 &lt;enter&gt; 键会把当前行的输入发送到 eval 函数。 为了支持多行输入， eval 函数可以返回一个 repl.Recoverable 实例给提供的回调函数：</span><br></pre></td></tr></table></figure>
+<p>function myEval(cmd, context, filename, callback) {<br>  let result;<br>  try {<br>    result = vm.runInThisContext(cmd);<br>  } catch (e) {<br>    if (isRecoverableError(e)) {<br>      return callback(new repl.Recoverable(e));<br>    }<br>  }<br>  callback(null, result);<br>}</p>
+<p>function isRecoverableError(error) {<br>  if (error.name === ‘SyntaxError’) {<br>    return /^(Unexpected end of input|Unexpected token)/.test(error.message);<br>  }<br>  return false;<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 自定义REPL输出</span><br><span class="line">默认情况下，在把输出写入到提供的可写流（默认为 process.stdout）之前，repl.REPLServer 实例会使用 util.inspect() 方法对输出进行格式化。 showProxy 检查选项会默认设置为 true， colors 选项会设置为 true，具体取决于 REPL 的 useColors 选项。</span><br><span class="line"></span><br><span class="line">可以在构造时指定 useColors 布尔值选项，以指示默认的编写器使用 ANSI 样式代码来着色来自 util.inspect() 方法的输出。</span><br><span class="line"></span><br><span class="line">如果 REPL 作为独立程序运行，则还可以使用 inspect.replDefaults 属性从 REPL 内部更改 REPL 的检查默认值util.inspect()，该属性是 util.inspect() 中的 defaultOptions 的镜像。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>util.inspect.replDefaults.compact = false;<br>false<br>[1]<br>[<br>  1<br>]</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在构造时，通过在 writer 选项传入一个新的函数，可以完全地自定义一个 repl.REPLServer 实例的输出。 例子，把输入的任何文本转换为大写：</span><br></pre></td></tr></table></figure>
+<p>const repl = require(‘repl’);</p>
+<p>const r = repl.start({ prompt: ‘&gt; ‘, eval: myEval, writer: myWriter });</p>
+<p>function myEval(cmd, context, filename, callback) {<br>  callback(null, cmd);<br>}</p>
+<p>function myWriter(output) {<br>  return output.toUpperCase();<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### REPLServer类</span><br><span class="line">repl.REPLServer 的实例是使用 repl.start() 方法创建的，不能直接地使用 JavaScript 的 new 关键字创建。</span><br><span class="line"></span><br><span class="line">##### exit事件</span><br><span class="line">当接收到 .exit 命令、或按下两次 &lt;ctrl&gt;-C 发出 SIGINT 信号、或按下 &lt;ctrl&gt;-D 发出 &#39;end&#39; 信号而使 REPL 被退出时，触发 &#39;exit&#39; 事件。 监听器的回调函数被调用时不带任何参数。</span><br></pre></td></tr></table></figure>
+<p>replServer.on(‘exit’, () =&gt; {<br>  console.log(‘从 REPL 接收到 “exit” 事件！’);<br>  process.exit();<br>});</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### reset事件</span><br><span class="line">当 REPL 的上下文被重置时，触发 &#39;reset&#39; 事件。 每当接收到 .clear 命令时会触发该事件，除非 REPL 正在使用默认的解释器并且 repl.REPLServer 实例被创建时 useGlobal 选项被设为 true。 监听器的回调函数被调用时会带上 context 对象作为惟一的参数。</span><br><span class="line"></span><br><span class="line">这主要被用于重新初始化 REPL 上下文，使之达到某些预定义的状态，如下面的例子：</span><br></pre></td></tr></table></figure>
+<p>const repl = require(‘repl’);</p>
+<p>function initializeContext(context) {<br>  context.m = ‘test’;<br>}</p>
+<p>const r = repl.start({ prompt: ‘&gt; ‘ });<br>initializeContext(r.context);</p>
+<p>r.on(‘reset’, initializeContext);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当代码被执行时，全局的 &#39;m&#39; 变量可以被修改，但随后的 .clear 命令会把它重置回初始值：</span><br></pre></td></tr></table></figure>
+<p>$ ./node example.js</p>
+<blockquote>
+<p>m<br>‘test’<br>m = 1<br>1<br>m<br>1<br>.clear<br>Clearing context…<br>m<br>‘test’</p>
+</blockquote>
+<p>```</p>
+
       
     </div>
     
@@ -425,10 +492,10 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>NodeJs之global</a></p>
+  <p><span>本文标题:</span>NodeJs之repl</a></p>
   <p><span>文章作者:</span>Guopp</a></p>
-  <p><span>原始链接:</span><a href="/2020-02-02-node-global.html" title="NodeJs之global">http://gpp-note.top/2020-02-02-node-global.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/2020-02-02-node-global.html"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/tags/2020-02-06-node-repl.html" title="NodeJs之repl">http://gpp-note.top/tags/2020-02-06-node-repl.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/tags/2020-02-06-node-repl.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者</p>  
 </div>
@@ -475,8 +542,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020-02-01-node-fs.html" rel="next" title="NodeJs之fs">
-                <i class="fa fa-chevron-left"></i> NodeJs之fs
+              <a href="/tags/2020-02-06-node-readline.html" rel="next" title="NodeJs之readline">
+                <i class="fa fa-chevron-left"></i> NodeJs之readline
               </a>
             
           </div>
@@ -485,8 +552,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020-02-02-node-Http.html" rel="prev" title="NodeJs之Http">
-                NodeJs之Http <i class="fa fa-chevron-right"></i>
+              <a href="/tags/2020-02-06-node-stream.html" rel="prev" title="NodeJs之stream">
+                NodeJs之stream <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -518,8 +585,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2020-02-02-node-global.html"
-           data-title="NodeJs之global" data-url="http://gpp-note.top/2020-02-02-node-global.html">
+      <div class="ds-thread" data-thread-key="tags/2020-02-06-node-repl.html"
+           data-title="NodeJs之repl" data-url="http://gpp-note.top/tags/2020-02-06-node-repl.html">
       </div>
     </div>
 
@@ -571,7 +638,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -649,7 +716,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#global"><span class="nav-text">global</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Buffer类"><span class="nav-text">Buffer类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dirname"><span class="nav-text">__dirname</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filename"><span class="nav-text">__filename</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clearImmediate-immediateObject"><span class="nav-text">clearImmediate(immediateObject)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clearInterval-intervalObject"><span class="nav-text">clearInterval(intervalObject)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clearTimeout-timeoutObject"><span class="nav-text">clearTimeout(timeoutObject)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#console"><span class="nav-text">console</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#exports"><span class="nav-text">exports</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#global-1"><span class="nav-text">global</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#module"><span class="nav-text">module</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#process"><span class="nav-text">process</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#require"><span class="nav-text">require()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setImmediate-callback-…args"><span class="nav-text">setImmediate(callback[,…args])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setInterval-callback-delay-…args"><span class="nav-text">setInterval(callback, delay[,…args])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setTimeout-callback-delay-…-args"><span class="nav-text">setTimeout(callback, delay[, ….args])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TextDecoder"><span class="nav-text">TextDecoder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TextEncoder"><span class="nav-text">TextEncoder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL"><span class="nav-text">URL</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#repl"><span class="nav-text">repl</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设计与特性"><span class="nav-text">设计与特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令与特殊键"><span class="nav-text">命令与特殊键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认的解释器"><span class="nav-text">默认的解释器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JavaScript表达式"><span class="nav-text">JavaScript表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#全局作用域与局部作用域"><span class="nav-text">全局作用域与局部作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#访问Nodejs核心模块"><span class="nav-text">访问Nodejs核心模块</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -667,7 +734,7 @@
           <h3 class="widget-title">标签</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>
