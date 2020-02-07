@@ -81,14 +81,14 @@
 
 
 
-<meta name="description" content="https(HTTPS)HTTPS是基于TLS&#x2F;SSL的HTTP协议。在NodeJS中，作为一个单独的模块实现。">
+<meta name="description" content="vm虚拟机。 vm模块提供了在V8虚拟机上下文中编译和运行代码的一系列API。vm模块不是一个安全的虚拟机。不要用它来运行不受信任的代码。 JavaScript代码可以被编译并立即运行，也可以编译、保存，以后再运行。 一个常见的场景是在沙盒中运行代码。沙盒中的代码使用不同的V8上下文，这以为着它具有与其余代码不同的全局对象。 可以通过上下文隔离化一个沙箱对象来提供上下文。沙盒代码将沙盒中的任何属性">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NodeJs之HTTPS">
-<meta property="og:url" content="http://gpp-note.top/articles/2020-02-05-node-HTTPS.html">
+<meta property="og:title" content="NodeJs之vm">
+<meta property="og:url" content="http://gpp-note.top/articles/2020-02-07-node-vm.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="https(HTTPS)HTTPS是基于TLS&#x2F;SSL的HTTP协议。在NodeJS中，作为一个单独的模块实现。">
-<meta property="article:published_time" content="2020-02-05T11:40:37.000Z">
-<meta property="article:modified_time" content="2020-02-05T12:24:46.211Z">
+<meta property="og:description" content="vm虚拟机。 vm模块提供了在V8虚拟机上下文中编译和运行代码的一系列API。vm模块不是一个安全的虚拟机。不要用它来运行不受信任的代码。 JavaScript代码可以被编译并立即运行，也可以编译、保存，以后再运行。 一个常见的场景是在沙盒中运行代码。沙盒中的代码使用不同的V8上下文，这以为着它具有与其余代码不同的全局对象。 可以通过上下文隔离化一个沙箱对象来提供上下文。沙盒代码将沙盒中的任何属性">
+<meta property="article:published_time" content="2020-02-07T10:18:21.000Z">
+<meta property="article:modified_time" content="2020-02-07T15:01:39.970Z">
 <meta property="article:author" content="Guopp">
 <meta property="article:tag" content="Node">
 <meta name="twitter:card" content="summary">
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://gpp-note.top/articles/2020-02-05-node-HTTPS.html"/>
+  <link rel="canonical" href="http://gpp-note.top/articles/2020-02-07-node-vm.html"/>
 
 
 
 
 
-  <title>NodeJs之HTTPS | Welcome to my-blog</title>
+  <title>NodeJs之vm | Welcome to my-blog</title>
   
 
 
@@ -286,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-05-node-HTTPS.html">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-07-node-vm.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guopp">
@@ -303,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">NodeJs之HTTPS</h1>
+          <h1 class="post-title" itemprop="name headline">NodeJs之vm</h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-05T19:40:37+08:00">
-                2020-02-05 19:40:37
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-07T18:18:21+08:00">
+                2020-02-07 18:18:21
               </time>
             
 
@@ -356,8 +356,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/2020-02-05-node-HTTPS.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-05-node-HTTPS.html" itemprop="commentCount"></span>
+                <a href="/articles/2020-02-07-node-vm.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-07-node-vm.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -385,11 +385,47 @@
       
 
       
-        <h2 id="https-HTTPS"><a href="#https-HTTPS" class="headerlink" title="https(HTTPS)"></a>https(HTTPS)</h2><p>HTTPS是基于TLS/SSL的HTTP协议。在NodeJS中，作为一个单独的模块实现。</p>
+        <h2 id="vm"><a href="#vm" class="headerlink" title="vm"></a>vm</h2><p>虚拟机。</p>
+<p>vm模块提供了在V8虚拟机上下文中编译和运行代码的一系列API。<br>vm模块不是一个安全的虚拟机。<br>不要用它来运行不受信任的代码。</p>
+<p>JavaScript代码可以被编译并立即运行，也可以编译、保存，以后再运行。</p>
+<p>一个常见的场景是在沙盒中运行代码。沙盒中的代码使用不同的V8上下文，这以为着它具有与其余代码不同的全局对象。</p>
+<p>可以通过上下文隔离化一个沙箱对象来提供上下文。<br>沙盒代码将沙盒中的任何属性视为全局对象。<br>由沙盒代码引起的任何全局变量的更改都将反应到沙盒对象中。</p>
 <a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const vm &#x3D; require(&#39;vm&#39;);</span><br><span class="line"></span><br><span class="line">const x &#x3D; 1;</span><br><span class="line"></span><br><span class="line">const sandbox &#x3D; &#123; x: 2 &#125;;</span><br><span class="line">vm.createContext(sandbox); &#x2F;&#x2F; 上下文隔离化一个沙盒。</span><br><span class="line"></span><br><span class="line">const code &#x3D; &#39;x +&#x3D; 40; var y &#x3D; 17;&#39;;</span><br><span class="line">&#x2F;&#x2F; &#96;x&#96; and &#96;y&#96; 是沙盒环境中的全局变量。</span><br><span class="line">&#x2F;&#x2F; 最初，x 的值为 2，因为这是 sandbox.x 的值。</span><br><span class="line">vm.runInContext(code, sandbox);</span><br><span class="line"></span><br><span class="line">console.log(sandbox.x); &#x2F;&#x2F; 42</span><br><span class="line">console.log(sandbox.y); &#x2F;&#x2F; 17</span><br><span class="line"></span><br><span class="line">console.log(x); &#x2F;&#x2F; 1; y 没有定义。</span><br></pre></td></tr></table></figure>
 
-<h4 id="https-Agent类"><a href="#https-Agent类" class="headerlink" title="https.Agent类"></a>https.Agent类</h4><p>HTTPS的Agent对象，类似于http.Agent.</p>
-<h5 id="new-Agent-options"><a href="#new-Agent-options" class="headerlink" title="new Agent([options])"></a>new Agent([options])</h5><h4 id="https-Server类"><a href="#https-Server类" class="headerlink" title="https.Server类"></a>https.Server类</h4><h5 id="server-close-callback"><a href="#server-close-callback" class="headerlink" title="server.close([callback])"></a>server.close([callback])</h5><h5 id="server-headersTimeout"><a href="#server-headersTimeout" class="headerlink" title="server.headersTimeout"></a>server.headersTimeout</h5><h5 id="server-listen"><a href="#server-listen" class="headerlink" title="server.listen()"></a>server.listen()</h5><h5 id="server-maxHeadersCount"><a href="#server-maxHeadersCount" class="headerlink" title="server.maxHeadersCount"></a>server.maxHeadersCount</h5><h5 id="server-setTimeout-msecs-callback"><a href="#server-setTimeout-msecs-callback" class="headerlink" title="server.setTimeout([msecs][,callback])"></a>server.setTimeout([msecs][,callback])</h5><h5 id="server-timeout"><a href="#server-timeout" class="headerlink" title="server.timeout"></a>server.timeout</h5><h5 id="server-keepAliveTimeout"><a href="#server-keepAliveTimeout" class="headerlink" title="server.keepAliveTimeout"></a>server.keepAliveTimeout</h5><h5 id="heeps-createServer-options-requestListener"><a href="#heeps-createServer-options-requestListener" class="headerlink" title="heeps.createServer([options][,requestListener])"></a>heeps.createServer([options][,requestListener])</h5><h5 id="https-get-options-callback"><a href="#https-get-options-callback" class="headerlink" title="https.get(options[,callback])"></a>https.get(options[,callback])</h5><h5 id="https-get-url-options-callback"><a href="#https-get-url-options-callback" class="headerlink" title="https.get(url[,options][,callback])"></a>https.get(url[,options][,callback])</h5><h5 id="https-request-options-callback"><a href="#https-request-options-callback" class="headerlink" title="https.request(options[,callback])"></a>https.request(options[,callback])</h5><h5 id="https-request-url-options-callback"><a href="#https-request-url-options-callback" class="headerlink" title="https.request(url[,options][,callback])"></a>https.request(url[,options][,callback])</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const https &#x3D; require(&#39;https&#39;);</span><br><span class="line"></span><br><span class="line">const options &#x3D; &#123;</span><br><span class="line">  hostname: &#39;encrypted.google.com&#39;,</span><br><span class="line">  port: 443,</span><br><span class="line">  path: &#39;&#x2F;&#39;,</span><br><span class="line">  method: &#39;GET&#39;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const req &#x3D; https.request(options, (res) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(&#39;状态码:&#39;, res.statusCode);</span><br><span class="line">  console.log(&#39;请求头:&#39;, res.headers);</span><br><span class="line"></span><br><span class="line">  res.on(&#39;data&#39;, (d) &#x3D;&gt; &#123;</span><br><span class="line">    process.stdout.write(d);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">req.on(&#39;error&#39;, (e) &#x3D;&gt; &#123;</span><br><span class="line">  console.error(e);</span><br><span class="line">&#125;);</span><br><span class="line">req.end();</span><br></pre></td></tr></table></figure>
+<h4 id="vm-Script类"><a href="#vm-Script类" class="headerlink" title="vm.Script类"></a>vm.Script类</h4><p>vm.Script类型的实例包含若干预编译的脚本，这些脚本能够在特定的沙箱（或上下文）中被运行。</p>
+<h5 id="new-vm-Script-code-options"><a href="#new-vm-Script-code-options" class="headerlink" title="new vm.Script(code[, options])"></a>new vm.Script(code[, options])</h5><p>如果options是字符串，则它指定文件名。</p>
+<p>创建一个新的vm.Script对象只编译code但不会执行它。<br>编译过的vm.Script此后可以被多次执行。<br>code是不绑定于任何全局对象的，相反，它仅仅绑定于每次执行它的对象。</p>
+<h5 id="script-createCachedData"><a href="#script-createCachedData" class="headerlink" title="script.createCachedData()"></a>script.createCachedData()</h5><p>创建一个可以被Script构造函数中cachedData选项使用的代码缓存，返回Buffer。<br>可以在任何时候不限次数的调用该方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const script &#x3D; new vm.Script(&#96;</span><br><span class="line">function add(a, b) &#123;</span><br><span class="line">  return a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const x &#x3D; add(1, 2);</span><br><span class="line">&#96;);</span><br><span class="line"></span><br><span class="line">const cacheWithoutX &#x3D; script.createCachedData();</span><br><span class="line"></span><br><span class="line">script.runInThisContext();</span><br><span class="line"></span><br><span class="line">const cacheWithX &#x3D; script.createCachedData();</span><br></pre></td></tr></table></figure>
+<h5 id="script-runInContext-contextifiedSandbox-options"><a href="#script-runInContext-contextifiedSandbox-options" class="headerlink" title="script.runInContext(contextifiedSandbox[, options])"></a>script.runInContext(contextifiedSandbox[, options])</h5><p>在指定的contextifiedSandbox中执行vm.Script对象中被编译后的代码并返回结果。<br>被执行的代码无法获取本地作用域。</p>
+<h5 id="script-runInNewContext-sandbox-options"><a href="#script-runInNewContext-sandbox-options" class="headerlink" title="script.runInNewContext([sandbox[, options]])"></a>script.runInNewContext([sandbox[, options]])</h5><p>首先给指定的sandbox提供一个隔离的上下文，再在此上下文执行vm.Script中被编译的代码，最后返回结果。运行中的代码无法获取本地作用域。</p>
+<h5 id="script-runInThisContext-options"><a href="#script-runInThisContext-options" class="headerlink" title="script.runInThisContext([options])"></a>script.runInThisContext([options])</h5><p>在指定的global对象的上下文中执行vm.Script对象里被编译的代码并返回结果。被执行的代码无法获取本地作用域，但能获取global对象。</p>
+<h4 id="vm-SourceTextModule类"><a href="#vm-SourceTextModule类" class="headerlink" title="vm.SourceTextModule类"></a>vm.SourceTextModule类</h4><h5 id="new-vm-SourceTextModule-code-options"><a href="#new-vm-SourceTextModule-code-options" class="headerlink" title="new vm.SourceTextModule(code[, options])"></a>new vm.SourceTextModule(code[, options])</h5><h5 id="module-dependencySpecifiers"><a href="#module-dependencySpecifiers" class="headerlink" title="module.dependencySpecifiers"></a>module.dependencySpecifiers</h5><h5 id="module-error"><a href="#module-error" class="headerlink" title="module.error"></a>module.error</h5><h5 id="module-evaluate-options"><a href="#module-evaluate-options" class="headerlink" title="module.evaluate([options])"></a>module.evaluate([options])</h5><h5 id="module-link-linker"><a href="#module-link-linker" class="headerlink" title="module.link(linker)"></a>module.link(linker)</h5><h5 id="module-namespace"><a href="#module-namespace" class="headerlink" title="module.namespace"></a>module.namespace</h5><h5 id="module-status"><a href="#module-status" class="headerlink" title="module.status"></a>module.status</h5><h5 id="module-identifier"><a href="#module-identifier" class="headerlink" title="module.identifier"></a>module.identifier</h5><h4 id="vm-compileFunction-code-params-options"><a href="#vm-compileFunction-code-params-options" class="headerlink" title="vm.compileFunction(code[, params[, options]])"></a>vm.compileFunction(code[, params[, options]])</h4><p>将给定的代码编译到提供的上下文/沙箱中（如果没有提供上下文，则使用当前上下文），并返回包装了给定params的函数。</p>
+<h4 id="vm-createContext-sandbox-options"><a href="#vm-createContext-sandbox-options" class="headerlink" title="vm.createContext([sandbox[, options]])"></a>vm.createContext([sandbox[, options]])</h4><p>给定一个sandbox对象，vm.createContext()会设置此沙盒，从而让它具备在vm.runInContext()或者script.runInContext()中被使用的能力。对于此二方法中所调用的脚本，他们的全局对象不仅拥有我们提供的sandbox对象的所有属性，同时还有任何全局对象所拥有的属性。对于这些脚本之外的所有代码，他们的全局变量将保持不变。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const util &#x3D; require(&#39;util&#39;);</span><br><span class="line">const vm &#x3D; require(&#39;vm&#39;);</span><br><span class="line"></span><br><span class="line">global.globalVar &#x3D; 3;</span><br><span class="line"></span><br><span class="line">const sandbox &#x3D; &#123; globalVar: 1 &#125;;</span><br><span class="line">vm.createContext(sandbox);</span><br><span class="line"></span><br><span class="line">vm.runInContext(&#39;globalVar *&#x3D; 2;&#39;, sandbox);</span><br><span class="line"></span><br><span class="line">console.log(util.inspect(sandbox)); &#x2F;&#x2F; &#123; globalVar: 2 &#125;</span><br><span class="line"></span><br><span class="line">console.log(util.inspect(globalVar)); &#x2F;&#x2F; 3</span><br></pre></td></tr></table></figure>
+<p>如果未提供sanbox或传入undefined，那么会返回一个全新的空的上下文隔离化后的sandbox对象。</p>
+<p>vm.createContext()主要是用于创建一个能运行的多个脚本的沙盒。</p>
+<h4 id="vm-isContext-sandbox"><a href="#vm-isContext-sandbox" class="headerlink" title="vm.isContext(sandbox)"></a>vm.isContext(sandbox)</h4><p>当给定的sanbox对象已经被vm.createContext()上下文隔离化，则返回true。</p>
+<h4 id="vm-runInContext-code-contextifiedSandbox-options"><a href="#vm-runInContext-code-contextifiedSandbox-options" class="headerlink" title="vm.runInContext(code, contextifiedSandbox[, options])"></a>vm.runInContext(code, contextifiedSandbox[, options])</h4><p>vm.runInContext()方法会编译code，然后在指定的contextifiedSandbox的上下文里执行它并返回其结果。被执行的代码无法获取本地作用域。contextifiedSandbox必须是事先被vm.createContext()方法上下文隔离化过得对象。</p>
+<p>如果options是字符串，则它指定文件名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const util &#x3D; require(&#39;util&#39;);</span><br><span class="line">const vm &#x3D; require(&#39;vm&#39;);</span><br><span class="line"></span><br><span class="line">const sandbox &#x3D; &#123; globalVar: 1 &#125;;</span><br><span class="line">vm.createContext(sandbox);</span><br><span class="line"></span><br><span class="line">for (let i &#x3D; 0; i &lt; 10; ++i) &#123;</span><br><span class="line">  vm.runInContext(&#39;globalVar *&#x3D; 2;&#39;, sandbox);</span><br><span class="line">&#125;</span><br><span class="line">console.log(util.inspect(sandbox));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#123; globalVar: 1024 &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="vm-runInNewContext-code-sanbox-options"><a href="#vm-runInNewContext-code-sanbox-options" class="headerlink" title="vm.runInNewContext(code[, sanbox[, options]])"></a>vm.runInNewContext(code[, sanbox[, options]])</h4><p>vm.runInNewContext()首先给指定的sanbox（若为undefined，则会新建一个sandbox）提供一个隔离的上下文，再在此上下文中执行编译的code，最后返回结果。<br>运行中的代码无法获取本地作用域。</p>
+<p>如果options是字符串，则它指定文件名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const util &#x3D; require(&#39;util&#39;);</span><br><span class="line">const vm &#x3D; require(&#39;vm&#39;);</span><br><span class="line"></span><br><span class="line">const sandbox &#x3D; &#123;</span><br><span class="line">  animal: &#39;cat&#39;,</span><br><span class="line">  count: 2</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">vm.runInNewContext(&#39;count +&#x3D; 1; name &#x3D; &quot;kitty&quot;&#39;, sandbox);</span><br><span class="line">console.log(util.inspect(sandbox));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#123; animal: &#39;cat&#39;, count: 3, name: &#39;kitty&#39; &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="vm-runInThisContext-code-options"><a href="#vm-runInThisContext-code-options" class="headerlink" title="vm.runInThisContext(code[, options])"></a>vm.runInThisContext(code[, options])</h4><p>vm.runInThisContext()在当前的global对象的上下文中编译并执行code，最后返回结果。<br>运行中的代码无法获取本地作用域，但可以获取当前的global对象。</p>
+<p>如果options是字符串，则它指定文件名。</p>
+<h4 id="示例：在VM中运行HTTP-Server"><a href="#示例：在VM中运行HTTP-Server" class="headerlink" title="示例：在VM中运行HTTP Server"></a>示例：在VM中运行HTTP Server</h4><p>在私用script.runInThisContext()或者vm.runInThisContext()时，目标代码是在当前的V8quanju对象的上下文中执行的。被传入此虚拟机上下文的目标代码会有自己独立的作用域。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">const vm &#x3D; require(&#39;vm&#39;);</span><br><span class="line"></span><br><span class="line">const code &#x3D; &#96;</span><br><span class="line">((require) &#x3D;&gt; &#123;</span><br><span class="line">  const http &#x3D; require(&#39;http&#39;);</span><br><span class="line"></span><br><span class="line">  http.createServer((request, response) &#x3D;&gt; &#123;</span><br><span class="line">    response.writeHead(200, &#123; &#39;Content-Type&#39;: &#39;text&#x2F;plain&#39; &#125;);</span><br><span class="line">    response.end(&#39;你好世界\\n&#39;);</span><br><span class="line">  &#125;).listen(8124);</span><br><span class="line"></span><br><span class="line">  console.log(&#39;服务器运行在 http:&#x2F;&#x2F;127.0.0.1:8124&#x2F;&#39;);</span><br><span class="line">&#125;)&#96;;</span><br><span class="line"></span><br><span class="line">vm.runInThisContext(code)(require);</span><br></pre></td></tr></table></figure>
+
+<h4 id="上下文隔离化一个对象意味着什么？"><a href="#上下文隔离化一个对象意味着什么？" class="headerlink" title="上下文隔离化一个对象意味着什么？"></a>上下文隔离化一个对象意味着什么？</h4><p>所有用Nodejs所运行的JavaScript代码都是在一个上下文的作用域中被执行的。根据V8嵌入式指南：</p>
+<blockquote>
+<p>在V8中，一个上下文是一个执行环境，它允许分离的，无关的JavaScript应用在一个V8的单例中被运行。<br>必须明确的指定用于运行所有JavaScript代码的上下文。</p>
+</blockquote>
+<p>当调用vm.createContext()时，传入的sanbox对象在底层会和一个新的V8上下文实例联系上。<br>这个V8上下文在一个隔离的全局环境中，使用vm模块的方法运行code。<br>创建V8上下文和使之联系上sanbox的过程在此文档中被称作为“上下文隔离化”sandbox。</p>
+
       
     </div>
     
@@ -417,10 +453,10 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>NodeJs之HTTPS</a></p>
+  <p><span>本文标题:</span>NodeJs之vm</a></p>
   <p><span>文章作者:</span>Guopp</a></p>
-  <p><span>原始链接:</span><a href="/articles/2020-02-05-node-HTTPS.html" title="NodeJs之HTTPS">http://gpp-note.top/articles/2020-02-05-node-HTTPS.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/articles/2020-02-05-node-HTTPS.html"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/articles/2020-02-07-node-vm.html" title="NodeJs之vm">http://gpp-note.top/articles/2020-02-07-node-vm.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/articles/2020-02-07-node-vm.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者</p>  
 </div>
@@ -467,8 +503,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/2020-02-05-node-Http-2.html" rel="next" title="NodeJS之HTTP/2">
-                <i class="fa fa-chevron-left"></i> NodeJS之HTTP/2
+              <a href="/articles/2020-02-07-node-V8.html" rel="next" title="NodeJs之V8">
+                <i class="fa fa-chevron-left"></i> NodeJs之V8
               </a>
             
           </div>
@@ -477,8 +513,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/articles/2020-02-05-node-inspector.html" rel="prev" title="NodeJs之inspector">
-                NodeJs之inspector <i class="fa fa-chevron-right"></i>
+              <a href="/articles/2020-02-07-node-worker-threads.html" rel="prev" title="NodeJs之worker_threads">
+                NodeJs之worker_threads <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -510,8 +546,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="articles/2020-02-05-node-HTTPS.html"
-           data-title="NodeJs之HTTPS" data-url="http://gpp-note.top/articles/2020-02-05-node-HTTPS.html">
+      <div class="ds-thread" data-thread-key="articles/2020-02-07-node-vm.html"
+           data-title="NodeJs之vm" data-url="http://gpp-note.top/articles/2020-02-07-node-vm.html">
       </div>
     </div>
 
@@ -641,7 +677,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#https-HTTPS"><span class="nav-text">https(HTTPS)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#https-Agent类"><span class="nav-text">https.Agent类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#new-Agent-options"><span class="nav-text">new Agent([options])</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#https-Server类"><span class="nav-text">https.Server类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#server-close-callback"><span class="nav-text">server.close([callback])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-headersTimeout"><span class="nav-text">server.headersTimeout</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-listen"><span class="nav-text">server.listen()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-maxHeadersCount"><span class="nav-text">server.maxHeadersCount</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-setTimeout-msecs-callback"><span class="nav-text">server.setTimeout([msecs][,callback])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-timeout"><span class="nav-text">server.timeout</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-keepAliveTimeout"><span class="nav-text">server.keepAliveTimeout</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#heeps-createServer-options-requestListener"><span class="nav-text">heeps.createServer([options][,requestListener])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#https-get-options-callback"><span class="nav-text">https.get(options[,callback])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#https-get-url-options-callback"><span class="nav-text">https.get(url[,options][,callback])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#https-request-options-callback"><span class="nav-text">https.request(options[,callback])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#https-request-url-options-callback"><span class="nav-text">https.request(url[,options][,callback])</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vm"><span class="nav-text">vm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vm-Script类"><span class="nav-text">vm.Script类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#new-vm-Script-code-options"><span class="nav-text">new vm.Script(code[, options])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#script-createCachedData"><span class="nav-text">script.createCachedData()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#script-runInContext-contextifiedSandbox-options"><span class="nav-text">script.runInContext(contextifiedSandbox[, options])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#script-runInNewContext-sandbox-options"><span class="nav-text">script.runInNewContext([sandbox[, options]])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#script-runInThisContext-options"><span class="nav-text">script.runInThisContext([options])</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vm-SourceTextModule类"><span class="nav-text">vm.SourceTextModule类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#new-vm-SourceTextModule-code-options"><span class="nav-text">new vm.SourceTextModule(code[, options])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#module-dependencySpecifiers"><span class="nav-text">module.dependencySpecifiers</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#module-error"><span class="nav-text">module.error</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#module-evaluate-options"><span class="nav-text">module.evaluate([options])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#module-link-linker"><span class="nav-text">module.link(linker)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#module-namespace"><span class="nav-text">module.namespace</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#module-status"><span class="nav-text">module.status</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#module-identifier"><span class="nav-text">module.identifier</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vm-compileFunction-code-params-options"><span class="nav-text">vm.compileFunction(code[, params[, options]])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vm-createContext-sandbox-options"><span class="nav-text">vm.createContext([sandbox[, options]])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vm-isContext-sandbox"><span class="nav-text">vm.isContext(sandbox)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vm-runInContext-code-contextifiedSandbox-options"><span class="nav-text">vm.runInContext(code, contextifiedSandbox[, options])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vm-runInNewContext-code-sanbox-options"><span class="nav-text">vm.runInNewContext(code[, sanbox[, options]])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vm-runInThisContext-code-options"><span class="nav-text">vm.runInThisContext(code[, options])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例：在VM中运行HTTP-Server"><span class="nav-text">示例：在VM中运行HTTP Server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上下文隔离化一个对象意味着什么？"><span class="nav-text">上下文隔离化一个对象意味着什么？</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -81,14 +81,14 @@
 
 
 
-<meta name="description" content="timer定时器。">
+<meta name="description" content="timer定时器。 timer模块暴露了一个全局的API，用于预定在将来某个时间段调用的函数。因为定时器函数是全局变量，所以不需要调用require(‘timers’)来使用API。 Nodejs中的定时器函数实现了与Web浏览器提供的定时器API类似的API，但是使用了不同的内部实现。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NodeJs之timer">
 <meta property="og:url" content="http://gpp-note.top/articles/2020-02-06-node-timer.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="timer定时器。">
+<meta property="og:description" content="timer定时器。 timer模块暴露了一个全局的API，用于预定在将来某个时间段调用的函数。因为定时器函数是全局变量，所以不需要调用require(‘timers’)来使用API。 Nodejs中的定时器函数实现了与Web浏览器提供的定时器API类似的API，但是使用了不同的内部实现。">
 <meta property="article:published_time" content="2020-02-06T14:11:32.000Z">
-<meta property="article:modified_time" content="2020-02-06T14:12:02.658Z">
+<meta property="article:modified_time" content="2020-02-07T07:00:52.609Z">
 <meta property="article:author" content="Guopp">
 <meta property="article:tag" content="Node">
 <meta name="twitter:card" content="summary">
@@ -386,6 +386,39 @@
 
       
         <h2 id="timer"><a href="#timer" class="headerlink" title="timer"></a>timer</h2><p>定时器。</p>
+<p>timer模块暴露了一个全局的API，用于预定在将来某个时间段调用的函数。<br>因为定时器函数是全局变量，所以不需要调用require(‘timers’)来使用API。</p>
+<p>Nodejs中的定时器函数实现了与Web浏览器提供的定时器API类似的API，但是使用了不同的内部实现。</p>
+<a id="more"></a>
+
+<h4 id="Immediate类"><a href="#Immediate类" class="headerlink" title="Immediate类"></a>Immediate类</h4><p>此对象在内部创建，并从setImmediate()返回。可以传给clearImmediate()以取消计划的操作。</p>
+<p>默认，当预定immediate时，只要immediate激活，Nodejs事件循环将继续运行。<br>setImmediate()返回的Immediate对象导出immediate.ref()和immediate.unref()函数，这些函数可用于控制此默认行为。</p>
+<h5 id="immediate-hasRef"><a href="#immediate-hasRef" class="headerlink" title="immediate.hasRef()"></a>immediate.hasRef()</h5><p>如果未true，则Immediate对象将会使Nodejs事件循环保持活动状态。</p>
+<h5 id="immediate-ref"><a href="#immediate-ref" class="headerlink" title="immediate.ref()"></a>immediate.ref()</h5><p>调用时，只要immediate处于活动状态，就会请求Nodejs事件循环不会退出。<br>多次调用immediate.ref()将无效。</p>
+<p>默认，所有Immediate对象都是ref的，通常不需要调用Immediate.ref()，除非之前调用了Immediate.unref()</p>
+<h5 id="immediate-unref"><a href="#immediate-unref" class="headerlink" title="immediate.unref()"></a>immediate.unref()</h5><p>调用时，活动的Immediate对象不需要Nodejs事件循环保持活动状态。如果没有其他活动保持事件循环运行，<br>则进程可以在调用Immediate对象的回调之前推出。多次调用Immediate.unref()将无效。</p>
+<h4 id="Timeout类"><a href="#Timeout类" class="headerlink" title="Timeout类"></a>Timeout类</h4><p>此对象在内部创建，并从setTimeout()和setInterval()返回。<br>它可以传给clearTimeout()或clearInterval()以取消计划的操作。</p>
+<p>默认情况，当使用setTimeout()或setInterval()预定定时器时，只要定时器处于活动状态，<br>Nodejs事件循环将继续运行。这些函数返回的每个Timeout对象都会导出timeout.ref()和timeout.unref()函数，<br>这些函数可用于控制此默认行为。</p>
+<h5 id="timeout-hasRef"><a href="#timeout-hasRef" class="headerlink" title="timeout.hasRef()"></a>timeout.hasRef()</h5><p>如果为true，则timeout对象将会使Nodejs事件循环保持活动状态。</p>
+<h5 id="timeout-ref"><a href="#timeout-ref" class="headerlink" title="timeout.ref()"></a>timeout.ref()</h5><p>调用时，只要timeout处于活动状态，就会请求Nodejs事件循环不会退出。<br>多次调用timeout.ref()将无效。</p>
+<p>默认，所有Timeout对象都是ref的，通常不需要调用timeout.ref()，除非之前调用了timeout.unref()</p>
+<h5 id="timeout-refresh"><a href="#timeout-refresh" class="headerlink" title="timeout.refresh()"></a>timeout.refresh()</h5><p>将定时器的开始时间设置为当前时间，并重新安排定时器以在之前指定的持续时间内调用其回调，<br>并将其调整为当前时间，这对于在不分配新JavaScript对象的情况下刷新定时器非常有用。</p>
+<h5 id="timeout-unref"><a href="#timeout-unref" class="headerlink" title="timeout.unref()"></a>timeout.unref()</h5><p>调用时，活动的Timeout对象不需要Nodejs事件循环保持活动状态。<br>如果没有其他活动保持事件循环运行，则进程可以在调用Timeout对象的回调之前退出。<br>多次调用timeout.unref()将无效。</p>
+<p>调用timeout.unref()会创建一个内部定时器，它将唤醒Nodejs事件循环。<br>创建太多这些定时器可能会对Nodejs应用程序的性能产生负面影响。</p>
+<h4 id="预定定时器"><a href="#预定定时器" class="headerlink" title="预定定时器"></a>预定定时器</h4><h5 id="setImmediate-callback-…args"><a href="#setImmediate-callback-…args" class="headerlink" title="setImmediate(callback[,…args])"></a>setImmediate(callback[,…args])</h5><p>预定在I/O事件的回调之后立即执行的callback。</p>
+<p>当多次调用setImmediate()时，callback函数将按照创建它们的顺序排队等待执行。<br>每次事件循环迭代都会处理整个回调队列。<br>如果立即定时器是从正在执行的回调排入队列，则直到下一次事件循环迭代才会触发。</p>
+<p>如果callback不是函数，则抛出TypeError</p>
+<h5 id="setInterval-callback-delay-…args"><a href="#setInterval-callback-delay-…args" class="headerlink" title="setInterval(callback, delay[, …args])"></a>setInterval(callback, delay[, …args])</h5><p>预定每隔delay毫秒重复执行callback。</p>
+<p>当delay大于2147483647或小于1时，delay将设置为1。<br>非整数的延迟会被截断为整数。</p>
+<p>如果callback不是函数，则抛出TypeError。</p>
+<h5 id="setTimeout-callback-delay-…args"><a href="#setTimeout-callback-delay-…args" class="headerlink" title="setTimeout(callback, delay[, …args])"></a>setTimeout(callback, delay[, …args])</h5><p>预定在delay毫秒之后执行一次性的callback。</p>
+<p>可能不会精确的在delay毫秒时调用callback。<br>Nodejs不保证回调被触发的确切时间，也不保证他们的顺序。<br>回调会在尽可能接近指定的时间调用。</p>
+<p>当delay大于2147483647或小于1时，delay将设置为1。<br>非整数的延迟会被截断为整数。</p>
+<p>如果callback不是函数，则抛出TypeError。</p>
+<h4 id="取消定时器"><a href="#取消定时器" class="headerlink" title="取消定时器"></a>取消定时器</h4><p>setImmediate()/setInterval()/setTimeout()方法各自返回表示预定的定时器的对象。<br>它们可用于取消定时器并防止其触发。</p>
+<p>无法取消使用setImmediate()/setTimeout()的Promise化的变体创建的定时器。</p>
+<h5 id="clearImmediate-immediate"><a href="#clearImmediate-immediate" class="headerlink" title="clearImmediate(immediate)"></a>clearImmediate(immediate)</h5><p>取消由setImmediate()创建的Immediate对象。</p>
+<h5 id="clearInterval-timeout"><a href="#clearInterval-timeout" class="headerlink" title="clearInterval(timeout)"></a>clearInterval(timeout)</h5><p>取消由setInterval()创建的Timeout对象。</p>
+<h5 id="clearTimeout-timeout"><a href="#clearTimeout-timeout" class="headerlink" title="clearTimeout(timeout)"></a>clearTimeout(timeout)</h5><p>取消由setTimeout()创建的Timeout对象。</p>
 
       
     </div>
@@ -474,6 +507,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/articles/2020-02-07-node-tls.html" rel="prev" title="node-tls">
+                node-tls <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -556,7 +593,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -634,7 +671,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#timer"><span class="nav-text">timer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#timer"><span class="nav-text">timer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Immediate类"><span class="nav-text">Immediate类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#immediate-hasRef"><span class="nav-text">immediate.hasRef()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#immediate-ref"><span class="nav-text">immediate.ref()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#immediate-unref"><span class="nav-text">immediate.unref()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Timeout类"><span class="nav-text">Timeout类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#timeout-hasRef"><span class="nav-text">timeout.hasRef()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#timeout-ref"><span class="nav-text">timeout.ref()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#timeout-refresh"><span class="nav-text">timeout.refresh()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#timeout-unref"><span class="nav-text">timeout.unref()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预定定时器"><span class="nav-text">预定定时器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#setImmediate-callback-…args"><span class="nav-text">setImmediate(callback[,…args])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#setInterval-callback-delay-…args"><span class="nav-text">setInterval(callback, delay[, …args])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#setTimeout-callback-delay-…args"><span class="nav-text">setTimeout(callback, delay[, …args])</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#取消定时器"><span class="nav-text">取消定时器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#clearImmediate-immediate"><span class="nav-text">clearImmediate(immediate)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#clearInterval-timeout"><span class="nav-text">clearInterval(timeout)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#clearTimeout-timeout"><span class="nav-text">clearTimeout(timeout)</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -652,7 +689,7 @@
           <h3 class="widget-title">标签</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">38</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>
