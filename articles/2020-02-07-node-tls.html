@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+(function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
 
@@ -68,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Node," />
 
 
 
@@ -81,15 +91,16 @@
 
 
 
-<meta name="description" content="关于学习 关于成长">
+<meta name="description" content="tls安全传输层。tls模块是对安全传输层(TLS)及安全套接层(SSL)协议的实现，建立在OpenSSL的基础上。 1const tls &#x3D; require(&#39;tls&#39;)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node-tls">
+<meta property="og:title" content="NodeJs之tls">
 <meta property="og:url" content="http://gpp-note.top/articles/2020-02-07-node-tls.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="关于学习 关于成长">
+<meta property="og:description" content="tls安全传输层。tls模块是对安全传输层(TLS)及安全套接层(SSL)协议的实现，建立在OpenSSL的基础上。 1const tls &#x3D; require(&#39;tls&#39;)">
 <meta property="article:published_time" content="2020-02-07T07:01:19.000Z">
-<meta property="article:modified_time" content="2020-02-07T07:01:19.496Z">
+<meta property="article:modified_time" content="2020-02-08T08:14:59.018Z">
 <meta property="article:author" content="Guopp">
+<meta property="article:tag" content="Node">
 <meta name="twitter:card" content="summary">
 
 
@@ -126,7 +137,7 @@
 
 
 
-  <title>node-tls | Welcome to my-blog</title>
+  <title>NodeJs之tls | Welcome to my-blog</title>
   
 
 
@@ -302,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">node-tls</h1>
+          <h1 class="post-title" itemprop="name headline">NodeJs之tls</h1>
         
 
         <div class="post-meta">
@@ -324,6 +335,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -362,7 +395,58 @@
       
 
       
-        
+        <h2 id="tls"><a href="#tls" class="headerlink" title="tls"></a>tls</h2><p>安全传输层。<br>tls模块是对安全传输层(TLS)及安全套接层(SSL)协议的实现，建立在OpenSSL的基础上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const tls &#x3D; require(&#39;tls&#39;)</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h4 id="TLS-SSL概念"><a href="#TLS-SSL概念" class="headerlink" title="TLS/SSL概念"></a>TLS/SSL概念</h4><p>TLS/SSL是公共/私人的密钥基础设施(PKI)。<br>大部分情况下，每个服务器和客户端都应该有一个私钥。</p>
+<p>私钥有多种生成方式。<br>通过TLS/SSL，所有的服务器必须要一个证书。证书是相似于私钥的公钥，它由CA或者私钥签名，特别地，私钥拥有者所签名的被称为自签名。获取证书的第一步是生成一个证书申请文件(CSR)。</p>
+<p>用OpenSSL能生成一个私钥的CSR文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -sha256 -key ryans-key.pem -out ryans-csr.pem</span><br></pre></td></tr></table></figure>
+
+<p>CSR文件被生成以后，它既能被CA签名也能被用户自签名。用OpenSSL生成一个自签名证书的命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -in ryans-csr.pem -signkey ryans-key.pem -out ryans-cert.pem</span><br></pre></td></tr></table></figure>
+<p>证书被生成以后，它又能用来生成一个.pfx或.p12文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -export -in ryans-cert.pem -inkey ryans-key.pem \</span><br><span class="line">      -certfile ca-cert.pem -out ryans.pfx</span><br></pre></td></tr></table></figure>
+
+<p>命令行参数：</p>
+<ul>
+<li>in：被签名的证书</li>
+<li>inkey：有关的私钥</li>
+<li>certifile：签入文件的证书串。</li>
+</ul>
+<h4 id="完全前向保密"><a href="#完全前向保密" class="headerlink" title="完全前向保密"></a>完全前向保密</h4><p>术语“前向保密”或“完全前向保密”是一中密钥协商方法。<br>通过这种方法，客户端与服务端在当前会话中，协商一个临时生成的密钥进行对称加密的密钥交换，<br>这意味着即使服务器端私钥发生泄漏，窃密者与攻击者也无法解密通信内容，除非他们能得到当前会话的临时密钥。</p>
+<p>TLS/SSL握手时，使用完全前向即每次会话都会随机生成一个临时密钥对用于对称加密密钥协商(区别于每次会话都是用相同的密钥)。<br>实现这个技术的密钥交换算法称为“ephemeral”。</p>
+<p>当前最常用的两种实现完全前向保密的算法：</p>
+<ul>
+<li>DHE - 使用临时密钥的Diffie Hellman密钥交换算法</li>
+<li>ECDHE - 使用临时密钥的椭圆曲线Diffie Hellman密钥交换算法<br>使用临时密钥可能带来性能损失，因为密钥生成的过程十分消耗CPU计算性能。</li>
+</ul>
+<p>如需使用完全前向加密，例如使用tls模块的DHC算法，使用之前需要生成一个Diffie-Hellman参数并将其用dhparam声明在tls.createSecureContext()中。<br>如下展示如何用OpenSSL命令生成参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl dhparam -outform PEM -out dhparam.pem 2048</span><br></pre></td></tr></table></figure>
+
+<p>如需使用ECDHE算法，则不需要生成Diffie-Hellman参数，因为可以使用默认的ECDHE曲线。</p>
+<p>完全向前保密在TLSv1.2之前是可选的，但不是TLSv1.3的可选项，因为所有的TLSv1.3密码套件都使用ECDHE。</p>
+<h4 id="ALPN和SNI"><a href="#ALPN和SNI" class="headerlink" title="ALPN和SNI"></a>ALPN和SNI</h4><h4 id="客户端发起的重协商攻击缓解"><a href="#客户端发起的重协商攻击缓解" class="headerlink" title="客户端发起的重协商攻击缓解"></a>客户端发起的重协商攻击缓解</h4><p>TLS协议允许客户端在TLS会话中进行协商，用于安全因素的考量。<br>不幸的是，会话重协商需要消耗大量的服务器端资源，这将导致服务器存在潜在的被DDoS攻击的可能。</p>
+<p>为了减轻这个风险，限制每十分钟只能使用三次重协商，超过这个限制将会在tls.TLSSocket实例中产生一个error事件。这个限制是可配置的：</p>
+<ul>
+<li>tls.CLIENT_RENEG_LIMIT<number>指定重协商请求的次数限制，默认3</li>
+<li>tls.CLIENT_RENEG_WINDOW<number>指定限制次数的生效时间段，默认600s<br>不应在末未充分理解其含义与影响的情况下修改上述参数。</li>
+</ul>
+<p>TLSv1.3不支持重协商。</p>
+<h4 id="会话恢复"><a href="#会话恢复" class="headerlink" title="会话恢复"></a>会话恢复</h4><h4 id="修改默认的TLS加密组件"><a href="#修改默认的TLS加密组件" class="headerlink" title="修改默认的TLS加密组件"></a>修改默认的TLS加密组件</h4><p>NodeJs构造时包含了默认的TLS开启和关闭的加密组件。</p>
+<h4 id="tls-Server类"><a href="#tls-Server类" class="headerlink" title="tls.Server类"></a>tls.Server类</h4><p>接受使用TLS或SSL的加密连接。</p>
+<h5 id="keylog事件"><a href="#keylog事件" class="headerlink" title="keylog事件"></a>keylog事件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const logFile &#x3D; fs.createWriteStream(&#39;&#x2F;tmp&#x2F;ssl-keys.log&#39;, &#123; flags: &#39;a&#39; &#125;);</span><br><span class="line">&#x2F;&#x2F; ...</span><br><span class="line">server.on(&#39;keylog&#39;, (line, tlsSocket) &#x3D;&gt; &#123;</span><br><span class="line">  if (tlsSocket.remoteAddress !&#x3D;&#x3D; &#39;...&#39;)</span><br><span class="line">    return; &#x2F;&#x2F; Only log keys for a particular IP</span><br><span class="line">  logFile.write(line);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="newSession事件"><a href="#newSession事件" class="headerlink" title="newSession事件"></a>newSession事件</h5><p>添加监听器后，监听器只在连接建立后生效。</p>
+<h5 id="OCSPRequest事件"><a href="#OCSPRequest事件" class="headerlink" title="OCSPRequest事件"></a>OCSPRequest事件</h5><h5 id="resumeSession事件"><a href="#resumeSession事件" class="headerlink" title="resumeSession事件"></a>resumeSession事件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const tlsSessionStore &#x3D; &#123;&#125;;</span><br><span class="line">server.on(&#39;newSession&#39;, (id, data, cb) &#x3D;&gt; &#123;</span><br><span class="line">  tlsSessionStore[id.toString(&#39;hex&#39;)] &#x3D; data;</span><br><span class="line">  cb();</span><br><span class="line">&#125;);</span><br><span class="line">server.on(&#39;resumeSession&#39;, (id, cb) &#x3D;&gt; &#123;</span><br><span class="line">  cb(null, tlsSessionStore[id.toString(&#39;hex&#39;)] || null);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="secureConnection事件"><a href="#secureConnection事件" class="headerlink" title="secureConnection事件"></a>secureConnection事件</h5><h5 id="tlsClientError事件"><a href="#tlsClientError事件" class="headerlink" title="tlsClientError事件"></a>tlsClientError事件</h5><h5 id="server-addContext-hostname-context"><a href="#server-addContext-hostname-context" class="headerlink" title="server.addContext(hostname, context)"></a>server.addContext(hostname, context)</h5><h5 id="server-address"><a href="#server-address" class="headerlink" title="server.address()"></a>server.address()</h5><h5 id="server-close-callback"><a href="#server-close-callback" class="headerlink" title="server.close([callback])"></a>server.close([callback])</h5><h4 id="tls-TLSSocket类"><a href="#tls-TLSSocket类" class="headerlink" title="tls.TLSSocket类"></a>tls.TLSSocket类</h4><h5 id="new-tls-TLSSocket-socket-options"><a href="#new-tls-TLSSocket-socket-options" class="headerlink" title="new tls.TLSSocket(socket[, options])"></a>new tls.TLSSocket(socket[, options])</h5><h5 id="keylog事件-1"><a href="#keylog事件-1" class="headerlink" title="keylog事件"></a>keylog事件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const logFile &#x3D; fs.createWriteStream(&#39;&#x2F;tmp&#x2F;ssl-keys.log&#39;, &#123; flags: &#39;a&#39; &#125;);</span><br><span class="line">&#x2F;&#x2F; ...</span><br><span class="line">tlsSocket.on(&#39;keylog&#39;, (line) &#x3D;&gt; logFile.write(line));</span><br></pre></td></tr></table></figure>
+
+<h5 id="OCSPResponse事件"><a href="#OCSPResponse事件" class="headerlink" title="OCSPResponse事件"></a>OCSPResponse事件</h5><h5 id="secureConnect事件"><a href="#secureConnect事件" class="headerlink" title="secureConnect事件"></a>secureConnect事件</h5><h5 id="session事件"><a href="#session事件" class="headerlink" title="session事件"></a>session事件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tlsSocket.once(&#39;session&#39;, (session) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; The session can be used immediately or later.</span><br><span class="line">  tls.connect(&#123;</span><br><span class="line">    session: session,</span><br><span class="line">    &#x2F;&#x2F; Other connect options...</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="tlsSocket-address"><a href="#tlsSocket-address" class="headerlink" title="tlsSocket.address()"></a>tlsSocket.address()</h5><h5 id="tlsSocket-authorizationError"><a href="#tlsSocket-authorizationError" class="headerlink" title="tlsSocket.authorizationError"></a>tlsSocket.authorizationError</h5><h5 id="tlsSocket-authorized"><a href="#tlsSocket-authorized" class="headerlink" title="tlsSocket.authorized"></a>tlsSocket.authorized</h5><h5 id="tlsSocket-disableRenegotiation"><a href="#tlsSocket-disableRenegotiation" class="headerlink" title="tlsSocket.disableRenegotiation()"></a>tlsSocket.disableRenegotiation()</h5><h5 id="tlsSocket-enableTrace"><a href="#tlsSocket-enableTrace" class="headerlink" title="tlsSocket.enableTrace()"></a>tlsSocket.enableTrace()</h5><h5 id="tlsSocket-encrypted"><a href="#tlsSocket-encrypted" class="headerlink" title="tlsSocket.encrypted"></a>tlsSocket.encrypted</h5><h5 id="tlsSocket-getCertificate"><a href="#tlsSocket-getCertificate" class="headerlink" title="tlsSocket.getCertificate()"></a>tlsSocket.getCertificate()</h5><h5 id="tlsSocket-getCipher"><a href="#tlsSocket-getCipher" class="headerlink" title="tlsSocket.getCipher()"></a>tlsSocket.getCipher()</h5><h5 id="tlsSocket-getephemeralKeyInfo"><a href="#tlsSocket-getephemeralKeyInfo" class="headerlink" title="tlsSocket.getephemeralKeyInfo()"></a>tlsSocket.getephemeralKeyInfo()</h5><h5 id="tlsSocket-getFinished"><a href="#tlsSocket-getFinished" class="headerlink" title="tlsSocket.getFinished()"></a>tlsSocket.getFinished()</h5><h5 id="tlsSocket-getPeerCertificate-detailed"><a href="#tlsSocket-getPeerCertificate-detailed" class="headerlink" title="tlsSocket.getPeerCertificate([detailed])"></a>tlsSocket.getPeerCertificate([detailed])</h5><h5 id="tlsSocket-getPeerFinished"><a href="#tlsSocket-getPeerFinished" class="headerlink" title="tlsSocket.getPeerFinished()"></a>tlsSocket.getPeerFinished()</h5><h5 id="tlsSocket-getProtocol"><a href="#tlsSocket-getProtocol" class="headerlink" title="tlsSocket.getProtocol()"></a>tlsSocket.getProtocol()</h5><h5 id="tlsSocket-getSession"><a href="#tlsSocket-getSession" class="headerlink" title="tlsSocket.getSession()"></a>tlsSocket.getSession()</h5><h5 id="tlsSocket-getSharedSigalgs"><a href="#tlsSocket-getSharedSigalgs" class="headerlink" title="tlsSocket.getSharedSigalgs()"></a>tlsSocket.getSharedSigalgs()</h5><h5 id="tlsSocket-getTLSTicket"><a href="#tlsSocket-getTLSTicket" class="headerlink" title="tlsSocket.getTLSTicket()"></a>tlsSocket.getTLSTicket()</h5><h5 id="tlsSocket-isSessionReused"><a href="#tlsSocket-isSessionReused" class="headerlink" title="tlsSocket.isSessionReused()"></a>tlsSocket.isSessionReused()</h5><h5 id="tlsSocket-localAddress"><a href="#tlsSocket-localAddress" class="headerlink" title="tlsSocket.localAddress"></a>tlsSocket.localAddress</h5><h5 id="tlsSocket-localPort"><a href="#tlsSocket-localPort" class="headerlink" title="tlsSocket.localPort"></a>tlsSocket.localPort</h5><h5 id="tlsSocket-remoteAddress"><a href="#tlsSocket-remoteAddress" class="headerlink" title="tlsSocket.remoteAddress"></a>tlsSocket.remoteAddress</h5><h5 id="tlsSocket-remotefamily"><a href="#tlsSocket-remotefamily" class="headerlink" title="tlsSocket.remotefamily"></a>tlsSocket.remotefamily</h5><h5 id="tlsSocket-remotePort"><a href="#tlsSocket-remotePort" class="headerlink" title="tlsSocket.remotePort"></a>tlsSocket.remotePort</h5><h5 id="tlsSocket-renegotiate-options-callback"><a href="#tlsSocket-renegotiate-options-callback" class="headerlink" title="tlsSocket.renegotiate(options, callback)"></a>tlsSocket.renegotiate(options, callback)</h5><h5 id="tlsSocket-setMaxSendFragment-size"><a href="#tlsSocket-setMaxSendFragment-size" class="headerlink" title="tlsSocket.setMaxSendFragment(size)"></a>tlsSocket.setMaxSendFragment(size)</h5><h5 id="tls-checkServerdentity-hostname-cert"><a href="#tls-checkServerdentity-hostname-cert" class="headerlink" title="tls.checkServerdentity(hostname, cert)"></a>tls.checkServerdentity(hostname, cert)</h5><h5 id="tls-connect-options-callback"><a href="#tls-connect-options-callback" class="headerlink" title="tls.connect(options[, callback])"></a>tls.connect(options[, callback])</h5><h5 id="tls-connect-path-options-callback"><a href="#tls-connect-path-options-callback" class="headerlink" title="tls.connect(path[, options][, callback])"></a>tls.connect(path[, options][, callback])</h5><h5 id="tls-connect-port-host-options-callback"><a href="#tls-connect-port-host-options-callback" class="headerlink" title="tls.connect(port[, host][, options][, callback])"></a>tls.connect(port[, host][, options][, callback])</h5><h5 id="tls-createSecureContext-options"><a href="#tls-createSecureContext-options" class="headerlink" title="tls.createSecureContext([options])"></a>tls.createSecureContext([options])</h5><h5 id="tls-createServer-options-secureConnectionListener"><a href="#tls-createServer-options-secureConnectionListener" class="headerlink" title="tls.createServer([options][, secureConnectionListener])"></a>tls.createServer([options][, secureConnectionListener])</h5><h5 id="tls-getCophers"><a href="#tls-getCophers" class="headerlink" title="tls.getCophers()"></a>tls.getCophers()</h5><h5 id="tls-rootCertificates"><a href="#tls-rootCertificates" class="headerlink" title="tls.rootCertificates"></a>tls.rootCertificates</h5><h5 id="tls-DEFAULT-ECDH-CURVE"><a href="#tls-DEFAULT-ECDH-CURVE" class="headerlink" title="tls.DEFAULT_ECDH_CURVE"></a>tls.DEFAULT_ECDH_CURVE</h5><h5 id="tls-DEFAULT-MAX-VERSION"><a href="#tls-DEFAULT-MAX-VERSION" class="headerlink" title="tls.DEFAULT_MAX_VERSION"></a>tls.DEFAULT_MAX_VERSION</h5><h5 id="tls-DEFAULT-MIN-VERSION"><a href="#tls-DEFAULT-MIN-VERSION" class="headerlink" title="tls.DEFAULT_MIN_VERSION"></a>tls.DEFAULT_MIN_VERSION</h5>
       
     </div>
     
@@ -382,6 +466,36 @@
     <div>
         
             
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>NodeJs之tls</a></p>
+  <p><span>文章作者:</span>Guopp</a></p>
+  <p><span>原始链接:</span><a href="/articles/2020-02-07-node-tls.html" title="NodeJs之tls">http://gpp-note.top/articles/2020-02-07-node-tls.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/articles/2020-02-07-node-tls.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
 
 
         
@@ -394,6 +508,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Node/" rel="tag"># Node</a>
+          
+        </div>
       
 
       
@@ -448,7 +568,7 @@
   
     <div class="comments" id="comments">
       <div class="ds-thread" data-thread-key="articles/2020-02-07-node-tls.html"
-           data-title="node-tls" data-url="http://gpp-note.top/articles/2020-02-07-node-tls.html">
+           data-title="NodeJs之tls" data-url="http://gpp-note.top/articles/2020-02-07-node-tls.html">
       </div>
     </div>
 
@@ -475,8 +595,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -491,7 +620,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -502,7 +631,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -513,7 +642,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -560,6 +689,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tls"><span class="nav-text">tls</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TLS-SSL概念"><span class="nav-text">TLS&#x2F;SSL概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完全前向保密"><span class="nav-text">完全前向保密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ALPN和SNI"><span class="nav-text">ALPN和SNI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#客户端发起的重协商攻击缓解"><span class="nav-text">客户端发起的重协商攻击缓解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#会话恢复"><span class="nav-text">会话恢复</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改默认的TLS加密组件"><span class="nav-text">修改默认的TLS加密组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tls-Server类"><span class="nav-text">tls.Server类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#keylog事件"><span class="nav-text">keylog事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#newSession事件"><span class="nav-text">newSession事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#OCSPRequest事件"><span class="nav-text">OCSPRequest事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#resumeSession事件"><span class="nav-text">resumeSession事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#secureConnection事件"><span class="nav-text">secureConnection事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsClientError事件"><span class="nav-text">tlsClientError事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-addContext-hostname-context"><span class="nav-text">server.addContext(hostname, context)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-address"><span class="nav-text">server.address()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#server-close-callback"><span class="nav-text">server.close([callback])</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tls-TLSSocket类"><span class="nav-text">tls.TLSSocket类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#new-tls-TLSSocket-socket-options"><span class="nav-text">new tls.TLSSocket(socket[, options])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#keylog事件-1"><span class="nav-text">keylog事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#OCSPResponse事件"><span class="nav-text">OCSPResponse事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#secureConnect事件"><span class="nav-text">secureConnect事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#session事件"><span class="nav-text">session事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-address"><span class="nav-text">tlsSocket.address()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-authorizationError"><span class="nav-text">tlsSocket.authorizationError</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-authorized"><span class="nav-text">tlsSocket.authorized</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-disableRenegotiation"><span class="nav-text">tlsSocket.disableRenegotiation()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-enableTrace"><span class="nav-text">tlsSocket.enableTrace()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-encrypted"><span class="nav-text">tlsSocket.encrypted</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-getCertificate"><span class="nav-text">tlsSocket.getCertificate()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-getCipher"><span class="nav-text">tlsSocket.getCipher()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-getephemeralKeyInfo"><span class="nav-text">tlsSocket.getephemeralKeyInfo()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-getFinished"><span class="nav-text">tlsSocket.getFinished()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-getPeerCertificate-detailed"><span class="nav-text">tlsSocket.getPeerCertificate([detailed])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-getPeerFinished"><span class="nav-text">tlsSocket.getPeerFinished()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-getProtocol"><span class="nav-text">tlsSocket.getProtocol()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-getSession"><span class="nav-text">tlsSocket.getSession()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-getSharedSigalgs"><span class="nav-text">tlsSocket.getSharedSigalgs()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-getTLSTicket"><span class="nav-text">tlsSocket.getTLSTicket()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-isSessionReused"><span class="nav-text">tlsSocket.isSessionReused()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-localAddress"><span class="nav-text">tlsSocket.localAddress</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-localPort"><span class="nav-text">tlsSocket.localPort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-remoteAddress"><span class="nav-text">tlsSocket.remoteAddress</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-remotefamily"><span class="nav-text">tlsSocket.remotefamily</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-remotePort"><span class="nav-text">tlsSocket.remotePort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-renegotiate-options-callback"><span class="nav-text">tlsSocket.renegotiate(options, callback)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tlsSocket-setMaxSendFragment-size"><span class="nav-text">tlsSocket.setMaxSendFragment(size)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tls-checkServerdentity-hostname-cert"><span class="nav-text">tls.checkServerdentity(hostname, cert)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tls-connect-options-callback"><span class="nav-text">tls.connect(options[, callback])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tls-connect-path-options-callback"><span class="nav-text">tls.connect(path[, options][, callback])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tls-connect-port-host-options-callback"><span class="nav-text">tls.connect(port[, host][, options][, callback])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tls-createSecureContext-options"><span class="nav-text">tls.createSecureContext([options])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tls-createServer-options-secureConnectionListener"><span class="nav-text">tls.createServer([options][, secureConnectionListener])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tls-getCophers"><span class="nav-text">tls.getCophers()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tls-rootCertificates"><span class="nav-text">tls.rootCertificates</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tls-DEFAULT-ECDH-CURVE"><span class="nav-text">tls.DEFAULT_ECDH_CURVE</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tls-DEFAULT-MAX-VERSION"><span class="nav-text">tls.DEFAULT_MAX_VERSION</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tls-DEFAULT-MIN-VERSION"><span class="nav-text">tls.DEFAULT_MIN_VERSION</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -571,7 +716,7 @@
           <h3 class="widget-title">标签</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">38</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>

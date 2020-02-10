@@ -10,7 +10,15 @@
 
 <body style="background-image: url('body.jpg');background-repeat: no-repeat;background-size: cover;">
     <div id="app">
-        <el-row>
+        <el-dialog
+            title="提示"
+            :visible.sync="dialogVisible"
+            width="30%"
+            center>
+           <el-input v-model="passwords" placeholder="请输入密码" @keyup.enter.native="closeDialog"></el-input> 
+        </el-dialog>
+
+        <el-row v-loading="loading">
             <el-container>
                 <el-aside width="300px">
                     <el-divider content-position="center">关于我</el-divider>
@@ -154,7 +162,10 @@
             // 配置选项(option)
             el: '#app', // element: 指定用vue来管理页面中的哪个标签区域
             data: {
-                msg: '',
+                dialogVisible: true,
+                passwords: '',
+                loading: true,
+                propas: 'U2FsdGVkX1+naswmqEdxSUHuZq5i8DtQrrNvv3Iv32A=',
                 myselfs: [
                     '郭平平',
                     '求职意向：node开发工程师',
@@ -239,11 +250,17 @@
                     '生活上：乐观、有进取心、热爱旅游、喜欢尝试和接触新事物；',
                     '工作上：注重协作、有进取心，自学能力强，能快速接受使用新知识，有较好的团队协作和沟通能力，有强烈的责任心；'
                 ]
+            },
+            methods: {
+                closeDialog(parms) {
+                    if(this.passwords==='1029') {
+                        this.dialogVisible = false
+                        this.loading = false
+                    }
+                }
             }
         })
     </script>
-
-
 </body>
 
 </html>
