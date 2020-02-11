@@ -295,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-07-node-worker-threads.html">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-11-proto3.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guopp">
@@ -314,7 +314,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/articles/2020-02-07-node-worker-threads.html" itemprop="url">NodeJs之worker_threads</a></h1>
+                <a class="post-title-link" href="/articles/2020-02-11-proto3.html" itemprop="url">Proto3</a></h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-07T18:18:58+08:00">
-                2020-02-07 18:18:58
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-11T17:16:52+08:00">
+                2020-02-11 17:16:52
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
+                  <a href="/categories/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
                   </a>
                 </span>
 
@@ -367,8 +367,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/2020-02-07-node-worker-threads.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-07-node-worker-threads.html" itemprop="commentCount"></span>
+                <a href="/articles/2020-02-11-proto3.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-11-proto3.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -397,11 +397,12 @@
 
       
         
-          <h2 id="worker-threads"><a href="#worker-threads" class="headerlink" title="worker_threads"></a>worker_threads</h2><p>工作线程。<br>worker_threads模块允许使用并行的执行JavaScript的线程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const worker &#x3D; require(&#39;worker_threads&#39;)</span><br></pre></td></tr></table></figure>
+          <h4 id="Protobuf（proto3）"><a href="#Protobuf（proto3）" class="headerlink" title="Protobuf（proto3）"></a>Protobuf（proto3）</h4><p>protocol buffer是google的语言中立的、平台中立的，可扩展机制的，用于序列化结构化数据。<br>对比XML，更小、刚快、更简单。<br>简单的设计协议，通过自带工具转换成对应的语言代码，<br>协议是二进制协议，设计时只需要描述各个类的关系，简单明了。</p>
+<p>定义消息类型<br>syntax = “proto3”; // 指定使用proto3的语法，否则默认是proto2，该定义必须是文件的第一个非空的非注释行</p>
+<p>// HelloWorldRequest消息定义了三个字段(名称/值对)，对应着消息内容<br>// 每个字段都由字段限制、字段类型、字段名和编号四部分组成<br>message HelloWorldRequest {<br>    string name = 1;<br>    int32 age = 2;<br>}</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/articles/2020-02-07-node-worker-threads.html#more" rel="contents">
+            <a class="btn" href="/articles/2020-02-11-proto3.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -462,7 +463,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-07-node-vm.html">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-11-dataBase-Mongodb.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guopp">
@@ -481,7 +482,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/articles/2020-02-07-node-vm.html" itemprop="url">NodeJs之vm</a></h1>
+                <a class="post-title-link" href="/articles/2020-02-11-dataBase-Mongodb.html" itemprop="url">Mongodb</a></h1>
         
 
         <div class="post-meta">
@@ -493,8 +494,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-07T18:18:21+08:00">
-                2020-02-07 18:18:21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-11T17:11:24+08:00">
+                2020-02-11 17:11:24
               </time>
             
 
@@ -516,8 +517,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
+                  <a href="/categories/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
                   </a>
                 </span>
 
@@ -534,8 +535,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/2020-02-07-node-vm.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-07-node-vm.html" itemprop="commentCount"></span>
+                <a href="/articles/2020-02-11-dataBase-Mongodb.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-11-dataBase-Mongodb.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -564,14 +565,10 @@
 
       
         
-          <h2 id="vm"><a href="#vm" class="headerlink" title="vm"></a>vm</h2><p>虚拟机。</p>
-<p>vm模块提供了在V8虚拟机上下文中编译和运行代码的一系列API。<br>vm模块不是一个安全的虚拟机。<br>不要用它来运行不受信任的代码。</p>
-<p>JavaScript代码可以被编译并立即运行，也可以编译、保存，以后再运行。</p>
-<p>一个常见的场景是在沙盒中运行代码。沙盒中的代码使用不同的V8上下文，这以为着它具有与其余代码不同的全局对象。</p>
-<p>可以通过上下文隔离化一个沙箱对象来提供上下文。<br>沙盒代码将沙盒中的任何属性视为全局对象。<br>由沙盒代码引起的任何全局变量的更改都将反应到沙盒对象中。</p>
+          <h4 id="1-创建索引"><a href="#1-创建索引" class="headerlink" title="1. 创建索引"></a>1. 创建索引</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 2. 查询索引</span><br><span class="line">&#96;&#96;&#96;db.user.getIndexes(&#123;&#125;)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/articles/2020-02-07-node-vm.html#more" rel="contents">
+            <a class="btn" href="/articles/2020-02-11-dataBase-Mongodb.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -632,7 +629,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-07-node-V8.html">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-11-dataBase-knex.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guopp">
@@ -651,7 +648,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/articles/2020-02-07-node-V8.html" itemprop="url">NodeJs之V8</a></h1>
+                <a class="post-title-link" href="/articles/2020-02-11-dataBase-knex.html" itemprop="url">Knex</a></h1>
         
 
         <div class="post-meta">
@@ -663,8 +660,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-07T18:17:54+08:00">
-                2020-02-07 18:17:54
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-11T17:08:37+08:00">
+                2020-02-11 17:08:37
               </time>
             
 
@@ -686,8 +683,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
+                  <a href="/categories/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
                   </a>
                 </span>
 
@@ -704,8 +701,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/2020-02-07-node-V8.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-07-node-V8.html" itemprop="commentCount"></span>
+                <a href="/articles/2020-02-11-dataBase-knex.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-11-dataBase-knex.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -734,13 +731,10 @@
 
       
         
-          <h2 id="v8"><a href="#v8" class="headerlink" title="v8"></a>v8</h2><p>V8引擎。</p>
-<p>v8模块暴露了特定于内置到Nodejs二进制文件中的V8版本的API。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const v8 &#x3D; require(&#39;v8&#39;)</span><br></pre></td></tr></table></figure>
-<p>API和实现随时可能发生变化。</p>
+          <h4 id="1-Knexjs"><a href="#1-Knexjs" class="headerlink" title="1. Knexjs"></a>1. Knexjs</h4><p>设计的“包含电池”SQL查询构建器，设计灵活，便于携带，并且使用起来非常有趣。<br>它具有传统的节点样式回调以及用于清洁异步流控制的承诺接口，流接口，全功能查询和模式构建器，事务支持（带保存点），连接池以及不同查询客户和方言之间的标准化响应。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/articles/2020-02-07-node-V8.html#more" rel="contents">
+            <a class="btn" href="/articles/2020-02-11-dataBase-knex.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -801,7 +795,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-07-node-util.html">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-11-gRPC.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guopp">
@@ -820,7 +814,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/articles/2020-02-07-node-util.html" itemprop="url">NodeJs之util</a></h1>
+                <a class="post-title-link" href="/articles/2020-02-11-gRPC.html" itemprop="url">gRPC</a></h1>
         
 
         <div class="post-meta">
@@ -832,8 +826,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-07T18:17:25+08:00">
-                2020-02-07 18:17:25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-11T17:05:04+08:00">
+                2020-02-11 17:05:04
               </time>
             
 
@@ -855,8 +849,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
+                  <a href="/categories/gRPC/" itemprop="url" rel="index">
+                    <span itemprop="name">gRPC</span>
                   </a>
                 </span>
 
@@ -873,8 +867,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/2020-02-07-node-util.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-07-node-util.html" itemprop="commentCount"></span>
+                <a href="/articles/2020-02-11-gRPC.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-11-gRPC.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -903,11 +897,16 @@
 
       
         
-          <h2 id="util"><a href="#util" class="headerlink" title="util"></a>util</h2><p>实用工具。<br>util模块主要用于支持nodejs内部API的需求。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const util &#x3D; require(&#39;util&#39;)</span><br></pre></td></tr></table></figure>
+          <h4 id="什么是gRPC"><a href="#什么是gRPC" class="headerlink" title="什么是gRPC"></a>什么是gRPC</h4><pre><code>PRC（Remote Procedure Call 远程过程调用)框架实际是提供了一套机制，使得应用程序之间可以进行通信。
+google开发，一款语言中立、平台中立、开源的远程过程调用(RPC)系统.
+gRPC里客户端应用可以像本地对象一样直接调用另一台不同机器上服务端应用的方法，使得能够更容易创建分布式应用和服务。
+基于Http2.0且依赖protobuf
+
+定义一个服务，指定其能够被远程调用的方法(参数和返回类型),在服务端实现这个接口，并允许一个gRPC服务器来处理客户端调用，
+在客户端拥有一个存根能够像服务端一样的方法。</code></pre>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/articles/2020-02-07-node-util.html#more" rel="contents">
+            <a class="btn" href="/articles/2020-02-11-gRPC.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -955,1014 +954,22 @@
       
     
       
-        
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-07-node-url.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Guopp">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to my-blog">
-    </span>
-
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/articles/2020-02-07-node-url.html" itemprop="url">NodeJs之url</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-07T18:16:26+08:00">
-                2020-02-07 18:16:26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/articles/2020-02-07-node-url.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-07-node-url.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="url"><a href="#url" class="headerlink" title="url"></a>url</h2><p>url模块用于处理与解析URL</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const url &#x3D; require(&#39;url&#39;)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/articles/2020-02-07-node-url.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-    <div>
-      
-    </div>
-
-    <div>
-        
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-      
-    
-      
-        
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-07-node-tty.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Guopp">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to my-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/articles/2020-02-07-node-tty.html" itemprop="url">NodeJs之tty</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-07T17:45:24+08:00">
-                2020-02-07 17:45:24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/articles/2020-02-07-node-tty.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-07-node-tty.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="tty"><a href="#tty" class="headerlink" title="tty"></a>tty</h2><p>终端。</p>
-<p>tty模块提供tty.ReadStream和tty.WriteStream类。<br>大多数情况下，没有必要或可能直接使用此模块。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const tty &#x3D; require(&#39;tty&#39;)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/articles/2020-02-07-node-tty.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-    <div>
-      
-    </div>
-
-    <div>
-        
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-      
-    
-      
-        
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-07-node-trace-events.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Guopp">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to my-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/articles/2020-02-07-node-trace-events.html" itemprop="url">NodeJs之trace_events</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-07T15:01:46+08:00">
-                2020-02-07 15:01:46
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/articles/2020-02-07-node-trace-events.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-07-node-trace-events.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="trace-events"><a href="#trace-events" class="headerlink" title="trace_events"></a>trace_events</h2><p>跟踪事件。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/articles/2020-02-07-node-trace-events.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-    <div>
-      
-    </div>
-
-    <div>
-        
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-      
-    
-      
-        
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-07-node-tls.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Guopp">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to my-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/articles/2020-02-07-node-tls.html" itemprop="url">NodeJs之tls</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-07T15:01:19+08:00">
-                2020-02-07 15:01:19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/articles/2020-02-07-node-tls.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-07-node-tls.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="tls"><a href="#tls" class="headerlink" title="tls"></a>tls</h2><p>安全传输层。<br>tls模块是对安全传输层(TLS)及安全套接层(SSL)协议的实现，建立在OpenSSL的基础上。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const tls &#x3D; require(&#39;tls&#39;)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/articles/2020-02-07-node-tls.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-    <div>
-      
-    </div>
-
-    <div>
-        
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-      
-    
-      
-        
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-06-node-timer.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Guopp">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to my-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/articles/2020-02-06-node-timer.html" itemprop="url">NodeJs之timer</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-06T22:11:32+08:00">
-                2020-02-06 22:11:32
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/articles/2020-02-06-node-timer.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-06-node-timer.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="timer"><a href="#timer" class="headerlink" title="timer"></a>timer</h2><p>定时器。</p>
-<p>timer模块暴露了一个全局的API，用于预定在将来某个时间段调用的函数。<br>因为定时器函数是全局变量，所以不需要调用require(‘timers’)来使用API。</p>
-<p>Nodejs中的定时器函数实现了与Web浏览器提供的定时器API类似的API，但是使用了不同的内部实现。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/articles/2020-02-06-node-timer.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-    <div>
-      
-    </div>
-
-    <div>
-        
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-      
     
       
-        
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-06-node-string-decoder.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Guopp">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to my-blog">
-    </span>
-
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/articles/2020-02-06-node-string-decoder.html" itemprop="url">NodeJs之string_decoder</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-06T22:04:27+08:00">
-                2020-02-06 22:04:27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/articles/2020-02-06-node-string-decoder.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-06-node-string-decoder.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-      
-
-      
-        
-          <h2 id="string-decoder"><a href="#string-decoder" class="headerlink" title="string_decoder"></a>string_decoder</h2><p>字符串解码器。</p>
-<p>提供了一个API，用于以保留编码的多字节UTF-8和UTF-16字符的方式将Buffer对象解码为字符串。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const &#123; StringDecoder &#125; &#x3D; require(&#39;string_decoder&#39;)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/articles/2020-02-06-node-string-decoder.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
     
-    
-    <div>
       
-    </div>
-
-    <div>
-        
-    </div>
-
-    
-
     
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
       
     
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
   </nav>
 
 
@@ -2008,7 +1015,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2019,7 +1026,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2030,7 +1037,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2088,7 +1095,7 @@
           <h3 class="widget-title">标签</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knex/" rel="tag">Knex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/" rel="tag">Net</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proto3/" rel="tag">Proto3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gRPC/" rel="tag">gRPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>

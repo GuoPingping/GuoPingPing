@@ -1,11 +1,943 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>interview-javaScript</title>
+    <title>linux</title>
+    <url>/articles/2020-02-11-linux.html</url>
+    <content><![CDATA[<h4 id="1-常用操作及概念"><a href="#1-常用操作及概念" class="headerlink" title="1. 常用操作及概念"></a>1. 常用操作及概念</h4><p>Tab：命令和文件名补全；</p>
+<p>Ctrl + C：中断正在运行的程序；</p>
+<p>Ctrl + D：结束键盘输入</p>
+<a id="more"></a>
+
+<p>man<br>man date</p>
+<p>info：将文档分成一个个页面，每个页面可以进行跳转；</p>
+<p>doc：/usr/share/doc 存放着软件的一整套说明文件;</p>
+<p>who：查看有没有其它用户在线；</p>
+<p>sync：为了加快磁盘文件的读写速度，位于内存中的文件数据不会立即<br>同步到磁盘上，因此关机之前需要先进行sync同步操作；</p>
+<ul>
+<li><p>修改权限<br>  r：4，w：2，x:1<br>  chmod  [-R] xyz dirname/filename</p>
+</li>
+<li><p>默认权限<br>  文件默认：666，-rw-rw-rw-<br>  目录默认：777，drwxrwxrwx</p>
+</li>
+<li><p>获取文件内容<br>  cat：取得文件内容<br>  tac：是cat反向操作，从最后一行开始打印<br>  more：一页一页查看文件内容<br>  less：向前翻页<br>  head：head [-n number] filename 取得文件前几行<br>  tail：取得文件最后几行<br>  od：以字符或十六进制的形式显示二进制文件</p>
+</li>
+<li><p>指令与文件搜索<br>  which：指令搜索 which [-a] command<br>  whereis：文件搜索，速度比较快，因为它只搜索几个特定的目录<br>  locate：文件搜索，可以用正则或关键字搜索<br>  find：文件搜索，可以使用文件的属性和权限进行搜索</p>
+</li>
+<li><p>正则表达式<br>  grep<br>  grep -n ‘the’ regular_express.txt</p>
+<p>  last<br>  last -n 5</p>
+<p>  ps：查看某个时间点的进程信息<br>  ps -l：查看自己的进程<br>  ps aux：查看系统所有进程</p>
+<p>  top：实时查看进程信息<br>  top -d 2：两秒钟刷新一次</p>
+<p>  netstat：查看占用端口的进程<br>  netstat -anp | grep port</p>
+</li>
+</ul>
+<h4 id="2-目录配置"><a href="#2-目录配置" class="headerlink" title="2. 目录配置"></a>2. 目录配置</h4><p>/ : root，根目录；<br>/usr（unix software resource）: 所有系统默认软件都会安装到这个目录；<br>/var（variable）：存放系统或程序运行过程中的数据文件；</p>
+<h4 id="3-进程"><a href="#3-进程" class="headerlink" title="3. 进程"></a>3. 进程</h4><ul>
+<li><p>孤儿进程<br>一个父进程退出，而它的一个或多个子进程还在运行，那么这些子进程将成为孤儿进程。<br>孤儿进程将被 init 进程（进程号为 1）所收养，并由 init 进程对它们完成状态收集工作。<br>由于孤儿进程会被 init 进程收养，所以孤儿进程不会对系统造成危害。</p>
+</li>
+<li><p>僵尸进程<br>一个子进程的进程描述符在子进程退出时不会释放，只有当父进程通过 wait() 或 waitpid() 获取了子进程信息后才会释放。如果子进程退出，而父进程并没有调用 wait() 或 waitpid()，那么子进程的进程描述符仍然保存在系统中，这种进程称之为僵尸进程。<br>僵尸进程通过 ps 命令显示出来的状态为 Z（zombie）。<br>系统所能使用的进程号是有限的，如果产生大量僵尸进程，将因为没有可用的进程号而导致系统不能产生新的进程。<br>要消灭系统中大量的僵尸进程，只需要将其父进程杀死，此时僵尸进程就会变成孤儿进程，从而被 init 进程所收养，这样 init 进程就会释放所有的僵尸进程所占有的资源，从而结束僵尸进程。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库系统原理</title>
+    <url>/articles/2020-02-11-dataBase.html</url>
+    <content><![CDATA[<h4 id="1-事务"><a href="#1-事务" class="headerlink" title="1. 事务"></a>1. 事务</h4><p>能满足ACID特性的一组操作，可以通过commit提交一个事务，也可以用Rollback进行回滚。</p>
+<a id="more"></a>
+
+<h5 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h5><ul>
+<li>A原子性(Atomicity)<br>事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚；<br>回滚可以用回滚日志来实现，回滚日志记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。</li>
+<li>C一致性(Consistency)<br>数据库在事务执行前后都保持一致性状态。<br>在一致性状态下，所有事务对一个数据的读取结果都是相同的。</li>
+<li>I隔离性(Isolationn)<br>一个事务所做的修改在最终提交以前，对其它事务是不可见的。</li>
+<li>D持久性(Durability)<br>一旦事务提交，所做的修改将会蝾螈保存到数据库中。<br>即使系统发生崩溃，事务执行的结果也不能丢失。<br>使用重组日志来保证持久性。</li>
+</ul>
+<h5 id="事务的ACID特性"><a href="#事务的ACID特性" class="headerlink" title="事务的ACID特性"></a>事务的ACID特性</h5><p>只有满足一致性，事务的执行结果才是正确的；<br>在无并发的情况下，事务串行执行，隔离性一定能够满足，此时只要能满足原子性，一定能满足一致性；<br>在并发情况下，多个事务并行执行，事务不仅要满足原子性，还要满足隔离性，才能满足一致性；<br>事务满足持久化是为了能应对数据库崩溃的情况；</p>
+<h5 id="Autocommit"><a href="#Autocommit" class="headerlink" title="Autocommit"></a>Autocommit</h5><p>mysql默认采用自动提交模式。即不显示使用start transaction语句来开始一个事务，则每个查询都会被当做一个事务自动提交。</p>
+<h4 id="2-并发一致性问题"><a href="#2-并发一致性问题" class="headerlink" title="2. 并发一致性问题"></a>2. 并发一致性问题</h4><p>在并发环境下，事务的隔离性很难保证，因为会出现很多并发一致性的问题。<br>产生并发不一致性问题的主要原因是破坏了事务的隔离性。</p>
+<h5 id="解决办法是"><a href="#解决办法是" class="headerlink" title="解决办法是"></a>解决办法是</h5><p>通过并发控制来保证隔离性。<br>并发控制可以通过封锁来实现，但是封锁操作需要用户自己来控制，相当复杂。<br>数据库管理系统提供了事务的隔离级别，让用户以一种更轻松的方式处理并发一致性问题。</p>
+<h5 id="并发一致性问题"><a href="#并发一致性问题" class="headerlink" title="并发一致性问题"></a>并发一致性问题</h5><ul>
+<li><p>丢失修改；<br>T1和T2两个事务都对同一个数据修改，T1先修改，T2后修改，T2的修改覆盖了T1。</p>
+</li>
+<li><p>读脏数据；<br>T1修改一个数据，T2随后读取这个数据，如果T1撤销了这次修改，则T2读取的数据是脏数据。</p>
+</li>
+<li><p>不可重复读；<br>T2读取一个数据，T1修改该数据，如果T2再次读取，则和第一次结果不同。</p>
+</li>
+<li><p>幻影读；<br>T1读取某个范围的数据，T2在这个范围内插入新的数据，T1再次读取这个范围的数据，此时读取的结果和第一次不同。</p>
+</li>
+</ul>
+<h4 id="3-封锁粒度"><a href="#3-封锁粒度" class="headerlink" title="3. 封锁粒度"></a>3. 封锁粒度</h4><p>mysql提供了两种封锁粒度：行级锁和表级锁。</p>
+<p>应该尽量只锁定需要修改的那部分数据，而不是所有的资源。<br>锁定的数据量越少，发生锁争用的可能性就越小，系统的并发程度就越高。</p>
+<p>加锁需要消耗资源，锁的各种操作(包括获取锁、释放锁、及检查锁状态)都会增加系统开销，因此锁粒度越小，系统开销越大。</p>
+<p>在选择封锁粒度时，需要在锁开销和并发程度之间做一个权衡。</p>
+<h5 id="封锁类型"><a href="#封锁类型" class="headerlink" title="封锁类型"></a>封锁类型</h5><ul>
+<li>读写锁<br>排它锁(Exclusive)：简写X锁，又称写锁；<br>共享锁(Shared)：简写S锁，又称读锁；</li>
+</ul>
+<p>一个事务对数据对象A加了X锁，就可以对A进行读取和更新。加锁期间其它事务不能对A加任何锁；<br>一个事务对数据对象A加了S锁，就可以对A进行读取操作，但不能更新。加锁期间其它事务对A加S锁，但不能加X锁；</p>
+<p>锁的兼容关系：</p>
+<ul>
+<li>X S<br>X × ×<br>S × √</li>
+</ul>
+<ul>
+<li>意向锁<br>使用意向锁Intention Locks可以更容易的支持多粒度封锁。</li>
+</ul>
+<p>在存在行级锁和表级锁的情况下，事务T想要对表A加X锁，就需要检测是否有其他事务对A或A中任意一行加了锁，需要对A每一行都检测一次，比较耗时。</p>
+<p>意向锁在原来的x/s锁之上引入了IX/IS，IX/IS都是表锁，表示一个事务想要在表中的某个数据行了加X锁或S锁，规定：<br>一个事务在获得某个数据行对象的S锁之前，必须先获得表的IS锁或更强的锁；<br>一个事务在获得某个数据行对象的X锁之前，必须先获得表的IX锁；</p>
+<p>引入意向锁，事务T对表A加X锁，只需要先检测是否有其他事务对表A加了X/IX/S/IS锁，如果加了，表示有其它事务正在使用这个表或表中某一行的锁，因此事务T加X锁失败。</p>
+<p>兼容关系：<br>任意IX/IS之间都是兼容的，因为他们只是表示想要对表加锁，而不是真正的锁；<br>S锁只与S锁和IS锁兼容，即事务T想要对数据进行加S锁，其它事务可以已经获得对表或表中行的S锁；</p>
+<ul>
+<li>X IX S IS<br>X × × × ×<br>IX × √ × √<br>S × × √ √<br>IS × √ √ √</li>
+</ul>
+<h5 id="封锁协议"><a href="#封锁协议" class="headerlink" title="封锁协议"></a>封锁协议</h5><p>1、三级封锁协议</p>
+<ul>
+<li>一级封锁协议<br>事务A要修改数据A时必须加X锁，直到T结束才释放锁</li>
+</ul>
+<p>可以解决丢失修改的问题，因为不可能同时有两个事务对同一个数据进行修改，那么事务的修改就不会被覆盖。</p>
+<ul>
+<li>二级封锁协议<br>在一级的基础上，要求读取数据A时必须加S锁，读取完马上释放S锁。</li>
+</ul>
+<p>可以解决读脏数据问题，因为一个事务对数据A进行修改，根据1级封锁协议，会加X锁，那么就不能再加S锁了，也就是不会读入数据。</p>
+<ul>
+<li>三级封锁协议<br>在二级的基础上，要求读取数据A时必须加S锁，知道事务结束才能释放S锁。</li>
+</ul>
+<p>可以解决不可重复读的问题，因为读A时，其它事务不能对A加X锁，从而避免了在读的期间数据发生改变。</p>
+<p>2、两段锁协议<br>加锁和解锁分两个阶段进行。</p>
+<p>可串行化调度：通过并发控制，使得并发执行的事务结果与某个串行执行的事务结果相同。</p>
+<p>事务遵循两段锁协议是保证可串行化调度的充分条件。<br>但不是必要条件</p>
+<h5 id="mysql隐式与显示锁定"><a href="#mysql隐式与显示锁定" class="headerlink" title="mysql隐式与显示锁定"></a>mysql隐式与显示锁定</h5><p>mysql的InnoDB存储引擎采用两段锁协议，会根据隔离级别在需要的时候自动加锁，且所有的锁都在同一时刻释放，这被称为隐式锁定。</p>
+<h4 id="4-隔离级别"><a href="#4-隔离级别" class="headerlink" title="4. 隔离级别"></a>4. 隔离级别</h4><h5 id="未提交读（Read-Uncommited）"><a href="#未提交读（Read-Uncommited）" class="headerlink" title="未提交读（Read Uncommited）"></a>未提交读（Read Uncommited）</h5><p>事务中的修改，即使没有提交，对其它事务也是可见的。</p>
+<h5 id="提交读（Read-commited）"><a href="#提交读（Read-commited）" class="headerlink" title="提交读（Read commited）"></a>提交读（Read commited）</h5><p>一个事务只能读取已经提交的事务所做的修改。<br>即一个事务所做的修改在提交之前对其它事务是不可见的。</p>
+<h5 id="可重复读（Repeatable-read）"><a href="#可重复读（Repeatable-read）" class="headerlink" title="可重复读（Repeatable read）"></a>可重复读（Repeatable read）</h5><p>保证在同一个事务中多次获取同样数据的结果是一样的。</p>
+<h5 id="可串行化（Serializable）"><a href="#可串行化（Serializable）" class="headerlink" title="可串行化（Serializable）"></a>可串行化（Serializable）</h5><p>强制事务串行执行。<br>需要加锁实现，而其它隔离级别通常不需要。</p>
+<p>隔离级别 脏读 不可重复读 幻影读<br>未提交读 √ √ √<br>提交读 × √ √<br>可重复读 × × √<br>可串行化 × × ×</p>
+<h4 id="5-多版本并发控制"><a href="#5-多版本并发控制" class="headerlink" title="5. 多版本并发控制"></a>5. 多版本并发控制</h4><p>多版本并发控制（Multi-Version Concurrency Control，MVCC）<br>是Mysql的InnoDB存储引擎实现隔离级别的一种具体方式，<br>用于实现提交读和可重复读这两种隔离级别。<br>而未提交读隔离级别总是读取最新的数据行，无需使用MVCC。<br>可串行化隔离级别需要对所有读取的行都加锁，单纯使用MVCC无法实现。</p>
+<h5 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h5><p>系统版本号：是一个递增的数字，每开始一个新的事务，系统版本号就会自动递增。<br>事务版本号：事务开始时的系统版本号。</p>
+<h5 id="隐藏的列"><a href="#隐藏的列" class="headerlink" title="隐藏的列"></a>隐藏的列</h5><p>MVCC在每行记录后面都保存着两个隐藏的列，用来存储两个版本号：</p>
+<h5 id="创建版本号"><a href="#创建版本号" class="headerlink" title="创建版本号"></a>创建版本号</h5><p>指示创建一个数据行的快照时的系统版本号；<br>删除版本号：<br>如果该快照的删除版本号大于当前事务版本号 表示该快照有效，否则表示该快照已经被删除了。</p>
+<h5 id="Undo日志"><a href="#Undo日志" class="headerlink" title="Undo日志"></a>Undo日志</h5><p>MVCC使用到的快照存储在Undo日志中，该日志通过回滚指针把一个数据行（Record）的所有快照连接起来。</p>
+<h5 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h5><p>当开始一个事务，该事务的版本号肯定大于当前所有数据行快照的创建版本号。<br>数据行快照的创建版本号是创建数据行快照时的系统版本号，系统版本号随着创建事务而递增，因此新创建一个事务时，这个事务的系统版本号比之前的系统版本号都打，也就是比所有数据行快照的创建版本号都大。</p>
+<ul>
+<li>select</li>
+<li>insert</li>
+<li>delete</li>
+<li>update</li>
+</ul>
+<h5 id="快照读与当前读"><a href="#快照读与当前读" class="headerlink" title="快照读与当前读"></a>快照读与当前读</h5><p>快照读<br>使用MVCC读取的是快照中的数据，这样可以减少加锁带来的开销；</p>
+<p>当前读<br>读取的是最新的数据，需要加锁。</p>
+<h4 id="6-Net-Key-Locks"><a href="#6-Net-Key-Locks" class="headerlink" title="6. Net-Key Locks"></a>6. Net-Key Locks</h4><p>Next-Key Locks是mysql的InnoDB存储引擎的一种锁的实现。</p>
+<p>MVCC不能解决幻影读的问题，Next-Key Locks就是为解决这个问题。<br>在可重复读的隔离级别下，使用MVCC+Next-key Locks可以解决幻影读问题。</p>
+<p>Record Locks<br>锁定一个记录上的索引，而不是记录本身。<br>如果表没有设置索引，InnoDB会自动在主键上创建隐藏的聚簇索引，因此Record Locks依然可以使用</p>
+<p>Gap Locks<br>锁定索引之间的间隙，但不包含索引本身</p>
+<p>Next-Key Locks<br>是Record Locks和Gap Locks的结合，不仅锁定一个记录上的索引，也锁定索引之间的间隙。</p>
+<h4 id="7-关系数据库设计理论"><a href="#7-关系数据库设计理论" class="headerlink" title="7. 关系数据库设计理论"></a>7. 关系数据库设计理论</h4><h5 id="函数依赖"><a href="#函数依赖" class="headerlink" title="函数依赖"></a>函数依赖</h5><p>记A-&gt;B表示A函数觉得B，也可以说B函数依赖于A。</p>
+<p>如果 {A1，A2，… ，An} 是关系的一个或多个属性的集合，该集合函数决定了关系的其它所有属性并且是最小的，那么该集合就称为键码。</p>
+<p>对于 A-&gt;B，如果能找到 A 的真子集 A’，使得 A’-&gt; B，那么 A-&gt;B 就是部分函数依赖，否则就是完全函数依赖。</p>
+<p>对于 A-&gt;B，B-&gt;C，则 A-&gt;C 是一个传递函数依赖。</p>
+<h5 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h5><p>不符合范式的关系，会产生很多异常：<br>    冗余数据<br>    修改异常<br>    删除异常<br>    插入异常</p>
+<h5 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h5><p>范式理论是为了解决以上四种异常。<br>高级别范式的依赖于低级别的范式</p>
+<ul>
+<li><p>第一范式（1NF）<br>属性不可分</p>
+</li>
+<li><p>第二范式（2NF）<br>每个非主属性完全函数依赖于键码。<br>可以通过分解来满足。</p>
+</li>
+<li><p>第三范式（3NF）<br>非主属性不传递函数依赖于键码。</p>
+</li>
+</ul>
+<h4 id="8-ER图"><a href="#8-ER图" class="headerlink" title="8. ER图"></a>8. ER图</h4><p>Entity-Relationship</p>
+<p>包括：实体、属性、联系</p>
+<p>用来进行关系型数据库系统的概念设计。</p>
+<h5 id="实体的三种联系"><a href="#实体的三种联系" class="headerlink" title="实体的三种联系"></a>实体的三种联系</h5><ul>
+<li><p>一对一：<br>画两个带箭头的线段</p>
+</li>
+<li><p>一对多：<br>A到B是一对多，则画指向B的箭头</p>
+</li>
+<li><p>多对多：<br>两个不带箭头的线段</p>
+</li>
+</ul>
+<h5 id="表示出现多次的关系"><a href="#表示出现多次的关系" class="headerlink" title="表示出现多次的关系"></a>表示出现多次的关系</h5><p>一个实体在联系出现几次，就要用几条线连接。</p>
+<h5 id="联系的多向性"><a href="#联系的多向性" class="headerlink" title="联系的多向性"></a>联系的多向性</h5><p>三元关系</p>
+<h5 id="表示子类"><a href="#表示子类" class="headerlink" title="表示子类"></a>表示子类</h5><p>用一个三角形和两条线来连接类和子类，与子类有关的属性和联系都连到子类上，与父类和子类有关系的连到父类上。</p>
+]]></content>
+      <categories>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>Database</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mysql</title>
+    <url>/articles/2020-02-11-dataBase-Mysql.html</url>
+    <content><![CDATA[<h4 id="1-索引"><a href="#1-索引" class="headerlink" title="1. 索引"></a>1. 索引</h4><h5 id="B-Tree原理"><a href="#B-Tree原理" class="headerlink" title="B+ Tree原理"></a>B+ Tree原理</h5><ol>
+<li>数据结构<br>B Tree （Balance Tree，平衡树）：查找树，且所有叶子节点位于同一层。<br>B+ Tree是基于B Tree和叶子节点顺序访问指针进行实现的，它具有B Tree的平衡性，通过顺序访问指针提高区间查询性能。</li>
+</ol>
+<p>一个节点中的key从左到右非递减排列，key左右是key(i)、key(i+1)，且不为null，则该指针指向节点的所有key大于等于key(i)且小于等于key(i+1)。</p>
+<a id="more"></a>
+
+<ol start="2">
+<li>操作</li>
+</ol>
+<h4 id="2-Mysql索引"><a href="#2-Mysql索引" class="headerlink" title="2. Mysql索引"></a>2. Mysql索引</h4><p>索引是在存储引擎层实现的，而不是在服务器层实现的，所以不同的存储引擎具有不同的索引类型和实现。</p>
+<h5 id="B-Tree索引"><a href="#B-Tree索引" class="headerlink" title="B+ Tree索引"></a>B+ Tree索引</h5><p>大多数Mysql存储引擎的默认索引类型。</p>
+<p>不需要进行全表扫描，只需要对树进行搜索即可，查找速度快很多。<br>B+Tree的有序性，所以除了用于查找，还可以用于排序和分组。</p>
+<p>可以指定多个列作为索引列，多个索引列共同组成键。<br>适用于全键值、键值范围和键前缀查找，其中键前缀查找只适用于最左前缀查找。<br>如果不是按照索引列的顺序进行查找，则无法使用索引。</p>
+<p>InnoDB的B+Tree索引分为主索引和辅助索引。<br>主索引的叶子节点data记录着完整的数据记录，这种记录称为聚簇索引。<br>因为无法把数据行存放在两个不同的地方，所以一个表只能有一个聚簇索引。</p>
+<p>辅助索引的叶子节点的data域记录着主键的值，因此在使用辅助索引进行查找时，<br>需要先查找到主键值，然后再到主索引中进行查找。</p>
+<h5 id="哈希索引"><a href="#哈希索引" class="headerlink" title="哈希索引"></a>哈希索引</h5><p>哈希索引能以O(1)时间进行查找，但失去了有序性。<br>无法用于排序与分组<br>只支持精确查找，无法用于部分查找和范围查找</p>
+<p>InnoDB存储引擎有一个特殊的功能叫“自适应哈希索引”<br>当某个索引值被使用的非常频繁时，会在B+Tree索引之上再创建一个哈希索引，<br>这样就让B+Tree索引具有哈希索引的一些优点，如：快速的哈希查找。</p>
+<h5 id="全文索引"><a href="#全文索引" class="headerlink" title="全文索引"></a>全文索引</h5><p>MyISAM存储引擎支持全文索引，用于查找文本中的关键词，而不是直接比较是否相等。</p>
+<p>查找条件使用Match Against，而不是普通的Where</p>
+<p>全文索引使用倒排索引实现，它记录着关键词到其所在文档的映射。</p>
+<p>InnoDB存储引擎在Mysql5.6.4版本中也开始支持全文索引。</p>
+<h5 id="空间数据索引"><a href="#空间数据索引" class="headerlink" title="空间数据索引"></a>空间数据索引</h5><p>MyISAM存储引擎支持空间数据索引（R-Tree），可以用于地理数据存储。<br>空间数据索引会从所有维度来索引数据，可以有效的使用任意维度来进行组合查询。<br>必须使用GIS相关的函数来维护数据。</p>
+<h4 id="3-索引优化"><a href="#3-索引优化" class="headerlink" title="3. 索引优化"></a>3. 索引优化</h4><ol>
+<li>独立的列<br>在进行查询时，索引列不能是表达式的一部分，也不能是函数的参数，否则无法使用索引。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 不能使用 actor_id 列的索引</span><br><span class="line">SELECT actor_id FROM sakila.actor WHERE actor_id + 1 &#x3D; 5;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>多列索引<br>在需要使用多列作为条件进行查询时，使用多列索引比使用多个单列索引性能更好。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 最好把 actor_id 和 film_id 设置为多列索引</span><br><span class="line">SELECT film_id, actor_ id FROM sakila.film_actor</span><br><span class="line">WHERE actor_id &#x3D; 1 AND film_id &#x3D; 1;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>索引列的顺序<br>让选择项最强的索引列放在前面</li>
+</ol>
+<p>索引的选择性是指：<br>    不重复的索引值和记录总数的比值。<br>    最大值为1，此时每个记录都有唯一的索引与其对应。<br>    选择性越高，每个记录的区分度越高，查询效率也越高。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; customer_id 的选择性比 staff_id 更高，因此最好把 customer_id 列放在多列索引的前面</span><br><span class="line">SELECT COUNT(DISTINCT staff_id)&#x2F;COUNT(*) AS staff_id_selectivity,</span><br><span class="line">COUNT(DISTINCT customer_id)&#x2F;COUNT(*) AS customer_id_selectivity,</span><br><span class="line">COUNT(*)</span><br><span class="line">FROM payment;</span><br><span class="line"></span><br><span class="line">staff_id_selectivity: 0.0001</span><br><span class="line">customer_id_selectivity: 0.0373</span><br><span class="line">               COUNT(*): 16049</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>前缀索引<br>对于Blob、Text和Varcher类型的列，必须使用前缀索引，只索引开始的部分字符。<br>前缀长度的选取需要根据索引选择性来确定。</p>
+</li>
+<li><p>覆盖索引<br>索引包含所有需要查询的字段的值。</p>
+</li>
+</ol>
+<p>优点：</p>
+<ul>
+<li>索引通常远小于数据行的大小，只读取索引能大大减少数据访问量；</li>
+<li>一些存储引擎在内存中只缓存索引，而数据依赖于操作系统来缓存，因此，只访问索引可以不使用系统调用；</li>
+<li>对于InnoDB引擎，若辅助索引能够覆盖查询，则无需访问主索引；</li>
+</ul>
+<h5 id="索引的优点"><a href="#索引的优点" class="headerlink" title="索引的优点"></a>索引的优点</h5><ul>
+<li>大大减少了服务器需要扫描的数据行数；</li>
+<li>帮助服务器避免进行排序和分组，以及比曼创建临时表；（B+Tree 索引是有序的，可以用于 ORDER BY 和 GROUP BY 操作。临时表主要是在排序和分组过程中创建，不需要排序和分组，也就不需要创建临时表）；</li>
+<li>将随机I/O变为顺序I/O（B+Tree索引是有序的，会将相邻的数据都存储在一起）；</li>
+</ul>
+<h5 id="索引的使用条件"><a href="#索引的使用条件" class="headerlink" title="索引的使用条件"></a>索引的使用条件</h5><ul>
+<li>对于非常小的表，大部分情况下简单的全表扫描比建立索引更高效；</li>
+<li>对于中到大型的表，索引非常有效；</li>
+<li>对于特大型的表，建立和维护索引的代价将会随之增长，这时需要用到一种技术可以直接区分出需要查询的一组数据，而不是一条一条记录的匹配，如：使用分区技术。</li>
+</ul>
+<h4 id="4-查询性能优化"><a href="#4-查询性能优化" class="headerlink" title="4. 查询性能优化"></a>4. 查询性能优化</h4><p>使用Explain进行分析<br>Explain用来分析select查询，通过分析explain结果来优化查询语句。</p>
+<h5 id="重要字段"><a href="#重要字段" class="headerlink" title="重要字段"></a>重要字段</h5><ul>
+<li>select_type：查询类型，有简单查询、联合查询、子查询等；</li>
+<li>key：使用的索引；</li>
+<li>rows：扫描的行数；</li>
+</ul>
+<h5 id="优化数据访问"><a href="#优化数据访问" class="headerlink" title="优化数据访问"></a>优化数据访问</h5><ol>
+<li>减少请求的数据量</li>
+</ol>
+<ul>
+<li>只返回必要的列；</li>
+<li>只返回必要的行；</li>
+<li>缓存重复查询的数据：使用缓存可以避免在数据库中进行查询；</li>
+</ul>
+<ol start="2">
+<li>减少服务器端扫描的行数<br>最有效的方式是使用索引来覆盖查询</li>
+</ol>
+<h5 id="重构查询方式"><a href="#重构查询方式" class="headerlink" title="重构查询方式"></a>重构查询方式</h5><ol>
+<li><p>切分大查询<br>一个大查询如果一次执行的话，可能一次锁住很多数据、占满整个事务日志、耗尽系统资源、阻塞很多小的但是重要的查询</p>
+</li>
+<li><p>分解大连接查询<br>将一个大连接查询分解成对每一个表进行一次单表查询，然后再应用程序中进行关联<br>好处：</p>
+</li>
+</ol>
+<ul>
+<li>让缓存更高效；<br>  对于连接查询，如果其中一个表发生变化，那么整个查询缓存就无法使用。<br>  而分解后的多个查询，即使其中一个表发生变化，对其它表的查询缓存依然可以使用。</li>
+<li>分解成多个单表查询，这些单表查询的缓存结果更可能被其它查询使用到，从而减少冗余记录的查询；</li>
+<li>减少锁竞争；</li>
+<li>在应用层进行连接，可以更容易对数据库进行拆分，从而更容易做到高性能和可伸缩；</li>
+<li>查询本身效率也可能会有所提升。</li>
+</ul>
+<h4 id="5-存储引擎"><a href="#5-存储引擎" class="headerlink" title="5. 存储引擎"></a>5. 存储引擎</h4><h5 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h5><p>是Mysql默认的事务型存储引擎，只有在需要它不支持的特性时，才考虑使用其它存储引擎。</p>
+<p>实现了四个标准的隔离级别，默认级别是可重复读（Repeatable Read），<br>在可重复读的隔离级别下，通过多版本并发控制（MVCC）+间隙锁（Next-Key Locking）防止幻影读。</p>
+<p>主索引是聚簇索引，在索引中保存了数据，从而避免直接读取磁盘，因此对查询性能有很大的提升。</p>
+<p>内部做了很多优化，包括从磁盘读取数据时采用的可预测性读、能够加快读操作并且自动创建的自适应哈希索引、<br>能够加速插入操作的插入缓冲区等。</p>
+<p>支持真正的在线热备份。其它存储引擎不支持在线热备份，要获取一致性视图需要停止对所有表的写入，<br>而在读写混合场景中，停止写入可能也意味着停止读取。</p>
+<h5 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h5><p>设计简单，数据以紧密格式存储。对于只读数据，或者表比较小、可以容忍修复操作，则依然可以使用它。</p>
+<p>提供了大量的特性，包括压缩表、空间数据索引等。</p>
+<p>不支持事务。<br>不支持行级锁，只能对整张表加锁，读取时会对需要读到的所有表加共享锁，写入时则对表加排它锁。<br>但在表有读取操作的同时，也可以往表中插入新的记录，成为并发插入（Concurrent insert）</p>
+<p>可以手动或自动执行检查和修复操作，但和事务恢复以及崩溃恢复不同，可能导致一些数据丢失，而且修复操作非常慢。</p>
+<p>如果指定了Delay_key_write选项，在每次修改执行完成时，不会立即将修改的索引数据写入磁盘，而是会写到内存中的键缓存区，<br>只有在清理键缓存区时或关闭表的时候才会将对应的索引快写入磁盘。这种方式可以极大提升写入性能，但在数据库或主机崩溃时会造成索引损坏，需要执行修复操作。</p>
+<h5 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h5><ul>
+<li>事务：InnoDB是事务型，可以使用Commit和Rollback语句；</li>
+<li>并发：MyISAM只支持表级锁，而InnoDB还支持行级锁；</li>
+<li>外键：InnoDB支持外键；</li>
+<li>备份：InnoDB支持在线热备份；</li>
+<li>崩溃恢复：MyISAM崩溃后发生损坏的概率比InnoDB高很多，而且恢复的速度也更慢；</li>
+<li>其他特性：MyISAM支持压缩表和空间数据索引；</li>
+</ul>
+<h4 id="6-数据类型"><a href="#6-数据类型" class="headerlink" title="6. 数据类型"></a>6. 数据类型</h4><h5 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h5><p>TinyInt：8位存储空间<br>SmalInt：16位<br>MediumInt：24位<br>Int：32位<br>BigInt：64位<br>一般越小的列越好。<br>Int(11)中的数字只是规定了交互工具显示字符的个数，对于存储和计算来说是没有意义的。</p>
+<h5 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h5><p>Float和Double浮点类型；<br>Decimal：高精度的小数类型；<br>CPU原生支持浮点运算，但不支持Decimal类型的计算，因此Decimal的计算比浮点类型需要更高的代价。<br>Float、Double、Decimal都可以指定列宽。<br>Decimal(18，9)表示总共18位，取9位存储小数部分，剩余9位存储整数部分。</p>
+<h5 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h5><p>主要有Char和Varchar两种类型，一种定长，一种变长。<br>Varchar：变长类型，节省空间，只需要存储必要的内容。<br>但在执行Update时可能会使行变得比原来长，当超出一个页能够容纳的大小时，就要执行额           外的操作。MyISAM会将行拆成不同的片段存储，而InnoDB则需要分裂页来使行放进页内。</p>
+<p>在进行检索和存储时，会保留Varchar末尾的空格，而会删除Char末尾的空格。</p>
+<h5 id="时间和日期"><a href="#时间和日期" class="headerlink" title="时间和日期"></a>时间和日期</h5><p>Datetime和Timestamp</p>
+<ul>
+<li><p>Datetime：<br>  能够保存从1000年到9999年的日期和时间，精度为秒，使用8字节的存储空间。<br>  它与时区无关。<br>  默认情况下，Mysql以一种可排序的、无歧义的格式显示Datetime值，是ANSI标椎定义的日期和时间表示法。</p>
+</li>
+<li><p>Timestamp：<br>  和UNIX时间戳相同，保存从1970年1月1日午夜以来的秒数，使用4个字节，只能表示从1970到2038年。<br>  它和时区有关，即一个时间戳在不同的时区所代表的具体时间是不同的。<br>  Mysql提供了From_unixtime()函数把Unix时间戳转化为日期，Unix_Timestamp<br>  ()函数把日期转换为UNIX时间戳。<br>  默认情况下，如果插入时没有指定Timestamp列的值，会将这个值设置为当前时间。<br>  应该尽量使用Timestamp，比Datetime空间效率更高。</p>
+</li>
+</ul>
+<h4 id="7-切分"><a href="#7-切分" class="headerlink" title="7. 切分"></a>7. 切分</h4><h5 id="水平切分"><a href="#水平切分" class="headerlink" title="水平切分"></a>水平切分</h5><p>水平切分：Sharding<br>是将同一个表中的记录拆分到多个结构相同的表中。</p>
+<p>当一个表中的数据不断增多时，Sharding是必然的选择，它可以将数据分布到集群的不同节点上，<br>从而缓存单个数据库的压力。</p>
+<h5 id="垂直切分"><a href="#垂直切分" class="headerlink" title="垂直切分"></a>垂直切分</h5><p>垂直切分是将一张表按列切分成多个表，通常是按照列的关系密集程度进行切分，<br>也可以利用垂直切分将经常被使用的列和不经常被使用的列切分到不同的表中。</p>
+<p>在数据库的层面，使用垂直切分将按数据库中表的密集程度部署到不同的库中。</p>
+<h5 id="Shaeding策略"><a href="#Shaeding策略" class="headerlink" title="Shaeding策略"></a>Shaeding策略</h5><p>哈希取模：hash(key)%N<br>范围：可以是ID范围也可以是时间范围<br>映射表：使用单独的一个数据库来存储映射关系</p>
+<h5 id="Sharding存在的问题"><a href="#Sharding存在的问题" class="headerlink" title="Sharding存在的问题"></a>Sharding存在的问题</h5><ol>
+<li>事务问题<br> 使用分布式事务来解决，比如XA接口</li>
+<li>连接<br> 可以将原来的连接分解成多个单表查询，然后在用户程序中进行连接。</li>
+<li>ID唯一性<br> 使用全局唯一ID（GUID）<br> 为每个分片指定一个ID范围<br> 分布式ID生成器</li>
+</ol>
+<h4 id="8-复制"><a href="#8-复制" class="headerlink" title="8. 复制"></a>8. 复制</h4><h5 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h5><p>主要涉及三个线程：binlog线程、I/O线程和Sql线程<br>binlog线程：<br>负责将主服务器上的数据更改写入二进制日志（Binary log）中<br>I/O线程：<br>负责从主服务器上读取二进制日志，并写入从服务器的中继日志（Relay log）<br>Sql线程：<br>负责读取中继日志，解析出主服务器已经执行的数据更改，并在从服务器中重放（Replay）。</p>
+<h5 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h5><p>主服务器处理写操作以及实时性要求比较高的读操作，而从服务器处理读操作。<br>读写分离能够提高性能的原因在于：<br>主从服务器负责各自的读和写，极大程度缓解了锁的争用；<br>从服务器可以使用MyISAM，提升查询性能及节约系统开销；<br>增加冗余，提高可用性；</p>
+<p>读写分离常用代理方式来实现，代理服务器接收应用层传来的读写请求，然后决定转发到哪个服务器</p>
+]]></content>
+      <categories>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Http-Net</title>
+    <url>/articles/2020-02-11-Http-Net.html</url>
+    <content><![CDATA[<h4 id="1-主机之间的通信方式"><a href="#1-主机之间的通信方式" class="headerlink" title="1. 主机之间的通信方式"></a>1. 主机之间的通信方式</h4><p>客户-服务器（C/S）:<br>    客户是服务的请求方，服务器是服务的提供方。</p>
+<p>对等（P2P）：<br>    不区分客户和服务器</p>
+<a id="more"></a>
+
+<h4 id="2-计算机网络体系结构"><a href="#2-计算机网络体系结构" class="headerlink" title="2. 计算机网络体系结构"></a>2. 计算机网络体系结构</h4><p>OSI：应用层、表示层、会话层、运输层、网络层、数据链路层、物理层<br>五层协议：应用层、运输层、网络层、数据链路层、物理层<br>TCP/IP：应用层、运输车、网际层、网络接口层</p>
+<ul>
+<li>应用层 ：为特定应用程序提供数据传输服务，例如 HTTP、DNS 等协议。数据单位为报文。</li>
+<li>传输层 ：为进程提供通用数据传输服务。由于应用层协议很多，定义通用的传输层协议就可以支持不断增多的应用层协议。运输层包括两种协议：传输控制协议 TCP，提供面向连接、可靠的数据传输服务，数据单位为报文段；用户数据报协议 UDP，提供无连接、尽最大努力的数据传输服务，数据单位为用户数据报。TCP 主要提供完整性服务，UDP 主要提供及时性服务。</li>
+<li>网络层 ：为主机提供数据传输服务。而传输层协议是为主机中的进程提供数据传输服务。网络层把传输层传递下来的报文段或者用户数据报封装成分组。</li>
+<li>数据链路层 ：网络层针对的还是主机之间的数据传输服务，而主机之间可以有很多链路，链路层协议就是为同一链路的主机提供数据传输服务。数据链路层把网络层传下来的分组封装成帧。</li>
+<li>物理层 ：考虑的是怎样在传输媒体上传输数据比特流，而不是指具体的传输媒体。物理层的作用是尽可能屏蔽传输媒体和通信手段的差异，使数据链路层感觉不到这些差异。</li>
+<li>表示层 ：数据压缩、加密以及数据描述，这使得应用程序不必关心在各台主机中数据内部格式不同的问题。</li>
+<li>会话层 ：建立及管理会话。</li>
+</ul>
+<h4 id="3-HTTP"><a href="#3-HTTP" class="headerlink" title="3. HTTP"></a>3. HTTP</h4><ul>
+<li><p>URI<br>包括URL和URN</p>
+</li>
+<li><p>请求和响应报文</p>
+</li>
+<li><p>HTTP方法<br>客户端发送的请求报文第一行为请求行，包括了方法字段</p>
+</li>
+<li><p>HTTP状态码<br>1XX信息：<br>  到目前为止都很正常，客户端可以继续发送请求或忽略这个响应</p>
+</li>
+</ul>
+<p>2XX成功：<br>    200 ok<br>    204 No Content：<br>    请求已成功处理，但返回的响应报文不包含实体的主体部分。<br>    一般在只需要从客户端往服务器发送信息，而不需要返回数据时使用。<br>    206 Partial Content：<br>    表示客户端进行了范围请求，响应报文包含由Content-Range指定范围的实体内容。</p>
+<p>3XX重定向<br>    301 Moved Permanently：永久性重定向<br>    302 Found：临时性重定向<br>    303 See Other：和302有相同的功能，但303明确要求客户端应该采用GET方法获取资源<br>    304 Not Modified：如果请求报文首部包含一些条件，如：If-Match，如果不满足，服务器会返回304状态码<br>    307 Temporary Redirect：临时重定向，要求浏览器不会把重定向请求的POST改成get方法。</p>
+<p>4XX客户端错误<br>    400 Bad Request：请求报文中存在语法错误<br>    401 Unauthorized：该状态码表示发送的请求需要有认证信息，如果之前已进行过一次请求，则表示用户认证失败。<br>    403 Forbidden：请求被拒绝<br>    404 Not Found</p>
+<p>5XX服务器错误<br>    500 Internal Server Error：服务器正在执行请求时发生错误<br>    503 Service Unavailable：服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。</p>
+<ul>
+<li>连接管理<br>1、短连接与长连接<br>长连接只需要建立一次TCP连接就能进行多次HTTP通信<br>从Http/1.1 开始默认是长连接，如果断开连接，需要由客户端或服务端提出断开，使用Connection：close<br>在Http/1.1之前默认是短连接，如果需要使用长连接，则使用Connection:Keep-Alive</li>
+</ul>
+<p>2、流水线<br>默认情况下，Http请求是按顺序发出的，下一个请求只有在当前请求收到响应之后才会被发出。<br>由于受到网络延迟和带宽的限制，在下一个请求被发送到服务器之前，可能需要等待很长时间。</p>
+<p>流水线是在同一条长连接上连续发出请求，而不用等待响应返回，这样可以减少延迟。</p>
+<p>3、Cookie<br>Http协议是无状态的，主要是为了让Http协议尽可能简单，使得它能够处理大量事务。<br>http1.1引入Cookie来保存状态信息</p>
+<p>Cookie是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器之后向同一服务器再次发起请求时被携带上，<br>用于告知服务端两个请求是否来自同一浏览器。</p>
+<p>Cookie会带来额外的性能开销，已渐渐被淘汰，新的浏览器API已经允许开发者直接将数据存储到本地。</p>
+<p>用途：<br>    会话状态管理（如用户登录、购物车、游戏分数或其它需要记录的信息）<br>    个性化设置（如用户自定义设置、主题）<br>    浏览器行为跟踪（如跟踪分析用户行为）</p>
+<p>创建过程：<br>    服务器发送的响应报文包含Set-Cookie首部字段，客户端得到响应报文后把Cookie内容保存到浏览器中<br>    客户端之后对同一个服务器发送请求时，会从浏览器中取出Cookie信息，并通过Cookie请求首部字段发送服务器</p>
+<p>分类<br>    会话期 Cookie：浏览器关闭之后会自动删除，也就是说它仅在会话期内有效<br>    持久性 Cookie：指定过期时间Expires或有效期max-age之后就成为了持久性的Cookie</p>
+<p>作用域：<br>    Domain标识指定了哪些主机可以接受Cookie，如果不指定，默认当前文档的主机（不包含子域名）<br>    如果指定了domain，则一般包含子域名。</p>
+<p>4、Session<br>利用Session存储在服务端，存储在服务器的信息更加安全<br>可以存储在服务器上的文件、数据库或者内存中，也可以将Session存储在Redis</p>
+<p>过程：<br>    用户进行登录时，用户提交包含用户名和密码的表单，放入Http请求报文中<br>    服务器验证该用户名和密码，正确，存储到Redis<br>    服务器返回响应报文的Set-Cookie首部字段包含了这个SessionId，客户端收到响应报文后存储Cookie值到浏览器<br>    客户端之后对同一个服务器请求时会包含该Cookie值，服务器收到之后提取出SessionId，从Redis取出用户信息，继续之前业务操作</p>
+<p>5、Cookie与Session选择<br>Cookie只能存储ASCII码字符串，而Session则可以存储任何类型的数据，考虑数据复杂性时首选Session<br>Cookie存储在浏览器中，容易被恶意查看，如非要将隐私数据存在Cookie，可以将Cookie进行加密，然后再服务器解密<br>大型网站，用户所有的信息都存储到Session中，开销大，不建议</p>
+<p>6、缓存<br>优点：<br>    缓解服务器压力<br>    降低客户端获取资源的延迟：<br>    缓存通常位于内存中，读取缓存的速度更快。<br>    并且缓存服务器在地理位置上也有可能比源服务器来的近</p>
+<p>实现方法：<br>    让代理服务器进行缓存<br>    让客户端浏览器进行缓存</p>
+<p>Cache-Control<br>Http/1.1通过Cache-Control首部字段来控制缓存</p>
+<p>禁止进行缓存：<br>    no-store指令规定不能对请求或相应的任何一部分进行缓存（cache-control:no-store）</p>
+<p>强制确认缓存：<br>    no-cache规定缓存服务器需要先向源服务器验证缓存资源的有效性，<br>    只有当缓存资源有效时才能使用该缓存对客户端的请求进行响应。<br>    Cache-Control: no-cache</p>
+<p>私有缓存和公共缓存：<br>    private规定将资源作为私有缓存，只能被单独用户使用，一般存储在用户浏览器中<br>    Cache-Control: private</p>
+<p>public规定将资源作为公共缓存，可以被多个用户使用，一般存储在代理服务器中<br>Cache-Control: public</p>
+<p>缓存过期机制<br>max-age出现在请求报文，并且缓存资源的缓存时间小于该指令指定的时间，就能接受该缓存<br>max-age出现在响应报文，表示缓存资源在缓存服务器中保存的时间<br>Cache-Control: max-age=31536000</p>
+<p>expires首部字段也可以用于告知缓存服务器该资源什么时候过期<br>Expires：Wed, 04 Jul 2012 08:23:05 GMT</p>
+<p>在Http/1.1中，会优先处理max-age指令<br>在Http/1.0中，max-age指令会被忽略掉</p>
+<p>缓存验证</p>
+<p>7、通信数据转发</p>
+<p>代理<br>代理服务器接受客户端的请求，并且转发给其它服务器</p>
+<p>目的：<br>    缓存<br>    负载均衡<br>    网络访问控制<br>    访问日志记录</p>
+<p>分为正向代理和反向代理：<br>    用户察觉得到正向代理的存在<br>    而反向代理一般位于内部网络中，用户察觉不到</p>
+<p>网关：<br>与代理服务器不同的是，网关服务器将HTTP转化为其它协议进行通信，从而请求其它非Http服务器的服务。</p>
+<p>隧道：<br>使用SSL等加密手段，在客户端和服务器之间建立一条安全的通信线路。</p>
+<p>8、HTTPS<br>Http有以下安全问题：<br>    使用明文进行通信，内容可能被窃听；<br>    不验证通信方的身份，通信方的身份有可能遭遇伪装；<br>    无法证明报文的完整性，报文有可能遭篡改；</p>
+<p>HTTPS并不是新协议，而是让HTTP先和SSL（Secure Sockets Layer）通信，<br>再由SSL和TCP通信，也就是说HTTPS使用了隧道进行通信。</p>
+<p>通过使用SSL，HTTPS具有了加密（防窃听）、认证（防伪装）和完整性保护（防篡改）</p>
+<p>缺点：<br>    需要进行加密解密等过程，速度慢<br>    需要支付证书授权的高额费用</p>
+<p>9、HTTP/2.0</p>
+<p>HTTP/1.X缺陷：<br>    客户端需要使用多个连接才能实现并发和缩短延迟；<br>    不会压缩请求和响应首部，从而导致不必要的网络流量；<br>    不支持有效的资源优先级，致使底层TCP连接的利用率低下；</p>
+<p>二进制分帧层：<br>    HTTP/2.0将报文分成Headers帧和Data帧，它们都是二进制格式的，在通信过程中，只会有<br>    一个TCP连接存在，它承载了任意数量的双向数据流（Stream）<br>    一个数据流Stream：都有一个唯一标识符和可选的优先级消息，用于承载双向消息；<br>    消息Message：是与逻辑请求或响应对应的完成的一系列帧。</p>
+<p>服务端推送：<br>HTTP/2.0在客户端请求一个资源时，会把相关的资源一起发送给客户端端，客户端不需要再次发起请求了。</p>
+<p>首部压缩：<br>    HTTP/1.1首部带有大量信息，而且每次都要重复发送；<br>    HTTP/2.0要求客户端和服务器同时维护和更新一个包含之前见过的首部字段表，从而避免了重复传输。</p>
+<p>10、HTTP/1.1新特性<br>    默认长连接<br>    支持流水线<br>    支持同时打开多个TCP连接<br>    支持虚拟主机<br>    新增状态码100<br>    支持分块传输编码<br>    新增缓存处理指令max-age</p>
+<h4 id="4-GET和POST"><a href="#4-GET和POST" class="headerlink" title="4. GET和POST"></a>4. GET和POST</h4><ul>
+<li><p>作用<br>  get用户获取资源；<br>  post用于传输实体主体</p>
+</li>
+<li><p>参数<br>  get参数是以查询字符串出现在URL中，url只支持ASCII码，所以Get的参数中如果存在中文字符需要进行编码<br>  post存储在实体主体中</p>
+</li>
+<li><p>安全<br>  安全的HTTP方法不会改变服务器状态，即它只是可读的。</p>
+<p>  get是安全的，post不是，因为post的目的是传送实体主体内容，这个内容可能是用户上传的表单数据，<br>  上传成功之后，服务器可能是把这个数据存储到数据库中，因此状态发生了改变。</p>
+<p>  安全方法：get、Head、Options<br>  不安全：post、put、delete</p>
+</li>
+<li><p>幂等性<br>  幂等的HTTP方法，同样的请求被执行一次与连续执行多次的效果是一样的，服务器的状态也是一样的。<br>  幂等方法不应该具有副作用</p>
+<p>  所有的安全方法也都是幂等的。</p>
+<p>  在正确实现条件下，get、head、put和delete方法都是幂等的，post不是。</p>
+</li>
+<li><p>可缓存<br>  如果要对响应进行缓存，需要满足：<br>  请求报文的http方法本身是可缓存的，包括Get和Head，但Put和Delete不可缓存，post多数情况下不可缓存；<br>  响应报文的状态码是可缓存的；<br>  响应报文的Cache-Control首部字段没有指定不进行缓存；</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>Net</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tcp</title>
+    <url>/articles/2020-02-11-Http-Tcp.html</url>
+    <content><![CDATA[<h4 id="1-三次握手过程"><a href="#1-三次握手过程" class="headerlink" title="1. 三次握手过程"></a>1. 三次握手过程</h4><ul>
+<li>B处于Listen（监听）状态，等待来自A的连接请求；</li>
+<li>A向B发送连接请求报文Syn；</li>
+<li>B收到A发来的Syn，如果同意建立连接，则向A发送连接确认报文Syn Ack；</li>
+<li>A收到Syn Ack后，还要向B发出确认报文Ack；</li>
+<li>B收到Ack后，建立连接；</li>
+</ul>
+<a id="more"></a>
+<p>接收到Syn后，所有的报文都存在Ack字段</p>
+<h5 id="三次握手的原因"><a href="#三次握手的原因" class="headerlink" title="三次握手的原因"></a>三次握手的原因</h5><p>第三次握手是为了防止失效的链接请求到服务器，让服务器错误打开连接。</p>
+<p>客户端发送的连接请求如果在网络中滞留，那么就会隔很长一段时间才能收到服务发回的连接确认。<br>客户端等待一个超时重传时间之后，就会重新请求连接。<br>这个滞留的连接请求最后还是会到达服务器，如果不进行三次握手，那么服务器就会打开两个连接。<br>如果有第三次握手，客户端会忽略服务器之后发送的对滞留连接请求的连接确认，不进行第三次握手，因此就不会再次打开连接。</p>
+<h4 id="2-四次挥手过程"><a href="#2-四次挥手过程" class="headerlink" title="2. 四次挥手过程"></a>2. 四次挥手过程</h4><ul>
+<li>A发送连接释放报文FIN</li>
+<li>B收到FIN后发出确认ACK，此时TCP属于半关闭状态，B能向A发送数据但是A不能向B发送数据</li>
+<li>当B不再需要连接时，发送连接释放报文FIN</li>
+<li>A收到FIN后发出确认ACK，进入Time-wait状态，等待2倍的MSL（最大报文存活时间）后释放连接</li>
+<li>B收到ACK后释放连接</li>
+</ul>
+<h5 id="四次挥手的原因"><a href="#四次挥手的原因" class="headerlink" title="四次挥手的原因"></a>四次挥手的原因</h5><p>客户端发送了FIN连接释放报文之后，服务端收到了这个报文，进入Close-wait状态<br>这个状态是为了让服务器端发送还未传送完毕的数据，<br>传送完毕之后，服务器会发送FIN连接释放报文。</p>
+<h4 id="Time-wait"><a href="#Time-wait" class="headerlink" title="Time-wait"></a>Time-wait</h4><p>客户端接收到服务器端的FIN报文之后进入此状态，而不是直接Closed状态，<br>还需要等待一个时间计时器设置的时间2MSL，原因是：</p>
+<ul>
+<li><p>确保最后一个确认报文ACK能够到达。<br>  如果服务器端没收到客户端发送来的确认报文ACK，那么需要重新发送连接释放请求FIN报文，<br>客户端等待一段时间就是为了处理这种情况的发生。</p>
+</li>
+<li><p>等待一段时间是为了让本次连接持续时间内产生的所有报文都从网络中消失，<br>  使得下一个新的连接不会出现旧的连接请求报文Syn，从而错误打开连接。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>Net</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6之class</title>
+    <url>/articles/2020-02-11-ES-class.html</url>
+    <content><![CDATA[<h4 id="1-class"><a href="#1-class" class="headerlink" title="1. class"></a>1. class</h4><p>constructor定义构造方法，this关键字代表实例对象。<br>类的一般方法都定义在类的prototype属性上面。<br>类的实例上面调用方法，其实就是调用原型上的方法。<br>类的内部所有定义的方法，都是不可枚举的。<br>类的静态方法只能用类类调用，不能用类的实例调用。<br>如果在实例上调用静态方法，会抛出错误，表示不存在该方法。<br>父类的静态方法，可以被子类继承。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">  constructor()&#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">  &#125;</span><br><span class="line">  toString()&#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">  &#125;</span><br><span class="line">  toValue()&#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 等同于</span><br><span class="line">Point.prototype &#x3D; &#123;</span><br><span class="line">  toString()&#123;&#125;,</span><br><span class="line">  toValue()&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-Constructor方法"><a href="#2-Constructor方法" class="headerlink" title="2. Constructor方法"></a>2. Constructor方法</h4><p>类的默认方法，通过new命令生成对象实例时，自动调用该方法。<br>默认返回实例对象this</p>
+<h4 id="3-类的实例对象"><a href="#3-类的实例对象" class="headerlink" title="3. 类的实例对象"></a>3. 类的实例对象</h4><p>生成类的实例对象的写法，也是使用new命令</p>
+<p>class不存在变量提升，因此先使用，后定义会报错</p>
+<h4 id="4-this指向"><a href="#4-this指向" class="headerlink" title="4. this指向"></a>4. this指向</h4><p>类的方法内部的this，默认指向类的实例。<br>如果静态方法包含this，指的是类，不是实例</p>
+<h4 id="5-Name属性"><a href="#5-Name属性" class="headerlink" title="5. Name属性"></a>5. Name属性</h4><p>返回紧跟在class关键字后面的类名</p>
+<h4 id="6-class的继承"><a href="#6-class的继承" class="headerlink" title="6. class的继承"></a>6. class的继承</h4><p>通过extends关键字实现继承<br>子类必须在constructor方法中调用super方法，否则新建实例报错<br>子类没有自己的this对象，而是继承父类的this对象，并对其加工。<br>不调用super方法，子类就得不到this对象</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ColorPoint extends Point &#123;</span><br><span class="line">  constructor(x, y, color) &#123;</span><br><span class="line">    super(x, y); &#x2F;&#x2F; 调用父类的constructor(x, y)</span><br><span class="line">    this.color &#x3D; color;</span><br><span class="line">  &#125;</span><br><span class="line">  toString() &#123;</span><br><span class="line">    return this.color + &#39; &#39; + super.toString(); &#x2F;&#x2F; 调用父类的toString()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-类的prototype属性和-proto-属性"><a href="#7-类的prototype属性和-proto-属性" class="headerlink" title="7. 类的prototype属性和_proto_属性"></a>7. 类的prototype属性和_proto_属性</h4><p>class同时有prototype属性和_proto_属性，因此同时存在两条继承链。<br>子类的_proto_属性，表示构造函数的继承，总是指向父类<br>子类的prototype属性的_proto_属性，总是指向父类的prototype属性</p>
+<h4 id="8-Object-getPrototypeOf"><a href="#8-Object-getPrototypeOf" class="headerlink" title="8. Object.getPrototypeOf()"></a>8. Object.getPrototypeOf()</h4><p>用来从子类上获取父类，判断一个类是否继承了另一个类</p>
+<h4 id="9-super关键字"><a href="#9-super关键字" class="headerlink" title="9. super关键字"></a>9. super关键字</h4><p>可以当函数，也可以当对象使用<br>必须显式指定作为函数使用还是作为对象<br>作函数时：代表父类的构造函数，且super()只能用在子类的构造函数中，用在其他地方报错。<br>作为对象时：在普通方法中，指向父类的原型对象；在静态方法中，指向父类。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">    p() &#123;</span><br><span class="line">      return 2;</span><br><span class="line">    &#125;</span><br><span class="line">    static m() &#123;</span><br><span class="line">      console.log(&quot;父类的m方法被调用&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> class B extends A &#123;</span><br><span class="line">    constructor() &#123;</span><br><span class="line">      super();</span><br><span class="line">      console.log(super.p()); &#x2F;&#x2F; 2 super.p()在普通方法中，指向A.prototype</span><br><span class="line">    &#125;</span><br><span class="line">    static show() &#123;</span><br><span class="line">      super.m(); &#x2F;&#x2F; 在静态方法中，相当于A.m()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  let b &#x3D; new B();</span><br><span class="line">  B.show(); &#x2F;&#x2F;父类的m方法被调用</span><br></pre></td></tr></table></figure>
+
+<h4 id="10-实例的-proto-属性"><a href="#10-实例的-proto-属性" class="headerlink" title="10. 实例的_proto_属性"></a>10. 实例的_proto_属性</h4><p>子类实例的_proto_属性的_proto_属性，指向父类实例的_proto_属性。</p>
+<p>Class的取值函数getter和存值函数setter</p>
+<h4 id="11-Class的静态方法"><a href="#11-Class的静态方法" class="headerlink" title="11. Class的静态方法"></a>11. Class的静态方法</h4><p>在一个方法前，加static关键字<br>静态方法不会被实例继承，而是通过类来调用。<br>静态方法包含this，指向的是类，而不是实例。<br>静态方法可以和非静态方法重名。<br>父类的非静态方法可以被子类继承。</p>
+<h4 id="12-Class的静态属性和实例属性"><a href="#12-Class的静态属性和实例属性" class="headerlink" title="12. Class的静态属性和实例属性"></a>12. Class的静态属性和实例属性</h4><p>静态属性指的是Class本身的属性，即class.propname，而不是定义在实例对象this上的属性。</p>
+<h4 id="13-new-target属性"><a href="#13-new-target属性" class="headerlink" title="13. new.target属性"></a>13. new.target属性</h4><p>在构造函数中，返回new命令作用于的那个构造函数，如果构造函数不是通过new调用的，<br>new.target会返回undefined，<br>可以确定该构造函数是怎么调用的。</p>
+]]></content>
+      <categories>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6之asyncAwait</title>
+    <url>/articles/2020-02-11-ES-asyncAwait.html</url>
+    <content><![CDATA[<h4 id="1-async"><a href="#1-async" class="headerlink" title="1. async"></a>1. async</h4><p>async函数返回一个Promise对象，可以使用then方法添加回调函数。<br>当函数执行的时候，一旦遇到await就会先返回，等到异步操作完成，再接着执行函数体内后面的语句。</p>
+<a id="more"></a>
+
+<p>async函数返回的Promise对象，必须等内部所有的await命令后面的Promise对象执行完，<br>才会发生状态改变，除非遇到return语句或抛出错误。<br>即只有async函数内部的异步操作执行完，才会执行then方法指定的回调函数。</p>
+<p>async是Generator函数和自动执行器，包装在一个函数里。</p>
+<h4 id="2-await"><a href="#2-await" class="headerlink" title="2. await"></a>2. await</h4><p>await ecpression：会造成异步函数停止执行并且等待Promise的解决后再恢复执行。<br>若 ecpression是Promise对象，则返回 ecpression的[[PromiseValue]]值，<br>否则，直接返回 ecpression</p>
+<h4 id="3-异步Generator函数"><a href="#3-异步Generator函数" class="headerlink" title="3. 异步Generator函数"></a>3. 异步Generator函数</h4><p>异步Generator函数就是async函数与Generator函数的结合</p>
+]]></content>
+      <categories>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6之Promise</title>
+    <url>/articles/2020-02-11-ES-Promise.html</url>
+    <content><![CDATA[<h4 id="1-Promise对象的特点"><a href="#1-Promise对象的特点" class="headerlink" title="1. Promise对象的特点"></a>1. Promise对象的特点</h4><p>三种状态：</p>
+<ul>
+<li>Pending</li>
+<li>Resolved（Fulfilled）</li>
+<li>Rejected<br>一旦状态改变，不会再变，任何时候都可以得到这个结果</li>
+</ul>
+<p>状态只有两种改变：</p>
+<ul>
+<li>Pending到Resolver</li>
+<li>Pending到Rejected<br>如果改变已经发生，对Promise对象添加回调函数，也会立即得到这个结果<br>但事件Event不同，如果错过了，再去监听，是得不到结果的<br>状态一改变，即调用Promise对象的then方法</li>
+</ul>
+<a id="more"></a>
+
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><p>Promise一旦新建就会立即执行，无法中途取消<br>如果不设置回调函数，Promise内部抛出的错误，不会反应到外部<br>当处于Pending状态时，无法得知目前进展到哪个阶段</p>
+<h4 id="2-Promise-all"><a href="#2-Promise-all" class="headerlink" title="2. Promise.all()"></a>2. Promise.all()</h4><pre><code>当在可迭代参数中所有Promise倍resolve，或任意一Promise被reject时，返回一个新的promise</code></pre><h4 id="3-Promise-race"><a href="#3-Promise-race" class="headerlink" title="3. Promise.race()"></a>3. Promise.race()</h4><p>返回一个新的异步的promise，只要有一个完成或失败，新的promise就会立刻完成或失败，<br>并得到那个promise对象的返回值或错误原因</p>
+<p>参数为空，返回的蝾螈都是pending状态</p>
+<h4 id="4-Promise-resolve"><a href="#4-Promise-resolve" class="headerlink" title="4. Promise.resolve()"></a>4. Promise.resolve()</h4><p>返回一个Promise对象</p>
+<h4 id="5-Promise-reject"><a href="#5-Promise-reject" class="headerlink" title="5. Promise.reject()"></a>5. Promise.reject()</h4><p>返回一个新的Promise实例，状态为rejected，因此回调函数会立即执行</p>
+]]></content>
+      <categories>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6之SetMap</title>
+    <url>/articles/2020-02-11-ES-SetMap.html</url>
+    <content><![CDATA[<h4 id="1-Set"><a href="#1-Set" class="headerlink" title="1. Set"></a>1. Set</h4><p>本身是一个构造函数，生成set数据结构。<br>接受一个数组作为参数，用来初始化。<br>去除数组的重复成员。<br>遍历顺序是插入顺序。<br>没有键名，只有键值。</p>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const set &#x3D; new Set([1, 2, 3, 4, 4]);</span><br><span class="line">[...set]</span><br><span class="line">&#x2F;&#x2F; [1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-WeakSet"><a href="#2-WeakSet" class="headerlink" title="2. WeakSet"></a>2. WeakSet</h4><p>构造函数，可以使用new命令，创建WeakSet数据结构<br>接收数组或类似数组的对象作为参数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const a &#x3D; [[1, 2], [3, 4]];</span><br><span class="line">const ws &#x3D; new WeakSet(a);</span><br><span class="line">&#x2F;&#x2F; WeakSet &#123;[1, 2], [3, 4]&#125;</span><br></pre></td></tr></table></figure>
+
+<p>WeakSet的成员只能是对象，而不能是其它类型的值；<br>WeakSet中的对象都是弱引用，即垃圾回收机制不考虑WeakSet对该对象的引用，<br>即：如果其它对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用内存，<br>不考虑该对象还存在于WeakSet之中。<br>WeakSet没有size属性，不可遍历。</p>
+<h4 id="3-Map"><a href="#3-Map" class="headerlink" title="3. Map"></a>3. Map</h4><p>键值对的集合（Hash结构）<br>map键是对象类型的，内存地址相同才相同<br>map键是简单类型的，两个值严格相等视为一个键，0和-0是同一个<br>map键将NaN和其自身视为同一个键<br>遍历顺序是插入顺利</p>
+<h4 id="4-WeakMap"><a href="#4-WeakMap" class="headerlink" title="4. WeakMap"></a>4. WeakMap</h4><p>WeakMap只接受对象作为键名（null除外），不接受其他类型的值作为键名<br>WeakMap的键名所指向的对象，不计入垃圾回收机制</p>
+<p>WeakMap的键名所引用的对象都是弱引用，即垃圾回收机制不将该引用考虑在内。<br>因此，只要所引用的对象的其他引用都被清除，垃圾回收机制就会释放该对象所占用的内存。<br>即一旦不再需要，WeakMap里面的键名对象和对应的键值就会自动消失，不用手动删除引用。</p>
+<p>WeakMap有助于防止内存泄漏</p>
+]]></content>
+      <categories>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis</title>
+    <url>/articles/2020-02-11-dataBase-Redis.html</url>
+    <content><![CDATA[<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>一个开源的，内存中的数据结构存储系统；<br>用作数据库、缓存和消息中间件；</p>
+<a id="more"></a>
+
+<h4 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h4><p>Redis是速度非常快的非关系型（Nosql）内存键值数据库，可以存储键和五种不同类型的值之间的映射。<br>Redis支持很多特性。如：将内存中的数据持久化到硬盘中，使用复制来扩展读性能，使用分片扩展写性能。<br>键的类型只能为字符串，值有五种类型：字符串、列表、集合、散列表、有序集合。</p>
+<h5 id="支持的数据结构"><a href="#支持的数据结构" class="headerlink" title="支持的数据结构"></a>支持的数据结构</h5><pre><code>字符串 String
+散列 Hashes
+列表 List
+集合 Set
+有序集合 Sorted set
+范围查询
+bitmaps
+hyperloglogs
+地理空间 geospatial索引半径查询</code></pre><p>内置了复制replication，LUA脚本，LRU驱动事件，事务和不同级别的磁盘持久化，并通过Redis哨兵Sentinel和自动分区Cluster提供高可用性</p>
+<ul>
+<li>string 字符串、整数或浮点数 对整个字符串或字符串的其中一部分执行操作，对整数和浮点数执行自增或自减操作。</li>
+<li>list 列表 从两端压入或弹出元素，对单个或多个元素进行修剪，只保留一个范围内的元素</li>
+<li>set 无序集合 添加、获取、移除单个元素，检查一个元素是否在于集合中，计算交集、并集、差集，从集合里面随机获取元素</li>
+<li>hash 包含键值对的无序散列表 添加、获取、移除单个键值对，获取所有键值对，检查某个键是否存在</li>
+<li>zset 有序集合 添加、获取、删除元素根据分值范围或成员来获取元素计算一个键的排名</li>
+</ul>
+<p>string<br>    set key value *<br>    get key<br>    del key</p>
+<p>list<br>    rpush key value *<br>    lrange key start stop<br>    lindex key index<br>    lpop key</p>
+<p>set<br>    sadd key value<br>    smembers key<br>    srem key value</p>
+<p>hash<br>    hset key field value<br>    hgetall key<br>    hdel key field</p>
+<p>zset</p>
+<h4 id="2-数据结构"><a href="#2-数据结构" class="headerlink" title="2.数据结构"></a>2.数据结构</h4><h5 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h5><p>distht：散列表结构，使用拉链法解决哈希冲突</p>
+<p>Redis的字典dict中包含两个哈希表dictht，这是为了方便进行rehash操作。<br>在扩容时，将其中一个dictht上的键值对rehash到另一个dictht上，完成之后释放空间并交换两个dictht的角色。</p>
+<p>rehash操作不是一次性完成，而是采用渐进方式，这是为了避免一次性执行过多的rehash操作给服务器带来的过大的负担。</p>
+<p>渐进式rehash通过记录dict的rehashidx完成，从0开始，然后每执行一次rehash都会递增。</p>
+<p>在rehash期间，每次对字典执行添加、删除、查找或更新操作时，都会执行一次渐进式rehash。</p>
+<p>采用渐进式rehash会导致字典中的数据分散在两个dictht上，因此对字典的查找操作也需要到对应的dictht去执行。</p>
+<h5 id="跳跃表"><a href="#跳跃表" class="headerlink" title="跳跃表"></a>跳跃表</h5><p>是有序集合的底层实现之一。</p>
+<p>跳跃表是基于多指针有序链表实现的，可以看成多个有序链表。<br>在查找时，从上层指针开始查找，找到对应的区间之后再到下一层去查找。</p>
+<p>与红黑树等平衡树相比，跳跃表的优点：<br>插入速度非常快速，因为不需要进行旋转灯操作来维护平衡性；<br>更容易实现；<br>支持无锁操作；</p>
+<h4 id="3-使用场景"><a href="#3-使用场景" class="headerlink" title="3. 使用场景"></a>3. 使用场景</h4><h5 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h5><p>可以对string进行自增自减运算，从而实现计数器功能。<br>redis这种内存型数据库的读写性能非常高，很适合存储频繁读写的计数量。</p>
+<h5 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h5><p>将热点数据放到内存中，设置内存的最大使用量，及淘汰策略来保证缓存的命中率。</p>
+<h5 id="查找表"><a href="#查找表" class="headerlink" title="查找表"></a>查找表</h5><p>如DNS记录就很适合使用Redis进行存储。</p>
+<p>查找表和缓存类似，也是利用redis快速查找特性。<br>但查找表的内容不能失效，而缓存的内容可以失效，缓存不作为可靠的数据来源。</p>
+<h5 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h5><p>list是一个双向链表，可以通过lpush和rpop写入和读取消息。</p>
+<h5 id="会话缓存"><a href="#会话缓存" class="headerlink" title="会话缓存"></a>会话缓存</h5><p>可以使用Redis来统一存储多台应用服务器的会话消息。</p>
+<p>当应用服务器不再存储用户的会话消息，也就是不再具有状态，<br>一个用户可以请求任意一个应用服务器，从而容易实现高可用性及可伸缩性。</p>
+<h5 id="分布式锁实现"><a href="#分布式锁实现" class="headerlink" title="分布式锁实现"></a>分布式锁实现</h5><p>在分布式场景下，无法使用单机环境下的锁来对多个节点上的进程进行同步。</p>
+<p>可以使用Redis自带的setnx命令实现分布式锁，除此之外，还可以使用RedLock分布式锁实现。</p>
+<h5 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h5><p>set可以实现交集、并集等操作，从而实现共同好友的功能<br>zset可以有序性的操作，从而实现排行榜等功能。</p>
+<h4 id="4-Redis与Memcached"><a href="#4-Redis与Memcached" class="headerlink" title="4. Redis与Memcached"></a>4. Redis与Memcached</h4><p>两者都是非关系型内存键值数据库，主要有以下不同：</p>
+<h5 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h5><p>Memcached仅支持字符串类型，redis支持五种不同的数据类型，可以灵活的解决问题。</p>
+<h5 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h5><p>Redis支持两种持久化策略：RDB快照和AOF日志，而Memcached不支持持久化。</p>
+<h5 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h5><p>Memcached不支持分布式，只能通过在客户端使用一致性哈希来实现分布式存储，<br>这种方式在存储和查询时都需要先在客户端计算一次数据所在的节点。</p>
+<p>redis cluster实现了分布式的支持。</p>
+<h5 id="内存管理机制"><a href="#内存管理机制" class="headerlink" title="内存管理机制"></a>内存管理机制</h5><p>在redis中，并不是所有数据都一直存储在内存中，可以将一些很久没用的value交换到磁盘，<br>而Memcached的数据则会一直在内存中。</p>
+<p>Memcached将内存分割成特定长度的块来存储数据，以完全解决内存碎片的问题。<br>但这种方式会使得内存的利用率不高。</p>
+<h4 id="5-键的过期时间"><a href="#5-键的过期时间" class="headerlink" title="5. 键的过期时间"></a>5. 键的过期时间</h4><p>Redis可以为每个键设置过期时间，当键过期时，会自动删除该键。</p>
+<p>对于散列表这种容器，只能为整个键设置过期时间（整个散列表），而不能为键里面的单个元素设置过期时间。</p>
+<h4 id="6-数据淘汰策略"><a href="#6-数据淘汰策略" class="headerlink" title="6. 数据淘汰策略"></a>6. 数据淘汰策略</h4><p>可以设置内存的最大使用量，当内存使用量超出时，会施行数据淘汰策略。</p>
+<p>Redis有6种淘汰策略：</p>
+<ul>
+<li>volatile-lru 从已设置过期时间的数据集中挑选最近最少使用的数据淘汰</li>
+<li>volatile-ttl 从已设置过期时间的数据集中挑选将要过期的数据淘汰</li>
+<li>volatile-random 从已设置过期时间的数据集中任意选择数据淘汰</li>
+<li>allkeys-lru 从所有数据集中挑选最近最少使用的数据淘汰</li>
+<li>allkeys-random 从所有数据集中任意选择数据进行淘汰</li>
+<li>noeviction 禁止驱逐数据</li>
+</ul>
+<p>作为内存数据库，出于对性能和内存消耗的考虑，redis的淘汰算法实际上并非针对所有的key，<br>而是抽样一小部分并且从中选出被淘汰的key。</p>
+<p>使用Redis缓存数据时，为了提高缓存命中率，需要保证缓存数据都是热点数据。<br>可以将内存最大使用量设置为热点数据占用的内存量，然后启用allkeys-lru淘汰策略，<br>将最近最少使用的数据淘汰。</p>
+<p>Redis4.0引入了volatile-lfu和allkeys-lfu淘汰策略，LFU策略通过统计访问频率，将访问频率最少的键值对淘汰。</p>
+<h4 id="7-持久化"><a href="#7-持久化" class="headerlink" title="7. 持久化"></a>7. 持久化</h4><p>Redis是内存型数据库，为了保证数据在断电后不会丢失，需要将内存中的数据持久化到硬盘上。</p>
+<h5 id="RDB持久化"><a href="#RDB持久化" class="headerlink" title="RDB持久化"></a>RDB持久化</h5><p>将某个时间点的所有数据都存放到硬盘上；<br>可以将快照复制到其它服务器，从而创建具有相同数据的服务器副本；<br>如果系统发生故障，将会丢失最后一次创建快照之后的数据；<br>如果数据量很大，保存快照的时间会很长；</p>
+<h5 id="AOF持久化"><a href="#AOF持久化" class="headerlink" title="AOF持久化"></a>AOF持久化</h5><p>将写命令添加到AOF文件（Append Only File）的末尾。</p>
+<p>使用AOF持久化需要设置同步选项，从而确保写命令同步到磁盘文件上的时机。<br>这是因为对文件进行写入并不会马上将内容同步到磁盘上，而是先存储到缓存区，<br>然后由操作系统决定什么时候同步磁盘，有以下选项：</p>
+<ul>
+<li>always 每个写命令都同步</li>
+<li>everysec 每秒同步一次</li>
+<li>no 让操作系统来决定何时同步</li>
+</ul>
+<p>always：选项会严重降低服务器的性能；<br>everysec：选项比较合适，可以保证系统崩溃时只会丢失一秒左右的数据，并且redis每秒执行一次同步对服务器性能几乎没有任何影响；<br>no：选项并不能给服务器性能带来多大的提升，而且会增加系统崩溃时数据丢失的数量；</p>
+<p>随着服务器请求的增多，AOF文件会越来越大。<br>Redis提供了一种将AOF重写的特性，能够去除AOF文件中的冗余写命令。</p>
+<h4 id="8-事务"><a href="#8-事务" class="headerlink" title="8. 事务"></a>8. 事务</h4><p>一个事务包含了多个命令，服务器在执行事务期间，不会改去执行其它客户端的命令请求。</p>
+<p>事务中的多个命令被一次性发送给服务器，而不是一条一条发送，这种方式成为流水线，<br>可以减少客户端与服务器之间的网络通信次数从而提升性能。</p>
+<p>redis最简单的事务实现方式是使用MULTI和EXEC命令将事务操作包围起来。</p>
+<h4 id="9-事件"><a href="#9-事件" class="headerlink" title="9. 事件"></a>9. 事件</h4><p>redis服务器是一个事件驱动程序。</p>
+<h5 id="文件事件"><a href="#文件事件" class="headerlink" title="文件事件"></a>文件事件</h5><p>服务器通过套接字与客户端或其它服务器进行通信，文件事件就是对套接字操作的抽象。<br>Redis基于Reactor模式开发了自己的网络事件处理器，使用I/O多路复用程序来同时监听多个套接字，<br>并将到达的事件传送给文件事件分派器，分排器会根据套接字产生的事件类型调用相应的事件处理器。</p>
+<h5 id="时间事件"><a href="#时间事件" class="headerlink" title="时间事件"></a>时间事件</h5><p>服务器有一些操作需要在给定的时间点执行，时间事件是对这类定时操作的抽象。<br>时间事件分为：</p>
+<ul>
+<li>定时事件：是让一段程序在指定的时间之内执行一次；</li>
+<li>周期性事件：是让一段程序每隔指定时间就执行一次；</li>
+</ul>
+<p>Redis将所有时间事件都放在一个无序链表中，通过遍历整个链表查找出已到达的时间事件，<br>并调用相应的事件处理器。</p>
+<h5 id="事件的调度与执行"><a href="#事件的调度与执行" class="headerlink" title="事件的调度与执行"></a>事件的调度与执行</h5><p>服务器需要不断监听文件事件的套接字才能得到待处理的文件事件，但不能一直监听，否则时间事件无法在规定的时间内执行，<br>因此监听时间应该根据距离现在最近的时间事件来决定。</p>
+<h4 id="10-复制"><a href="#10-复制" class="headerlink" title="10. 复制"></a>10. 复制</h4><p>通过使用slaveof host port命令来让一个服务器成为另一个服务器的从服务器。</p>
+<p>一个从服务器只能有一个主服务器，并且不支持主主复制。</p>
+<h5 id="连接过程"><a href="#连接过程" class="headerlink" title="连接过程"></a>连接过程</h5><ul>
+<li>主服务器创建快照文件，发送给从服务器，并在发送期间使用缓冲区记录执行的写命令。<br>快照文件发送完毕后，开始向从服务器发送存储在缓冲区中的写命令。</li>
+<li>从服务器丢弃所有旧数据，载入主服务器发来的快照文件，之后从服务器开始接受主服务器发来的写命令；</li>
+<li>主服务器每执行一次写命令，就向从服务器发送相同的命令</li>
+</ul>
+<h5 id="主从链"><a href="#主从链" class="headerlink" title="主从链"></a>主从链</h5><p>随着负载不断上升，主服务器可能无法很快的更新所有从服务器，或重新连接和同步从服务器将导致系统超载。<br>为了解决这个问题，可以创建一个中间层来分担主服务器的复制工作。<br>中间层的服务器是最上层服务器的从服务器，又是最下层服务器的主服务器。</p>
+<h4 id="11-Sentinel"><a href="#11-Sentinel" class="headerlink" title="11. Sentinel"></a>11. Sentinel</h4><p>Sentinel哨兵：可以监听集群中的服务器，并在主服务器进入下线状态时，自动从从服务器中选举出新的主服务器。</p>
+<h4 id="12-分片"><a href="#12-分片" class="headerlink" title="12. 分片"></a>12. 分片</h4><p>分片是将数据划分成多个部分的方法，可以将数据存储到多台机器里面，这种方法在解决某些问题时可以获得<br>线性级别的性能提升。</p>
+<p>根据分片的位置，可以分为三种分片方式：</p>
+<ul>
+<li>客户端分片：客户端使用一致性哈希等算法决定键应当分布到哪个节点；</li>
+<li>代理分片：将客户端请求发送到代理上，由代理转发请求到正确的节点上；</li>
+<li>服务器分片：Redis Cluster；</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Proto3</title>
+    <url>/articles/2020-02-11-proto3.html</url>
+    <content><![CDATA[<h4 id="Protobuf（proto3）"><a href="#Protobuf（proto3）" class="headerlink" title="Protobuf（proto3）"></a>Protobuf（proto3）</h4><p>protocol buffer是google的语言中立的、平台中立的，可扩展机制的，用于序列化结构化数据。<br>对比XML，更小、刚快、更简单。<br>简单的设计协议，通过自带工具转换成对应的语言代码，<br>协议是二进制协议，设计时只需要描述各个类的关系，简单明了。</p>
+<p>定义消息类型<br>syntax = “proto3”; // 指定使用proto3的语法，否则默认是proto2，该定义必须是文件的第一个非空的非注释行</p>
+<p>// HelloWorldRequest消息定义了三个字段(名称/值对)，对应着消息内容<br>// 每个字段都由字段限制、字段类型、字段名和编号四部分组成<br>message HelloWorldRequest {<br>    string name = 1;<br>    int32 age = 2;<br>}</p>
+<a id="more"></a>
+
+<h4 id="1-指定字段类型"><a href="#1-指定字段类型" class="headerlink" title="1. 指定字段类型"></a>1. 指定字段类型</h4><pre><code>double
+float
+int32
+int64
+boolean
+string
+byte
+uint64
+sint32
+sint64
+fixed32
+fixed64
+sfixed32
+sfixed64</code></pre><h4 id="2-赋予编号-数字标识符"><a href="#2-赋予编号-数字标识符" class="headerlink" title="2. 赋予编号(数字标识符)"></a>2. 赋予编号(数字标识符)</h4><p>消息中的每一个字段都有一个独一无二的数值类型的编号，用来在消息的二进制格式中识别各个字段，一旦开始使用就不能再改变。</p>
+<p>1-15使用一个字节编码<br>16-2047使用两个字节编码<br>所以将编号1-15留给频繁使用的字段<br>要为将来有可能添加的、频繁出现的标识号预留一些标识号<br>最小的标识号可以从1开始，最大到2^29 - 1, or 536,870,911。<br>不可以使用其中的[19000－19999]的标识号， Protobuf协议实现中对这些进行了预留。如果非要在.proto文件中使用这些预留标识号，编译时就会报错</p>
+<h4 id="3-指定字段限制"><a href="#3-指定字段限制" class="headerlink" title="3. 指定字段限制"></a>3. 指定字段限制</h4><p>required：必须赋值的字段<br>optional：可有可无的字段<br>repeated：可重复的字段（变长字段），重复使用任意次数(包括0次)</p>
+<h4 id="4-添加更多消息类型"><a href="#4-添加更多消息类型" class="headerlink" title="4. 添加更多消息类型"></a>4. 添加更多消息类型</h4><p>一个.proto文件可以定义多个消息类型</p>
+<h4 id="5-添加注释"><a href="#5-添加注释" class="headerlink" title="5. 添加注释"></a>5. 添加注释</h4><p>//</p>
+<h4 id="6-预留字段"><a href="#6-预留字段" class="headerlink" title="6. 预留字段"></a>6. 预留字段</h4><p>当你在某次更新消息中屏蔽或者删除了一个字段的话，未来的使用着可能在他们的更新中重用这个标签数字来标记他们自己的字段。然后当他们加载旧的消息的时候就会出现很多问题，包括数据冲突，隐藏的bug等等。指定这个字段的标签数字（或者名字，名字可能在序列化为JSON的时候可能冲突）标记为reserved来保证他们不会再次被使用。如果以后的人试用的话protobuf编译器会提示出错。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">message Foo &#123;</span><br><span class="line">  reserved 2, 15, 9 to 11;</span><br><span class="line">  reserved &quot;foo&quot;, &quot;bar&quot;;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 一个reserved字段不能机油标签数字又有名字</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-默认值"><a href="#7-默认值" class="headerlink" title="7. 默认值"></a>7. 默认值</h4><pre><code>string：空字符串
+字节：空字节
+布尔：false
+数字类型：0
+枚举：第一个定义的枚举值，且该值必须为0
+重复字段：空</code></pre><h4 id="8-枚举"><a href="#8-枚举" class="headerlink" title="8. 枚举"></a>8. 枚举</h4><p>Corpus枚举第一个常量映射为0，每个枚举定义必须包含一个映射到0的常量作为第一个元素<br>设置可选参数allow_alias为true，可以在枚举结构中使用别名(两个值元素值相同)<br>枚举器常量必须在32位正数范围内<br>不建议使用负值</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">message SearchRequest &#123;</span><br><span class="line">    string query &#x3D; 1;</span><br><span class="line">    int32 page_number &#x3D; 2;</span><br><span class="line">    int32 result_per_page &#x3D; 3;</span><br><span class="line">    enum Corpus &#123; </span><br><span class="line">      UNIVERSAL &#x3D; 0;</span><br><span class="line">      WEB &#x3D; 1;</span><br><span class="line">      IMAGES &#x3D; 2;</span><br><span class="line">      LOCAL &#x3D; 3;</span><br><span class="line">      NEWS &#x3D; 4;</span><br><span class="line">      PRODUCTS &#x3D; 5;</span><br><span class="line">      VIDEO &#x3D; 6;</span><br><span class="line">    &#125;</span><br><span class="line">    Corpus corpus &#x3D; 4;</span><br><span class="line">&#125;</span><br><span class="line">enum EnumAllowingAlias &#123;</span><br><span class="line">    option allow_alias &#x3D; true;</span><br><span class="line">    UNKNOWN &#x3D; 0;</span><br><span class="line">    STARTED &#x3D; 1;</span><br><span class="line">    RUNNING &#x3D; 1;</span><br><span class="line">&#125;</span><br><span class="line">enum EnumNotAllowingAlias &#123;</span><br><span class="line">    UNKNOWN &#x3D; 0;</span><br><span class="line">    STARTED &#x3D; 1;</span><br><span class="line">    &#x2F;&#x2F; RUNNING &#x3D; 1;  &#x2F;&#x2F; Uncommenting this line will cause a compile error inside Google and a warning message outside.</span><br><span class="line">&#125;</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 9. 使用其他消息类型</span><br><span class="line">使用一个消息的定义作为另一个消息的字段类型</span><br></pre></td></tr></table></figure>
+<p>message SearchResponse {<br>  repeated Result results = 1;<br>}</p>
+<p>message Result {<br>  string url = 1;<br>  string title = 2;<br>  repeated string snippets = 3;<br>}</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#### 10. 导入定义</span><br><span class="line">&#96;&#96;&#96;import &#39;other_protos.proto&#39;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-嵌套类型"><a href="#11-嵌套类型" class="headerlink" title="11. 嵌套类型"></a>11. 嵌套类型</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">message SearchResponse &#123;</span><br><span class="line">  message Result &#123;</span><br><span class="line">    string url &#x3D; 1;</span><br><span class="line">    string title &#x3D; 2;</span><br><span class="line">    repeated string snippets &#x3D; 3;</span><br><span class="line">  &#125;</span><br><span class="line">  repeated Result results &#x3D; 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 在另一个消息中使用Result定义</span><br><span class="line">message SomeOtherMessage &#123;</span><br><span class="line">  SearchResponse.Result result &#x3D; 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="12-更新消息类型"><a href="#12-更新消息类型" class="headerlink" title="12. 更新消息类型"></a>12. 更新消息类型</h4><ul>
+<li>不要更改任何现有字段的字段编号</li>
+<li>添加新字段，必须是optional和repeated限定符，否则无法保证新老程序在互相传递消息时的兼容性</li>
+<li>在原有消息中，不能移出已经存在的required字段，optional和repeated类型的字段可以被移除，但是他们之前使用的标签号必须被保留，不能被新的字段重用</li>
+<li>int32、uint32、int64、uint64和bool等类型之间是兼容的，sint32和sint64是兼容的，string和bytes是兼容的，fixed32和sfixed32，以及fixed64和sfixed64之间是兼容的，这意味着如果想修改原有字段的类型时，为了保证兼容性，只能将其修改为与其原有类型兼容的类型，否则就将打破新老消息格式的兼容性</li>
+<li>optional和repeated限定符也是互相兼容</li>
+</ul>
+<h4 id="13-任意消息类型"><a href="#13-任意消息类型" class="headerlink" title="13. 任意消息类型"></a>13. 任意消息类型</h4><p>any类型不需要在.proto文件中定义就可以直接使用的消息类型，使用前import google/protobuf/any.proto文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import  &quot;google&#x2F;protobuf&#x2F;any.proto&quot;;</span><br><span class="line"></span><br><span class="line">message ErrorStatus  &#123;</span><br><span class="line">  string message &#x3D;  1;</span><br><span class="line">  repeated google.protobuf.Any details &#x3D;  2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="14-其中一个类型"><a href="#14-其中一个类型" class="headerlink" title="14. 其中一个类型"></a>14. 其中一个类型</h4><p>Oneof</p>
+<ul>
+<li>一个包含许多字段的消息，且最多只同时设置一个字段，可以使用oneof强制执行并节省内存</li>
+<li>oneof字段只有最后被设置的字段才有效，即后面的set操作会覆盖前面的set操作</li>
+<li>oneof不可以是repeated</li>
+<li>反射api可以用在oneof字段</li>
+<li>添加或删除oneof字段，如果检测到oneof字段的返回值是None/Not_Set,意味着oneof没有被设置或设置了一个不同的oneof版本，但无法区分这两种情况（向后兼容）</li>
+<li>删除或添加字段到oneof，在消息序列化或解析后会丢失一些消息，一些字段会被清空</li>
+<li>删除一个字段然后重新添加，在消息序列化或解析后会清除当前设置的oneof字段</li>
+<li>分割或合并字段，同普通的删除字段操作</li>
+</ul>
+<h1 id="Maps（表映射）"><a href="#Maps（表映射）" class="headerlink" title="Maps（表映射）"></a>Maps（表映射）</h1><ul>
+<li>map&lt;key_type, value_type&gt; map_field = N;</li>
+<li>key_type可以是除浮点指针或bytes外的其他基本类型，value_type可以是任意类型</li>
+<li>Map的字段不可以是重复的(repeated)</li>
+<li>线性顺序和map值的的迭代顺序是未定义的，所以不能期待map的元素是有序的</li>
+<li>maps可以通过key来排序，数值类型的key通过比较数值进行排序</li>
+<li>线性解析或者合并的时候，如果出现重复的key值，最后一个key将被使用。从文本格式来解析map，如果出现重复key值则解析失败</li>
+<li>向后兼容：在线性上是等价的，即使paotocol buffers没有实现maps数据结构也不会影响数据的处理</li>
+</ul>
+<h4 id="15-包"><a href="#15-包" class="headerlink" title="15. 包"></a>15. 包</h4><p>可以向.proto文件添加package可选说明符，以防止协议消息类型之间的名称冲突</p>
+]]></content>
+      <categories>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>Proto3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mongodb</title>
+    <url>/articles/2020-02-11-dataBase-Mongodb.html</url>
+    <content><![CDATA[<h4 id="1-创建索引"><a href="#1-创建索引" class="headerlink" title="1. 创建索引"></a>1. 创建索引</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#### 2. 查询索引</span><br><span class="line">&#96;&#96;&#96;db.user.getIndexes(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h4 id="3-索引类型"><a href="#3-索引类型" class="headerlink" title="3. 索引类型"></a>3. 索引类型</h4><ul>
+<li><p>默认索引<br>  强制唯一的，不可删除。</p>
+</li>
+<li><p>唯一索引</p>
+</li>
+<li><p>组合索引<br>  多个键组合，键后面的数字表明了索引的方向，1表示升序，-1表示降序。</p>
+</li>
+</ul>
+<h4 id="4-查询数据库主从库"><a href="#4-查询数据库主从库" class="headerlink" title="4. 查询数据库主从库"></a>4. 查询数据库主从库</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">查询结果：</span><br></pre></td></tr></table></figure>
+<p>{<br>    “setName” : “数据库名”,<br>    “setVersion” : 25,<br>    “ismaster” : false, // 所在库是否为主库<br>    “secondary” : true, // 所在库是否为从库<br>    “hosts” : [ // 数据库hosts<br>        “<strong>***</strong>:27017”,<br>        “<strong>***</strong>:27017”,<br>        “<strong>***</strong>:27017”<br>    ],<br>    “primary” : “<strong>***</strong>:27017”, // 主库<br>    “me” : “<strong>**</strong>:27017”,<br>    “maxBsonObjectSize” : 16777216,<br>    “maxMessageSizeBytes” : 48000000,<br>    “maxWriteBatchSize” : 1000,<br>    “localTime” : ISODate(“2020-02-11T09:18:17.240Z”),<br>    “maxWireVersion” : 3,<br>    “minWireVersion” : 0,<br>    “ok” : 1.0<br>}</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#### 5. 获取ObjectId的时间</span><br><span class="line">&#96;&#96;&#96; ObjectId(&#39;5d01777700de3b32269aefe4&#39;).getTimestamp()</span><br></pre></td></tr></table></figure>
+<p>结果：<code>ISODate(&quot;2019-06-12T22:06:47Z&quot;)</code></p>
+]]></content>
+      <categories>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>Mongodb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Knex</title>
+    <url>/articles/2020-02-11-dataBase-knex.html</url>
+    <content><![CDATA[<h4 id="1-Knexjs"><a href="#1-Knexjs" class="headerlink" title="1. Knexjs"></a>1. Knexjs</h4><p>设计的“包含电池”SQL查询构建器，设计灵活，便于携带，并且使用起来非常有趣。<br>它具有传统的节点样式回调以及用于清洁异步流控制的承诺接口，流接口，全功能查询和模式构建器，事务支持（带保存点），连接池以及不同查询客户和方言之间的标准化响应。</p>
+<a id="more"></a>
+
+<h4 id="2-支持"><a href="#2-支持" class="headerlink" title="2. 支持"></a>2. 支持</h4><p>主要目标环境是NodeJS，安装该Knex库。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><figcaption><span>install knex --save```</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#### 3. 初始数据库</span><br><span class="line">该knex模块本身是一个为Knex提供配置对象的函数，它接受一些参数。该client参数是必须的，并且确定哪个客户端适配器将与该库一起使用。</span><br><span class="line">mysql数据库初始化：</span><br></pre></td></tr></table></figure>
+<p>var knex = require(‘knex’)({<br>  client: ‘mysql’,<br>  connection: {<br>    host : ‘127.0.0.1’,<br>    user : ‘your_database_user’,<br>    password : ‘your_database_password’,<br>    database : ‘myapp_test’<br>  }<br>});</p>
+<pre><code>#### 4. knex查询构造器
+
+
+</code></pre>]]></content>
+      <categories>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>Knex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>gRPC</title>
+    <url>/articles/2020-02-11-gRPC.html</url>
+    <content><![CDATA[<h4 id="什么是gRPC"><a href="#什么是gRPC" class="headerlink" title="什么是gRPC"></a>什么是gRPC</h4><pre><code>PRC（Remote Procedure Call 远程过程调用)框架实际是提供了一套机制，使得应用程序之间可以进行通信。
+google开发，一款语言中立、平台中立、开源的远程过程调用(RPC)系统.
+gRPC里客户端应用可以像本地对象一样直接调用另一台不同机器上服务端应用的方法，使得能够更容易创建分布式应用和服务。
+基于Http2.0且依赖protobuf
+
+定义一个服务，指定其能够被远程调用的方法(参数和返回类型),在服务端实现这个接口，并允许一个gRPC服务器来处理客户端调用，
+在客户端拥有一个存根能够像服务端一样的方法。</code></pre><a id="more"></a>
+
+<h5 id="1-特性"><a href="#1-特性" class="headerlink" title="1. 特性"></a>1. 特性</h5><pre><code>基于Http/2:
+    HTTP/2提供了连接多路复用、双向流、服务器推送、请求优先级、首部压缩等机制。
+    可节省带宽、降低TCP链接次数、节省CPU，帮助移动设备延长电池寿命等。
+IDL使用ProtoBuf：
+    gRPC使用ProtoBuf定义服务，ProtoBuf由Google开发的一种数据序列化协议，能够将数据进行序列化，
+    并广泛应用在数据存储、通信协议等方面
+    压缩和传输效率高，语法简单，表达力强。
+多语言支持：
+    C、C++、Node、Python、Rubuy、Objective-C、PHP和C#</code></pre><h5 id="2-应用场景"><a href="#2-应用场景" class="headerlink" title="2. 应用场景"></a>2. 应用场景</h5><pre><code>低延迟、高扩展性、分布式的系统
+同云服务器进行通信的引动应用客户端
+涉及语言独立、高效、精确的新协议
+便于各方面扩展的分层涉及，如认证、负载均衡、日志记录、监控等</code></pre><h5 id="3-优点"><a href="#3-优点" class="headerlink" title="3. 优点"></a>3. 优点</h5><pre><code>protobuf二进制编码，大幅减少需要传输的数据量，性能好、效率高
+proto文件生成目标代码，简单易用
+protobuf定义接口，更加严格的接口约束条件
+grpc可以方便的支持流式通信
+序列化反序列化直接对应程序中的数据类，不需要解析后再进行映射
+支持向前兼容(新加字段采用默认值)和向后兼容(忽略新加字段)，简化升级
+支持多种语言
+Netty等一些框架集成</code></pre><h5 id="4-缺点"><a href="#4-缺点" class="headerlink" title="4. 缺点"></a>4. 缺点</h5><pre><code>grpc尚未实现连接池，需要自行实现
+尚未提供“服务发现”、“负载均衡”机制
+Nginx不能讲Grpc请求作为http请求来负载均衡，而是作为普通的TCP请求
+protobuf二进制可读写差</code></pre><h5 id="5-基础"><a href="#5-基础" class="headerlink" title="5. 基础"></a>5. 基础</h5><pre><code>.proto文件定义服务
+protocol buffer编译器生成服务器和客户端代码
+使用grpc的NodeJS API为服务实现一个简单的客户端和服务器</code></pre><h5 id="6-为什么使用gRPC？"><a href="#6-为什么使用gRPC？" class="headerlink" title="6. 为什么使用gRPC？"></a>6. 为什么使用gRPC？</h5><pre><code>允许客户端获取路由特性的信息，生成路由的总结，及交互路由信息</code></pre><h5 id="7-通信方式"><a href="#7-通信方式" class="headerlink" title="7. 通信方式"></a>7. 通信方式</h5><pre><code>Simple RPC
+            一个请求对象对应一个返回对象
+Server-side streaming RPC
+        服务端流式rpc，一个请求对象，服务端返回多个结果对象
+Client-side streaming RPC
+        客户端流式rpc，客户端传入多个请求对象，服务端返回一个相应结果
+Bidirectional streaming RPC
+        双向流式rpc，结合客户端流式rpc和服务端流式rpc，可以传入多个对象，返回多个响应对象</code></pre><h5 id="8-Examples"><a href="#8-Examples" class="headerlink" title="8. Examples"></a>8. Examples</h5><ul>
+<li><p><code>cd examples/node-test</code></p>
+</li>
+<li><p>定义服务：<br>  使用protocol buffers去定义gRPC service和方法request及response类型；</p>
+</li>
+<li><p>.proto文件：<br>  .proto文件也包含了所有请求的protocol buffer消息类型定义及在服务方法中使用的响应类型。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">syntax &#x3D; &quot;proto3&quot;; &#x2F;&#x2F; 指定使用proto3语法，默认是proto2，且放在proto文件的非空非注释的第一行。</span><br><span class="line"></span><br><span class="line">package helloworld;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 指定service</span><br><span class="line">service Greeter &#123;</span><br><span class="line">    &#x2F;&#x2F; 一个简单的rpc, 客户端使用存根发送请求到服务器并等待响应返回；</span><br><span class="line">    rpc SayHello (HelloRequest) returns (HelloReply) &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 一个服务端流式rpc 客户端发送请求到服务器，拿到一个流去读取返回的消息序列。</span><br><span class="line">    &#x2F;&#x2F; 客户端读取返回的流，直到里面没有任何消息。</span><br><span class="line">    rpc ListFeatures(Rectangle) returns (stream Feature) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 一个客户端流式rpc 客户端写入一个消息序列并将其发送到服务器，同样适用流</span><br><span class="line">    &#x2F;&#x2F; 一旦客户端完成写入信息，它等待服务器完成读取返回它的响应</span><br><span class="line">    rpc RecordRoute(stream Point) returns (RouteSummary) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 一个双向流式rpc 双方适用读写流去发送一个消息序列。两个流独立操作，因此客户端和服务端可以任曦喜欢的顺序读写</span><br><span class="line">    rpc RouteChat(stream RouteNote) returns (stream RouteNote) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message HelloRequest &#123;</span><br><span class="line">    string name &#x3D; 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message HelloReply &#123;</span><br><span class="line">    string message &#x3D; 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编译proto文件<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd protos </span><br><span class="line"></span><br><span class="line">grpc_tools_node_protoc --js_out&#x3D;import_style&#x3D;commonjs,binary:..&#x2F;protos --grpc_out&#x3D;..&#x2F;protos --plugin&#x3D;protoc-gen-grpc&#x3D;&#96;which grpc_tools_node_protoc_plugin&#96; helloword.proto</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>生成两个文件：<br>    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">helloword_pb.js</span><br><span class="line">helloword_grpc_pb.js</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>创建服务器：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const grpc &#x3D; require(&#39;grpc&#39;);</span><br><span class="line"></span><br><span class="line">const messages &#x3D; require(&#39;.&#x2F;helloworld_pb&#39;);</span><br><span class="line">const services &#x3D; require(&#39;.&#x2F;helloworld_grpc_pb&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line">* Implements the SayHello RPC method.</span><br><span class="line">*&#x2F;</span><br><span class="line">function sayHello(call, callback) &#123;</span><br><span class="line">    const reply &#x3D; new messages.HelloReply();</span><br><span class="line">    reply.setMessage(&#39;Hello &#39; + call.request.getName());</span><br><span class="line">    &#x2F;&#x2F; 第一个参数为null，表示没有错误</span><br><span class="line">    callback(null, reply);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 启动服务器</span><br><span class="line">function main() &#123;</span><br><span class="line">    const server &#x3D; new grpc.Server();</span><br><span class="line">    server.addService(services.GreeterService, &#123;sayHello: sayHello&#125;);</span><br><span class="line">    server.bind(&#39;0.0.0.0:50051&#39;, grpc.ServerCredentials.createInsecure());</span><br><span class="line">    server.start();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>client</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const grpc &#x3D; require(&#39;grpc&#39;);</span><br><span class="line"></span><br><span class="line">const messages &#x3D; require(&#39;.&#x2F;helloworld_pb&#39;);</span><br><span class="line">const services &#x3D; require(&#39;.&#x2F;helloworld_grpc_pb&#39;);</span><br><span class="line"></span><br><span class="line">function main() &#123;</span><br><span class="line">    const client &#x3D; new services.GreeterClient(&#39;localhost:50051&#39;, grpc.credentials.createInsecure());</span><br><span class="line">    const request &#x3D; new messages.HelloRequest();</span><br><span class="line">    const user;</span><br><span class="line">    if (process.argv.length &gt;&#x3D; 3) &#123;</span><br><span class="line">        user &#x3D; process.argv[2];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        user &#x3D; &#39;world&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    request.setName(user);</span><br><span class="line">    client.sayHello(request, function (err, response) &#123;</span><br><span class="line">        console.log(&#39;Greeting:&#39;, response.getMessage());</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ..&#x2F;node-test</span><br><span class="line"></span><br><span class="line">node .&#x2F;static-codegen&#x2F;test_server.js</span><br><span class="line"></span><br><span class="line">node .&#x2F;static-codegen&#x2F;test_client.js</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>gRPC</category>
+      </categories>
+      <tags>
+        <tag>gRPC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构</title>
+    <url>/articles/2020-02-11-interview-dataStructure.html</url>
+    <content><![CDATA[<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>数据结构是相互之间存在着一种或多种关系的数据元素的集合和该集合中数据元素之间的关系组成。<br>包括三个组成部分：</p>
+<ul>
+<li>数据的逻辑结构</li>
+<li>物理结构（存储结构）</li>
+<li>数据运算结构</li>
+</ul>
+<ol>
+<li><p>集合（数据之间无关系）<br>集合是不同对象（成为成员）的无序聚集。两个重要特点：</p>
+<blockquote>
+<p>成员是无序的；<br>每个成员都只在集合中出现一次；</p>
+</blockquote>
+</li>
+<li><p>线性结构（一对一）<br>特点是：在数据元素的非空有限集中，线性表简单来说就是数据元素的非空有限序列，特点是可以从表中的任何位置进行插入和删除操作。</p>
+<blockquote>
+<p>存在唯一的一个被称作“第一个”的数据元素和唯一的一个被称作“最后一个”的数据元素；<br>除第一个之外，集合中的每个数据元素均只有一个前驱；除最后一个元素之外，集合中的每个元素均只有一个后继</p>
+</blockquote>
+</li>
+<li><p>树形结构（一对多）<br>数据结构是一种非线型结构。<br>定义：树（Tree）是n（n&gt;=0）个相同数据类型的数据元素的集合。<br> 树种的数据元素成为节点（Node）。<br> n=0的树成为空树（Empty Tree）。</p>
+</li>
+</ol>
+<p>对于n &gt; 0的任意非空树T有：</p>
+<blockquote>
+<p>有且仅有一个特殊的节点成为树的根（root）节点，根没有前驱结点；<br>若n&gt;1，则除根结点外，其余结点被分成了m(m&gt;0)个互不相交的集合T1,T2……Tm，<br>其中每个集合集合Ti（1&lt;= i &lt;= m）本身又是一棵树，树T1,T2…Tm为这棵树的子树Subtree。</p>
+</blockquote>
+<p>树的定义是递归的，用树来定义树。<br>树Tree简记为T，是一个二元组T=(D,R)【D：结点的有限集合；R：结点之间关系的有限集合】</p>
+<p>树具有两个特点：</p>
+<blockquote>
+<p>树的根节点没有前驱结点，除根节点之外的所有结点有且仅有一个前驱结点<br>树种的所有结点都可以有零个或多个后继结点</p>
+</blockquote>
+<ol start="4">
+<li><p>图形结构（多对多）<br>图形数据结构主要研究形状和图形数据元素之间的关系。</p>
+</li>
+<li><p>数组<br>所谓数组，是有序的元素序列。</p>
+</li>
+<li><p>栈（先进后出、线性表）<br>stack，一种运算受限的线性表。<br>其限制是仅允许在表的一端进行插入和删除运算，这一端被称为栈顶，另一端被称为栈底。</p>
+</li>
+<li><p>队列（先进先出、后进后出、线性表）<br>队列是一种特殊的线性表，特殊之处在于它只允许在表的前端进行删除操作，表的后端进行插入操作。<br>插入操作的为队尾，删除操作的为队头。</p>
+</li>
+<li><p>链表<br>一种物理存储单元上非连续、非顺序的存储结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。<br>链表由一系列结点组成，结点可以在运行时动态生成。<br>每个结点包括两个部分：</p>
+</li>
+</ol>
+<ul>
+<li>存储数据元素的数据域</li>
+<li>存储下一个结点地址的指针域</li>
+</ul>
+<ol start="9">
+<li>散列表<br>Hash table（哈希表）<br>是根据关键码值而直接进行访问的数据结构。<br>即通过把关键码值映射到表中的一个位置来访问记录，以加快查找的速度。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Interview</category>
+      </categories>
+      <tags>
+        <tag>Interview</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript</title>
     <url>/articles/2020-02-08-interview-javaScript.html</url>
     <content><![CDATA[<a id="more"></a>
 
-<h4 id="let-var的区别"><a href="#let-var的区别" class="headerlink" title="let var的区别"></a>let var的区别</h4><p>let声明的变量，作用域为该语句所在的代码块内，不存在变量提升；<br>var声明的变量，作用域为该语句所在的函数内，存在变量提升；</p>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h4 id="let-var的区别"><a href="#let-var的区别" class="headerlink" title="let var的区别"></a>let var的区别</h4><p>let声明的变量<br>    不能重复声明<br>    作用域为该语句所在的代码块内<br>    不存在变量提升(会报错)<br>    存在暂时性死域（只能先声明再使用）<br>var声明的变量<br>    能重复声明<br>    作用域为该语句所在的函数内<br>    存在变量提升(变量可以在声明之前使用，值为undefined)；</p>
 <h4 id="CommonJS中require-exports和ES6中import-export区别"><a href="#CommonJS中require-exports和ES6中import-export区别" class="headerlink" title="CommonJS中require/exports和ES6中import/export区别"></a>CommonJS中require/exports和ES6中import/export区别</h4><p>CommonJS模块的重要特性是加载时执行，及脚本代码在require的时候，就会全部执行。<br>一旦出现某个模块被“循环加载”就只输出已经执行的部分，还没有执行的部分是不输出的。</p>
 <p>ES6模块的动态引用，如果使用import从一个模块加载变量，那些变量不会缓存，而是成为<br>一个指向被加载模块的引用。需要开发者自己保证，真正取值的时候能够取到值。</p>
 <p>import/export最终都是编译为require/exports来执行的</p>
@@ -14,8 +946,7 @@
 <h4 id="几种常见模块化规范的简介"><a href="#几种常见模块化规范的简介" class="headerlink" title="几种常见模块化规范的简介"></a>几种常见模块化规范的简介</h4><p>CommonJS规范主要用于服务端编程，加载模块是同步的，这并不适合在浏览器环境，因为同步意味着阻塞加载，浏览器资源是异步加载的。<br>AMD规范在浏览器环境中异步加载模块，而且可以并行加载多个模块。不过，AMD规范开发成本高，代码的阅读和书写比较困难。<br>CMD规范与AMD规范很相似，都用于浏览器编程，依赖就近，延迟执行，可以很容易在Nodejs中运行。<br>ES6在语言标椎的层面上，实现了模块功能，而且实现的相当简单，完全可以取代CommonJS和AMD规范，成为浏览器和服务器通用的模块解决方案。</p>
 <h4 id="模块化开发是怎么做的？"><a href="#模块化开发是怎么做的？" class="headerlink" title="模块化开发是怎么做的？"></a>模块化开发是怎么做的？</h4><p>使用命名空间</p>
 <h4 id="WeakMap和Map的区别？"><a href="#WeakMap和Map的区别？" class="headerlink" title="WeakMap和Map的区别？"></a>WeakMap和Map的区别？</h4><p>WeakMap和Map结构基本类似，唯一的区别是它只接受对象作为键名（null除外），不接受其他类型的值作为键名，而且键名所指向的对象，不计入垃圾回收机制。<br>最大的好处是可以避免内存泄漏。一个仅被WeakMap作为key而引用的对象，会被垃圾回收期回收掉。<br>WeakMap有和Map类似的set(key, value), get(key), has(key), delete(key)和clear()方法，没有任何与迭代有关的属性和方法。</p>
-<h4 id="this"><a href="#this" class="headerlink" title="this"></a>this</h4><h4 id="call-Apply-Bind"><a href="#call-Apply-Bind" class="headerlink" title="call Apply Bind"></a>call Apply Bind</h4><h4 id="原型-原型链"><a href="#原型-原型链" class="headerlink" title="原型 原型链"></a>原型 原型链</h4><h4 id="跨域请求？如何允许跨域？"><a href="#跨域请求？如何允许跨域？" class="headerlink" title="跨域请求？如何允许跨域？"></a>跨域请求？如何允许跨域？</h4><p>向不同的host的请求被称作跨域请求<br>通过设置Cors headers即Access-Control-Allow系列来允许跨域。</p>
-<h4 id="闭包？"><a href="#闭包？" class="headerlink" title="闭包？"></a>闭包？</h4><p>所有函数都是闭包，闭包就是作用域范围，因为js是函数作用域，所以函数就是闭包。</p>
+<h4 id="this"><a href="#this" class="headerlink" title="this"></a>this</h4><h4 id="call-Apply-Bind"><a href="#call-Apply-Bind" class="headerlink" title="call Apply Bind"></a>call Apply Bind</h4><h4 id="原型-原型链"><a href="#原型-原型链" class="headerlink" title="原型 原型链"></a>原型 原型链</h4><h4 id="闭包？"><a href="#闭包？" class="headerlink" title="闭包？"></a>闭包？</h4><p>所有函数都是闭包，闭包就是作用域范围，因为js是函数作用域，所以函数就是闭包。</p>
 <p>是一种函数，能够读取其他函数内部变量的函数。<br>用途：可以读取函数内部的变量，并让这些变量的值始终保持在内存中。</p>
 <h4 id="NaN-typeof后输出Number"><a href="#NaN-typeof后输出Number" class="headerlink" title="NaN typeof后输出Number"></a>NaN typeof后输出Number</h4><h4 id="js的隐形转换和显性转换"><a href="#js的隐形转换和显性转换" class="headerlink" title="js的隐形转换和显性转换"></a>js的隐形转换和显性转换</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">隐性转换为： 1 + &#39;1&#39; &#x3D; &#39;11&#39;</span><br><span class="line">显性转换</span><br><span class="line">Number(&quot;24 cccc&quot;);&#x2F;&#x2F;结果：NaN</span><br><span class="line">ParseInt(&quot;24 cccc&quot;);&#x2F;&#x2F;结果：24</span><br><span class="line">备注：Number的显性转换比较严格，若无法强转则直接报错</span><br><span class="line"></span><br><span class="line">面试官后引伸了两个问题</span><br><span class="line">1 + -&#39;1&#39; + 1 等于什么</span><br><span class="line">等于 0 ，&#39;1&#39;前面的负号把其数字化，变为-1，则后值为1</span><br><span class="line">&#39;A&#39; - &#39;B&#39; 等于什么</span><br><span class="line">NaN</span><br></pre></td></tr></table></figure>
 
@@ -28,6 +959,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;GoJSONP&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;jquery-1.8.3.min.js&quot;&gt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">    $(document).ready(function()&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            type : &quot;get&quot;,</span><br><span class="line">            async: false,</span><br><span class="line">            url : &quot;http:&#x2F;&#x2F;www.practice-zhao.com&#x2F;student.php?id&#x3D;1&quot;,</span><br><span class="line">            dataType: &quot;jsonp&quot;,</span><br><span class="line">            jsonp:&quot;callback&quot;, &#x2F;&#x2F;请求php的参数名</span><br><span class="line">            jsonpCallback: &quot;jsonhandle&quot;,&#x2F;&#x2F;要执行的回调函数</span><br><span class="line">            success : function(data) &#123;</span><br><span class="line">                alert(&quot;age:&quot; + data.age + &quot;name:&quot; + data.name);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
 
+<h4 id="跨域请求？如何允许跨域？"><a href="#跨域请求？如何允许跨域？" class="headerlink" title="跨域请求？如何允许跨域？"></a>跨域请求？如何允许跨域？</h4><p>向不同的host的请求被称作跨域请求<br>通过设置Cors headers即Access-Control-Allow系列来允许跨域。</p>
 <h4 id="跨域问题如何解决"><a href="#跨域问题如何解决" class="headerlink" title="跨域问题如何解决"></a>跨域问题如何解决</h4><p>同源策略：浏览器安全策略，同协议、IP、端口的脚本才会执行；<br>只要协议、域名、端口有任何一个不同，都被当做是不同的域。</p>
 <p>js跨域是指通过js在不同的域之间进行数据传输或通信。</p>
 <ul>
@@ -120,9 +1052,67 @@
 
 <h5 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person(name)&#123;</span><br><span class="line">    this.name&#x3D;name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.GetName&#x3D;function()&#123;</span><br><span class="line">    return this.name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function User(name,password)&#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">    this.password &#x3D; password;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">User.prototype &#x3D; new Person();</span><br><span class="line">User.prototype.GetPassword&#x3D;function()&#123;</span><br><span class="line">    return this.password;</span><br><span class="line">&#125;</span><br><span class="line">User是对User对象构造函数的引用,new Person()使用person构造函数创建了一个Person对象,然后把Person对象的原型置为这个操作的结果.也就是说,当每次new User()时,得到的新User对象都会带有Person对象的所有方法。</span><br></pre></td></tr></table></figure>
 
-<h4 id="箭头函数和普通函数的区别"><a href="#箭头函数和普通函数的区别" class="headerlink" title="箭头函数和普通函数的区别"></a>箭头函数和普通函数的区别</h4><h4 id="事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？"><a href="#事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？" class="headerlink" title="事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？"></a>事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？</h4><h4 id="null和undefined有什么区别？"><a href="#null和undefined有什么区别？" class="headerlink" title="null和undefined有什么区别？"></a>null和undefined有什么区别？</h4><p>普通函数和构造函数的区别<br>设计模式有了解吗？（比如观察者模式）？</p>
-<p>CORS原理是什么？</p>
-<p>JS有没有了解过函数式编程</p>
+<h4 id="箭头函数和普通函数的区别"><a href="#箭头函数和普通函数的区别" class="headerlink" title="箭头函数和普通函数的区别"></a>箭头函数和普通函数的区别</h4><p>箭头函数相当于匿名函数，并且简化了函数意义。<br>但和匿名函数有个明显的区别：<br>    箭头函数内部的this是词法作用域，由上下文确定。<br>箭头函数和es5的函数有什么区别？</p>
+<ul>
+<li><p>箭头函数没有prototype，不绑定this</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let a &#x3D; () &#x3D;&gt;&#123;&#125;;</span><br><span class="line">console.log(a.prototype); &#x2F;&#x2F; undefined</span><br><span class="line"></span><br><span class="line">var obj &#x3D; &#123;</span><br><span class="line">    age: 1,</span><br><span class="line">    say: function() &#123;</span><br><span class="line">        setTimeout(function() &#123;</span><br><span class="line">            console.log(this, this.age); &#x2F;&#x2F; window undefined</span><br><span class="line">        &#125;, 0);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj1 &#x3D; &#123;</span><br><span class="line">    age: 1,</span><br><span class="line">    say: function() &#123;</span><br><span class="line">        setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">            &#x2F;&#x2F; this实际是其父级作用域中的this，箭头函数本身的this是不存在的，</span><br><span class="line">            &#x2F;&#x2F; 这就相当于箭头函数的this是在声明的时候就确定了</span><br><span class="line">            console.log(this, this.age); &#x2F;&#x2F; obj1 1</span><br><span class="line">        &#125;, 0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p>不可以作为构造函数来使用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var Person &#x3D; (name) &#x3D;&gt; &#123; &#x2F;&#x2F; Uncaught TypeError: Person is not a constructor</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person &#x3D; new Person(&#39;Jack&#39;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不绑定arguments（如果要使用arguments的时候可以使用rest参数代替）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var foo &#x3D; (val) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(arguments); &#x2F;&#x2F; Uncaught ReferenceError: arguments is not defined</span><br><span class="line">&#125;;</span><br><span class="line">foo();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用rest参数代替</span><br><span class="line">var foo &#x3D; (...args) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(args); &#x2F;&#x2F; [1, 2, 3]</span><br><span class="line">&#125;;</span><br><span class="line">foo(1, 2, 3);</span><br></pre></td></tr></table></figure></li>
+<li><p>不可以使用yield命令，因此箭头函数不能用作Generator函数。</p>
+</li>
+<li><p>箭头函数不支持重命名函数参数，普通函数的函数参数支持重命名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function func1(a, a) &#123;</span><br><span class="line">  console.log(a, arguments); &#x2F;&#x2F; 2 [1,2]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var func2 &#x3D; (a,a) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(a); &#x2F;&#x2F; 报错：在此上下文中不允许重复参数名称</span><br><span class="line">&#125;;</span><br><span class="line">func1(1, 2); func2(1, 2);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>箭头函数相对于普通函数语法更简洁优雅<br>  箭头函数都是匿名函数，并且都不用写function</p>
+</li>
+</ul>
+<h4 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h4><p>基本类型和引用类型</p>
+<p>基本类型：number string boolean undefined null<br>引用类型：array object function</p>
+<p>基本类型：是保存在栈中的简单数据类型<br>引用类型：是保存在堆内存中的对象，即变量中保存的是指向该对象的指针。</p>
+<p>当B复制了A，如果修改A的数据，<br>B的数据发生了变化，就是浅拷贝；<br>否则就是深拷贝。</p>
+<p>实现深拷贝：<br>    array.slice()<br>    concat()<br>    array.from()<br>    object.assign()<br>    JSON.parse(JSON.stringfy(obj))</p>
+<h4 id="事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？"><a href="#事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？" class="headerlink" title="事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？"></a>事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？</h4><h4 id="null和undefined有什么区别？"><a href="#null和undefined有什么区别？" class="headerlink" title="null和undefined有什么区别？"></a>null和undefined有什么区别？</h4><h4 id="普通函数和构造函数的区别"><a href="#普通函数和构造函数的区别" class="headerlink" title="普通函数和构造函数的区别"></a>普通函数和构造函数的区别</h4><h4 id="设计模式有了解吗？（比如观察者模式）？"><a href="#设计模式有了解吗？（比如观察者模式）？" class="headerlink" title="设计模式有了解吗？（比如观察者模式）？"></a>设计模式有了解吗？（比如观察者模式）？</h4><h4 id="CORS原理是什么？"><a href="#CORS原理是什么？" class="headerlink" title="CORS原理是什么？"></a>CORS原理是什么？</h4><h4 id="JS有没有了解过函数式编程"><a href="#JS有没有了解过函数式编程" class="headerlink" title="JS有没有了解过函数式编程"></a>JS有没有了解过函数式编程</h4><h4 id="postMessage原理"><a href="#postMessage原理" class="headerlink" title="postMessage原理"></a>postMessage原理</h4><h4 id="JS模块化的实践"><a href="#JS模块化的实践" class="headerlink" title="JS模块化的实践"></a>JS模块化的实践</h4><h4 id="require-js的实现原理"><a href="#require-js的实现原理" class="headerlink" title="require.js的实现原理"></a>require.js的实现原理</h4><h4 id="实现gulp的功能"><a href="#实现gulp的功能" class="headerlink" title="实现gulp的功能"></a>实现gulp的功能</h4><h4 id="介绍一下ES5的-defineProperty"><a href="#介绍一下ES5的-defineProperty" class="headerlink" title="介绍一下ES5的 defineProperty"></a>介绍一下ES5的 defineProperty</h4><h4 id="Ajax的工作流程"><a href="#Ajax的工作流程" class="headerlink" title="Ajax的工作流程"></a>Ajax的工作流程</h4><h4 id="导致内存泄露的有哪些"><a href="#导致内存泄露的有哪些" class="headerlink" title="导致内存泄露的有哪些"></a>导致内存泄露的有哪些</h4><h4 id="如何实现预加载，懒加载"><a href="#如何实现预加载，懒加载" class="headerlink" title="如何实现预加载，懒加载"></a>如何实现预加载，懒加载</h4><h4 id="ES6模块加载机制"><a href="#ES6模块加载机制" class="headerlink" title="ES6模块加载机制"></a>ES6模块加载机制</h4><h4 id="map、each、some、forEach"><a href="#map、each、some、forEach" class="headerlink" title="map、each、some、forEach"></a>map、each、some、forEach</h4><p>map<br>map遍历数组，克隆原数组，对新数组进行操作并返回一个新的数组，滥用map会造成内存浪费；<br>有return；</p>
+<p>each<br>返回原来的数组，不会创建一个新的数组；<br>无return；</p>
+<p>every<br>当内部return false时跳出整个循环；<br>有一项不满足元素，则整个表达式返回false，剩余元素不再执行；</p>
+<p>some<br>当内部return true时跳出整个循环；<br>有一个元素满足条件，则表达式返回true，剩余元素不再执行；</p>
+<p>foreach<br>没有返回值；<br>对原本数组进行操作；</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var array &#x3D; [1,2,3,4,5];  </span><br><span class="line">var res &#x3D; _.forEach(array, function (item,index,input) &#123;  </span><br><span class="line">       input[index] &#x3D; item*10;  </span><br><span class="line">&#125;)  </span><br><span class="line">console.log(res);&#x2F;&#x2F;&#x3D;&gt;undefined</span><br><span class="line">console.log(array);&#x2F;&#x2F;&#x3D;&gt;[10,20,30,40,50]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var res &#x3D; _.map(array, function (item,index,input) &#123;  </span><br><span class="line">       input[index] &#x3D; item*10;  </span><br><span class="line">&#125;)  </span><br><span class="line">console.log(res);&#x2F;&#x2F;&#x3D;&gt;[10,20,30,40,50]</span><br><span class="line">console.log(array);&#x2F;&#x2F;&#x3D;&gt;[1,2,3,4,5]</span><br></pre></td></tr></table></figure>
+
+<h4 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h4><ol>
+<li><p>什么是XSS？<br> 全称是Cross Site Scripting即跨站脚本。<br> XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。<br> 当目标网站目标用户浏览器渲染Html文档的过程中，出现了不被预期的脚本指令并执行时，XSS就发生了。</p>
+</li>
+<li><p>XSS分类</p>
+</li>
+</ol>
+<ul>
+<li><p>反射型XSS（非持久型，经过后端，不经过数据库）<br>  发出请求时，XSS代码出现在URL中，作为输入提交到服务器端，服务器端解析后响应，XSS代码随响应内容一起传回浏览器，最后浏览器解析执行XSS代码。这个过程像一次反射，故叫反射型XSS。</p>
+</li>
+<li><p>存储型XSS（持久型，经过后端，经过数据库）<br>  存储型XSS和反射型XSS的差别仅在于，提交的代码会存储在服务器端（数据库、内存、文件系统等），<br>  下次请求目标页面时不用再提交XSS代码。</p>
+<p>  最典型的例子是留言板XSS，用户提交一条包含XSS代码的留言存储到数据库，目标用户查看留言板时，<br>  那些留言的内容会从数据库查询出来并显示，浏览器发现有XSS代码，就当做正常的Html与Js解析执行，于是触发了XSS攻击。</p>
+</li>
+<li><p>DOM XSS（不经过后端，DOM-xss是通过url传入参数去控制触发的）<br>  DOM XSS和反射型XSS、存储型XSS的差别在于DOM XSS的代码并不需要服务器参与，触发XSS靠的是浏览器端的DOM解析，完全是客户端的事情。</p>
+</li>
+</ul>
+<p>3、主要危害</p>
+<ul>
+<li>盗取各类用户账号，如机器登录账号、用户网银账号、各类管理员账号</li>
+<li>控制企业数据、包括读取、篡改、添加、删除企业敏感数据能力</li>
+<li>盗取企业重要的具有商业价值的资料</li>
+<li>非法转账</li>
+<li>强制发送电子邮件</li>
+<li>网站挂马</li>
+<li>控制受害者机器向其它网站发起攻击</li>
+</ul>
+<p>4、防范手段</p>
+<ul>
+<li>入参字符过滤<br>  在源头控制，把输入的一些不合法的东西都过滤掉，从而保证安全性。<br>  如：移除用户提交的DOM属性onerror，移除用户上传的style节点</li>
+<li>出参进行编码<br>  如果源头没控制好，就得后期补救了：像一些常见的符号，如&lt;&gt;在输出的时候要对其进行转换编码，这样浏览器不会对该标签进行解释执行，同时不影响显示效果</li>
+<li>入参长度限制<br>  xss攻击要达成往往需要较长的字符串，因此对于一些可以预期的输入可以通过限制长度强制截断来预防。</li>
+<li>设置cookie httponly为true</li>
+</ul>
 ]]></content>
       <categories>
         <category>Interview</category>
@@ -132,11 +1122,11 @@
       </tags>
   </entry>
   <entry>
-    <title>interview-httpNet</title>
+    <title>计算机原理</title>
     <url>/articles/2020-02-08-interview-httpNet.html</url>
     <content><![CDATA[<a id="more"></a>
 
-<h4 id="计算机网络的七层"><a href="#计算机网络的七层" class="headerlink" title="计算机网络的七层"></a>计算机网络的七层</h4><p>应用层、表示层、会话层、传输层、网络层、数据链路层、物理层</p>
+<h2 id="计算机原理"><a href="#计算机原理" class="headerlink" title="计算机原理"></a>计算机原理</h2><h4 id="计算机网络的七层"><a href="#计算机网络的七层" class="headerlink" title="计算机网络的七层"></a>计算机网络的七层</h4><p>应用层、表示层、会话层、传输层、网络层、数据链路层、物理层</p>
 <h4 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h4><p>TCP：<br>    面向连接、<br>    传输可靠(保证数据正确性，保证数据顺序)、<br>    用于传输大量数据(流模式)、<br>    速度慢、<br>    建立连接需要开销比较多（时间、系统资源）。</p>
 <p>一般用于文件传输、发送接收邮件、远程登录等。</p>
 <p>UDP：<br>    面向非连接、<br>    传输不可靠、<br>    用于传输少量数据(数据包模式)、<br>    速度快。</p>
@@ -177,8 +1167,7 @@
 <h4 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h4><p>线程是最小的执行单元，进程是由线程组成。<br>如何调度线程和进程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。</p>
 <p>进程是计算机中已运行的程序。<br>线程是操作系统能够运行调度的最小单位。</p>
 <h4 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h4><p>当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但没有一方愿意提前退出，就成为死锁。</p>
-<h4 id="https说一下过程？"><a href="#https说一下过程？" class="headerlink" title="https说一下过程？"></a>https说一下过程？</h4><p>OSI七层协议？</p>
-]]></content>
+<h4 id="三次握手与四次挥手"><a href="#三次握手与四次挥手" class="headerlink" title="三次握手与四次挥手"></a>三次握手与四次挥手</h4><h4 id="https说一下过程？"><a href="#https说一下过程？" class="headerlink" title="https说一下过程？"></a>https说一下过程？</h4><h4 id="OSI七层协议？"><a href="#OSI七层协议？" class="headerlink" title="OSI七层协议？"></a>OSI七层协议？</h4><h4 id="描述一下HTTP-协议缓存机制"><a href="#描述一下HTTP-协议缓存机制" class="headerlink" title="描述一下HTTP 协议缓存机制"></a>描述一下HTTP 协议缓存机制</h4>]]></content>
       <categories>
         <category>Interview</category>
       </categories>
@@ -187,17 +1176,14 @@
       </tags>
   </entry>
   <entry>
-    <title>interview-vue</title>
+    <title>Vue</title>
     <url>/articles/2020-02-08-interview-vue.html</url>
     <content><![CDATA[<a id="more"></a>
 
-<blockquote>
-<p>Vue生命周期</p>
-</blockquote>
-<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Vue生命周期是Vue实例从创建到销毁的过程。</p>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h4 id="Vue生命周期"><a href="#Vue生命周期" class="headerlink" title="Vue生命周期"></a>Vue生命周期</h4><h5 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h5><p>Vue生命周期是Vue实例从创建到销毁的过程。</p>
 <p>从开始创建、初始化数据、编译模板、挂在DOM-&gt;渲染、更新-&gt;渲染、销毁等一系列过程。</p>
 <p>创建前/后、载入前/后、更新前/后、销毁前/后。</p>
-<h4 id="生命周期线"><a href="#生命周期线" class="headerlink" title="生命周期线"></a>生命周期线</h4><ol>
+<h5 id="生命周期线"><a href="#生命周期线" class="headerlink" title="生命周期线"></a>生命周期线</h5><ol>
 <li>beforeCreate：创建前。新对象诞生，在对象初始化之前执行；</li>
 <li>created：创建后。创建具有默认特性的对象；</li>
 <li>beforeMount：载入前。在挂载开始之前被调用，相关的render函数首次被调用。实例已完成以下的配置：编译模板，把data里面的数据和模板生成html，此时还没有挂载html到页面上；</li>
@@ -207,8 +1193,8 @@
 <li>beforeDestory：销毁前。实例仍然完全可用；</li>
 <li>destoryed：销毁后。调用后，所有的事件监听器会被移除，所有的子实例也会被销毁。</li>
 </ol>
-<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>控制整个Vue实例过程时更容易形成好的逻辑。</p>
-<h4 id="第一次加载页面会触发几个钩子？"><a href="#第一次加载页面会触发几个钩子？" class="headerlink" title="第一次加载页面会触发几个钩子？"></a>第一次加载页面会触发几个钩子？</h4><p>四个，beforeCreated、created、beforeMount、mounted。</p>
+<h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><p>控制整个Vue实例过程时更容易形成好的逻辑。</p>
+<h5 id="第一次加载页面会触发几个钩子？"><a href="#第一次加载页面会触发几个钩子？" class="headerlink" title="第一次加载页面会触发几个钩子？"></a>第一次加载页面会触发几个钩子？</h5><p>四个，beforeCreated、created、beforeMount、mounted。</p>
 <h4 id="Vue-router实现原理"><a href="#Vue-router实现原理" class="headerlink" title="Vue-router实现原理"></a>Vue-router实现原理</h4><p>vue-router通过hash与history两种方式实现前端路由，<strong>更新视图但不重新请求页面</strong>是前端路由原理的核心之一。</p>
 <p>hash：利用URL中的hash（“#”）,在URL后加#，是url中的锚点，代表网页中的一个位置，单单改变#后的部分，浏览器只会加载相应位置的内容，不会重新加载页面。</p>
 <p>history：是Html5新增的方法，不刷新整个页面实现URL跳转。</p>
@@ -221,7 +1207,7 @@
 <li>当前台显示的view发生变化，会实时反应到viewModel上，如果需要，viewModel会通过ajax等方法将改变的数据传递给后台model。</li>
 <li>同时后台model获取过来的数据，通过vm将值响应到前台UI上。</li>
 </ul>
-<h4 id="vue-model双向绑定原理"><a href="#vue-model双向绑定原理" class="headerlink" title="vue-model双向绑定原理"></a>vue-model双向绑定原理</h4><p>透过MVVM模式实现vue的双向绑定数据。</p>
+<h4 id="vue-model双向绑定原理"><a href="#vue-model双向绑定原理" class="headerlink" title="vue-model双向绑定原理"></a>vue-model双向绑定原理</h4><p>透过MVVM模式实现vue的双向绑定数据。<br>通过Object.defineProperty实现的。</p>
 <p>当data变化时，通过Object.definePrototype()方法的set进行监控，并调用在此之前已经定义好的data和view，来通知view进行数据的改变。<br>view发生改变则是通过底层的input事件进行data的响应更改。</p>
 <p>vue是通过Object.definePrototype()来实现数据劫持的。</p>
 <p>实现方法：观察者模式</p>
@@ -247,10 +1233,9 @@
 </blockquote>
 <h4 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h4><p>实现ES6编译为ES5代码</p>
 <h4 id="Vue-router跳转和Location-href区别？"><a href="#Vue-router跳转和Location-href区别？" class="headerlink" title="Vue router跳转和Location.href区别？"></a>Vue router跳转和Location.href区别？</h4><p>router是hash改变<br>href是页面跳转，刷新页面</p>
-<h4 id="Vue双向绑定实现原理？"><a href="#Vue双向绑定实现原理？" class="headerlink" title="Vue双向绑定实现原理？"></a>Vue双向绑定实现原理？</h4><p>通过Object.defineProperty实现的。</p>
-<h4 id="React和Vue有什么区别？"><a href="#React和Vue有什么区别？" class="headerlink" title="React和Vue有什么区别？"></a>React和Vue有什么区别？</h4><h4 id="怎么上手的vue，以及为啥用vue而不用其他框架？"><a href="#怎么上手的vue，以及为啥用vue而不用其他框架？" class="headerlink" title="怎么上手的vue，以及为啥用vue而不用其他框架？"></a>怎么上手的vue，以及为啥用vue而不用其他框架？</h4><h4 id="你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"><a href="#你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？" class="headerlink" title="你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"></a>你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？</h4><h4 id="Vue双向绑定？"><a href="#Vue双向绑定？" class="headerlink" title="Vue双向绑定？"></a>Vue双向绑定？</h4><h4 id="Vuex整个触发过程（actions，state，view）？"><a href="#Vuex整个触发过程（actions，state，view）？" class="headerlink" title="Vuex整个触发过程（actions，state，view）？"></a>Vuex整个触发过程（actions，state，view）？</h4><h4 id="Vue和Vuex有什么差别？"><a href="#Vue和Vuex有什么差别？" class="headerlink" title="Vue和Vuex有什么差别？"></a>Vue和Vuex有什么差别？</h4><h4 id="知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"><a href="#知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？" class="headerlink" title="知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"></a>知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？</h4><h4 id="为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？"><a href="#为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？" class="headerlink" title="为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？"></a>为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？</h4><h4 id="传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"><a href="#传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？" class="headerlink" title="传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"></a>传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？</h4><h4 id="Vue中Compile过程说一下？"><a href="#Vue中Compile过程说一下？" class="headerlink" title="Vue中Compile过程说一下？"></a>Vue中Compile过程说一下？</h4><p>Vue的设计思路你了解吗</p>
-<p>Vue的响应式是怎么实现的？</p>
-]]></content>
+<h4 id="npm-webpack的理解"><a href="#npm-webpack的理解" class="headerlink" title="npm webpack的理解"></a>npm webpack的理解</h4><p>webpack官方文档说是一个module bundler(模块打包器)。<br>webpack能够把vue后缀名的文件打包成浏览器能够识别的js，而这个vue文件装换需要打包器vue-loader;<br>vue-loader打包器是可以从npm上下载的，npm下载文件之后，webpack打包文件时需要在node环境去运行；</p>
+<p>通过webpack对模块进行打包，既保留了单个模块的可维护性，又减少了页面的http请求，减少了页面加载时间，从而增加了页面的显示速度，让整个应用的体验更好。</p>
+<h4 id="React和Vue有什么区别？"><a href="#React和Vue有什么区别？" class="headerlink" title="React和Vue有什么区别？"></a>React和Vue有什么区别？</h4><h4 id="怎么上手的vue，以及为啥用vue而不用其他框架？"><a href="#怎么上手的vue，以及为啥用vue而不用其他框架？" class="headerlink" title="怎么上手的vue，以及为啥用vue而不用其他框架？"></a>怎么上手的vue，以及为啥用vue而不用其他框架？</h4><h4 id="你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"><a href="#你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？" class="headerlink" title="你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"></a>你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？</h4><h4 id="Vue双向绑定？"><a href="#Vue双向绑定？" class="headerlink" title="Vue双向绑定？"></a>Vue双向绑定？</h4><h4 id="Vuex整个触发过程（actions，state，view）？"><a href="#Vuex整个触发过程（actions，state，view）？" class="headerlink" title="Vuex整个触发过程（actions，state，view）？"></a>Vuex整个触发过程（actions，state，view）？</h4><h4 id="Vue和Vuex有什么差别？"><a href="#Vue和Vuex有什么差别？" class="headerlink" title="Vue和Vuex有什么差别？"></a>Vue和Vuex有什么差别？</h4><h4 id="知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"><a href="#知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？" class="headerlink" title="知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"></a>知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？</h4><h4 id="为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？"><a href="#为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？" class="headerlink" title="为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？"></a>为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？</h4><h4 id="传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"><a href="#传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？" class="headerlink" title="传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"></a>传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？</h4><h4 id="Vue中Compile过程说一下？"><a href="#Vue中Compile过程说一下？" class="headerlink" title="Vue中Compile过程说一下？"></a>Vue中Compile过程说一下？</h4><h4 id="Vue的设计思路你了解吗"><a href="#Vue的设计思路你了解吗" class="headerlink" title="Vue的设计思路你了解吗"></a>Vue的设计思路你了解吗</h4><h4 id="Vue的响应式是怎么实现的？"><a href="#Vue的响应式是怎么实现的？" class="headerlink" title="Vue的响应式是怎么实现的？"></a>Vue的响应式是怎么实现的？</h4><h4 id="proxy数据代理的实现"><a href="#proxy数据代理的实现" class="headerlink" title="proxy数据代理的实现"></a>proxy数据代理的实现</h4>]]></content>
       <categories>
         <category>Interview</category>
       </categories>
@@ -259,11 +1244,11 @@
       </tags>
   </entry>
   <entry>
-    <title>interview-database</title>
+    <title>数据库（MongoDB、Mysql、Redis）</title>
     <url>/articles/2020-02-08-interview-database.html</url>
     <content><![CDATA[<a id="more"></a>
 
-<h4 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h4><p>什么是MongoDB？<br>是一个数据库，高性能、无模式、文档性、开源性、基于c++开发的、基于分布式文件存储的非关系型数据库。</p>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h4 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h4><p>什么是MongoDB？<br>是一个数据库，高性能、无模式、文档性、开源性、基于c++开发的、基于分布式文件存储的非关系型数据库。</p>
 <p>特点：</p>
 <ul>
 <li>面向集合文档的存储，适合存储Bson(json)形式的数据；</li>
@@ -305,14 +1290,75 @@
       </tags>
   </entry>
   <entry>
-    <title>interview-algorithm</title>
+    <title>算法</title>
     <url>/articles/2020-02-08-interview-algorithm.html</url>
     <content><![CDATA[<a id="more"></a>
 
-<h4 id="多路归并"><a href="#多路归并" class="headerlink" title="多路归并"></a>多路归并</h4><p>归并思路，维护一个堆就行。<br>nlgn</p>
-<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function quickSort(arr) &#123;</span><br><span class="line">  if(arr.length&lt;&#x3D;1) &#123;</span><br><span class="line">  	return arr;</span><br><span class="line">  &#125;</span><br><span class="line">  var s &#x3D; Math.floor(arr.length&#x2F;2);</span><br><span class="line"> </span><br><span class="line">  var temp &#x3D; arr.splice(s,1);</span><br><span class="line">  </span><br><span class="line">  var left&#x3D;[];</span><br><span class="line">  var right&#x3D;[];</span><br><span class="line">  for(var i&#x3D;0;i&lt;arr.length;i++) &#123;</span><br><span class="line">    if(arr[i]&lt;temp) &#123;</span><br><span class="line">      left.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    if(arr[i]&gt;&#x3D;temp) &#123;</span><br><span class="line">      right.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  return quickSort(left).concat(temp,quickSort(right));  </span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h4 id="多路归并"><a href="#多路归并" class="headerlink" title="多路归并"></a>多路归并</h4><p>时间复杂度：nlgn，最坏复杂度：O(nlogn)，空间复杂度：O(n)，稳定性：稳定</p>
+<ul>
+<li>先递归分解数组，再合并数组。</li>
+<li>将数组分解成最小之后，然后合并两个有序的数组</li>
+<li>基本思路就是比较两个数组最前面的数，谁小就取谁</li>
+<li>取了后相应的指针就往后移一位</li>
+<li>然后再比较，直至一个数组为空，最后把两个数组的剩余部分渎职过来即可<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import random</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">def merge_sort(alist):</span><br><span class="line">    &quot;&quot;&quot;归并排序&quot;&quot;&quot;</span><br><span class="line">    n &#x3D; len(alist)</span><br><span class="line">    if n &lt;&#x3D; 1:</span><br><span class="line">        return alist</span><br><span class="line">    mid &#x3D; n&#x2F;&#x2F;2</span><br><span class="line">    # left 采用归并排序后形成的有序的新的列表</span><br><span class="line">    left_li &#x3D; merge_sort(alist[:mid])</span><br><span class="line">    # right 采用归并排序后形成的有序的新的列表</span><br><span class="line">    right_li &#x3D; merge_sort(alist[mid:])</span><br><span class="line"> </span><br><span class="line">    # 将两个有序的子序列合并为一个新的整体</span><br><span class="line">    left, right &#x3D; 0, 0</span><br><span class="line">    result &#x3D; []</span><br><span class="line"> </span><br><span class="line">    while left &lt; len(left_li) and right &lt; len(right_li):</span><br><span class="line">        # print(left_li[left], right_li[right])</span><br><span class="line">        if left_li[left] &lt;&#x3D; right_li[right]:</span><br><span class="line">            result.append(left_li[left])</span><br><span class="line">            left +&#x3D; 1</span><br><span class="line">        else:</span><br><span class="line">            # right_li[right] &lt; left_li[left]</span><br><span class="line">            result.append(right_li[right])</span><br><span class="line">            right +&#x3D; 1</span><br><span class="line">    result +&#x3D; left_li[left:]</span><br><span class="line">    result +&#x3D; right_li[right:]</span><br><span class="line"> </span><br><span class="line">    return result</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    li &#x3D; []</span><br><span class="line">    for i in range(10):</span><br><span class="line">        li.append(random.randint(1, 100))</span><br><span class="line">    print(*li)</span><br><span class="line">    result &#x3D; merge_sort(li)</span><br><span class="line">    print(*result)</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://www.cxyxiaowu.com/7072.html" target="_blank" rel="noopener">https://www.cxyxiaowu.com/7072.html</a><br><a href="https://www.cxyxiaowu.com/7072.html" target="_blank" rel="noopener">https://www.cxyxiaowu.com/7072.html</a></p>
+</li>
+</ul>
+<h4 id="二分排序"><a href="#二分排序" class="headerlink" title="二分排序"></a>二分排序</h4><p>关键字的比较次数采用折半查找，时间复杂度为O(n^2)<br>二分插入排序是在插入第i个元素时，对前面的0~i-1进行折半<br>先给他们中间的那个元素比，如果小，则对前半再进行折半，否则对后半进行折半<br>直到left&gt;right，然后再把第i个元素前1位与目标位置之间的所有元素后移<br>直到第i个元素放在目标位置上。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unction twoPointLookup(arr,low,high,key)&#123;</span><br><span class="line">　　if(low &gt; high)&#123;</span><br><span class="line">　　　　return -1</span><br><span class="line">　　&#125;</span><br><span class="line">　　var num &#x3D; parseInt((low + high) &#x2F; 2);</span><br><span class="line">　　if(key &#x3D;&#x3D; arr[num])&#123;</span><br><span class="line">　　　　return num </span><br><span class="line">　　&#125;else if(arr[num] &gt; key)&#123;</span><br><span class="line">　　　　high &#x3D; num - 1;</span><br><span class="line">　　　　return  twoPointLookup(arr,low,high,key)</span><br><span class="line"> 　　&#125; else if (arr[num] &lt; key)&#123;</span><br><span class="line">　　　　low &#x3D; num + 1</span><br><span class="line">　　　　return  twoPointLookup(arr,low,high,key)</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p>平均时间复杂度：O(nlgn/ig2)，最差为：O(n^2)，空间复杂度为：O(logn)，稳定性：不稳定</p>
+<ul>
+<li>先从数列中取出一个数作为基准数</li>
+<li>分区过程，将比这个数大的全放到它的右边，小于或等于的放左边</li>
+<li>再对左右区间重复第二步，直到各区间只有一个数。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function quickSort(arr) &#123;</span><br><span class="line">  if(arr.length&lt;&#x3D;1) &#123;</span><br><span class="line">  	return arr;</span><br><span class="line">  &#125;</span><br><span class="line">  var s &#x3D; Math.floor(arr.length&#x2F;2);</span><br><span class="line"> </span><br><span class="line">  var temp &#x3D; arr.splice(s,1);</span><br><span class="line">  </span><br><span class="line">  var left&#x3D;[];</span><br><span class="line">  var right&#x3D;[];</span><br><span class="line">  for(var i&#x3D;0;i&lt;arr.length;i++) &#123;</span><br><span class="line">    if(arr[i]&lt;temp) &#123;</span><br><span class="line">      left.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    if(arr[i]&gt;&#x3D;temp) &#123;</span><br><span class="line">      right.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  return quickSort(left).concat(temp,quickSort(right));  </span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><p>最优复杂度：O(n)，最坏复杂度：O(n^2)，稳定性：稳定</p>
+<ul>
+<li>比较相邻的元素，如果第一个比第二个大(升序)，就交换他们两个；</li>
+<li>对每一对相邻的元素做同样的工作，从开始到结尾的最后一对，这步做完后，最后的元素会是最大的数；</li>
+<li>针对所有的元素重复以上步骤，除了最后一个</li>
+<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较；</li>
+<li>稳定性：数值相同的元素在排序中不交换位置为稳定反之不稳定</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def bubble_sort(alist):</span><br><span class="line">    &quot;&quot;&quot;冒泡排序&quot;&quot;&quot;</span><br><span class="line">    n &#x3D; len(alist)</span><br><span class="line">    for j in range(n-1):</span><br><span class="line">        # range(5)的取值范围是从0~4此处要取到n-2（下标从0开始）所以</span><br><span class="line">        # 此处的值为n-1</span><br><span class="line">        count &#x3D; 0</span><br><span class="line">        # 如果进行了交换count加一，如果内层循环中发现某次交换一次都没有发生</span><br><span class="line">        # 即count &#x3D;&#x3D; 0,则说明列表已经是有序的了，直接退出外层循环，优化了程序</span><br><span class="line">        for i in range(n-1-j):</span><br><span class="line">            if alist[i] &gt; alist[i+1]:</span><br><span class="line">                alist[i], alist[i+1] &#x3D; alist[i+1], alist[i]</span><br><span class="line">                count +&#x3D; 1</span><br><span class="line">        if count &#x3D;&#x3D; 0:</span><br><span class="line">            break</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    li &#x3D; [56, 88, 12, 62, 54, 79, 32, 11, 96]</span><br><span class="line">    print(*li)</span><br><span class="line">    bubble_sort(li)</span><br><span class="line">    print(*li)</span><br></pre></td></tr></table></figure>
+
+<h4 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h4><p>最优复杂度：O(n), 最坏复杂度：O(n^2)，稳定性：稳定</p>
+<ul>
+<li>从第一个元素开始，该元素可以认为已被排序</li>
+<li>取出下一个元素，在已经排序的元素序列从后向前的扫描</li>
+<li>如果改元素(已排序)大于新元素，将该元素移到下一个位置</li>
+<li>重复步骤3，直到找到与排序的元素小于或等于新元素的位置</li>
+<li>将新元素插入到下一位置中</li>
+<li>重复步骤2~5<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def insert_sort(alist):</span><br><span class="line">    &quot;&quot;&quot;插入排序&quot;&quot;&quot;</span><br><span class="line">    n &#x3D; len(alist)</span><br><span class="line"> </span><br><span class="line">    for j in range(1, n):</span><br><span class="line">        # 1~n-1</span><br><span class="line">        for i in range(j, 0, -1):</span><br><span class="line">            # range(start, stop[, step])</span><br><span class="line">            # stop的值要取前一个，所以此处取值为j~1,</span><br><span class="line">            if alist[i] &lt; alist[i-1]:</span><br><span class="line">                alist[i], alist[i-1] &#x3D; alist[i-1], alist[i]</span><br><span class="line"> </span><br><span class="line">            # 此处为对代码的优化</span><br><span class="line">            # 因为序列的alist[i]之前的序列已经是有序的了</span><br><span class="line">            # 如果alist[i] &gt;&#x3D; alist[i-1]直接放入前面的有序部分的尾部就行</span><br><span class="line">            # 没有必要再和前面的元素依次比较了</span><br><span class="line">            # 此处的优化使代码的最优时间复杂度由O(n^2)变为了O(n)</span><br><span class="line">            else:</span><br><span class="line">                break</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    # li &#x3D; [5, 3, 2, 4, 7, 1, 6]</span><br><span class="line">    li &#x3D; [1, 2, 3, 4, 5, 4, 6, 7]</span><br><span class="line">    print(*li)</span><br><span class="line">    # start_time &#x3D; time.time()</span><br><span class="line">    insert_sort(li)</span><br><span class="line">    # end_time &#x3D; time.time()</span><br><span class="line">    print(*li)</span><br><span class="line">    # print(end_time-start_time)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h4><p>最优复杂度：O(n^2)，最坏复杂度O(n^2)，稳定性：不稳定</p>
+<ul>
+<li>始终从末序列的序列中找到最小的放到最前面；</li>
+<li>将第一个元素先作为最小值，用第一个点元素和后面的元素依次比较</li>
+<li>首次碰见比第一个元素更小的元素就记录这个“较小元素”的位置</li>
+<li>继续比较如果碰见比“较小元素”更小的元素，就将记录的“较小元素”的位置信息，替换成“更小元素”</li>
+<li>直到比较完整个序列，最小的元素位置信息就被记录下来了</li>
+<li>交换第一个元素和最小元素的位置，序列的头部就变成了最小的元素</li>
+<li>再将第二个元素先作为序列剩余元素的最小元素，和剩下的元素重复上述步骤进行比较</li>
+<li>将第二小的元素找到，并和第二个元素进行交换</li>
+<li>多次重复上述步骤n-1，即可得到升序序列<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def select_sort(alist):</span><br><span class="line">    &quot;&quot;&quot;选择排序&quot;&quot;&quot;</span><br><span class="line">    n &#x3D; len(alist)</span><br><span class="line">    for j in range(n-1):</span><br><span class="line">        # 列表的长度为n,从0开始计算一共为n-1个数。</span><br><span class="line">        # 最后一趟只剩最后一个数，一定是最大的不用比较。</span><br><span class="line">        # 所以只需要比较n-2次。</span><br><span class="line">        min_index &#x3D; j</span><br><span class="line">        for i in range(j+1, n):</span><br><span class="line">            if alist[min_index] &gt; alist[i]:</span><br><span class="line">                min_index &#x3D; i</span><br><span class="line">        alist[j], alist[min_index] &#x3D; alist[min_index], alist[j]</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    li &#x3D; [56, 26, 77, 6, 54, 38, 96, 43, 99]</span><br><span class="line">    print(*li)</span><br><span class="line">    select_sort(li)</span><br><span class="line">    print(*li)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h4><p>最优复杂度：O(n^1.3)，最坏复杂度：O(n^2)，稳定性：不稳定</p>
+<ul>
+<li>希尔排序是按照不同步长对元素进行插入排序</li>
+<li>当刚开始元素很无序的时候，步长最大，所以插入排序的元素个数很少，速度很快</li>
+<li>当元素基本有序了，步长很小，插入排序对于有序的序列效率很高<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def shell_sort(alist):</span><br><span class="line">    &quot;&quot;&quot;希尔排序&quot;&quot;&quot;</span><br><span class="line">    n &#x3D; len(alist)</span><br><span class="line">    step &#x3D; n&#x2F;&#x2F;2</span><br><span class="line"> </span><br><span class="line">    while step &gt; 0:</span><br><span class="line">        for j in range(step, n):</span><br><span class="line">            for i in range(j, 0, -step):</span><br><span class="line">                if alist[i] &lt; alist[i-step]:</span><br><span class="line">                    alist[i], alist[i-1] &#x3D; alist[i-1], alist[i]</span><br><span class="line">                else:</span><br><span class="line">                    break</span><br><span class="line">        step &#x3D; step&#x2F;&#x2F;2</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line"> </span><br><span class="line">    li &#x3D; [56, 26, 77, 6, 54, 38, 96, 43, 99]</span><br><span class="line">    print(*li)</span><br><span class="line">    shell_sort(li)</span><br><span class="line">    print(*li)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><a href="https://www.cxyxiaowu.com/7072.html" target="_blank" rel="noopener">https://www.cxyxiaowu.com/7072.html</a></p>
 <p><a href="https://blog.csdn.net/Design407/article/details/103242874" target="_blank" rel="noopener">https://blog.csdn.net/Design407/article/details/103242874</a></p>
 <p><a href="https://blog.csdn.net/hebtu666/article/details/103127563" target="_blank" rel="noopener">https://blog.csdn.net/hebtu666/article/details/103127563</a></p>
 <p><a href="https://blog.csdn.net/m0_37907797/article/details/103252306" target="_blank" rel="noopener">https://blog.csdn.net/m0_37907797/article/details/103252306</a></p>
@@ -325,12 +1371,45 @@
       </tags>
   </entry>
   <entry>
-    <title>interview-koaExpress</title>
+    <title>KoaExpress</title>
     <url>/articles/2020-02-08-interview-koaExpress.html</url>
     <content><![CDATA[<a id="more"></a>
 
-<h4 id="Koa和Express的区别和联系？"><a href="#Koa和Express的区别和联系？" class="headerlink" title="Koa和Express的区别和联系？"></a>Koa和Express的区别和联系？</h4><p>Koa是由Express原班人马打造的，致力于成为一个更小、更富有表现力、更健壮的Web框架。<br>使用koa编写web应用，通过组合不同的generator，可以避免重复繁琐的回调函数嵌套，极大的提升错误处理的效率。<br>koa不在内核方法中绑定任何中间件，它仅提供了一个轻量优雅的函数库，使得编写Web应用变得得心应手。<br>koa是比express更精简，使用node新特性的中间件框架，有足够的扩展和中间件。</p>
-]]></content>
+<h2 id="KoaExpress"><a href="#KoaExpress" class="headerlink" title="KoaExpress"></a>KoaExpress</h2><h4 id="Koa和Express的区别和联系"><a href="#Koa和Express的区别和联系" class="headerlink" title="Koa和Express的区别和联系"></a>Koa和Express的区别和联系</h4><p>Koa是由Express原班人马打造的，致力于成为一个更小、更富有表现力、更健壮的Web框架。<br>使用koa编写web应用，通过组合不同的generator，可以避免重复繁琐的回调函数嵌套，极大的提升错误处理的效率。<br>koa不在内核方法中绑定任何中间件，它仅提供了一个轻量优雅的函数库，使得编写Web应用变得得心应手。<br>koa是比express更精简，使用node新特性的中间件框架，有足够的扩展和中间件。</p>
+<h5 id="Koa2和Express中间件的区别"><a href="#Koa2和Express中间件的区别" class="headerlink" title="Koa2和Express中间件的区别"></a>Koa2和Express中间件的区别</h5><p>Koa2<br>    基于node的一个web开发框架，利用co作为底层运行框架，利用Generator的特性，实现“无回调”的异步处理；<br>    ES7;<br>    更小、更富有表现力、更健壮的基石；<br>    利用async函数、Koa丢弃回调函数，增强错误处理；<br>    很小的体积，因为没有捆绑任何中间件；<br>    类似堆栈的方式组织和执行；<br>    低级中间件层中提供高级“语法糖”，提高了互操性、稳健性；</p>
+<p>Express<br>    Node的基础框架，基础Connect中间件，自身封装了路由、视图处理等功能；<br>    线性逻辑，路由和中间件完美融合，清晰明了；<br>    弊端是callback回调方式，不可组合、异常不可捕获；<br>    ES5;<br>    connect的执行流程：<br>    connect的中间件模型是线性的，即一个一个往下执行；</p>
+<ol>
+<li><p>Handler的处理<br>Express普通回调函数，在同一线程上完成当前进程的所有Http请求；<br>Koa利用Generator Function作为响应器，co作为底层运行框架，利用Generator特性，实现“协程响应”；</p>
+</li>
+<li><p>路由<br>Express的路由是自身集成的；<br>Koa的需要引入中间件Koa-router；<br>（视图也是）</p>
+</li>
+<li><p>启动方式<br>koa采用new Koa()，express采用传统的函数形式function；</p>
+</li>
+<li><p>回调<br>Koa没有回调，express有回调；</p>
+</li>
+<li><p>Http Request<br>koa1使用this取代Express的req、res；</p>
+</li>
+<li><p>Context<br>Koa新增了一个Context对象，用来代替Express的Request和Response，作为请求的上下文对象。<br>还有Node原生提供的req、res、socket等对象；</p>
+</li>
+<li><p>生命周期<br> Express的生命周期不确定：<br> express内部执行异步函数，不能确定什么时候执行完；</p>
+<p> Koa的确定：<br> koa是基于await/async，在执行下一步操作的时候，必须等待前端await执行完；</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const express &#x3D; require(&#39;express&#39;);</span><br><span class="line">const app &#x3D; express();</span><br><span class="line"></span><br><span class="line">app.use((req, res, next) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(1); &#x2F;&#x2F; 1</span><br><span class="line">  next(); &#x2F;&#x2F; 2</span><br><span class="line">  console.log(2); &#x2F;&#x2F; 5</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use((req, res, next) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(3); &#x2F;&#x2F; 3</span><br><span class="line">  new Promise((resolve &#x3D;&gt; &#123; &#x2F;&#x2F; 4</span><br><span class="line">    setTimeout(resolve, 300);</span><br><span class="line">  &#125;)).then(() &#x3D;&gt; &#123;</span><br><span class="line">    next(); &#x2F;&#x2F; 6</span><br><span class="line">    console.log(4); &#x2F;&#x2F; 8</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(function(req, res) &#123;&#x2F;&#x2F; 7</span><br><span class="line">  res.send(&#39;Hello World&#39;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(3000)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 1 3 2 4 </span><br><span class="line"></span><br><span class="line">const Koa &#x3D; require(&#39;koa&#39;);</span><br><span class="line">const app &#x3D; new Koa();</span><br><span class="line"></span><br><span class="line">app.use(async (ctx, next) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(1); </span><br><span class="line">  await next(); </span><br><span class="line">  console.log(2); </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(async (ctx, next) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(3); </span><br><span class="line"></span><br><span class="line">  await new Promise(((resolve) &#x3D;&gt; &#123;</span><br><span class="line">    setTimeout(resolve, 300);</span><br><span class="line">  &#125;)); </span><br><span class="line"></span><br><span class="line">  await next(); </span><br><span class="line">  console.log(4); </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(async (ctx, next) &#x3D;&gt; &#123; </span><br><span class="line">  ctx.body &#x3D; &#39;Hello World&#39;;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(3000);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 1 3 4 2</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li><p>异步流程<br>Express采用callback来处理异步(ES5)；<br>Koa1采用generator(ES6)，Koa2采用async/await(ES7)；</p>
+</li>
+<li><p>错误处理<br>Express使用callback捕获异常，深层次的异常捕获不了；<br>Koa使用try catch，很好的解决异常捕获；</p>
+</li>
+<li><p>中间件<br>koa2的中间件：<br>通过async await实现的，中间件执行的顺序是“洋葱圈”模型。<br>中间件之间通过next函数联系，当一个中间件调用next()后，会将控制权交给下一个中间件，直到下一个中间件不再执行next()后，会沿路返回，将控制权交给前一个中间件。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const Koa &#x3D; require(&#39;koa&#39;);</span><br><span class="line">const app &#x3D; new Koa();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; logger</span><br><span class="line">app.use(async (ctx, next) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;1 - 开始&#39;)</span><br><span class="line">    await next();</span><br><span class="line">    const rt &#x3D; ctx.response.get(&#39;X-Response-Time&#39;);</span><br><span class="line">    console.log(&#39;1 - 结束&#39;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; x-response-time</span><br><span class="line">app.use(async (ctx, next) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;2 - 开始&#39;)</span><br><span class="line">    const start &#x3D; Date.now();</span><br><span class="line">    await next();</span><br><span class="line">    const ms &#x3D; Date.now() - start;</span><br><span class="line">    ctx.set(&#39;X-Response-Time&#39;, &#96;$&#123;ms&#125;ms&#96;);</span><br><span class="line">    console.log(&#39;2 - 结束&#39;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; response</span><br><span class="line">app.use(async ctx &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;3 - 开始&#39;)</span><br><span class="line">    ctx.body &#x3D; &#39;Hello World&#39;;</span><br><span class="line">    console.log(&#39;3 - 结束&#39;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app.listen(3000);</span><br><span class="line"></span><br><span class="line">&#x2F;** </span><br><span class="line">1 - 开始</span><br><span class="line">2 - 开始</span><br><span class="line">3 - 开始</span><br><span class="line">3 - 结束</span><br><span class="line">2 - 结束</span><br><span class="line">1 - 结束</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>Express中间件：<br>一个接一个顺序执行，response响应写在最后一个中间件中。</p>
+<p>特点：<br>app.use用来注册中间件；<br>遇到http请求，根据path和method判断触发哪些中间件；<br>实现next机制，即上一个中间件会通过next触发下一个中间件；</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const express &#x3D; require(&#39;express&#39;)</span><br><span class="line"></span><br><span class="line">const app &#x3D; express()</span><br><span class="line"></span><br><span class="line">app.use((req, res, next) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;1 - 开始&#39;)</span><br><span class="line">    setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">        next()</span><br><span class="line">    &#125;, 0)</span><br><span class="line">    console.log(&#39;1 - 结束&#39;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.use((req, res, next) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;2 - 开始&#39;)</span><br><span class="line">    setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">        next()</span><br><span class="line">    &#125;, 0)</span><br><span class="line">    console.log(&#39;2 - 结束&#39;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.use(&#39;&#x2F;api&#39;, (req, res, next) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;3 - 开始&#39;)</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        code: 0</span><br><span class="line">    &#125;)</span><br><span class="line">    console.log(&#39;3 - 结束&#39;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(3000, () &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;server is running on port 3000&#39;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line">    1 - 开始</span><br><span class="line">    1 - 结束</span><br><span class="line">    2 - 开始</span><br><span class="line">    2 - 结束</span><br><span class="line">    3 - 开始</span><br><span class="line">    3 - 结束</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Interview</category>
       </categories>
@@ -339,11 +1418,11 @@
       </tags>
   </entry>
   <entry>
-    <title>interview-cssHtmlVue</title>
+    <title>前端（Css、Html）</title>
     <url>/articles/2020-02-08-interview-cssHtml.html</url>
     <content><![CDATA[<a id="more"></a>
 
-<h4 id="四种定位的区别"><a href="#四种定位的区别" class="headerlink" title="四种定位的区别"></a>四种定位的区别</h4><ul>
+<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><h4 id="四种定位的区别"><a href="#四种定位的区别" class="headerlink" title="四种定位的区别"></a>四种定位的区别</h4><ul>
 <li>static：默认值</li>
 <li>relative：相对定位，相对于自身原有位置进行偏移，仍处于标准文档流中</li>
 <li>absolute：绝对定位，相对于最近的已定位的祖先元素，有已定位祖先元素，以最近的祖先元素为标准。如果无已定位祖先元素，以body元素为偏移参照基准，完全脱离了标椎文档流</li>
@@ -395,7 +1474,22 @@
 <li><p>清除浮动</p>
 </li>
 </ul>
-<h4 id="rem和em有什么去区别啊？"><a href="#rem和em有什么去区别啊？" class="headerlink" title="rem和em有什么去区别啊？"></a>rem和em有什么去区别啊？</h4><p>position和float的区别？</p>
+<h4 id="IFC"><a href="#IFC" class="headerlink" title="IFC"></a>IFC</h4><h4 id="对栅格的理解"><a href="#对栅格的理解" class="headerlink" title="对栅格的理解"></a>对栅格的理解</h4><h4 id="1像素边框问题"><a href="#1像素边框问题" class="headerlink" title="1像素边框问题"></a>1像素边框问题</h4><h4 id="rem和em有什么去区别啊？"><a href="#rem和em有什么去区别啊？" class="headerlink" title="rem和em有什么去区别啊？"></a>rem和em有什么去区别啊？</h4><h4 id="LESS-SASS-PostCSS"><a href="#LESS-SASS-PostCSS" class="headerlink" title="LESS, SASS, PostCSS"></a>LESS, SASS, PostCSS</h4><h4 id="简单介绍下盒模型，以及flexbox-弹性布局"><a href="#简单介绍下盒模型，以及flexbox-弹性布局" class="headerlink" title="简单介绍下盒模型，以及flexbox 弹性布局"></a>简单介绍下盒模型，以及flexbox 弹性布局</h4><h4 id="position和float的区别？"><a href="#position和float的区别？" class="headerlink" title="position和float的区别？"></a>position和float的区别？</h4><h4 id="HTML5-有哪些新特性及API"><a href="#HTML5-有哪些新特性及API" class="headerlink" title="HTML5 有哪些新特性及API"></a>HTML5 有哪些新特性及API</h4><h4 id="Canvas的实现原理"><a href="#Canvas的实现原理" class="headerlink" title="Canvas的实现原理"></a>Canvas的实现原理</h4><h4 id="div居中方式"><a href="#div居中方式" class="headerlink" title="div居中方式"></a>div居中方式</h4><ol>
+<li><p>适用于固定宽高的元素</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">position: absolute;</span><br><span class="line">top: 50%;</span><br><span class="line">left: 50%;</span><br><span class="line">margin-top: 高度的一半;</span><br><span class="line">margin-left: 宽度的一半</span><br></pre></td></tr></table></figure></li>
+<li><p>用在居中的元素本身</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">position: absolute;</span><br><span class="line">top: 50%;</span><br><span class="line">left: 50%;</span><br><span class="line">transform: translate(-50%, -50%)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>绝对定位要注意父级定位</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">position: absolute;</span><br><span class="line">top: 0;</span><br><span class="line">bottom: 0;</span><br><span class="line">left: 0;</span><br><span class="line">right: 0;</span><br><span class="line">margin: auto;</span><br></pre></td></tr></table></figure></li>
+<li><p>放在居中元素的父级元素上</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">display: flex;</span><br><span class="line">align-items: center;</span><br><span class="line">justify-content: center;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>块级元素设置两个参数（height = line-height）会让块级元素内部的行级元素垂直水平居中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">height &#x3D; line-height;</span><br><span class="line">text-align: center;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
 <h4 id="用一个div模拟textarea的实现"><a href="#用一个div模拟textarea的实现" class="headerlink" title="用一个div模拟textarea的实现"></a>用一个div模拟textarea的实现</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#textarea &#123;</span><br><span class="line">    width:300px;</span><br><span class="line">    border:1px solid #ccc;</span><br><span class="line">    min-height:150px;</span><br><span class="line">    max-height:300px;</span><br><span class="line">    overflow: auto;</span><br><span class="line">    font-size: 14px;</span><br><span class="line">    outline: none;</span><br><span class="line">&#125;</span><br><span class="line">&lt;div id&#x3D;&quot;textarea&quot; contenteditable&#x3D;&quot;true&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
 
 <h4 id="左右布局：左边定宽、右边自适应"><a href="#左右布局：左边定宽、右边自适应" class="headerlink" title="左右布局：左边定宽、右边自适应"></a>左右布局：左边定宽、右边自适应</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;left&quot;&gt;</span><br><span class="line">   &lt;p&gt;左左左左左左左左左左左左左左左左左左左左左左左左左左左左左左左左左左左左左左左左左左&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;right&quot;&gt;</span><br><span class="line">   &lt;p&gt;右右右右右右右右右右右右右右右右右右右右右右右右右右右右右右右右右右右右右右右右右右&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
@@ -417,7 +1511,86 @@
 
 </li>
 </ol>
-<h4 id="CSS3有哪些新的特性？"><a href="#CSS3有哪些新的特性？" class="headerlink" title="CSS3有哪些新的特性？"></a>CSS3有哪些新的特性？</h4>]]></content>
+<h4 id="CSS3有哪些新的特性？"><a href="#CSS3有哪些新的特性？" class="headerlink" title="CSS3有哪些新的特性？"></a>CSS3有哪些新的特性？</h4><ol>
+<li><p>css3的新选择器：<br>nth-child(n)选择器匹配其父元素的第n个子元素，不论元素类型，n可以使数字、关键字或公式；<br>nth-of-type(n)选择与之其匹配的父元素的第N个元素<br>first-child相对于父级做参考，所有子元素的第一个子元素，并且位置相对应<br>first-of-type相对于父级做参考，特定类型的第一个子元素<br>empty选择没有子元素的每个E元素<br>target选择当前活动的E元素<br>selection选择被用户选取的元素部分</p>
+</li>
+<li><p>文本<br>text-shadow:2px 2px 8px #000参数1向右的偏移量，参数2为向左的偏移量，参数3为渐变的像素，4为颜色；<br>text-overflow：规定当文本溢出包含元素时发生的事情，text-overflow:ellipsis(省略)<br>text-wrap：规定文本换行的规则<br>word-break：规定非中日韩文本的换行规则<br>word-wrap：对长的不可分割的单词进行分割并换行到下一行<br>white-space：规定如何处理元素中的空白；</p>
+<pre><code>white-space:nowrap规定段落中的文本不进行换行</code></pre></li>
+<li><p>边框<br>border-raduis：50%边框的圆角<br>border-image：边框图片<br>.border-image {<br> border-image-source:url(images/border.png);<br> boder-image-slice:27;<br> border-image-width:10px;<br> border-iamge-repeat:round; (round平铺) 平铺效果不作用于四角，只适应与四边<br>}</p>
+</li>
+<li><p>背景<br>rgba<br>background-size：cover/contain,其中cover会使最大边进行缩放，另一边同比缩放，铺满容器，超出部分会溢出。<br> contain会使最小边缩放，另一边同比缩放，不一定铺满容器，会完整显示图片。</p>
+</li>
+<li><p>渐变<br>liner-gradient<br>background-image:linear-gradient(90deg,yellow 20%,green 80%)<br>radial-gradient<br>background-iamge:radial-gradient(120px at center center,yellow,green)</p>
+</li>
+<li><p>多列布局<br>column-count<br>column-width<br>column-gap<br>column-rule</p>
+</li>
+<li><p>过渡<br>transition<br>transition-property:width<br>transition-duration:2s<br>transition-timing-function:ease<br>transition-delay:5s</p>
+</li>
+<li><p>动画、旋转<br>animation<br>transform: translate(x,y) rotate(deg) scale(x, y)<br>translate<br>scale<br>rotate<br>skew(倾斜)</p>
+</li>
+<li><p>flex布局</p>
+</li>
+<li><p>@media媒体查询</p>
+</li>
+</ol>
+<h4 id="Web前端性能优化常见方法"><a href="#Web前端性能优化常见方法" class="headerlink" title="Web前端性能优化常见方法"></a>Web前端性能优化常见方法</h4><ol>
+<li><p>内容优化</p>
+<ul>
+<li>减少http请求数</li>
+<li>减少DNS查找</li>
+<li>避免重定向</li>
+<li>使用Ajax缓存</li>
+<li>延迟加载组件，预加载组件</li>
+<li>减少DOM元素数量</li>
+<li>最小化iframe数量</li>
+<li>避免404</li>
+</ul>
+</li>
+<li><p>服务器优化</p>
+<ul>
+<li>使用内容分发网络：把网站内容分散到多个、处于不同地域位置的服务器上可以加快下载速度</li>
+<li>GZIP压缩</li>
+<li>设置ETag</li>
+<li>提前刷新缓冲区</li>
+<li>对Ajax请求使用get方法</li>
+<li>避免空的图像src</li>
+</ul>
+</li>
+<li><p>Cookie优化</p>
+<ul>
+<li>减少Cookie大小</li>
+<li>针对web组件使用域名无关的Cookoe</li>
+</ul>
+</li>
+<li><p>CSS优化</p>
+<ul>
+<li>将css代码放在Html页面的顶部</li>
+<li>避免使用css表达式</li>
+<li>使用<link>来代替@import</li>
+<li>避免使用Filters</li>
+</ul>
+</li>
+<li><p>JavaScript优化</p>
+<ul>
+<li>将JavaScript脚本放在页面的底部</li>
+<li>将JavaScript和Css作为外部文件来引用</li>
+<li>缩小JavaScript和Css</li>
+<li>删除重复的脚本</li>
+<li>最小化DOM的访问</li>
+<li>开发智能的事件处理程序</li>
+<li>JavaScript代码注意：谨慎使用with，避免使用eval Function函数，减少作用域链查找</li>
+</ul>
+</li>
+<li><p>图像优化</p>
+<ul>
+<li>优化图片大小</li>
+<li>通过CSS Sprites优化图片</li>
+<li>不要在Html中使用缩放图片</li>
+<li>facicon.ico要小而且可缓存</li>
+</ul>
+</li>
+</ol>
+]]></content>
       <categories>
         <category>Interview</category>
       </categories>
@@ -426,12 +1599,11 @@
       </tags>
   </entry>
   <entry>
-    <title>interview-node</title>
+    <title>Node</title>
     <url>/articles/2020-02-08-interview-node.html</url>
     <content><![CDATA[<a id="more"></a>
 
-<p>一、node</p>
-<h4 id="node？"><a href="#node？" class="headerlink" title="node？"></a>node？</h4><p>node既是开发平台，也是运行环境，也是新的语言。<br>本身是基于google的JavaScript V8引擎开发的。<br>一个运行在服务端的基于Chrome V8 engine的js运行环境(runtime)。</p>
+<h2 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h2><h4 id="node？"><a href="#node？" class="headerlink" title="node？"></a>node？</h4><p>node既是开发平台，也是运行环境，也是新的语言。<br>本身是基于google的JavaScript V8引擎开发的。<br>一个运行在服务端的基于Chrome V8 engine的js运行环境(runtime)。</p>
 <p>简单强大、轻量可扩展。</p>
 <p>简单：node使用的是JavaScript，json来进行编码，人人都会；<br>强大：非阻塞IO，可以适应分块传输数据，较慢的网络环境，尤其擅长高并发访问；<br>轻量：node本身既是代码，又是服务器，前后端使用统一语言；<br>可扩展性：轻松应对多实例，多服务架构，同时拥有海量的第三方应用组件；</p>
 <h4 id="node有哪些特质，与其他服务器端对比"><a href="#node有哪些特质，与其他服务器端对比" class="headerlink" title="node有哪些特质，与其他服务器端对比"></a>node有哪些特质，与其他服务器端对比</h4><p>特征：单线程、事件驱动、非阻塞I/O.<br>适合做一些如：<br>    聊天室、表单提交等不需要大量计算的功能<br>    做一些微信后端开发、或消息系统；</p>
@@ -498,8 +1670,32 @@
 </ul>
 <p>作用：异步编程的终极解决方案。</p>
 <p>执行顺序：<br>函数执行时，一旦遇到await就会返回。等到触发的异步操作完成，再接着执行函数体内后面的语句。</p>
-<h4 id="promise内部实现机制"><a href="#promise内部实现机制" class="headerlink" title="promise内部实现机制"></a>promise内部实现机制</h4><p>Promise内部实现机制：<br>promise用来实现一步操作，解决了回调地域的问题。<br>相当于一个容器，里面保存了某些未来才结束的事件的结果。<br>promise对象的状态不受外部的影响。</p>
+<h4 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h4><p>Promise内部实现机制：<br>    promise用来实现一步操作，解决了回调地域的问题。<br>    相当于一个容器，里面保存了某些未来才结束的事件的结果。<br>    promise对象的状态不受外部的影响。</p>
+<p>Promise实例生成以后，可以用then方法指定resolved状态和reject状态的回调函数。</p>
+<ul>
+<li>promise是一个对象，对象和函数的区别是对象可以保存状态，函数不可以</li>
+<li>并未剥夺函数return的能力，因此无需层次传递callback，进行回调获取数据</li>
+<li>代码风格，容易理解，便于维护</li>
+<li>多个异步等待合并便于解决</li>
+</ul>
+<p>promise三个状态：</p>
+<ul>
+<li>pending待定，初始状态</li>
+<li>fulfilled实现，操作成功</li>
+<li>rejected被否决，操作失败</li>
+</ul>
+<p>promise的状态改变，两种可能，情况只要发生，状态就凝固了，不会再变了：</p>
+<ul>
+<li>从pending变为fulfilled</li>
+<li>从pending变为rejected</li>
+</ul>
+<p>Promise.all([])：批量执行；<br>Promise.race()：有任意一个完成就算完成；</p>
 <p>babel或者coffee Script的这些编译到JS的语言是如何工作的？<br>关于babel的递归引用JS文件处理的东西<br>JavaScript的Async库基本原理是什么？<br>你写的Functional.js中monad, curry, lazy的解释和意义？<br>JS的东西，什么闭包，Node.js的require依赖顺序什么的<br>说一下关于Node.js的文件读写方式和实现<br>说一下JavaScript几种异步方法和原理？<br>说明addEventListener使用？作用域？<br>谈谈冒泡和捕获事件的区别，应用？</p>
+<h4 id="Promise-all、each、map、mapSeries、reduce"><a href="#Promise-all、each、map、mapSeries、reduce" class="headerlink" title="Promise.all、each、map、mapSeries、reduce"></a>Promise.all、each、map、mapSeries、reduce</h4><p>Promise.all:<br>等待所有过程结束；</p>
+<p>Promise.map:<br>结合array.map和Promise.all;<br>加入concurrency参数可以控制同时并发的Promise个数；</p>
+<p>Promise.reduce:<br>从左到右按顺序执行，只有一个Promise执行；</p>
+<p>Promise.mapSeries:<br>和Promise.map类似；<br>但是按顺序执行的；</p>
+<p>Promise.each:<br>顺序执行；<br>返回的数组不是所有Promise的结果，而是传入Promise.each的原始数据数组；</p>
 <h4 id="什么是错误优先的回调函数？"><a href="#什么是错误优先的回调函数？" class="headerlink" title="什么是错误优先的回调函数？"></a>什么是错误优先的回调函数？</h4><p>错误优先的回调函数用于传递错误和数据。<br>第一个参数始终是一个错误对象，用于检查程序是否发生了错误<br>其余的参数用于传递数据</p>
 <h4 id="如何避免回调地狱？"><a href="#如何避免回调地狱？" class="headerlink" title="如何避免回调地狱？"></a>如何避免回调地狱？</h4><h4 id="简述同步和异步的区别，如何避免回调地狱"><a href="#简述同步和异步的区别，如何避免回调地狱" class="headerlink" title="简述同步和异步的区别，如何避免回调地狱"></a>简述同步和异步的区别，如何避免回调地狱</h4><p>同步方法调用一旦开始，调用者必须等到方法调用返回之后，才能继续后续的行为；<br>异步方法调用一旦开始，方法调用就会立即返回，调用者就会继续后续的操作，而异步方法通常会在另外一个线程中，整个过程，不会阻碍调用者的工作。<br>避免回调地狱：</p>
 <ul>
@@ -539,9 +1735,6 @@
 <p>【<br>JavaScript内置对象：<br>    Array Boolean Date Function Global Math Number Object RegExp String及各种错误类对象。</p>
 <p>JavaScript宿主对象：<br>    宿主对象就是执行Js脚本的环境提供的对象，对于嵌入到网页中的Js来说，宿主对象就是浏览器提供的对象，即浏览器对象。<br>如：Window和Document，Element，form，image等。</p>
 <p>JavaScript自定义对象：即开发人员自己定义的对象。<br> 】</p>
-<ol start="3">
-<li>谈谈对nodejs npm webpack的理解<br>webpack能够把vue后缀名的文件打包成浏览器能够识别的js，而这个vue文件装换需要打包器vue-loader;<br>vue-loader打包器是可以从npm上下载的，npm下载文件之后，webpack打包文件时需要在node环境去运行；</li>
-</ol>
 <ol start="5">
 <li><p>AMD CMD规范的区别<br>CommonJS和AMD都是JavaScript模块化的规范<br>CMD依赖就近，AMD依赖前置<br>CMD是延迟执行的，AMD是提前执行的<br>AMD的API默认是一个当多个用，CMD的API严格区分，推崇职责单一</p>
 </li>
@@ -560,8 +1753,10 @@
 <li>监听连接是否成功</li>
 <li>通过node， 书写接口，对数据库进行增删改查</li>
 </ul>
-<ol start="13">
-<li>node和前端项目怎么解决跨域的？<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;解决跨域问题</span><br><span class="line">        app.use(async(ctx, next) &#x3D;#### &#123;</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;指定服务器端允许进行跨域资源访问的来源域。可以用通配符*表示允许任何域的JavaScript访问资源，但是在响应一个携带身份信息(Credential)的HTTP请求时，必需指定具体的域，不能用通配符</span><br><span class="line">            ctx.set(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;可选。它的值是一个布尔值，表示是否允许客户端跨域请求时携带身份信息(Cookie或者HTTP认证信息)。默认情况下，Cookie不包括在CORS请求之中。当设置成允许请求携带cookie时，需要保证&quot;Access-Control-Allow-Origin&quot;是服务器有的域名，而不能是&quot;*&quot;;如果没有设置这个值，浏览器会忽略此次响应。</span><br><span class="line">            ctx.set(&quot;Access-Control-Allow-Credentials&quot;, true);</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;指定服务器允许进行跨域资源访问的请求方法列表，一般用在响应预检请求上</span><br><span class="line">            ctx.set(&quot;Access-Control-Allow-Methods&quot;, &quot;OPTIONS, GET, PUT, POST, DELETE&quot;);</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;必需。指定服务器允许进行跨域资源访问的请求头列表，一般用在响应预检请求上</span><br><span class="line">            ctx.set(&quot;Access-Control-Allow-Headers&quot;, &quot;x-requested-with, accept, origin, content-type&quot;);</span><br><span class="line">            &#x2F;&#x2F; ctx.set(&quot;X-Powered-By&quot;, &#39; 3.2.1&#39;);</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;告诉客户端返回数据的MIME的类型，这只是一个标识信息,并不是真正的数据文件的一部分</span><br><span class="line">            ctx.set(&quot;Content-Type&quot;, &quot;application&#x2F;json;charset&#x3D;utf-8&quot;);</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;如果不设置mode，直接设置content-type为application&#x2F;json，则fetch会默认这是跨域模式（mode:&#39;cors&#39;），在跨域POST之前，客户端会先发一条OPTIONS请求来”探探路”，如果服务器允许，再继续POST数据。对于这种OPTIONS请求，需要在服务器配置允许接受OPTIONS请求，这样写就是直接允许了所有的OPTIONS请求，也可以按照需求来判断OPTIONS请求中更详细的信息</span><br><span class="line">            if (ctx.request.method &#x3D;&#x3D; &quot;OPTIONS&quot;) &#123;</span><br><span class="line">                ctx.response.status &#x3D; 200</span><br><span class="line">            &#125;</span><br><span class="line">            await next();</span><br><span class="line">        &#125;);</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure></li>
+<h4 id="pm2-forever-模块的工作原理"><a href="#pm2-forever-模块的工作原理" class="headerlink" title="pm2, forever 模块的工作原理"></a>pm2, forever 模块的工作原理</h4><h4 id="require的模块系统加载方式是什么"><a href="#require的模块系统加载方式是什么" class="headerlink" title="require的模块系统加载方式是什么"></a>require的模块系统加载方式是什么</h4><h4 id="Node-js-多进程部署的原理"><a href="#Node-js-多进程部署的原理" class="headerlink" title="Node.js 多进程部署的原理"></a>Node.js 多进程部署的原理</h4><h4 id="BDD-和-TDD的区别"><a href="#BDD-和-TDD的区别" class="headerlink" title="BDD 和 TDD的区别"></a>BDD 和 TDD的区别</h4><ol start="13">
+<li>node和前端项目怎么解决跨域的？<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;解决跨域问题</span><br><span class="line">        app.use(async(ctx, next) &#x3D;#### &#123;</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;指定服务器端允许进行跨域资源访问的来源域。可以用通配符*表示允许任何域的JavaScript访问资源，但是在响应一个携带身份信息(Credential)的HTTP请求时，必需指定具体的域，不能用通配符</span><br><span class="line">            ctx.set(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;可选。它的值是一个布尔值，表示是否允许客户端跨域请求时携带身份信息(Cookie或者HTTP认证信息)。默认情况下，Cookie不包括在CORS请求之中。当设置成允许请求携带cookie时，需要保证&quot;Access-Control-Allow-Origin&quot;是服务器有的域名，而不能是&quot;*&quot;;如果没有设置这个值，浏览器会忽略此次响应。</span><br><span class="line">            ctx.set(&quot;Access-Control-Allow-Credentials&quot;, true);</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;指定服务器允许进行跨域资源访问的请求方法列表，一般用在响应预检请求上</span><br><span class="line">            ctx.set(&quot;Access-Control-Allow-Methods&quot;, &quot;OPTIONS, GET, PUT, POST, DELETE&quot;);</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;必需。指定服务器允许进行跨域资源访问的请求头列表，一般用在响应预检请求上</span><br><span class="line">            ctx.set(&quot;Access-Control-Allow-Headers&quot;, &quot;x-requested-with, accept, origin, content-type&quot;);</span><br><span class="line">            &#x2F;&#x2F; ctx.set(&quot;X-Powered-By&quot;, &#39; 3.2.1&#39;);</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;告诉客户端返回数据的MIME的类型，这只是一个标识信息,并不是真正的数据文件的一部分</span><br><span class="line">            ctx.set(&quot;Content-Type&quot;, &quot;application&#x2F;json;charset&#x3D;utf-8&quot;);</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;如果不设置mode，直接设置content-type为application&#x2F;json，则fetch会默认这是跨域模式（mode:&#39;cors&#39;），在跨域POST之前，客户端会先发一条OPTIONS请求来”探探路”，如果服务器允许，再继续POST数据。对于这种OPTIONS请求，需要在服务器配置允许接受OPTIONS请求，这样写就是直接允许了所有的OPTIONS请求，也可以按照需求来判断OPTIONS请求中更详细的信息</span><br><span class="line">            if (ctx.request.method &#x3D;&#x3D; &quot;OPTIONS&quot;) &#123;</span><br><span class="line">                ctx.response.status &#x3D; 200</span><br><span class="line">            &#125;</span><br><span class="line">            await next();</span><br><span class="line">        &#125;);</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
 ]]></content>
       <categories>
@@ -581,10 +1776,11 @@
 <p>Vue：<a href="https://www.gpp-note.top/articles/2020-02-08-interview-vue.html" target="_blank">[Vue]</a> </p>
 <p>CSS：<a href="https://www.gpp-note.top/articles/2020-02-08-interview-cssHtml.html" target="_blank">[Css]</a> </p>
 <p>Html：<a href="https://www.gpp-note.top/articles/2020-02-08-interview-cssHtml.html" target="_blank">[Html]</a> </p>
+<p>Http/Net：<a href="https://www.gpp-note.top/articles/2020-02-08-interview-httpNet.html" target="_blank">[Http/Net]</a> </p>
 <p>JavaScript：<a href="https://www.gpp-note.top/articles/2020-02-08-interview-javaScript.html" target="_blank">[JavaScript]</a> </p>
 <p>Database：<a href="https://www.gpp-note.top/articles/2020-02-08-interview-database.html" target="_blank">[Database]</a> </p>
 <p>Algorithm：<a href="https://www.gpp-note.top/articles/2020-02-08-interview-algorithm.html" target="_blank">[Algorithm]</a> </p>
-<p>Http/Net：<a href="https://www.gpp-note.top/articles/2020-02-08-interview-httpNet.html" target="_blank">[Http/Net]</a> </p>
+<p>DataStructure：<a href="https://www.gpp-note.top/articles/2020-02-11-interview-dataStructure.html" target="_blank">[DataStructure]</a> </p>
 ]]></content>
       <categories>
         <category>Interview</category>

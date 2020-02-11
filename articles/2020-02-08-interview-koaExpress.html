@@ -91,14 +91,14 @@
 
 
 
-<meta name="description" content="Koa和Express的区别和联系？Koa是由Express原班人马打造的，致力于成为一个更小、更富有表现力、更健壮的Web框架。使用koa编写web应用，通过组合不同的generator，可以避免重复繁琐的回调函数嵌套，极大的提升错误处理的效率。koa不在内核方法中绑定任何中间件，它仅提供了一个轻量优雅的函数库，使得编写Web应用变得得心应手。koa是比express更精简，使用node新特">
+<meta name="description" content="KoaExpressKoa和Express的区别和联系Koa是由Express原班人马打造的，致力于成为一个更小、更富有表现力、更健壮的Web框架。使用koa编写web应用，通过组合不同的generator，可以避免重复繁琐的回调函数嵌套，极大的提升错误处理的效率。koa不在内核方法中绑定任何中间件，它仅提供了一个轻量优雅的函数库，使得编写Web应用变得得心应手。koa是比express更精简">
 <meta property="og:type" content="article">
-<meta property="og:title" content="interview-koaExpress">
+<meta property="og:title" content="KoaExpress">
 <meta property="og:url" content="http://gpp-note.top/articles/2020-02-08-interview-koaExpress.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="Koa和Express的区别和联系？Koa是由Express原班人马打造的，致力于成为一个更小、更富有表现力、更健壮的Web框架。使用koa编写web应用，通过组合不同的generator，可以避免重复繁琐的回调函数嵌套，极大的提升错误处理的效率。koa不在内核方法中绑定任何中间件，它仅提供了一个轻量优雅的函数库，使得编写Web应用变得得心应手。koa是比express更精简，使用node新特">
+<meta property="og:description" content="KoaExpressKoa和Express的区别和联系Koa是由Express原班人马打造的，致力于成为一个更小、更富有表现力、更健壮的Web框架。使用koa编写web应用，通过组合不同的generator，可以避免重复繁琐的回调函数嵌套，极大的提升错误处理的效率。koa不在内核方法中绑定任何中间件，它仅提供了一个轻量优雅的函数库，使得编写Web应用变得得心应手。koa是比express更精简">
 <meta property="article:published_time" content="2020-02-08T14:13:23.000Z">
-<meta property="article:modified_time" content="2020-02-10T08:50:15.890Z">
+<meta property="article:modified_time" content="2020-02-11T10:46:28.275Z">
 <meta property="article:author" content="Guopp">
 <meta property="article:tag" content="Interview">
 <meta name="twitter:card" content="summary">
@@ -137,7 +137,7 @@
 
 
 
-  <title>interview-koaExpress | Welcome to my-blog</title>
+  <title>KoaExpress | Welcome to my-blog</title>
   
 
 
@@ -313,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">interview-koaExpress</h1>
+          <h1 class="post-title" itemprop="name headline">KoaExpress</h1>
         
 
         <div class="post-meta">
@@ -397,8 +397,41 @@
       
         <a id="more"></a>
 
-<h4 id="Koa和Express的区别和联系？"><a href="#Koa和Express的区别和联系？" class="headerlink" title="Koa和Express的区别和联系？"></a>Koa和Express的区别和联系？</h4><p>Koa是由Express原班人马打造的，致力于成为一个更小、更富有表现力、更健壮的Web框架。<br>使用koa编写web应用，通过组合不同的generator，可以避免重复繁琐的回调函数嵌套，极大的提升错误处理的效率。<br>koa不在内核方法中绑定任何中间件，它仅提供了一个轻量优雅的函数库，使得编写Web应用变得得心应手。<br>koa是比express更精简，使用node新特性的中间件框架，有足够的扩展和中间件。</p>
+<h2 id="KoaExpress"><a href="#KoaExpress" class="headerlink" title="KoaExpress"></a>KoaExpress</h2><h4 id="Koa和Express的区别和联系"><a href="#Koa和Express的区别和联系" class="headerlink" title="Koa和Express的区别和联系"></a>Koa和Express的区别和联系</h4><p>Koa是由Express原班人马打造的，致力于成为一个更小、更富有表现力、更健壮的Web框架。<br>使用koa编写web应用，通过组合不同的generator，可以避免重复繁琐的回调函数嵌套，极大的提升错误处理的效率。<br>koa不在内核方法中绑定任何中间件，它仅提供了一个轻量优雅的函数库，使得编写Web应用变得得心应手。<br>koa是比express更精简，使用node新特性的中间件框架，有足够的扩展和中间件。</p>
+<h5 id="Koa2和Express中间件的区别"><a href="#Koa2和Express中间件的区别" class="headerlink" title="Koa2和Express中间件的区别"></a>Koa2和Express中间件的区别</h5><p>Koa2<br>    基于node的一个web开发框架，利用co作为底层运行框架，利用Generator的特性，实现“无回调”的异步处理；<br>    ES7;<br>    更小、更富有表现力、更健壮的基石；<br>    利用async函数、Koa丢弃回调函数，增强错误处理；<br>    很小的体积，因为没有捆绑任何中间件；<br>    类似堆栈的方式组织和执行；<br>    低级中间件层中提供高级“语法糖”，提高了互操性、稳健性；</p>
+<p>Express<br>    Node的基础框架，基础Connect中间件，自身封装了路由、视图处理等功能；<br>    线性逻辑，路由和中间件完美融合，清晰明了；<br>    弊端是callback回调方式，不可组合、异常不可捕获；<br>    ES5;<br>    connect的执行流程：<br>    connect的中间件模型是线性的，即一个一个往下执行；</p>
+<ol>
+<li><p>Handler的处理<br>Express普通回调函数，在同一线程上完成当前进程的所有Http请求；<br>Koa利用Generator Function作为响应器，co作为底层运行框架，利用Generator特性，实现“协程响应”；</p>
+</li>
+<li><p>路由<br>Express的路由是自身集成的；<br>Koa的需要引入中间件Koa-router；<br>（视图也是）</p>
+</li>
+<li><p>启动方式<br>koa采用new Koa()，express采用传统的函数形式function；</p>
+</li>
+<li><p>回调<br>Koa没有回调，express有回调；</p>
+</li>
+<li><p>Http Request<br>koa1使用this取代Express的req、res；</p>
+</li>
+<li><p>Context<br>Koa新增了一个Context对象，用来代替Express的Request和Response，作为请求的上下文对象。<br>还有Node原生提供的req、res、socket等对象；</p>
+</li>
+<li><p>生命周期<br> Express的生命周期不确定：<br> express内部执行异步函数，不能确定什么时候执行完；</p>
+<p> Koa的确定：<br> koa是基于await/async，在执行下一步操作的时候，必须等待前端await执行完；</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">const express &#x3D; require(&#39;express&#39;);</span><br><span class="line">const app &#x3D; express();</span><br><span class="line"></span><br><span class="line">app.use((req, res, next) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(1); &#x2F;&#x2F; 1</span><br><span class="line">  next(); &#x2F;&#x2F; 2</span><br><span class="line">  console.log(2); &#x2F;&#x2F; 5</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use((req, res, next) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(3); &#x2F;&#x2F; 3</span><br><span class="line">  new Promise((resolve &#x3D;&gt; &#123; &#x2F;&#x2F; 4</span><br><span class="line">    setTimeout(resolve, 300);</span><br><span class="line">  &#125;)).then(() &#x3D;&gt; &#123;</span><br><span class="line">    next(); &#x2F;&#x2F; 6</span><br><span class="line">    console.log(4); &#x2F;&#x2F; 8</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(function(req, res) &#123;&#x2F;&#x2F; 7</span><br><span class="line">  res.send(&#39;Hello World&#39;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(3000)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 1 3 2 4 </span><br><span class="line"></span><br><span class="line">const Koa &#x3D; require(&#39;koa&#39;);</span><br><span class="line">const app &#x3D; new Koa();</span><br><span class="line"></span><br><span class="line">app.use(async (ctx, next) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(1); </span><br><span class="line">  await next(); </span><br><span class="line">  console.log(2); </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(async (ctx, next) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(3); </span><br><span class="line"></span><br><span class="line">  await new Promise(((resolve) &#x3D;&gt; &#123;</span><br><span class="line">    setTimeout(resolve, 300);</span><br><span class="line">  &#125;)); </span><br><span class="line"></span><br><span class="line">  await next(); </span><br><span class="line">  console.log(4); </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(async (ctx, next) &#x3D;&gt; &#123; </span><br><span class="line">  ctx.body &#x3D; &#39;Hello World&#39;;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(3000);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 1 3 4 2</span><br></pre></td></tr></table></figure>
 
+<ol start="8">
+<li><p>异步流程<br>Express采用callback来处理异步(ES5)；<br>Koa1采用generator(ES6)，Koa2采用async/await(ES7)；</p>
+</li>
+<li><p>错误处理<br>Express使用callback捕获异常，深层次的异常捕获不了；<br>Koa使用try catch，很好的解决异常捕获；</p>
+</li>
+<li><p>中间件<br>koa2的中间件：<br>通过async await实现的，中间件执行的顺序是“洋葱圈”模型。<br>中间件之间通过next函数联系，当一个中间件调用next()后，会将控制权交给下一个中间件，直到下一个中间件不再执行next()后，会沿路返回，将控制权交给前一个中间件。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">const Koa &#x3D; require(&#39;koa&#39;);</span><br><span class="line">const app &#x3D; new Koa();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; logger</span><br><span class="line">app.use(async (ctx, next) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;1 - 开始&#39;)</span><br><span class="line">    await next();</span><br><span class="line">    const rt &#x3D; ctx.response.get(&#39;X-Response-Time&#39;);</span><br><span class="line">    console.log(&#39;1 - 结束&#39;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; x-response-time</span><br><span class="line">app.use(async (ctx, next) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;2 - 开始&#39;)</span><br><span class="line">    const start &#x3D; Date.now();</span><br><span class="line">    await next();</span><br><span class="line">    const ms &#x3D; Date.now() - start;</span><br><span class="line">    ctx.set(&#39;X-Response-Time&#39;, &#96;$&#123;ms&#125;ms&#96;);</span><br><span class="line">    console.log(&#39;2 - 结束&#39;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; response</span><br><span class="line">app.use(async ctx &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;3 - 开始&#39;)</span><br><span class="line">    ctx.body &#x3D; &#39;Hello World&#39;;</span><br><span class="line">    console.log(&#39;3 - 结束&#39;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app.listen(3000);</span><br><span class="line"></span><br><span class="line">&#x2F;** </span><br><span class="line">1 - 开始</span><br><span class="line">2 - 开始</span><br><span class="line">3 - 开始</span><br><span class="line">3 - 结束</span><br><span class="line">2 - 结束</span><br><span class="line">1 - 结束</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>Express中间件：<br>一个接一个顺序执行，response响应写在最后一个中间件中。</p>
+<p>特点：<br>app.use用来注册中间件；<br>遇到http请求，根据path和method判断触发哪些中间件；<br>实现next机制，即上一个中间件会通过next触发下一个中间件；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">const express &#x3D; require(&#39;express&#39;)</span><br><span class="line"></span><br><span class="line">const app &#x3D; express()</span><br><span class="line"></span><br><span class="line">app.use((req, res, next) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;1 - 开始&#39;)</span><br><span class="line">    setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">        next()</span><br><span class="line">    &#125;, 0)</span><br><span class="line">    console.log(&#39;1 - 结束&#39;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.use((req, res, next) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;2 - 开始&#39;)</span><br><span class="line">    setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">        next()</span><br><span class="line">    &#125;, 0)</span><br><span class="line">    console.log(&#39;2 - 结束&#39;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.use(&#39;&#x2F;api&#39;, (req, res, next) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;3 - 开始&#39;)</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        code: 0</span><br><span class="line">    &#125;)</span><br><span class="line">    console.log(&#39;3 - 结束&#39;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(3000, () &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;server is running on port 3000&#39;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line">    1 - 开始</span><br><span class="line">    1 - 结束</span><br><span class="line">    2 - 开始</span><br><span class="line">    2 - 结束</span><br><span class="line">    3 - 开始</span><br><span class="line">    3 - 结束</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -426,9 +459,9 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>interview-koaExpress</a></p>
+  <p><span>本文标题:</span>KoaExpress</a></p>
   <p><span>文章作者:</span>Guopp</a></p>
-  <p><span>原始链接:</span><a href="/articles/2020-02-08-interview-koaExpress.html" title="interview-koaExpress">http://gpp-note.top/articles/2020-02-08-interview-koaExpress.html</a>
+  <p><span>原始链接:</span><a href="/articles/2020-02-08-interview-koaExpress.html" title="KoaExpress">http://gpp-note.top/articles/2020-02-08-interview-koaExpress.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/articles/2020-02-08-interview-koaExpress.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者</p>  
@@ -476,8 +509,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/2020-02-08-interview-cssHtml.html" rel="next" title="interview-cssHtmlVue">
-                <i class="fa fa-chevron-left"></i> interview-cssHtmlVue
+              <a href="/articles/2020-02-08-interview-cssHtml.html" rel="next" title="前端（Css、Html）">
+                <i class="fa fa-chevron-left"></i> 前端（Css、Html）
               </a>
             
           </div>
@@ -486,8 +519,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/articles/2020-02-08-interview-algorithm.html" rel="prev" title="interview-algorithm">
-                interview-algorithm <i class="fa fa-chevron-right"></i>
+              <a href="/articles/2020-02-08-interview-algorithm.html" rel="prev" title="算法">
+                算法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -520,7 +553,7 @@
   
     <div class="comments" id="comments">
       <div class="ds-thread" data-thread-key="articles/2020-02-08-interview-koaExpress.html"
-           data-title="interview-koaExpress" data-url="http://gpp-note.top/articles/2020-02-08-interview-koaExpress.html">
+           data-title="KoaExpress" data-url="http://gpp-note.top/articles/2020-02-08-interview-koaExpress.html">
       </div>
     </div>
 
@@ -572,7 +605,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -583,7 +616,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -594,7 +627,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -650,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Koa和Express的区别和联系？"><span class="nav-text">Koa和Express的区别和联系？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#KoaExpress"><span class="nav-text">KoaExpress</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Koa和Express的区别和联系"><span class="nav-text">Koa和Express的区别和联系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Koa2和Express中间件的区别"><span class="nav-text">Koa2和Express中间件的区别</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -668,7 +701,7 @@
           <h3 class="widget-title">标签</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knex/" rel="tag">Knex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/" rel="tag">Net</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proto3/" rel="tag">Proto3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gRPC/" rel="tag">gRPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>

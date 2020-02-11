@@ -91,14 +91,14 @@
 
 
 
-<meta name="description" content="Vue生命周期  简介Vue生命周期是Vue实例从创建到销毁的过程。 从开始创建、初始化数据、编译模板、挂在DOM-&gt;渲染、更新-&gt;渲染、销毁等一系列过程。 创建前&#x2F;后、载入前&#x2F;后、更新前&#x2F;后、销毁前&#x2F;后。 生命周期线 beforeCreate：创建前。新对象诞生，在对象初始化之前执行； created：创建后。创建具有默认特性的对象； beforeMount：载入前。在挂载开始">
+<meta name="description" content="VueVue生命周期简介Vue生命周期是Vue实例从创建到销毁的过程。 从开始创建、初始化数据、编译模板、挂在DOM-&gt;渲染、更新-&gt;渲染、销毁等一系列过程。 创建前&#x2F;后、载入前&#x2F;后、更新前&#x2F;后、销毁前&#x2F;后。 生命周期线 beforeCreate：创建前。新对象诞生，在对象初始化之前执行； created：创建后。创建具有默认特性的对象； beforeMount：载入前。在挂载开始">
 <meta property="og:type" content="article">
-<meta property="og:title" content="interview-vue">
+<meta property="og:title" content="Vue">
 <meta property="og:url" content="http://gpp-note.top/articles/2020-02-08-interview-vue.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="Vue生命周期  简介Vue生命周期是Vue实例从创建到销毁的过程。 从开始创建、初始化数据、编译模板、挂在DOM-&gt;渲染、更新-&gt;渲染、销毁等一系列过程。 创建前&#x2F;后、载入前&#x2F;后、更新前&#x2F;后、销毁前&#x2F;后。 生命周期线 beforeCreate：创建前。新对象诞生，在对象初始化之前执行； created：创建后。创建具有默认特性的对象； beforeMount：载入前。在挂载开始">
+<meta property="og:description" content="VueVue生命周期简介Vue生命周期是Vue实例从创建到销毁的过程。 从开始创建、初始化数据、编译模板、挂在DOM-&gt;渲染、更新-&gt;渲染、销毁等一系列过程。 创建前&#x2F;后、载入前&#x2F;后、更新前&#x2F;后、销毁前&#x2F;后。 生命周期线 beforeCreate：创建前。新对象诞生，在对象初始化之前执行； created：创建后。创建具有默认特性的对象； beforeMount：载入前。在挂载开始">
 <meta property="article:published_time" content="2020-02-08T15:00:28.000Z">
-<meta property="article:modified_time" content="2020-02-10T08:50:15.890Z">
+<meta property="article:modified_time" content="2020-02-11T09:02:43.280Z">
 <meta property="article:author" content="Guopp">
 <meta property="article:tag" content="Interview">
 <meta name="twitter:card" content="summary">
@@ -137,7 +137,7 @@
 
 
 
-  <title>interview-vue | Welcome to my-blog</title>
+  <title>Vue | Welcome to my-blog</title>
   
 
 
@@ -313,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">interview-vue</h1>
+          <h1 class="post-title" itemprop="name headline">Vue</h1>
         
 
         <div class="post-meta">
@@ -397,13 +397,10 @@
       
         <a id="more"></a>
 
-<blockquote>
-<p>Vue生命周期</p>
-</blockquote>
-<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Vue生命周期是Vue实例从创建到销毁的过程。</p>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h4 id="Vue生命周期"><a href="#Vue生命周期" class="headerlink" title="Vue生命周期"></a>Vue生命周期</h4><h5 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h5><p>Vue生命周期是Vue实例从创建到销毁的过程。</p>
 <p>从开始创建、初始化数据、编译模板、挂在DOM-&gt;渲染、更新-&gt;渲染、销毁等一系列过程。</p>
 <p>创建前/后、载入前/后、更新前/后、销毁前/后。</p>
-<h4 id="生命周期线"><a href="#生命周期线" class="headerlink" title="生命周期线"></a>生命周期线</h4><ol>
+<h5 id="生命周期线"><a href="#生命周期线" class="headerlink" title="生命周期线"></a>生命周期线</h5><ol>
 <li>beforeCreate：创建前。新对象诞生，在对象初始化之前执行；</li>
 <li>created：创建后。创建具有默认特性的对象；</li>
 <li>beforeMount：载入前。在挂载开始之前被调用，相关的render函数首次被调用。实例已完成以下的配置：编译模板，把data里面的数据和模板生成html，此时还没有挂载html到页面上；</li>
@@ -413,8 +410,8 @@
 <li>beforeDestory：销毁前。实例仍然完全可用；</li>
 <li>destoryed：销毁后。调用后，所有的事件监听器会被移除，所有的子实例也会被销毁。</li>
 </ol>
-<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>控制整个Vue实例过程时更容易形成好的逻辑。</p>
-<h4 id="第一次加载页面会触发几个钩子？"><a href="#第一次加载页面会触发几个钩子？" class="headerlink" title="第一次加载页面会触发几个钩子？"></a>第一次加载页面会触发几个钩子？</h4><p>四个，beforeCreated、created、beforeMount、mounted。</p>
+<h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><p>控制整个Vue实例过程时更容易形成好的逻辑。</p>
+<h5 id="第一次加载页面会触发几个钩子？"><a href="#第一次加载页面会触发几个钩子？" class="headerlink" title="第一次加载页面会触发几个钩子？"></a>第一次加载页面会触发几个钩子？</h5><p>四个，beforeCreated、created、beforeMount、mounted。</p>
 <h4 id="Vue-router实现原理"><a href="#Vue-router实现原理" class="headerlink" title="Vue-router实现原理"></a>Vue-router实现原理</h4><p>vue-router通过hash与history两种方式实现前端路由，<strong>更新视图但不重新请求页面</strong>是前端路由原理的核心之一。</p>
 <p>hash：利用URL中的hash（“#”）,在URL后加#，是url中的锚点，代表网页中的一个位置，单单改变#后的部分，浏览器只会加载相应位置的内容，不会重新加载页面。</p>
 <p>history：是Html5新增的方法，不刷新整个页面实现URL跳转。</p>
@@ -427,7 +424,7 @@
 <li>当前台显示的view发生变化，会实时反应到viewModel上，如果需要，viewModel会通过ajax等方法将改变的数据传递给后台model。</li>
 <li>同时后台model获取过来的数据，通过vm将值响应到前台UI上。</li>
 </ul>
-<h4 id="vue-model双向绑定原理"><a href="#vue-model双向绑定原理" class="headerlink" title="vue-model双向绑定原理"></a>vue-model双向绑定原理</h4><p>透过MVVM模式实现vue的双向绑定数据。</p>
+<h4 id="vue-model双向绑定原理"><a href="#vue-model双向绑定原理" class="headerlink" title="vue-model双向绑定原理"></a>vue-model双向绑定原理</h4><p>透过MVVM模式实现vue的双向绑定数据。<br>通过Object.defineProperty实现的。</p>
 <p>当data变化时，通过Object.definePrototype()方法的set进行监控，并调用在此之前已经定义好的data和view，来通知view进行数据的改变。<br>view发生改变则是通过底层的input事件进行data的响应更改。</p>
 <p>vue是通过Object.definePrototype()来实现数据劫持的。</p>
 <p>实现方法：观察者模式</p>
@@ -453,10 +450,9 @@
 </blockquote>
 <h4 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h4><p>实现ES6编译为ES5代码</p>
 <h4 id="Vue-router跳转和Location-href区别？"><a href="#Vue-router跳转和Location-href区别？" class="headerlink" title="Vue router跳转和Location.href区别？"></a>Vue router跳转和Location.href区别？</h4><p>router是hash改变<br>href是页面跳转，刷新页面</p>
-<h4 id="Vue双向绑定实现原理？"><a href="#Vue双向绑定实现原理？" class="headerlink" title="Vue双向绑定实现原理？"></a>Vue双向绑定实现原理？</h4><p>通过Object.defineProperty实现的。</p>
-<h4 id="React和Vue有什么区别？"><a href="#React和Vue有什么区别？" class="headerlink" title="React和Vue有什么区别？"></a>React和Vue有什么区别？</h4><h4 id="怎么上手的vue，以及为啥用vue而不用其他框架？"><a href="#怎么上手的vue，以及为啥用vue而不用其他框架？" class="headerlink" title="怎么上手的vue，以及为啥用vue而不用其他框架？"></a>怎么上手的vue，以及为啥用vue而不用其他框架？</h4><h4 id="你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"><a href="#你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？" class="headerlink" title="你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"></a>你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？</h4><h4 id="Vue双向绑定？"><a href="#Vue双向绑定？" class="headerlink" title="Vue双向绑定？"></a>Vue双向绑定？</h4><h4 id="Vuex整个触发过程（actions，state，view）？"><a href="#Vuex整个触发过程（actions，state，view）？" class="headerlink" title="Vuex整个触发过程（actions，state，view）？"></a>Vuex整个触发过程（actions，state，view）？</h4><h4 id="Vue和Vuex有什么差别？"><a href="#Vue和Vuex有什么差别？" class="headerlink" title="Vue和Vuex有什么差别？"></a>Vue和Vuex有什么差别？</h4><h4 id="知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"><a href="#知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？" class="headerlink" title="知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"></a>知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？</h4><h4 id="为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？"><a href="#为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？" class="headerlink" title="为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？"></a>为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？</h4><h4 id="传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"><a href="#传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？" class="headerlink" title="传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"></a>传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？</h4><h4 id="Vue中Compile过程说一下？"><a href="#Vue中Compile过程说一下？" class="headerlink" title="Vue中Compile过程说一下？"></a>Vue中Compile过程说一下？</h4><p>Vue的设计思路你了解吗</p>
-<p>Vue的响应式是怎么实现的？</p>
-
+<h4 id="npm-webpack的理解"><a href="#npm-webpack的理解" class="headerlink" title="npm webpack的理解"></a>npm webpack的理解</h4><p>webpack官方文档说是一个module bundler(模块打包器)。<br>webpack能够把vue后缀名的文件打包成浏览器能够识别的js，而这个vue文件装换需要打包器vue-loader;<br>vue-loader打包器是可以从npm上下载的，npm下载文件之后，webpack打包文件时需要在node环境去运行；</p>
+<p>通过webpack对模块进行打包，既保留了单个模块的可维护性，又减少了页面的http请求，减少了页面加载时间，从而增加了页面的显示速度，让整个应用的体验更好。</p>
+<h4 id="React和Vue有什么区别？"><a href="#React和Vue有什么区别？" class="headerlink" title="React和Vue有什么区别？"></a>React和Vue有什么区别？</h4><h4 id="怎么上手的vue，以及为啥用vue而不用其他框架？"><a href="#怎么上手的vue，以及为啥用vue而不用其他框架？" class="headerlink" title="怎么上手的vue，以及为啥用vue而不用其他框架？"></a>怎么上手的vue，以及为啥用vue而不用其他框架？</h4><h4 id="你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"><a href="#你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？" class="headerlink" title="你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"></a>你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？</h4><h4 id="Vue双向绑定？"><a href="#Vue双向绑定？" class="headerlink" title="Vue双向绑定？"></a>Vue双向绑定？</h4><h4 id="Vuex整个触发过程（actions，state，view）？"><a href="#Vuex整个触发过程（actions，state，view）？" class="headerlink" title="Vuex整个触发过程（actions，state，view）？"></a>Vuex整个触发过程（actions，state，view）？</h4><h4 id="Vue和Vuex有什么差别？"><a href="#Vue和Vuex有什么差别？" class="headerlink" title="Vue和Vuex有什么差别？"></a>Vue和Vuex有什么差别？</h4><h4 id="知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"><a href="#知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？" class="headerlink" title="知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"></a>知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？</h4><h4 id="为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？"><a href="#为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？" class="headerlink" title="为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？"></a>为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？</h4><h4 id="传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"><a href="#传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？" class="headerlink" title="传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"></a>传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？</h4><h4 id="Vue中Compile过程说一下？"><a href="#Vue中Compile过程说一下？" class="headerlink" title="Vue中Compile过程说一下？"></a>Vue中Compile过程说一下？</h4><h4 id="Vue的设计思路你了解吗"><a href="#Vue的设计思路你了解吗" class="headerlink" title="Vue的设计思路你了解吗"></a>Vue的设计思路你了解吗</h4><h4 id="Vue的响应式是怎么实现的？"><a href="#Vue的响应式是怎么实现的？" class="headerlink" title="Vue的响应式是怎么实现的？"></a>Vue的响应式是怎么实现的？</h4><h4 id="proxy数据代理的实现"><a href="#proxy数据代理的实现" class="headerlink" title="proxy数据代理的实现"></a>proxy数据代理的实现</h4>
       
     </div>
     
@@ -484,9 +480,9 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>interview-vue</a></p>
+  <p><span>本文标题:</span>Vue</a></p>
   <p><span>文章作者:</span>Guopp</a></p>
-  <p><span>原始链接:</span><a href="/articles/2020-02-08-interview-vue.html" title="interview-vue">http://gpp-note.top/articles/2020-02-08-interview-vue.html</a>
+  <p><span>原始链接:</span><a href="/articles/2020-02-08-interview-vue.html" title="Vue">http://gpp-note.top/articles/2020-02-08-interview-vue.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/articles/2020-02-08-interview-vue.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者</p>  
@@ -534,8 +530,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/2020-02-08-interview-database.html" rel="next" title="interview-database">
-                <i class="fa fa-chevron-left"></i> interview-database
+              <a href="/articles/2020-02-08-interview-database.html" rel="next" title="数据库（MongoDB、Mysql、Redis）">
+                <i class="fa fa-chevron-left"></i> 数据库（MongoDB、Mysql、Redis）
               </a>
             
           </div>
@@ -544,8 +540,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/articles/2020-02-08-interview-httpNet.html" rel="prev" title="interview-httpNet">
-                interview-httpNet <i class="fa fa-chevron-right"></i>
+              <a href="/articles/2020-02-08-interview-httpNet.html" rel="prev" title="计算机原理">
+                计算机原理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -578,7 +574,7 @@
   
     <div class="comments" id="comments">
       <div class="ds-thread" data-thread-key="articles/2020-02-08-interview-vue.html"
-           data-title="interview-vue" data-url="http://gpp-note.top/articles/2020-02-08-interview-vue.html">
+           data-title="Vue" data-url="http://gpp-note.top/articles/2020-02-08-interview-vue.html">
       </div>
     </div>
 
@@ -630,7 +626,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -641,7 +637,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -652,7 +648,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -708,7 +704,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生命周期线"><span class="nav-text">生命周期线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作用"><span class="nav-text">作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第一次加载页面会触发几个钩子？"><span class="nav-text">第一次加载页面会触发几个钩子？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue-router实现原理"><span class="nav-text">Vue-router实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVVM框架"><span class="nav-text">MVVM框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-model双向绑定原理"><span class="nav-text">vue-model双向绑定原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#options预检请求"><span class="nav-text">options预检请求</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#简单请求和非简单请求"><span class="nav-text">简单请求和非简单请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器在什么情况下发起options预检请求？"><span class="nav-text">浏览器在什么情况下发起options预检请求？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#babel"><span class="nav-text">babel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue-router跳转和Location-href区别？"><span class="nav-text">Vue router跳转和Location.href区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue双向绑定实现原理？"><span class="nav-text">Vue双向绑定实现原理？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React和Vue有什么区别？"><span class="nav-text">React和Vue有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么上手的vue，以及为啥用vue而不用其他框架？"><span class="nav-text">怎么上手的vue，以及为啥用vue而不用其他框架？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"><span class="nav-text">你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue双向绑定？"><span class="nav-text">Vue双向绑定？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vuex整个触发过程（actions，state，view）？"><span class="nav-text">Vuex整个触发过程（actions，state，view）？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue和Vuex有什么差别？"><span class="nav-text">Vue和Vuex有什么差别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"><span class="nav-text">知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？"><span class="nav-text">为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"><span class="nav-text">传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue中Compile过程说一下？"><span class="nav-text">Vue中Compile过程说一下？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue"><span class="nav-text">Vue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue生命周期"><span class="nav-text">Vue生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#生命周期线"><span class="nav-text">生命周期线</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#作用"><span class="nav-text">作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第一次加载页面会触发几个钩子？"><span class="nav-text">第一次加载页面会触发几个钩子？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue-router实现原理"><span class="nav-text">Vue-router实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVVM框架"><span class="nav-text">MVVM框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-model双向绑定原理"><span class="nav-text">vue-model双向绑定原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#options预检请求"><span class="nav-text">options预检请求</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#简单请求和非简单请求"><span class="nav-text">简单请求和非简单请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器在什么情况下发起options预检请求？"><span class="nav-text">浏览器在什么情况下发起options预检请求？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#babel"><span class="nav-text">babel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue-router跳转和Location-href区别？"><span class="nav-text">Vue router跳转和Location.href区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-webpack的理解"><span class="nav-text">npm webpack的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React和Vue有什么区别？"><span class="nav-text">React和Vue有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么上手的vue，以及为啥用vue而不用其他框架？"><span class="nav-text">怎么上手的vue，以及为啥用vue而不用其他框架？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"><span class="nav-text">你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue双向绑定？"><span class="nav-text">Vue双向绑定？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vuex整个触发过程（actions，state，view）？"><span class="nav-text">Vuex整个触发过程（actions，state，view）？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue和Vuex有什么差别？"><span class="nav-text">Vue和Vuex有什么差别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"><span class="nav-text">知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？"><span class="nav-text">为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"><span class="nav-text">传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue中Compile过程说一下？"><span class="nav-text">Vue中Compile过程说一下？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue的设计思路你了解吗"><span class="nav-text">Vue的设计思路你了解吗</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue的响应式是怎么实现的？"><span class="nav-text">Vue的响应式是怎么实现的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#proxy数据代理的实现"><span class="nav-text">proxy数据代理的实现</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -726,7 +722,7 @@
           <h3 class="widget-title">标签</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knex/" rel="tag">Knex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/" rel="tag">Net</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proto3/" rel="tag">Proto3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gRPC/" rel="tag">gRPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>
