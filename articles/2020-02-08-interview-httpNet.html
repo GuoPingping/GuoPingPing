@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Welcome to my-blog">
 <meta property="og:description" content="计算机原理计算机网络的七层应用层、表示层、会话层、传输层、网络层、数据链路层、物理层 TCP和UDP的区别TCP：    面向连接、    传输可靠(保证数据正确性，保证数据顺序)、    用于传输大量数据(流模式)、    速度慢、    建立连接需要开销比较多（时间、系统资源）。 一般用于文件传输、发送接收邮件、远程登录等。 UDP：    面向非连接、    传输不可靠、    用于传输">
 <meta property="article:published_time" content="2020-02-08T15:03:10.000Z">
-<meta property="article:modified_time" content="2020-02-11T09:03:36.178Z">
+<meta property="article:modified_time" content="2020-02-11T13:44:08.350Z">
 <meta property="article:author" content="Guopp">
 <meta property="article:tag" content="Interview">
 <meta name="twitter:card" content="summary">
@@ -438,7 +438,16 @@
 <h4 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h4><p>线程是最小的执行单元，进程是由线程组成。<br>如何调度线程和进程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。</p>
 <p>进程是计算机中已运行的程序。<br>线程是操作系统能够运行调度的最小单位。</p>
 <h4 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h4><p>当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但没有一方愿意提前退出，就成为死锁。</p>
-<h4 id="三次握手与四次挥手"><a href="#三次握手与四次挥手" class="headerlink" title="三次握手与四次挥手"></a>三次握手与四次挥手</h4><h4 id="https说一下过程？"><a href="#https说一下过程？" class="headerlink" title="https说一下过程？"></a>https说一下过程？</h4><h4 id="OSI七层协议？"><a href="#OSI七层协议？" class="headerlink" title="OSI七层协议？"></a>OSI七层协议？</h4><h4 id="描述一下HTTP-协议缓存机制"><a href="#描述一下HTTP-协议缓存机制" class="headerlink" title="描述一下HTTP 协议缓存机制"></a>描述一下HTTP 协议缓存机制</h4>
+<h4 id="http、https说一下过程？"><a href="#http、https说一下过程？" class="headerlink" title="http、https说一下过程？"></a>http、https说一下过程？</h4><p>http建立连接过程</p>
+<ul>
+<li>客户端向服务端发送请求报文</li>
+<li>服务端根据请求报文收集对应的资源组合成响应报文</li>
+<li>客户端收到响应报文，进行解析</li>
+</ul>
+<h4 id="三次握手与四次挥手"><a href="#三次握手与四次挥手" class="headerlink" title="三次握手与四次挥手"></a>三次握手与四次挥手</h4><h4 id="OSI七层协议？"><a href="#OSI七层协议？" class="headerlink" title="OSI七层协议？"></a>OSI七层协议？</h4><h4 id="描述一下HTTP-协议缓存机制"><a href="#描述一下HTTP-协议缓存机制" class="headerlink" title="描述一下HTTP 协议缓存机制"></a>描述一下HTTP 协议缓存机制</h4><p>Http缓存主要分为强缓存和协商环迅</p>
+<p>强缓存：所请求的数据在缓存数据库中尚未过期时，不与服务器进行交互，直接使用缓存数据库中的数据。<br>    若缓存未命中时，则重新向服务器请求数据。</p>
+<p>协商缓存：当强缓存过期未命中或响应报文Cache-Control中有must-revalidate标识必须每次请求验证资源的状态时，便使用协商缓存的方式去处理缓存文件。<br>    主要原理是从缓存数据中取出缓存的标识，然后向浏览器发送请求验证请求的数据是否已经更新，如果已更新则返回新的数据，若未更新则使用缓存数据库中的数据。</p>
+
       
     </div>
     
@@ -690,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机原理"><span class="nav-text">计算机原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机网络的七层"><span class="nav-text">计算机网络的七层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP和UDP的区别"><span class="nav-text">TCP和UDP的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http、https"><span class="nav-text">http、https</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http和TCP的区别"><span class="nav-text">http和TCP的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几种常见的状态码"><span class="nav-text">几种常见的状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程和线程"><span class="nav-text">进程和线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#死锁"><span class="nav-text">死锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三次握手与四次挥手"><span class="nav-text">三次握手与四次挥手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#https说一下过程？"><span class="nav-text">https说一下过程？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OSI七层协议？"><span class="nav-text">OSI七层协议？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#描述一下HTTP-协议缓存机制"><span class="nav-text">描述一下HTTP 协议缓存机制</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机原理"><span class="nav-text">计算机原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机网络的七层"><span class="nav-text">计算机网络的七层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP和UDP的区别"><span class="nav-text">TCP和UDP的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http、https"><span class="nav-text">http、https</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http和TCP的区别"><span class="nav-text">http和TCP的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几种常见的状态码"><span class="nav-text">几种常见的状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程和线程"><span class="nav-text">进程和线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#死锁"><span class="nav-text">死锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http、https说一下过程？"><span class="nav-text">http、https说一下过程？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三次握手与四次挥手"><span class="nav-text">三次握手与四次挥手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OSI七层协议？"><span class="nav-text">OSI七层协议？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#描述一下HTTP-协议缓存机制"><span class="nav-text">描述一下HTTP 协议缓存机制</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

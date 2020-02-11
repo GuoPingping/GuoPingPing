@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Welcome to my-blog">
 <meta property="og:description" content="Redis一个开源的，内存中的数据结构存储系统；用作数据库、缓存和消息中间件；">
 <meta property="article:published_time" content="2020-02-11T09:22:39.000Z">
-<meta property="article:modified_time" content="2020-02-11T10:32:24.696Z">
+<meta property="article:modified_time" content="2020-02-11T11:11:21.792Z">
 <meta property="article:author" content="Guopp">
 <meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
@@ -398,29 +398,106 @@
         <h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>一个开源的，内存中的数据结构存储系统；<br>用作数据库、缓存和消息中间件；</p>
 <a id="more"></a>
 
-<h4 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h4><p>Redis是速度非常快的非关系型（Nosql）内存键值数据库，可以存储键和五种不同类型的值之间的映射。<br>Redis支持很多特性。如：将内存中的数据持久化到硬盘中，使用复制来扩展读性能，使用分片扩展写性能。<br>键的类型只能为字符串，值有五种类型：字符串、列表、集合、散列表、有序集合。</p>
-<h5 id="支持的数据结构"><a href="#支持的数据结构" class="headerlink" title="支持的数据结构"></a>支持的数据结构</h5><pre><code>字符串 String
-散列 Hashes
-列表 List
-集合 Set
-有序集合 Sorted set
-范围查询
-bitmaps
-hyperloglogs
-地理空间 geospatial索引半径查询</code></pre><p>内置了复制replication，LUA脚本，LRU驱动事件，事务和不同级别的磁盘持久化，并通过Redis哨兵Sentinel和自动分区Cluster提供高可用性</p>
-<ul>
-<li>string 字符串、整数或浮点数 对整个字符串或字符串的其中一部分执行操作，对整数和浮点数执行自增或自减操作。</li>
-<li>list 列表 从两端压入或弹出元素，对单个或多个元素进行修剪，只保留一个范围内的元素</li>
-<li>set 无序集合 添加、获取、移除单个元素，检查一个元素是否在于集合中，计算交集、并集、差集，从集合里面随机获取元素</li>
-<li>hash 包含键值对的无序散列表 添加、获取、移除单个键值对，获取所有键值对，检查某个键是否存在</li>
-<li>zset 有序集合 添加、获取、删除元素根据分值范围或成员来获取元素计算一个键的排名</li>
+<h4 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h4><p>Remote Dictionary Server，数据结构服务器。<br>完全开源、非关系型、高性能的key-value存储系统。<br>速度非常快的非关系型（Nosql）内存键值数据库，可以存储键和五种不同类型的值之间的映射。</p>
+<p>Redis支持很多特性。如：将内存中的数据持久化到硬盘中，使用复制来扩展读性能，使用分片扩展写性能。<br>键的类型只能为字符串，值有五种类型：字符串、列表、集合、散列表、有序集合（string、list、set、zset和hash）。</p>
+<h4 id="2-Redis的特点"><a href="#2-Redis的特点" class="headerlink" title="2. Redis的特点"></a>2. Redis的特点</h4><p>redis是单线程的，操作是安全的；<br>redis支持数据的持久化，可将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用；<br>redis支持key-value，并提供list、set、zset、hash等数据结构的存储；<br>redis支持数据的备份，即master-slave模式的数据备份；<br>redis单个value的最大限制1GB；</p>
+<h4 id="3-五种数据类型介绍及使用场景"><a href="#3-五种数据类型介绍及使用场景" class="headerlink" title="3. 五种数据类型介绍及使用场景"></a>3. 五种数据类型介绍及使用场景</h4><p>应用场景：<br>    会话缓存；<br>    消息队列，比如支付；<br>    活动排行榜或计数；<br>    发布，订阅消息（消息通知）；<br>    商品列表，评论列表等；</p>
+<p>计数器<br>可以对string进行自增自减运算，从而实现计数器功能。<br>redis这种内存型数据库的读写性能非常高，很适合存储频繁读写的计数量。</p>
+<p>缓存<br>将热点数据放到内存中，设置内存的最大使用量，及淘汰策略来保证缓存的命中率。</p>
+<p>查找表<br>如DNS记录就很适合使用Redis进行存储。</p>
+<p>查找表和缓存类似，也是利用redis快速查找特性。<br>但查找表的内容不能失效，而缓存的内容可以失效，缓存不作为可靠的数据来源。</p>
+<p>消息队列<br>list是一个双向链表，可以通过lpush和rpop写入和读取消息。</p>
+<p>会话缓存<br>可以使用Redis来统一存储多台应用服务器的会话消息。<br>当应用服务器不再存储用户的会话消息，也就是不再具有状态，<br>一个用户可以请求任意一个应用服务器，从而容易实现高可用性及可伸缩性。</p>
+<p>分布式锁实现<br>在分布式场景下，无法使用单机环境下的锁来对多个节点上的进程进行同步。</p>
+<p>可以使用Redis自带的setnx命令实现分布式锁，除此之外，还可以使用RedLock分布式锁实现。</p>
+<p>其它<br>set可以实现交集、并集等操作，从而实现共同好友的功能<br>zset可以有序性的操作，从而实现排行榜等功能。</p>
+<p>1) String<br>    key-value，可以包含任何数据，一个键最大能存储512MB。<br>    比如图片或者序列化的对象。</p>
+<pre><code>set：设置存储在指定键中的值；set key value *
+get：获取存储在指定键中的值；get key
+del：删除存储在指定键中的值；del key
+
+使用场景:
+    incr 自增 ；eg：生成id；
+    decr 减少；eg：库存；
+    计数器缓存；
+    缓存–过期时间设置，模拟session；
+
+使用案例：</code></pre><p>2） List<br>    redis列表，按照插入顺序可以添加一个元素到列表的头部或尾部。</p>
+<pre><code>rpush：将给定值推入列表的右端；rpush key value *
+lrange：获取列表在指定范围上的所有值；lrange key start stop
+lindex：获取列表在指定范围上的单个元素；lindex key index
+lpop key
+
+使用场景：
+    多任务调度队列；
+    利用lrange命令，做基于redis的分页功能，性能极佳，用户体验好；
+    微博发表文章，使关注的人都能看到（使用列表做一个消息队列）；
+    生产者消费者模型（多线程）；</code></pre><p>3）Set<br>    string类型的无序集合。集合是通过哈希表实现的，增删查复杂度都是O(1)</p>
+<pre><code>sadd：将给定元素添加到集合；sadd key value
+smembers：返回集合包含的所有元素；smembers key
+sismember：检查指定元素是否存在于集合中； srem key value
+
+使用场景：
+    微博关注数。
+    利用交集、并集、差集等操作，可以计算共同爱好，全部的喜好，自己独有的喜好等功能。</code></pre><p>4）hash<br>    键值对集合。是string类型的field和value的映射表，适用于存储对象。</p>
+<pre><code>hset：散列里面关联起指定的键值对；hset key field value
+hget：获取指定散列键的值；
+hgetall：散列包含的所有键值对；hgetall key
+hdel：如果给定键存在于散列中，移出这个键；hdel key field
+
+使用场景：
+    购物车
+    单点登录，用这种数据结构存储用户信息，一cookie作为key，设置30分钟为缓存过期时间，
+    能很好地模拟类似session效果。</code></pre><p>5）zset<br>    集合，不允许重复的成员。每个元素都会关联一个double类型的分数。<br>    redis通过分数来为集合中成员进行从小到大的排序。<br>    zset的成员是唯一的，但分数却可以重复。</p>
+<pre><code>zadd：将一个带有给定分值的成员添加到有序集合里面；
+zrange：根据元素在有序排列中所处的位置，从有序集合里面获取多个元素；
+zrangebyscore：获取有序集合在给定分值范围内的所有元素；
+zrem：如果指定成员存在于有序集合中，那么移出这个成员
+
+使用场景
+    排行榜，取Top N操作；
+    延时任务
+    范围查找</code></pre><h4 id="4-持久化"><a href="#4-持久化" class="headerlink" title="4. 持久化"></a>4. 持久化</h4><p>Redis是内存型数据库，为了保证数据在断电后不会丢失，需要将内存中的数据持久化到硬盘上。</p>
+<p>两种方式：<br>1）rdb快照：<br>    将某个时间点的所有数据都存放到硬盘上；<br>    可以将快照复制到其它服务器，从而创建具有相同数据的服务器副本；<br>    如果系统发生故障，将会丢失最后一次创建快照之后的数据；<br>    如果数据量很大，保存快照的时间会很长；</p>
+<pre><code>默认redis是会以快照的形式将数据持久化到磁盘（一个二进制文件，dump.rdb，这个文件名字可以指定），
+在配置文件（redis.conf)中的格式是：save
+N M表示在N秒之内，redis至少发生M次修改则redis抓快照到磁盘。
+
+保存 900 1：900秒内如果超过1个key被修改，则启动快照保存；
+保存300 10：300秒内如果超过10个key被修改，则启动快照保存；
+保存60 10000：60秒内如果超过10000个重点被修改，则启动快照保存；</code></pre><p>2）aof持久化<br>    将写命令添加到AOF文件（Append Only File）的末尾。<br>    使用AOF持久化需要设置同步选项，从而确保写命令同步到磁盘文件上的时机。<br>    这是因为对文件进行写入并不会马上将内容同步到磁盘上，而是先存储到缓存区，<br>    然后由操作系统决定什么时候同步磁盘，有以下选项：<br>        * always 每个写命令都同步<br>        * everysec 每秒同步一次<br>        * no 让操作系统来决定何时同步</p>
+<pre><code>always：选项会严重降低服务器的性能；
+everysec：选项比较合适，可以保证系统崩溃时只会丢失一秒左右的数据，并且redis每秒执行一次同步对服务器性能几乎没有任何影响；
+no：选项并不能给服务器性能带来多大的提升，而且会增加系统崩溃时数据丢失的数量；
+
+随着服务器请求的增多，AOF文件会越来越大。
+Redis提供了一种将AOF重写的特性，能够去除AOF文件中的冗余写命令。
+
+使用aof持久时，服务将每个收到的写命令通过写函数追加到文件中（appendonly.aof)
+aof持久化存储方式参数说明：
+    appendonly yes：开启aof持久化存储方式；
+    appendfsync always：收到写命令后就立即写入磁盘，效率最差，效果最好；
+    appendfsync everysec：每秒写入磁盘一次，效率与效果居中；
+    appendfsync no：完全依赖操作系统，效果最佳，效果没法保证；</code></pre><h4 id="5-redis性能、并发"><a href="#5-redis性能、并发" class="headerlink" title="5. redis性能、并发"></a>5. redis性能、并发</h4><p>性能：<br>    在碰到需要执行耗时特别久，且结果不频繁变动的sql，特别适合将运行结果放入魂村，<br>这样后面的请求就去缓存中读取，使得请求能够迅速响应。</p>
+<p>并发：<br>    在大并发的情况下，所有的请求直接访问数据库，数据库会出现连接异常。<br>    这个时候，需要使用redis做一个缓冲操作，让请求先访问到redis，而不是直接访问数据库。</p>
+<h4 id="6-优点"><a href="#6-优点" class="headerlink" title="6. 优点"></a>6. 优点</h4><p>1）性能极高。<br>    redis能读的速度是110000次/s,写的速度是81000次/s；<br>2）丰富的数据类型。<br>    redis支持二进制案例的strings、lists、hashes、sets及ordered sets数据类型操作；<br>3）原子。<br>    redis的所有操作都是原子性的，意思是要么成功要么失败完全不执行。<br>    单个操作都是原子性的，多个操作也支持事务，即原子性，通过Multi和Exec指令包起来。<br>4）丰富的特性。<br>    redis支持publish、subscribe，通知，key过期等特性。</p>
+<h4 id="7-缺点"><a href="#7-缺点" class="headerlink" title="7. 缺点"></a>7. 缺点</h4><p>1）缓存和数据库双写一致性问题<br>2）缓存雪崩问题<br>3）缓存击穿问题<br>4）缓存并发竞争问题</p>
+<h4 id="8-单线程的redis为什么这么快？"><a href="#8-单线程的redis为什么这么快？" class="headerlink" title="8. 单线程的redis为什么这么快？"></a>8. 单线程的redis为什么这么快？</h4><p>redis是单线程工作模型<br>1）纯内存操作<br>2）单线程操作，避免了频繁的上下文切换<br>3）采用非阻塞的I/o多路复用机制</p>
+<h4 id="9-redis的过期策略及内存淘汰机制"><a href="#9-redis的过期策略及内存淘汰机制" class="headerlink" title="9. redis的过期策略及内存淘汰机制"></a>9. redis的过期策略及内存淘汰机制</h4><p>eg：redis只能存5G数据，可是写了10G，那会删除5G的数据。怎么删除？<br>    你的数据设置了过期时间，但是时间到了，内存占用率还是比较高，原因是什么？</p>
+<pre><code>--redis：采用的是定期删除+惰性删除策略。</code></pre><p>为什么不用定时删除策略？<br>    定时删除，用一个定时器来负责监视key，过期则自动删除。<br>    虽然内存即使释放，但是十分消耗CPU资源。<br>    在大并发情况下，CPU要将时间应用在处理请求，而不是删除key，因此没有用这一策略。</p>
+<p>定期删除+惰性删除是如何工作的？<br>    定期删除，redis默认每个100ms检查，是否有过期的key，有则删除。<br>    需要说明的是，redis不是每个100ms将所有key检查一次，而是随机抽取检查。<br>    因此，如果只采用定期删除策略，会导致很多key到期时间没有删除。</p>
+<pre><code>所以，惰性删除是在获取某个key的时候，redis会检查一遍，这个key如果设置了过期时间，那么是否过期了？如果过期了，此时就会删除。</code></pre><p>采用定期删除+惰性删除就没有其他问题了吗？<br>    如果定期删除没有删除key，然后你也没及时请求key，也就是说惰性删除也没生效。<br>    这样，redis的内存会越来越高，那么就应该采用内存淘汰机制。</p>
+<h4 id="10-redis和数据库双写一致性的问题"><a href="#10-redis和数据库双写一致性的问题" class="headerlink" title="10. redis和数据库双写一致性的问题"></a>10. redis和数据库双写一致性的问题</h4><p>一致性问题是分布式常见问题，还可以再分为最终一致性和强一致性。<br>数据库和缓存双写，就必然会存在不一致的问题。<br>如果对数据有强一致性要求，不能放缓存。<br>我们所做的一切，只能保证最终一致性。另外，从根本来上说，只能说降低不一致发生的概率，无法完全避免。<br>因此，有强一致性的要求的数据，不能放缓存。</p>
+<p>首先，采用正确更新策略，先更新数据库，再删除缓存，其次，因为可能存在删除缓存失败的问题，提供了一个补偿措施即可<br>如消息队列。</p>
+<h4 id="11-如何应对缓存穿透和缓存雪崩问题"><a href="#11-如何应对缓存穿透和缓存雪崩问题" class="headerlink" title="11. 如何应对缓存穿透和缓存雪崩问题"></a>11. 如何应对缓存穿透和缓存雪崩问题</h4><ul>
+<li><p>缓存穿透：即黑客故意去请求缓存中不存在的数据，导致所有的请求都怼到数据库上，从而数据库连接异常。<br>解决方案：<br>  1）利用互斥锁，缓存失效的时候，先去获得锁，得到锁了，再去请求数据库。没得到锁，则休眠一段时间重试；<br>  2）采用异步更新策略，无论key是否取到值，都直接返回。</p>
+<pre><code>value值中维护一个缓存失效时间，缓存如果过期，异步起一个线程去读数据库，更新缓存。需做环迅预热。</code></pre><p>  3）提供一个能迅速判断请求是否有效的拦截机制</p>
+</li>
+<li><p>缓存雪崩：即缓存同一时间大面积的失效，这个时候又来了一波请求，结果请求都怼到数据库上，从而导致数据库连接异常。<br>解决方案：<br>  1）给缓存的失效时间，加上一个随机值，避免集体失效；<br>  2）使用互斥锁，但是该方案吞吐量明显下降了；<br>  3）双缓存。</p>
+</li>
 </ul>
-<p>string<br>    set key value *<br>    get key<br>    del key</p>
-<p>list<br>    rpush key value *<br>    lrange key start stop<br>    lindex key index<br>    lpop key</p>
-<p>set<br>    sadd key value<br>    smembers key<br>    srem key value</p>
-<p>hash<br>    hset key field value<br>    hgetall key<br>    hdel key field</p>
-<p>zset</p>
-<h4 id="2-数据结构"><a href="#2-数据结构" class="headerlink" title="2.数据结构"></a>2.数据结构</h4><h5 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h5><p>distht：散列表结构，使用拉链法解决哈希冲突</p>
+<h4 id="12-如何解决redis的并发竞争key问题"><a href="#12-如何解决redis的并发竞争key问题" class="headerlink" title="12. 如何解决redis的并发竞争key问题"></a>12. 如何解决redis的并发竞争key问题</h4><p>即：同时有多个子系统去set一个key，需要注意什么？<br>1）如果对这个key操作，不要求顺序<br>    这种情况，准备一个分布式锁，大家去抢锁，抢到锁就做set操作即可，比较简单。<br>2）如果对这个key操作，要求顺序<br>    假设有一个key1，系统A需要将key1设置为value1，系统B需要将key1设置为valueB，系统C将key1设置为valueC，<br>    期望按照key1的value值按照valueA–&gt;valueB–&gt;valueC的顺序变化。这种时候我们在数据写入数据库的时候，需要保存一个<br>    时间戳，<br>        系统A key1 {valueA 3:00}<br>        系统B key1 {valueB 3:05}<br>        系统C key1 {valueC 3:10}<br>    那么，假设这会系统B先抢到锁，将key1设置为{valueB 3:05},接下来系统A抢到锁，发现自己的valueA的时间戳<br>    早于缓存时间戳，那就不做set操作。</p>
+<pre><code>其他方法，比如利用队列，将set方法变成串行访问也可以。</code></pre><h4 id="13-数据结构"><a href="#13-数据结构" class="headerlink" title="13. 数据结构"></a>13. 数据结构</h4><h5 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h5><p>distht：散列表结构，使用拉链法解决哈希冲突</p>
 <p>Redis的字典dict中包含两个哈希表dictht，这是为了方便进行rehash操作。<br>在扩容时，将其中一个dictht上的键值对rehash到另一个dictht上，完成之后释放空间并交换两个dictht的角色。</p>
 <p>rehash操作不是一次性完成，而是采用渐进方式，这是为了避免一次性执行过多的rehash操作给服务器带来的过大的负担。</p>
 <p>渐进式rehash通过记录dict的rehashidx完成，从0开始，然后每执行一次rehash都会递增。</p>
@@ -429,26 +506,16 @@ hyperloglogs
 <h5 id="跳跃表"><a href="#跳跃表" class="headerlink" title="跳跃表"></a>跳跃表</h5><p>是有序集合的底层实现之一。</p>
 <p>跳跃表是基于多指针有序链表实现的，可以看成多个有序链表。<br>在查找时，从上层指针开始查找，找到对应的区间之后再到下一层去查找。</p>
 <p>与红黑树等平衡树相比，跳跃表的优点：<br>插入速度非常快速，因为不需要进行旋转灯操作来维护平衡性；<br>更容易实现；<br>支持无锁操作；</p>
-<h4 id="3-使用场景"><a href="#3-使用场景" class="headerlink" title="3. 使用场景"></a>3. 使用场景</h4><h5 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h5><p>可以对string进行自增自减运算，从而实现计数器功能。<br>redis这种内存型数据库的读写性能非常高，很适合存储频繁读写的计数量。</p>
-<h5 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h5><p>将热点数据放到内存中，设置内存的最大使用量，及淘汰策略来保证缓存的命中率。</p>
-<h5 id="查找表"><a href="#查找表" class="headerlink" title="查找表"></a>查找表</h5><p>如DNS记录就很适合使用Redis进行存储。</p>
-<p>查找表和缓存类似，也是利用redis快速查找特性。<br>但查找表的内容不能失效，而缓存的内容可以失效，缓存不作为可靠的数据来源。</p>
-<h5 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h5><p>list是一个双向链表，可以通过lpush和rpop写入和读取消息。</p>
-<h5 id="会话缓存"><a href="#会话缓存" class="headerlink" title="会话缓存"></a>会话缓存</h5><p>可以使用Redis来统一存储多台应用服务器的会话消息。</p>
-<p>当应用服务器不再存储用户的会话消息，也就是不再具有状态，<br>一个用户可以请求任意一个应用服务器，从而容易实现高可用性及可伸缩性。</p>
-<h5 id="分布式锁实现"><a href="#分布式锁实现" class="headerlink" title="分布式锁实现"></a>分布式锁实现</h5><p>在分布式场景下，无法使用单机环境下的锁来对多个节点上的进程进行同步。</p>
-<p>可以使用Redis自带的setnx命令实现分布式锁，除此之外，还可以使用RedLock分布式锁实现。</p>
-<h5 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h5><p>set可以实现交集、并集等操作，从而实现共同好友的功能<br>zset可以有序性的操作，从而实现排行榜等功能。</p>
-<h4 id="4-Redis与Memcached"><a href="#4-Redis与Memcached" class="headerlink" title="4. Redis与Memcached"></a>4. Redis与Memcached</h4><p>两者都是非关系型内存键值数据库，主要有以下不同：</p>
+<h4 id="14-Redis与Memcached"><a href="#14-Redis与Memcached" class="headerlink" title="14. Redis与Memcached"></a>14. Redis与Memcached</h4><p>两者都是非关系型内存键值数据库，主要有以下不同：</p>
 <h5 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h5><p>Memcached仅支持字符串类型，redis支持五种不同的数据类型，可以灵活的解决问题。</p>
 <h5 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h5><p>Redis支持两种持久化策略：RDB快照和AOF日志，而Memcached不支持持久化。</p>
 <h5 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h5><p>Memcached不支持分布式，只能通过在客户端使用一致性哈希来实现分布式存储，<br>这种方式在存储和查询时都需要先在客户端计算一次数据所在的节点。</p>
 <p>redis cluster实现了分布式的支持。</p>
 <h5 id="内存管理机制"><a href="#内存管理机制" class="headerlink" title="内存管理机制"></a>内存管理机制</h5><p>在redis中，并不是所有数据都一直存储在内存中，可以将一些很久没用的value交换到磁盘，<br>而Memcached的数据则会一直在内存中。</p>
 <p>Memcached将内存分割成特定长度的块来存储数据，以完全解决内存碎片的问题。<br>但这种方式会使得内存的利用率不高。</p>
-<h4 id="5-键的过期时间"><a href="#5-键的过期时间" class="headerlink" title="5. 键的过期时间"></a>5. 键的过期时间</h4><p>Redis可以为每个键设置过期时间，当键过期时，会自动删除该键。</p>
+<h4 id="15-键的过期时间"><a href="#15-键的过期时间" class="headerlink" title="15. 键的过期时间"></a>15. 键的过期时间</h4><p>Redis可以为每个键设置过期时间，当键过期时，会自动删除该键。</p>
 <p>对于散列表这种容器，只能为整个键设置过期时间（整个散列表），而不能为键里面的单个元素设置过期时间。</p>
-<h4 id="6-数据淘汰策略"><a href="#6-数据淘汰策略" class="headerlink" title="6. 数据淘汰策略"></a>6. 数据淘汰策略</h4><p>可以设置内存的最大使用量，当内存使用量超出时，会施行数据淘汰策略。</p>
+<h4 id="16-数据淘汰策略"><a href="#16-数据淘汰策略" class="headerlink" title="16. 数据淘汰策略"></a>16. 数据淘汰策略</h4><p>可以设置内存的最大使用量，当内存使用量超出时，会施行数据淘汰策略。</p>
 <p>Redis有6种淘汰策略：</p>
 <ul>
 <li>volatile-lru 从已设置过期时间的数据集中挑选最近最少使用的数据淘汰</li>
@@ -461,21 +528,10 @@ hyperloglogs
 <p>作为内存数据库，出于对性能和内存消耗的考虑，redis的淘汰算法实际上并非针对所有的key，<br>而是抽样一小部分并且从中选出被淘汰的key。</p>
 <p>使用Redis缓存数据时，为了提高缓存命中率，需要保证缓存数据都是热点数据。<br>可以将内存最大使用量设置为热点数据占用的内存量，然后启用allkeys-lru淘汰策略，<br>将最近最少使用的数据淘汰。</p>
 <p>Redis4.0引入了volatile-lfu和allkeys-lfu淘汰策略，LFU策略通过统计访问频率，将访问频率最少的键值对淘汰。</p>
-<h4 id="7-持久化"><a href="#7-持久化" class="headerlink" title="7. 持久化"></a>7. 持久化</h4><p>Redis是内存型数据库，为了保证数据在断电后不会丢失，需要将内存中的数据持久化到硬盘上。</p>
-<h5 id="RDB持久化"><a href="#RDB持久化" class="headerlink" title="RDB持久化"></a>RDB持久化</h5><p>将某个时间点的所有数据都存放到硬盘上；<br>可以将快照复制到其它服务器，从而创建具有相同数据的服务器副本；<br>如果系统发生故障，将会丢失最后一次创建快照之后的数据；<br>如果数据量很大，保存快照的时间会很长；</p>
-<h5 id="AOF持久化"><a href="#AOF持久化" class="headerlink" title="AOF持久化"></a>AOF持久化</h5><p>将写命令添加到AOF文件（Append Only File）的末尾。</p>
-<p>使用AOF持久化需要设置同步选项，从而确保写命令同步到磁盘文件上的时机。<br>这是因为对文件进行写入并不会马上将内容同步到磁盘上，而是先存储到缓存区，<br>然后由操作系统决定什么时候同步磁盘，有以下选项：</p>
-<ul>
-<li>always 每个写命令都同步</li>
-<li>everysec 每秒同步一次</li>
-<li>no 让操作系统来决定何时同步</li>
-</ul>
-<p>always：选项会严重降低服务器的性能；<br>everysec：选项比较合适，可以保证系统崩溃时只会丢失一秒左右的数据，并且redis每秒执行一次同步对服务器性能几乎没有任何影响；<br>no：选项并不能给服务器性能带来多大的提升，而且会增加系统崩溃时数据丢失的数量；</p>
-<p>随着服务器请求的增多，AOF文件会越来越大。<br>Redis提供了一种将AOF重写的特性，能够去除AOF文件中的冗余写命令。</p>
-<h4 id="8-事务"><a href="#8-事务" class="headerlink" title="8. 事务"></a>8. 事务</h4><p>一个事务包含了多个命令，服务器在执行事务期间，不会改去执行其它客户端的命令请求。</p>
+<h4 id="17-事务"><a href="#17-事务" class="headerlink" title="17. 事务"></a>17. 事务</h4><p>一个事务包含了多个命令，服务器在执行事务期间，不会改去执行其它客户端的命令请求。</p>
 <p>事务中的多个命令被一次性发送给服务器，而不是一条一条发送，这种方式成为流水线，<br>可以减少客户端与服务器之间的网络通信次数从而提升性能。</p>
 <p>redis最简单的事务实现方式是使用MULTI和EXEC命令将事务操作包围起来。</p>
-<h4 id="9-事件"><a href="#9-事件" class="headerlink" title="9. 事件"></a>9. 事件</h4><p>redis服务器是一个事件驱动程序。</p>
+<h4 id="19-事件"><a href="#19-事件" class="headerlink" title="19. 事件"></a>19. 事件</h4><p>redis服务器是一个事件驱动程序。</p>
 <h5 id="文件事件"><a href="#文件事件" class="headerlink" title="文件事件"></a>文件事件</h5><p>服务器通过套接字与客户端或其它服务器进行通信，文件事件就是对套接字操作的抽象。<br>Redis基于Reactor模式开发了自己的网络事件处理器，使用I/O多路复用程序来同时监听多个套接字，<br>并将到达的事件传送给文件事件分派器，分排器会根据套接字产生的事件类型调用相应的事件处理器。</p>
 <h5 id="时间事件"><a href="#时间事件" class="headerlink" title="时间事件"></a>时间事件</h5><p>服务器有一些操作需要在给定的时间点执行，时间事件是对这类定时操作的抽象。<br>时间事件分为：</p>
 <ul>
@@ -484,7 +540,7 @@ hyperloglogs
 </ul>
 <p>Redis将所有时间事件都放在一个无序链表中，通过遍历整个链表查找出已到达的时间事件，<br>并调用相应的事件处理器。</p>
 <h5 id="事件的调度与执行"><a href="#事件的调度与执行" class="headerlink" title="事件的调度与执行"></a>事件的调度与执行</h5><p>服务器需要不断监听文件事件的套接字才能得到待处理的文件事件，但不能一直监听，否则时间事件无法在规定的时间内执行，<br>因此监听时间应该根据距离现在最近的时间事件来决定。</p>
-<h4 id="10-复制"><a href="#10-复制" class="headerlink" title="10. 复制"></a>10. 复制</h4><p>通过使用slaveof host port命令来让一个服务器成为另一个服务器的从服务器。</p>
+<h4 id="19-复制"><a href="#19-复制" class="headerlink" title="19. 复制"></a>19. 复制</h4><p>通过使用slaveof host port命令来让一个服务器成为另一个服务器的从服务器。</p>
 <p>一个从服务器只能有一个主服务器，并且不支持主主复制。</p>
 <h5 id="连接过程"><a href="#连接过程" class="headerlink" title="连接过程"></a>连接过程</h5><ul>
 <li>主服务器创建快照文件，发送给从服务器，并在发送期间使用缓冲区记录执行的写命令。<br>快照文件发送完毕后，开始向从服务器发送存储在缓冲区中的写命令。</li>
@@ -492,8 +548,8 @@ hyperloglogs
 <li>主服务器每执行一次写命令，就向从服务器发送相同的命令</li>
 </ul>
 <h5 id="主从链"><a href="#主从链" class="headerlink" title="主从链"></a>主从链</h5><p>随着负载不断上升，主服务器可能无法很快的更新所有从服务器，或重新连接和同步从服务器将导致系统超载。<br>为了解决这个问题，可以创建一个中间层来分担主服务器的复制工作。<br>中间层的服务器是最上层服务器的从服务器，又是最下层服务器的主服务器。</p>
-<h4 id="11-Sentinel"><a href="#11-Sentinel" class="headerlink" title="11. Sentinel"></a>11. Sentinel</h4><p>Sentinel哨兵：可以监听集群中的服务器，并在主服务器进入下线状态时，自动从从服务器中选举出新的主服务器。</p>
-<h4 id="12-分片"><a href="#12-分片" class="headerlink" title="12. 分片"></a>12. 分片</h4><p>分片是将数据划分成多个部分的方法，可以将数据存储到多台机器里面，这种方法在解决某些问题时可以获得<br>线性级别的性能提升。</p>
+<h4 id="20-Sentinel"><a href="#20-Sentinel" class="headerlink" title="20. Sentinel"></a>20. Sentinel</h4><p>Sentinel哨兵：可以监听集群中的服务器，并在主服务器进入下线状态时，自动从从服务器中选举出新的主服务器。</p>
+<h4 id="21-分片"><a href="#21-分片" class="headerlink" title="21. 分片"></a>21. 分片</h4><p>分片是将数据划分成多个部分的方法，可以将数据存储到多台机器里面，这种方法在解决某些问题时可以获得<br>线性级别的性能提升。</p>
 <p>根据分片的位置，可以分为三种分片方式：</p>
 <ul>
 <li>客户端分片：客户端使用一致性哈希等算法决定键应当分布到哪个节点；</li>
@@ -752,7 +808,7 @@ hyperloglogs
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis"><span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-介绍"><span class="nav-text">1. 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#支持的数据结构"><span class="nav-text">支持的数据结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-数据结构"><span class="nav-text">2.数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字典"><span class="nav-text">字典</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#跳跃表"><span class="nav-text">跳跃表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-使用场景"><span class="nav-text">3. 使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#计数器"><span class="nav-text">计数器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缓存"><span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查找表"><span class="nav-text">查找表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#消息队列"><span class="nav-text">消息队列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#会话缓存"><span class="nav-text">会话缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分布式锁实现"><span class="nav-text">分布式锁实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其它"><span class="nav-text">其它</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Redis与Memcached"><span class="nav-text">4. Redis与Memcached</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据类型"><span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据持久化"><span class="nav-text">数据持久化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分布式"><span class="nav-text">分布式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内存管理机制"><span class="nav-text">内存管理机制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-键的过期时间"><span class="nav-text">5. 键的过期时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-数据淘汰策略"><span class="nav-text">6. 数据淘汰策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-持久化"><span class="nav-text">7. 持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#RDB持久化"><span class="nav-text">RDB持久化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AOF持久化"><span class="nav-text">AOF持久化</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-事务"><span class="nav-text">8. 事务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-事件"><span class="nav-text">9. 事件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#文件事件"><span class="nav-text">文件事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时间事件"><span class="nav-text">时间事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事件的调度与执行"><span class="nav-text">事件的调度与执行</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-复制"><span class="nav-text">10. 复制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#连接过程"><span class="nav-text">连接过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#主从链"><span class="nav-text">主从链</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-Sentinel"><span class="nav-text">11. Sentinel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-分片"><span class="nav-text">12. 分片</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis"><span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-介绍"><span class="nav-text">1. 介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Redis的特点"><span class="nav-text">2. Redis的特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-五种数据类型介绍及使用场景"><span class="nav-text">3. 五种数据类型介绍及使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-持久化"><span class="nav-text">4. 持久化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-redis性能、并发"><span class="nav-text">5. redis性能、并发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-优点"><span class="nav-text">6. 优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-缺点"><span class="nav-text">7. 缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-单线程的redis为什么这么快？"><span class="nav-text">8. 单线程的redis为什么这么快？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-redis的过期策略及内存淘汰机制"><span class="nav-text">9. redis的过期策略及内存淘汰机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-redis和数据库双写一致性的问题"><span class="nav-text">10. redis和数据库双写一致性的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-如何应对缓存穿透和缓存雪崩问题"><span class="nav-text">11. 如何应对缓存穿透和缓存雪崩问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-如何解决redis的并发竞争key问题"><span class="nav-text">12. 如何解决redis的并发竞争key问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-数据结构"><span class="nav-text">13. 数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字典"><span class="nav-text">字典</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#跳跃表"><span class="nav-text">跳跃表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-Redis与Memcached"><span class="nav-text">14. Redis与Memcached</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据类型"><span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据持久化"><span class="nav-text">数据持久化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分布式"><span class="nav-text">分布式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内存管理机制"><span class="nav-text">内存管理机制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-键的过期时间"><span class="nav-text">15. 键的过期时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-数据淘汰策略"><span class="nav-text">16. 数据淘汰策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-事务"><span class="nav-text">17. 事务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-事件"><span class="nav-text">19. 事件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#文件事件"><span class="nav-text">文件事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时间事件"><span class="nav-text">时间事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事件的调度与执行"><span class="nav-text">事件的调度与执行</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-复制"><span class="nav-text">19. 复制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#连接过程"><span class="nav-text">连接过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#主从链"><span class="nav-text">主从链</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-Sentinel"><span class="nav-text">20. Sentinel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-分片"><span class="nav-text">21. 分片</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

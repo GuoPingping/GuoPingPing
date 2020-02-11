@@ -556,29 +556,106 @@
     <content><![CDATA[<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>一个开源的，内存中的数据结构存储系统；<br>用作数据库、缓存和消息中间件；</p>
 <a id="more"></a>
 
-<h4 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h4><p>Redis是速度非常快的非关系型（Nosql）内存键值数据库，可以存储键和五种不同类型的值之间的映射。<br>Redis支持很多特性。如：将内存中的数据持久化到硬盘中，使用复制来扩展读性能，使用分片扩展写性能。<br>键的类型只能为字符串，值有五种类型：字符串、列表、集合、散列表、有序集合。</p>
-<h5 id="支持的数据结构"><a href="#支持的数据结构" class="headerlink" title="支持的数据结构"></a>支持的数据结构</h5><pre><code>字符串 String
-散列 Hashes
-列表 List
-集合 Set
-有序集合 Sorted set
-范围查询
-bitmaps
-hyperloglogs
-地理空间 geospatial索引半径查询</code></pre><p>内置了复制replication，LUA脚本，LRU驱动事件，事务和不同级别的磁盘持久化，并通过Redis哨兵Sentinel和自动分区Cluster提供高可用性</p>
-<ul>
-<li>string 字符串、整数或浮点数 对整个字符串或字符串的其中一部分执行操作，对整数和浮点数执行自增或自减操作。</li>
-<li>list 列表 从两端压入或弹出元素，对单个或多个元素进行修剪，只保留一个范围内的元素</li>
-<li>set 无序集合 添加、获取、移除单个元素，检查一个元素是否在于集合中，计算交集、并集、差集，从集合里面随机获取元素</li>
-<li>hash 包含键值对的无序散列表 添加、获取、移除单个键值对，获取所有键值对，检查某个键是否存在</li>
-<li>zset 有序集合 添加、获取、删除元素根据分值范围或成员来获取元素计算一个键的排名</li>
+<h4 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h4><p>Remote Dictionary Server，数据结构服务器。<br>完全开源、非关系型、高性能的key-value存储系统。<br>速度非常快的非关系型（Nosql）内存键值数据库，可以存储键和五种不同类型的值之间的映射。</p>
+<p>Redis支持很多特性。如：将内存中的数据持久化到硬盘中，使用复制来扩展读性能，使用分片扩展写性能。<br>键的类型只能为字符串，值有五种类型：字符串、列表、集合、散列表、有序集合（string、list、set、zset和hash）。</p>
+<h4 id="2-Redis的特点"><a href="#2-Redis的特点" class="headerlink" title="2. Redis的特点"></a>2. Redis的特点</h4><p>redis是单线程的，操作是安全的；<br>redis支持数据的持久化，可将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用；<br>redis支持key-value，并提供list、set、zset、hash等数据结构的存储；<br>redis支持数据的备份，即master-slave模式的数据备份；<br>redis单个value的最大限制1GB；</p>
+<h4 id="3-五种数据类型介绍及使用场景"><a href="#3-五种数据类型介绍及使用场景" class="headerlink" title="3. 五种数据类型介绍及使用场景"></a>3. 五种数据类型介绍及使用场景</h4><p>应用场景：<br>    会话缓存；<br>    消息队列，比如支付；<br>    活动排行榜或计数；<br>    发布，订阅消息（消息通知）；<br>    商品列表，评论列表等；</p>
+<p>计数器<br>可以对string进行自增自减运算，从而实现计数器功能。<br>redis这种内存型数据库的读写性能非常高，很适合存储频繁读写的计数量。</p>
+<p>缓存<br>将热点数据放到内存中，设置内存的最大使用量，及淘汰策略来保证缓存的命中率。</p>
+<p>查找表<br>如DNS记录就很适合使用Redis进行存储。</p>
+<p>查找表和缓存类似，也是利用redis快速查找特性。<br>但查找表的内容不能失效，而缓存的内容可以失效，缓存不作为可靠的数据来源。</p>
+<p>消息队列<br>list是一个双向链表，可以通过lpush和rpop写入和读取消息。</p>
+<p>会话缓存<br>可以使用Redis来统一存储多台应用服务器的会话消息。<br>当应用服务器不再存储用户的会话消息，也就是不再具有状态，<br>一个用户可以请求任意一个应用服务器，从而容易实现高可用性及可伸缩性。</p>
+<p>分布式锁实现<br>在分布式场景下，无法使用单机环境下的锁来对多个节点上的进程进行同步。</p>
+<p>可以使用Redis自带的setnx命令实现分布式锁，除此之外，还可以使用RedLock分布式锁实现。</p>
+<p>其它<br>set可以实现交集、并集等操作，从而实现共同好友的功能<br>zset可以有序性的操作，从而实现排行榜等功能。</p>
+<p>1) String<br>    key-value，可以包含任何数据，一个键最大能存储512MB。<br>    比如图片或者序列化的对象。</p>
+<pre><code>set：设置存储在指定键中的值；set key value *
+get：获取存储在指定键中的值；get key
+del：删除存储在指定键中的值；del key
+
+使用场景:
+    incr 自增 ；eg：生成id；
+    decr 减少；eg：库存；
+    计数器缓存；
+    缓存–过期时间设置，模拟session；
+
+使用案例：</code></pre><p>2） List<br>    redis列表，按照插入顺序可以添加一个元素到列表的头部或尾部。</p>
+<pre><code>rpush：将给定值推入列表的右端；rpush key value *
+lrange：获取列表在指定范围上的所有值；lrange key start stop
+lindex：获取列表在指定范围上的单个元素；lindex key index
+lpop key
+
+使用场景：
+    多任务调度队列；
+    利用lrange命令，做基于redis的分页功能，性能极佳，用户体验好；
+    微博发表文章，使关注的人都能看到（使用列表做一个消息队列）；
+    生产者消费者模型（多线程）；</code></pre><p>3）Set<br>    string类型的无序集合。集合是通过哈希表实现的，增删查复杂度都是O(1)</p>
+<pre><code>sadd：将给定元素添加到集合；sadd key value
+smembers：返回集合包含的所有元素；smembers key
+sismember：检查指定元素是否存在于集合中； srem key value
+
+使用场景：
+    微博关注数。
+    利用交集、并集、差集等操作，可以计算共同爱好，全部的喜好，自己独有的喜好等功能。</code></pre><p>4）hash<br>    键值对集合。是string类型的field和value的映射表，适用于存储对象。</p>
+<pre><code>hset：散列里面关联起指定的键值对；hset key field value
+hget：获取指定散列键的值；
+hgetall：散列包含的所有键值对；hgetall key
+hdel：如果给定键存在于散列中，移出这个键；hdel key field
+
+使用场景：
+    购物车
+    单点登录，用这种数据结构存储用户信息，一cookie作为key，设置30分钟为缓存过期时间，
+    能很好地模拟类似session效果。</code></pre><p>5）zset<br>    集合，不允许重复的成员。每个元素都会关联一个double类型的分数。<br>    redis通过分数来为集合中成员进行从小到大的排序。<br>    zset的成员是唯一的，但分数却可以重复。</p>
+<pre><code>zadd：将一个带有给定分值的成员添加到有序集合里面；
+zrange：根据元素在有序排列中所处的位置，从有序集合里面获取多个元素；
+zrangebyscore：获取有序集合在给定分值范围内的所有元素；
+zrem：如果指定成员存在于有序集合中，那么移出这个成员
+
+使用场景
+    排行榜，取Top N操作；
+    延时任务
+    范围查找</code></pre><h4 id="4-持久化"><a href="#4-持久化" class="headerlink" title="4. 持久化"></a>4. 持久化</h4><p>Redis是内存型数据库，为了保证数据在断电后不会丢失，需要将内存中的数据持久化到硬盘上。</p>
+<p>两种方式：<br>1）rdb快照：<br>    将某个时间点的所有数据都存放到硬盘上；<br>    可以将快照复制到其它服务器，从而创建具有相同数据的服务器副本；<br>    如果系统发生故障，将会丢失最后一次创建快照之后的数据；<br>    如果数据量很大，保存快照的时间会很长；</p>
+<pre><code>默认redis是会以快照的形式将数据持久化到磁盘（一个二进制文件，dump.rdb，这个文件名字可以指定），
+在配置文件（redis.conf)中的格式是：save
+N M表示在N秒之内，redis至少发生M次修改则redis抓快照到磁盘。
+
+保存 900 1：900秒内如果超过1个key被修改，则启动快照保存；
+保存300 10：300秒内如果超过10个key被修改，则启动快照保存；
+保存60 10000：60秒内如果超过10000个重点被修改，则启动快照保存；</code></pre><p>2）aof持久化<br>    将写命令添加到AOF文件（Append Only File）的末尾。<br>    使用AOF持久化需要设置同步选项，从而确保写命令同步到磁盘文件上的时机。<br>    这是因为对文件进行写入并不会马上将内容同步到磁盘上，而是先存储到缓存区，<br>    然后由操作系统决定什么时候同步磁盘，有以下选项：<br>        * always 每个写命令都同步<br>        * everysec 每秒同步一次<br>        * no 让操作系统来决定何时同步</p>
+<pre><code>always：选项会严重降低服务器的性能；
+everysec：选项比较合适，可以保证系统崩溃时只会丢失一秒左右的数据，并且redis每秒执行一次同步对服务器性能几乎没有任何影响；
+no：选项并不能给服务器性能带来多大的提升，而且会增加系统崩溃时数据丢失的数量；
+
+随着服务器请求的增多，AOF文件会越来越大。
+Redis提供了一种将AOF重写的特性，能够去除AOF文件中的冗余写命令。
+
+使用aof持久时，服务将每个收到的写命令通过写函数追加到文件中（appendonly.aof)
+aof持久化存储方式参数说明：
+    appendonly yes：开启aof持久化存储方式；
+    appendfsync always：收到写命令后就立即写入磁盘，效率最差，效果最好；
+    appendfsync everysec：每秒写入磁盘一次，效率与效果居中；
+    appendfsync no：完全依赖操作系统，效果最佳，效果没法保证；</code></pre><h4 id="5-redis性能、并发"><a href="#5-redis性能、并发" class="headerlink" title="5. redis性能、并发"></a>5. redis性能、并发</h4><p>性能：<br>    在碰到需要执行耗时特别久，且结果不频繁变动的sql，特别适合将运行结果放入魂村，<br>这样后面的请求就去缓存中读取，使得请求能够迅速响应。</p>
+<p>并发：<br>    在大并发的情况下，所有的请求直接访问数据库，数据库会出现连接异常。<br>    这个时候，需要使用redis做一个缓冲操作，让请求先访问到redis，而不是直接访问数据库。</p>
+<h4 id="6-优点"><a href="#6-优点" class="headerlink" title="6. 优点"></a>6. 优点</h4><p>1）性能极高。<br>    redis能读的速度是110000次/s,写的速度是81000次/s；<br>2）丰富的数据类型。<br>    redis支持二进制案例的strings、lists、hashes、sets及ordered sets数据类型操作；<br>3）原子。<br>    redis的所有操作都是原子性的，意思是要么成功要么失败完全不执行。<br>    单个操作都是原子性的，多个操作也支持事务，即原子性，通过Multi和Exec指令包起来。<br>4）丰富的特性。<br>    redis支持publish、subscribe，通知，key过期等特性。</p>
+<h4 id="7-缺点"><a href="#7-缺点" class="headerlink" title="7. 缺点"></a>7. 缺点</h4><p>1）缓存和数据库双写一致性问题<br>2）缓存雪崩问题<br>3）缓存击穿问题<br>4）缓存并发竞争问题</p>
+<h4 id="8-单线程的redis为什么这么快？"><a href="#8-单线程的redis为什么这么快？" class="headerlink" title="8. 单线程的redis为什么这么快？"></a>8. 单线程的redis为什么这么快？</h4><p>redis是单线程工作模型<br>1）纯内存操作<br>2）单线程操作，避免了频繁的上下文切换<br>3）采用非阻塞的I/o多路复用机制</p>
+<h4 id="9-redis的过期策略及内存淘汰机制"><a href="#9-redis的过期策略及内存淘汰机制" class="headerlink" title="9. redis的过期策略及内存淘汰机制"></a>9. redis的过期策略及内存淘汰机制</h4><p>eg：redis只能存5G数据，可是写了10G，那会删除5G的数据。怎么删除？<br>    你的数据设置了过期时间，但是时间到了，内存占用率还是比较高，原因是什么？</p>
+<pre><code>--redis：采用的是定期删除+惰性删除策略。</code></pre><p>为什么不用定时删除策略？<br>    定时删除，用一个定时器来负责监视key，过期则自动删除。<br>    虽然内存即使释放，但是十分消耗CPU资源。<br>    在大并发情况下，CPU要将时间应用在处理请求，而不是删除key，因此没有用这一策略。</p>
+<p>定期删除+惰性删除是如何工作的？<br>    定期删除，redis默认每个100ms检查，是否有过期的key，有则删除。<br>    需要说明的是，redis不是每个100ms将所有key检查一次，而是随机抽取检查。<br>    因此，如果只采用定期删除策略，会导致很多key到期时间没有删除。</p>
+<pre><code>所以，惰性删除是在获取某个key的时候，redis会检查一遍，这个key如果设置了过期时间，那么是否过期了？如果过期了，此时就会删除。</code></pre><p>采用定期删除+惰性删除就没有其他问题了吗？<br>    如果定期删除没有删除key，然后你也没及时请求key，也就是说惰性删除也没生效。<br>    这样，redis的内存会越来越高，那么就应该采用内存淘汰机制。</p>
+<h4 id="10-redis和数据库双写一致性的问题"><a href="#10-redis和数据库双写一致性的问题" class="headerlink" title="10. redis和数据库双写一致性的问题"></a>10. redis和数据库双写一致性的问题</h4><p>一致性问题是分布式常见问题，还可以再分为最终一致性和强一致性。<br>数据库和缓存双写，就必然会存在不一致的问题。<br>如果对数据有强一致性要求，不能放缓存。<br>我们所做的一切，只能保证最终一致性。另外，从根本来上说，只能说降低不一致发生的概率，无法完全避免。<br>因此，有强一致性的要求的数据，不能放缓存。</p>
+<p>首先，采用正确更新策略，先更新数据库，再删除缓存，其次，因为可能存在删除缓存失败的问题，提供了一个补偿措施即可<br>如消息队列。</p>
+<h4 id="11-如何应对缓存穿透和缓存雪崩问题"><a href="#11-如何应对缓存穿透和缓存雪崩问题" class="headerlink" title="11. 如何应对缓存穿透和缓存雪崩问题"></a>11. 如何应对缓存穿透和缓存雪崩问题</h4><ul>
+<li><p>缓存穿透：即黑客故意去请求缓存中不存在的数据，导致所有的请求都怼到数据库上，从而数据库连接异常。<br>解决方案：<br>  1）利用互斥锁，缓存失效的时候，先去获得锁，得到锁了，再去请求数据库。没得到锁，则休眠一段时间重试；<br>  2）采用异步更新策略，无论key是否取到值，都直接返回。</p>
+<pre><code>value值中维护一个缓存失效时间，缓存如果过期，异步起一个线程去读数据库，更新缓存。需做环迅预热。</code></pre><p>  3）提供一个能迅速判断请求是否有效的拦截机制</p>
+</li>
+<li><p>缓存雪崩：即缓存同一时间大面积的失效，这个时候又来了一波请求，结果请求都怼到数据库上，从而导致数据库连接异常。<br>解决方案：<br>  1）给缓存的失效时间，加上一个随机值，避免集体失效；<br>  2）使用互斥锁，但是该方案吞吐量明显下降了；<br>  3）双缓存。</p>
+</li>
 </ul>
-<p>string<br>    set key value *<br>    get key<br>    del key</p>
-<p>list<br>    rpush key value *<br>    lrange key start stop<br>    lindex key index<br>    lpop key</p>
-<p>set<br>    sadd key value<br>    smembers key<br>    srem key value</p>
-<p>hash<br>    hset key field value<br>    hgetall key<br>    hdel key field</p>
-<p>zset</p>
-<h4 id="2-数据结构"><a href="#2-数据结构" class="headerlink" title="2.数据结构"></a>2.数据结构</h4><h5 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h5><p>distht：散列表结构，使用拉链法解决哈希冲突</p>
+<h4 id="12-如何解决redis的并发竞争key问题"><a href="#12-如何解决redis的并发竞争key问题" class="headerlink" title="12. 如何解决redis的并发竞争key问题"></a>12. 如何解决redis的并发竞争key问题</h4><p>即：同时有多个子系统去set一个key，需要注意什么？<br>1）如果对这个key操作，不要求顺序<br>    这种情况，准备一个分布式锁，大家去抢锁，抢到锁就做set操作即可，比较简单。<br>2）如果对这个key操作，要求顺序<br>    假设有一个key1，系统A需要将key1设置为value1，系统B需要将key1设置为valueB，系统C将key1设置为valueC，<br>    期望按照key1的value值按照valueA–&gt;valueB–&gt;valueC的顺序变化。这种时候我们在数据写入数据库的时候，需要保存一个<br>    时间戳，<br>        系统A key1 {valueA 3:00}<br>        系统B key1 {valueB 3:05}<br>        系统C key1 {valueC 3:10}<br>    那么，假设这会系统B先抢到锁，将key1设置为{valueB 3:05},接下来系统A抢到锁，发现自己的valueA的时间戳<br>    早于缓存时间戳，那就不做set操作。</p>
+<pre><code>其他方法，比如利用队列，将set方法变成串行访问也可以。</code></pre><h4 id="13-数据结构"><a href="#13-数据结构" class="headerlink" title="13. 数据结构"></a>13. 数据结构</h4><h5 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h5><p>distht：散列表结构，使用拉链法解决哈希冲突</p>
 <p>Redis的字典dict中包含两个哈希表dictht，这是为了方便进行rehash操作。<br>在扩容时，将其中一个dictht上的键值对rehash到另一个dictht上，完成之后释放空间并交换两个dictht的角色。</p>
 <p>rehash操作不是一次性完成，而是采用渐进方式，这是为了避免一次性执行过多的rehash操作给服务器带来的过大的负担。</p>
 <p>渐进式rehash通过记录dict的rehashidx完成，从0开始，然后每执行一次rehash都会递增。</p>
@@ -587,26 +664,16 @@ hyperloglogs
 <h5 id="跳跃表"><a href="#跳跃表" class="headerlink" title="跳跃表"></a>跳跃表</h5><p>是有序集合的底层实现之一。</p>
 <p>跳跃表是基于多指针有序链表实现的，可以看成多个有序链表。<br>在查找时，从上层指针开始查找，找到对应的区间之后再到下一层去查找。</p>
 <p>与红黑树等平衡树相比，跳跃表的优点：<br>插入速度非常快速，因为不需要进行旋转灯操作来维护平衡性；<br>更容易实现；<br>支持无锁操作；</p>
-<h4 id="3-使用场景"><a href="#3-使用场景" class="headerlink" title="3. 使用场景"></a>3. 使用场景</h4><h5 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h5><p>可以对string进行自增自减运算，从而实现计数器功能。<br>redis这种内存型数据库的读写性能非常高，很适合存储频繁读写的计数量。</p>
-<h5 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h5><p>将热点数据放到内存中，设置内存的最大使用量，及淘汰策略来保证缓存的命中率。</p>
-<h5 id="查找表"><a href="#查找表" class="headerlink" title="查找表"></a>查找表</h5><p>如DNS记录就很适合使用Redis进行存储。</p>
-<p>查找表和缓存类似，也是利用redis快速查找特性。<br>但查找表的内容不能失效，而缓存的内容可以失效，缓存不作为可靠的数据来源。</p>
-<h5 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h5><p>list是一个双向链表，可以通过lpush和rpop写入和读取消息。</p>
-<h5 id="会话缓存"><a href="#会话缓存" class="headerlink" title="会话缓存"></a>会话缓存</h5><p>可以使用Redis来统一存储多台应用服务器的会话消息。</p>
-<p>当应用服务器不再存储用户的会话消息，也就是不再具有状态，<br>一个用户可以请求任意一个应用服务器，从而容易实现高可用性及可伸缩性。</p>
-<h5 id="分布式锁实现"><a href="#分布式锁实现" class="headerlink" title="分布式锁实现"></a>分布式锁实现</h5><p>在分布式场景下，无法使用单机环境下的锁来对多个节点上的进程进行同步。</p>
-<p>可以使用Redis自带的setnx命令实现分布式锁，除此之外，还可以使用RedLock分布式锁实现。</p>
-<h5 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h5><p>set可以实现交集、并集等操作，从而实现共同好友的功能<br>zset可以有序性的操作，从而实现排行榜等功能。</p>
-<h4 id="4-Redis与Memcached"><a href="#4-Redis与Memcached" class="headerlink" title="4. Redis与Memcached"></a>4. Redis与Memcached</h4><p>两者都是非关系型内存键值数据库，主要有以下不同：</p>
+<h4 id="14-Redis与Memcached"><a href="#14-Redis与Memcached" class="headerlink" title="14. Redis与Memcached"></a>14. Redis与Memcached</h4><p>两者都是非关系型内存键值数据库，主要有以下不同：</p>
 <h5 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h5><p>Memcached仅支持字符串类型，redis支持五种不同的数据类型，可以灵活的解决问题。</p>
 <h5 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h5><p>Redis支持两种持久化策略：RDB快照和AOF日志，而Memcached不支持持久化。</p>
 <h5 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h5><p>Memcached不支持分布式，只能通过在客户端使用一致性哈希来实现分布式存储，<br>这种方式在存储和查询时都需要先在客户端计算一次数据所在的节点。</p>
 <p>redis cluster实现了分布式的支持。</p>
 <h5 id="内存管理机制"><a href="#内存管理机制" class="headerlink" title="内存管理机制"></a>内存管理机制</h5><p>在redis中，并不是所有数据都一直存储在内存中，可以将一些很久没用的value交换到磁盘，<br>而Memcached的数据则会一直在内存中。</p>
 <p>Memcached将内存分割成特定长度的块来存储数据，以完全解决内存碎片的问题。<br>但这种方式会使得内存的利用率不高。</p>
-<h4 id="5-键的过期时间"><a href="#5-键的过期时间" class="headerlink" title="5. 键的过期时间"></a>5. 键的过期时间</h4><p>Redis可以为每个键设置过期时间，当键过期时，会自动删除该键。</p>
+<h4 id="15-键的过期时间"><a href="#15-键的过期时间" class="headerlink" title="15. 键的过期时间"></a>15. 键的过期时间</h4><p>Redis可以为每个键设置过期时间，当键过期时，会自动删除该键。</p>
 <p>对于散列表这种容器，只能为整个键设置过期时间（整个散列表），而不能为键里面的单个元素设置过期时间。</p>
-<h4 id="6-数据淘汰策略"><a href="#6-数据淘汰策略" class="headerlink" title="6. 数据淘汰策略"></a>6. 数据淘汰策略</h4><p>可以设置内存的最大使用量，当内存使用量超出时，会施行数据淘汰策略。</p>
+<h4 id="16-数据淘汰策略"><a href="#16-数据淘汰策略" class="headerlink" title="16. 数据淘汰策略"></a>16. 数据淘汰策略</h4><p>可以设置内存的最大使用量，当内存使用量超出时，会施行数据淘汰策略。</p>
 <p>Redis有6种淘汰策略：</p>
 <ul>
 <li>volatile-lru 从已设置过期时间的数据集中挑选最近最少使用的数据淘汰</li>
@@ -619,21 +686,10 @@ hyperloglogs
 <p>作为内存数据库，出于对性能和内存消耗的考虑，redis的淘汰算法实际上并非针对所有的key，<br>而是抽样一小部分并且从中选出被淘汰的key。</p>
 <p>使用Redis缓存数据时，为了提高缓存命中率，需要保证缓存数据都是热点数据。<br>可以将内存最大使用量设置为热点数据占用的内存量，然后启用allkeys-lru淘汰策略，<br>将最近最少使用的数据淘汰。</p>
 <p>Redis4.0引入了volatile-lfu和allkeys-lfu淘汰策略，LFU策略通过统计访问频率，将访问频率最少的键值对淘汰。</p>
-<h4 id="7-持久化"><a href="#7-持久化" class="headerlink" title="7. 持久化"></a>7. 持久化</h4><p>Redis是内存型数据库，为了保证数据在断电后不会丢失，需要将内存中的数据持久化到硬盘上。</p>
-<h5 id="RDB持久化"><a href="#RDB持久化" class="headerlink" title="RDB持久化"></a>RDB持久化</h5><p>将某个时间点的所有数据都存放到硬盘上；<br>可以将快照复制到其它服务器，从而创建具有相同数据的服务器副本；<br>如果系统发生故障，将会丢失最后一次创建快照之后的数据；<br>如果数据量很大，保存快照的时间会很长；</p>
-<h5 id="AOF持久化"><a href="#AOF持久化" class="headerlink" title="AOF持久化"></a>AOF持久化</h5><p>将写命令添加到AOF文件（Append Only File）的末尾。</p>
-<p>使用AOF持久化需要设置同步选项，从而确保写命令同步到磁盘文件上的时机。<br>这是因为对文件进行写入并不会马上将内容同步到磁盘上，而是先存储到缓存区，<br>然后由操作系统决定什么时候同步磁盘，有以下选项：</p>
-<ul>
-<li>always 每个写命令都同步</li>
-<li>everysec 每秒同步一次</li>
-<li>no 让操作系统来决定何时同步</li>
-</ul>
-<p>always：选项会严重降低服务器的性能；<br>everysec：选项比较合适，可以保证系统崩溃时只会丢失一秒左右的数据，并且redis每秒执行一次同步对服务器性能几乎没有任何影响；<br>no：选项并不能给服务器性能带来多大的提升，而且会增加系统崩溃时数据丢失的数量；</p>
-<p>随着服务器请求的增多，AOF文件会越来越大。<br>Redis提供了一种将AOF重写的特性，能够去除AOF文件中的冗余写命令。</p>
-<h4 id="8-事务"><a href="#8-事务" class="headerlink" title="8. 事务"></a>8. 事务</h4><p>一个事务包含了多个命令，服务器在执行事务期间，不会改去执行其它客户端的命令请求。</p>
+<h4 id="17-事务"><a href="#17-事务" class="headerlink" title="17. 事务"></a>17. 事务</h4><p>一个事务包含了多个命令，服务器在执行事务期间，不会改去执行其它客户端的命令请求。</p>
 <p>事务中的多个命令被一次性发送给服务器，而不是一条一条发送，这种方式成为流水线，<br>可以减少客户端与服务器之间的网络通信次数从而提升性能。</p>
 <p>redis最简单的事务实现方式是使用MULTI和EXEC命令将事务操作包围起来。</p>
-<h4 id="9-事件"><a href="#9-事件" class="headerlink" title="9. 事件"></a>9. 事件</h4><p>redis服务器是一个事件驱动程序。</p>
+<h4 id="19-事件"><a href="#19-事件" class="headerlink" title="19. 事件"></a>19. 事件</h4><p>redis服务器是一个事件驱动程序。</p>
 <h5 id="文件事件"><a href="#文件事件" class="headerlink" title="文件事件"></a>文件事件</h5><p>服务器通过套接字与客户端或其它服务器进行通信，文件事件就是对套接字操作的抽象。<br>Redis基于Reactor模式开发了自己的网络事件处理器，使用I/O多路复用程序来同时监听多个套接字，<br>并将到达的事件传送给文件事件分派器，分排器会根据套接字产生的事件类型调用相应的事件处理器。</p>
 <h5 id="时间事件"><a href="#时间事件" class="headerlink" title="时间事件"></a>时间事件</h5><p>服务器有一些操作需要在给定的时间点执行，时间事件是对这类定时操作的抽象。<br>时间事件分为：</p>
 <ul>
@@ -642,7 +698,7 @@ hyperloglogs
 </ul>
 <p>Redis将所有时间事件都放在一个无序链表中，通过遍历整个链表查找出已到达的时间事件，<br>并调用相应的事件处理器。</p>
 <h5 id="事件的调度与执行"><a href="#事件的调度与执行" class="headerlink" title="事件的调度与执行"></a>事件的调度与执行</h5><p>服务器需要不断监听文件事件的套接字才能得到待处理的文件事件，但不能一直监听，否则时间事件无法在规定的时间内执行，<br>因此监听时间应该根据距离现在最近的时间事件来决定。</p>
-<h4 id="10-复制"><a href="#10-复制" class="headerlink" title="10. 复制"></a>10. 复制</h4><p>通过使用slaveof host port命令来让一个服务器成为另一个服务器的从服务器。</p>
+<h4 id="19-复制"><a href="#19-复制" class="headerlink" title="19. 复制"></a>19. 复制</h4><p>通过使用slaveof host port命令来让一个服务器成为另一个服务器的从服务器。</p>
 <p>一个从服务器只能有一个主服务器，并且不支持主主复制。</p>
 <h5 id="连接过程"><a href="#连接过程" class="headerlink" title="连接过程"></a>连接过程</h5><ul>
 <li>主服务器创建快照文件，发送给从服务器，并在发送期间使用缓冲区记录执行的写命令。<br>快照文件发送完毕后，开始向从服务器发送存储在缓冲区中的写命令。</li>
@@ -650,8 +706,8 @@ hyperloglogs
 <li>主服务器每执行一次写命令，就向从服务器发送相同的命令</li>
 </ul>
 <h5 id="主从链"><a href="#主从链" class="headerlink" title="主从链"></a>主从链</h5><p>随着负载不断上升，主服务器可能无法很快的更新所有从服务器，或重新连接和同步从服务器将导致系统超载。<br>为了解决这个问题，可以创建一个中间层来分担主服务器的复制工作。<br>中间层的服务器是最上层服务器的从服务器，又是最下层服务器的主服务器。</p>
-<h4 id="11-Sentinel"><a href="#11-Sentinel" class="headerlink" title="11. Sentinel"></a>11. Sentinel</h4><p>Sentinel哨兵：可以监听集群中的服务器，并在主服务器进入下线状态时，自动从从服务器中选举出新的主服务器。</p>
-<h4 id="12-分片"><a href="#12-分片" class="headerlink" title="12. 分片"></a>12. 分片</h4><p>分片是将数据划分成多个部分的方法，可以将数据存储到多台机器里面，这种方法在解决某些问题时可以获得<br>线性级别的性能提升。</p>
+<h4 id="20-Sentinel"><a href="#20-Sentinel" class="headerlink" title="20. Sentinel"></a>20. Sentinel</h4><p>Sentinel哨兵：可以监听集群中的服务器，并在主服务器进入下线状态时，自动从从服务器中选举出新的主服务器。</p>
+<h4 id="21-分片"><a href="#21-分片" class="headerlink" title="21. 分片"></a>21. 分片</h4><p>分片是将数据划分成多个部分的方法，可以将数据存储到多台机器里面，这种方法在解决某些问题时可以获得<br>线性级别的性能提升。</p>
 <p>根据分片的位置，可以分为三种分片方式：</p>
 <ul>
 <li>客户端分片：客户端使用一致性哈希等算法决定键应当分布到哪个节点；</li>
@@ -1074,7 +1130,69 @@ Bidirectional streaming RPC
 <p>基本类型：是保存在栈中的简单数据类型<br>引用类型：是保存在堆内存中的对象，即变量中保存的是指向该对象的指针。</p>
 <p>当B复制了A，如果修改A的数据，<br>B的数据发生了变化，就是浅拷贝；<br>否则就是深拷贝。</p>
 <p>实现深拷贝：<br>    array.slice()<br>    concat()<br>    array.from()<br>    object.assign()<br>    JSON.parse(JSON.stringfy(obj))</p>
-<h4 id="事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？"><a href="#事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？" class="headerlink" title="事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？"></a>事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？</h4><h4 id="null和undefined有什么区别？"><a href="#null和undefined有什么区别？" class="headerlink" title="null和undefined有什么区别？"></a>null和undefined有什么区别？</h4><h4 id="普通函数和构造函数的区别"><a href="#普通函数和构造函数的区别" class="headerlink" title="普通函数和构造函数的区别"></a>普通函数和构造函数的区别</h4><h4 id="设计模式有了解吗？（比如观察者模式）？"><a href="#设计模式有了解吗？（比如观察者模式）？" class="headerlink" title="设计模式有了解吗？（比如观察者模式）？"></a>设计模式有了解吗？（比如观察者模式）？</h4><h4 id="CORS原理是什么？"><a href="#CORS原理是什么？" class="headerlink" title="CORS原理是什么？"></a>CORS原理是什么？</h4><h4 id="JS有没有了解过函数式编程"><a href="#JS有没有了解过函数式编程" class="headerlink" title="JS有没有了解过函数式编程"></a>JS有没有了解过函数式编程</h4><h4 id="postMessage原理"><a href="#postMessage原理" class="headerlink" title="postMessage原理"></a>postMessage原理</h4><h4 id="JS模块化的实践"><a href="#JS模块化的实践" class="headerlink" title="JS模块化的实践"></a>JS模块化的实践</h4><h4 id="require-js的实现原理"><a href="#require-js的实现原理" class="headerlink" title="require.js的实现原理"></a>require.js的实现原理</h4><h4 id="实现gulp的功能"><a href="#实现gulp的功能" class="headerlink" title="实现gulp的功能"></a>实现gulp的功能</h4><h4 id="介绍一下ES5的-defineProperty"><a href="#介绍一下ES5的-defineProperty" class="headerlink" title="介绍一下ES5的 defineProperty"></a>介绍一下ES5的 defineProperty</h4><h4 id="Ajax的工作流程"><a href="#Ajax的工作流程" class="headerlink" title="Ajax的工作流程"></a>Ajax的工作流程</h4><h4 id="导致内存泄露的有哪些"><a href="#导致内存泄露的有哪些" class="headerlink" title="导致内存泄露的有哪些"></a>导致内存泄露的有哪些</h4><h4 id="如何实现预加载，懒加载"><a href="#如何实现预加载，懒加载" class="headerlink" title="如何实现预加载，懒加载"></a>如何实现预加载，懒加载</h4><h4 id="ES6模块加载机制"><a href="#ES6模块加载机制" class="headerlink" title="ES6模块加载机制"></a>ES6模块加载机制</h4><h4 id="map、each、some、forEach"><a href="#map、each、some、forEach" class="headerlink" title="map、each、some、forEach"></a>map、each、some、forEach</h4><p>map<br>map遍历数组，克隆原数组，对新数组进行操作并返回一个新的数组，滥用map会造成内存浪费；<br>有return；</p>
+<h4 id="事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？"><a href="#事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？" class="headerlink" title="事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？"></a>事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？</h4><p>事件代理（Event Delegation），又称之为事件委托。是JavaScript中常用绑定事件的常用技巧。<br>顾名思义，“事件代理”即是把原本需要绑定在子元素的响应事件（click、keydown……）委托给父元素，让父元素担当事件监听的职务。<br>事件代理的原理是DOM元素的事件冒泡。</p>
+<p>作用：<br>    支持为同一个DOM元素注册多个同类型事件<br>    可将事件分成事件捕获和事件冒泡机制</p>
+<p>优点：<br>    可以大量节省内存占用，减少事件注册，比如在ul上代理所有li的click事件就非常棒<br>    可以实现当新增子对象时无需再次对其绑定（动态绑定事件）</p>
+<h4 id="null和undefined有什么区别？"><a href="#null和undefined有什么区别？" class="headerlink" title="null和undefined有什么区别？"></a>null和undefined有什么区别？</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">console.log(null&#x3D;&#x3D;undefined)&#x2F;&#x2F;true</span><br><span class="line">console.log(null&#x3D;&#x3D;&#x3D;undefined)&#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+<p>null和undefined 两者相等，但是当两者做全等比较时，两者又不等</p>
+<p>null： Null类型，代表“空值”，代表一个空对象指针，使用typeof运算得到 “object”，所以你可以认为它是一个特殊的对象值<br>undefined： Undefined类型，当一个声明了一个变量未初始化时，得到的就是undefined</p>
+<p>null表示”没有对象”，即该处不应该有值。典型用法是：<br>（1） 作为函数的参数，表示该函数的参数不是对象。<br>（2） 作为对象原型链的终点。</p>
+<p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。典型用法是：<br>（1）变量被声明了，但没有赋值时，就等于undefined。<br>（2) 调用函数时，应该提供的参数没有提供，该参数等于undefined。<br>（3）对象没有赋值的属性，该属性的值为undefined。<br>（4）函数没有返回值时，默认返回undefined。</p>
+<h4 id="普通函数和构造函数的区别"><a href="#普通函数和构造函数的区别" class="headerlink" title="普通函数和构造函数的区别"></a>普通函数和构造函数的区别</h4><p>1、构造函数也是一个普通函数，创建方式和普通函数一样，但构造函数习惯上首字母大写<br>2、构造函数和普通函数的区别在于：调用方式不一样。作用也不一样（构造函数用来新建实例对象）<br>3、调用方式不一样。<br>     a. 普通函数的调用方式：直接调用 person();<br>     b.构造函数的调用方式：需要使用new关键字来调用 new Person();<br>4、构造函数的函数名与类名相同：Person( ) 这个构造函数，Person 既是函数名，也是这个对象的类名<br>5、内部用this 来构造属性和方法<br>5、构造函数的执行流程<br>    A、立刻在堆内存中创建一个新的对象<br>    B、将新建的对象设置为函数中的this<br>    C、逐个执行函数中的代码<br>    D、将新建的对象作为返回值</p>
+<h4 id="设计模式有了解吗？（比如观察者模式）？"><a href="#设计模式有了解吗？（比如观察者模式）？" class="headerlink" title="设计模式有了解吗？（比如观察者模式）？"></a>设计模式有了解吗？（比如观察者模式）？</h4><p>观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态上发生变化时，会通知所有观察者对象，使它们能够自动更新自己</p>
+<h4 id="CORS原理是什么？"><a href="#CORS原理是什么？" class="headerlink" title="CORS原理是什么？"></a>CORS原理是什么？</h4><p>CORS：全称”跨域资源共享”（Cross-origin resource sharing）。</p>
+<p>CORS需要浏览器和服务器同时支持，才可以实现跨域请求，目前几乎所有浏览器都支持CORS，IE则不能低于IE10。CORS的整个过程都由浏览器自动完成，前端无需做任何设置，跟平时发送ajax请求并无差异。so，实现CORS的关键在于服务器，只要服务器实现CORS接口，就可以实现跨域通信。</p>
+<p>请求类型：<br>    CORS分为简单请求和非简单请求(需预检请求)两类</p>
+<p>符合以下条件的，为简单请求</p>
+<p>请求方式使用下列方法之一：<br>    GET<br>    HEAD<br>    POST</p>
+<p>Content-Type 的值仅限于下列三者之一：<br>    text/plain<br>    multipart/form-data<br>    application/x-www-form-urlencoded</p>
+<p>当发生符合非简单请求（预检请求）的条件时，浏览器会自动先发送一个options请求，如果发现服务器支持该请求，则会将真正的请求发送到后端，反之，如果浏览器发现服务端并不支持该请求，则会在控制台抛出错误。</p>
+<p>CORS从具体的代码实现上来说比较方便，前端几乎不需要写任何代码就可以支持。主要是靠服务端进行配置。而且是对各种请求方法、各种数据请求类型都是完美支持的。</p>
+<p>CORS需要浏览器和服务器同时支持。目前所有浏览器都支持该功能，IE浏览器不能低于IE10。</p>
+<p>整个CORS通信过程，都是浏览器自动完成，不需要用户参与。对于开发者来说，CORS通信与同源的AJAX通信没有差别，代码完全一样。浏览器一旦发现AJAX请求跨源，就会自动添加一些附加的头信息，有时还会多出一次附加的请求，但用户不会有感觉。</p>
+<p>因此，实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。</p>
+<h4 id="JS有没有了解过函数式编程"><a href="#JS有没有了解过函数式编程" class="headerlink" title="JS有没有了解过函数式编程"></a>JS有没有了解过函数式编程</h4><p>函数式编程的一个特点就是，允许把函数本身作为参数传入另一个函数，还允许返回一个函数！</p>
+<h4 id="postMessage原理"><a href="#postMessage原理" class="headerlink" title="postMessage原理"></a>postMessage原理</h4><h4 id="JS模块化的实践"><a href="#JS模块化的实践" class="headerlink" title="JS模块化的实践"></a>JS模块化的实践</h4><h4 id="实现gulp的功能"><a href="#实现gulp的功能" class="headerlink" title="实现gulp的功能"></a>实现gulp的功能</h4><h4 id="介绍一下ES5的-defineProperty"><a href="#介绍一下ES5的-defineProperty" class="headerlink" title="介绍一下ES5的 defineProperty"></a>介绍一下ES5的 defineProperty</h4><p>Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，<br>并返回这个对象。</p>
+<h4 id="Ajax的工作流程"><a href="#Ajax的工作流程" class="headerlink" title="Ajax的工作流程"></a>Ajax的工作流程</h4><p>实现一个AJAX异步调用和局部刷新,通常需要以下几个步骤:<br>    创建XMLHttpRequest对象,也就是创建一个异步调用对象.<br>    创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.<br>    设置响应HTTP请求状态变化的函数.<br>    发送HTTP请求.<br>    获取异步调用返回的数据.<br>    使用JavaScript和DOM实现局部刷新.</p>
+<h4 id="导致内存泄露的有哪些"><a href="#导致内存泄露的有哪些" class="headerlink" title="导致内存泄露的有哪些"></a>导致内存泄露的有哪些</h4><p>内存泄漏是指不再用到的内存，没有及时释放。既不能使用，又不能回收。</p>
+<p>程序的运行需要内存。对于持续运行的进程，如果不及时释放不再用到的内存，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。</p>
+<p>导致内存泄漏的几种情况</p>
+<ol>
+<li>意外的全局变量<br>function leaks(){<br>leak = ‘xxxxxx’;//leak 成为一个全局变量，不会被回收<br>}</li>
+</ol>
+<p>调用完函数以后，变量仍然存在,导致泄漏.<br>你可以通过加上 ‘use strict’ 启用严格模式来避免这类问题, 严格模式会阻止你创建意外的全局变量.</p>
+<ol start="2">
+<li>闭包<br>闭包可以维持函数内局部变量，使其得不到释放。<br>解决办法：在函数外部定义事件处理函数，解除闭包。或在闭包中，删除没用的属性以减少对内存的消耗。或在外部函数中删除对DOM的引用</li>
+</ol>
+<p>function bindEvent()<br>{<br>var obj=document.createElement(“XXX”);<br>obj.onclick=function(){<br>//Even if it’s a empty function<br>}<br>obj=null;<br>}<br>3. 未清除 dom 元素的引用<br>dom 元素移除，但 对 dom 元素的引用没有解除，会导致内存泄漏。<br>解决办法：手工移除。</p>
+<p>var elements = {<br>button: document.getElementById(‘button’),<br>image: document.getElementById(‘image’)<br>}</p>
+<p>function doStuff() {<br>image.src = ‘<a href="http://some.url/image&#39;" target="_blank" rel="noopener">http://some.url/image&#39;</a>;<br>button.click();<br>console.log(text.innerHTML);<br>}</p>
+<p>function removeButton() {<br>document.body.removeChild(document.getElementById(‘button’));<br>// 虽然我们用removeChild移除了button, 但是还在elements对象里保存着#button的引用<br>// 换言之, DOM元素还在内存里面.<br>}<br>4.循环引用<br>循环引用 在引用计数策略下会导致内存泄漏，标记清除不会。<br>解决办法：手工解除循环引用。</p>
+<p>function fn() {<br>var a = {};<br>var b = {};<br>a.pro = b;<br>b.pro = a;<br>}<br>fn();</p>
+<p>a和b的引用次数都是2，fn()执行完毕后，两个对象都已经离开环境。<br>在标记清除方式下是没有问题的，但是在引用计数策略下，a和b的引用次数不为0，不会被垃圾回收器回收内存。如果fn函数被大量调用，就会造成内存泄漏。</p>
+<p>IE中的BOM和DOM中的对象使用C++以COM（component Object Model，组件对象模型）对象的形式实现而COM对象的垃圾收集机制采用的是引用计数策略。换句话说，只要在IE中涉及COM对象，就会存在循环引用的问题。</p>
+<p>var element = document.getElementById(“some_element”);<br>var myObject = new Object();<br>myObject.e = element;<br>element.o = myObject;<br>//手工断开它们之间的连接<br>myObject.element=null;<br>element.someObject=null;</p>
+<ol start="5">
+<li>被遗忘的计时器或回调<br>var someResource = getData();<br>setInterval(function() {<br>var node = document.getElementById(‘Node’);<br>if(node) {<br>node.innerHTML = JSON.stringify(someResource));<br>}<br>}, 1000);</li>
+</ol>
+<h4 id="如何实现预加载，懒加载"><a href="#如何实现预加载，懒加载" class="headerlink" title="如何实现预加载，懒加载"></a>如何实现预加载，懒加载</h4><p>什么是懒加载</p>
+<p>懒加载也就是延迟加载; 当访问一个页面时,先将img标签中的src链接设为同一张图片(这样就只需请求一次,俗称占位图), 将其真正的图片地址存储在img标签的自定义属性中(比如data-src); 当js监听到该图片元素进入可视窗口时,即将自定义属性中的地址存储到src属性中,达到懒加载的效果; 这样做能防止页面一次性向服务器响应大量请求导致服务器响应慢页面卡顿或崩溃等问题</p>
+<p>为什么要使用懒加载<br>    懒加载对于图片较多页面很长的业务场景很适用,可以减少无效资源的加载</p>
+<p>懒加载的实现步骤<br>    首先,不要将图片地址放到src属性中,而是放到其它属性(data-src)中<br>    页面加载完成后,根据scrollTop判断图片是否在用户的视野内, 如果在,则将data-original属性中的值取出存放到src属性中<br>    在滚动事件中重复判断图片是否进入视野; 如果进入,则将data-original属性中的值取出存放到src属性中<br>    代码实现</p>
+<p>利用懒加载和AJAX,我们还可以实现无限滚动查看时间线/ 在滚动页面一段距离后出现回到顶部按钮的效果</p>
+<p>懒加载的优点<br>    显著的提高页面加载速度,又不下载多余的资源节省了流量; 同时更少的图片并发请求数也可以减轻服务器的压力</p>
+<p>什么是预加载<br>    提前加载图片,当用户需要查看时可直接从本地缓存中渲染</p>
+<p>为什么要使用预加载<br>    图片预先加载到浏览器中,访问者可顺利地在网站上冲浪,并享受到极快的加载速度; 这对图片占据很大比例的网站来说十分有利,保证了图片快速/无缝地发布, 也可帮助用户在浏览网站内容时获得更好的用户体验</p>
+<p>预加载的核心要点如下:<br>    图片等静态资源在使用前提前请求; 资源后续使用时可以从缓存中加载,提升用户体验; 页面展示的依赖关系维护(必需的资源加载完才可以展示页面,防止白屏等)</p>
+<p>实现预加载主要有三个方法:<br>    用CSS和JavaScript实现预加载<br>    实现预加载图片有很多方法,包括使用CSS/JavaScript/两者的各种组合, 这些技术可根据不同设计场景设计出相应的解决方案,十分高效</p>
+<h4 id="ES6模块加载机制"><a href="#ES6模块加载机制" class="headerlink" title="ES6模块加载机制"></a>ES6模块加载机制</h4><p>ES6 实现了模块功能</p>
+<p>将文件当作独立的模块，一个文件一个模块</p>
+<p>每个模块可以导出自己的API成员，也可以导入其他模块或者模块中特定的API</p>
+<p>ES6 模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS 和 AMD 模块，都只能在运行时确定这些东西。比如，CommonJS 模块就是对象，输入时必须查找对象属性。</p>
+<p>所以编译期会检查对导入模块的API或成员的引用</p>
+<p>模块有两个主要特征：</p>
+<p>为创建内部作用域而调用了一个包装函数<br>包装函数的返回值至少包括一个对内部函数的引用，这样就会创建涵盖整个包装函数内部作用域的闭包</p>
+<h4 id="map、each、some、forEach"><a href="#map、each、some、forEach" class="headerlink" title="map、each、some、forEach"></a>map、each、some、forEach</h4><p>map<br>map遍历数组，克隆原数组，对新数组进行操作并返回一个新的数组，滥用map会造成内存浪费；<br>有return；</p>
 <p>each<br>返回原来的数组，不会创建一个新的数组；<br>无return；</p>
 <p>every<br>当内部return false时跳出整个循环；<br>有一项不满足元素，则整个表达式返回false，剩余元素不再执行；</p>
 <p>some<br>当内部return true时跳出整个循环；<br>有一个元素满足条件，则表达式返回true，剩余元素不再执行；</p>
@@ -1167,7 +1285,16 @@ Bidirectional streaming RPC
 <h4 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h4><p>线程是最小的执行单元，进程是由线程组成。<br>如何调度线程和进程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。</p>
 <p>进程是计算机中已运行的程序。<br>线程是操作系统能够运行调度的最小单位。</p>
 <h4 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h4><p>当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但没有一方愿意提前退出，就成为死锁。</p>
-<h4 id="三次握手与四次挥手"><a href="#三次握手与四次挥手" class="headerlink" title="三次握手与四次挥手"></a>三次握手与四次挥手</h4><h4 id="https说一下过程？"><a href="#https说一下过程？" class="headerlink" title="https说一下过程？"></a>https说一下过程？</h4><h4 id="OSI七层协议？"><a href="#OSI七层协议？" class="headerlink" title="OSI七层协议？"></a>OSI七层协议？</h4><h4 id="描述一下HTTP-协议缓存机制"><a href="#描述一下HTTP-协议缓存机制" class="headerlink" title="描述一下HTTP 协议缓存机制"></a>描述一下HTTP 协议缓存机制</h4>]]></content>
+<h4 id="http、https说一下过程？"><a href="#http、https说一下过程？" class="headerlink" title="http、https说一下过程？"></a>http、https说一下过程？</h4><p>http建立连接过程</p>
+<ul>
+<li>客户端向服务端发送请求报文</li>
+<li>服务端根据请求报文收集对应的资源组合成响应报文</li>
+<li>客户端收到响应报文，进行解析</li>
+</ul>
+<h4 id="三次握手与四次挥手"><a href="#三次握手与四次挥手" class="headerlink" title="三次握手与四次挥手"></a>三次握手与四次挥手</h4><h4 id="OSI七层协议？"><a href="#OSI七层协议？" class="headerlink" title="OSI七层协议？"></a>OSI七层协议？</h4><h4 id="描述一下HTTP-协议缓存机制"><a href="#描述一下HTTP-协议缓存机制" class="headerlink" title="描述一下HTTP 协议缓存机制"></a>描述一下HTTP 协议缓存机制</h4><p>Http缓存主要分为强缓存和协商环迅</p>
+<p>强缓存：所请求的数据在缓存数据库中尚未过期时，不与服务器进行交互，直接使用缓存数据库中的数据。<br>    若缓存未命中时，则重新向服务器请求数据。</p>
+<p>协商缓存：当强缓存过期未命中或响应报文Cache-Control中有must-revalidate标识必须每次请求验证资源的状态时，便使用协商缓存的方式去处理缓存文件。<br>    主要原理是从缓存数据中取出缓存的标识，然后向浏览器发送请求验证请求的数据是否已经更新，如果已更新则返回新的数据，若未更新则使用缓存数据库中的数据。</p>
+]]></content>
       <categories>
         <category>Interview</category>
       </categories>
@@ -1235,7 +1362,33 @@ Bidirectional streaming RPC
 <h4 id="Vue-router跳转和Location-href区别？"><a href="#Vue-router跳转和Location-href区别？" class="headerlink" title="Vue router跳转和Location.href区别？"></a>Vue router跳转和Location.href区别？</h4><p>router是hash改变<br>href是页面跳转，刷新页面</p>
 <h4 id="npm-webpack的理解"><a href="#npm-webpack的理解" class="headerlink" title="npm webpack的理解"></a>npm webpack的理解</h4><p>webpack官方文档说是一个module bundler(模块打包器)。<br>webpack能够把vue后缀名的文件打包成浏览器能够识别的js，而这个vue文件装换需要打包器vue-loader;<br>vue-loader打包器是可以从npm上下载的，npm下载文件之后，webpack打包文件时需要在node环境去运行；</p>
 <p>通过webpack对模块进行打包，既保留了单个模块的可维护性，又减少了页面的http请求，减少了页面加载时间，从而增加了页面的显示速度，让整个应用的体验更好。</p>
-<h4 id="React和Vue有什么区别？"><a href="#React和Vue有什么区别？" class="headerlink" title="React和Vue有什么区别？"></a>React和Vue有什么区别？</h4><h4 id="怎么上手的vue，以及为啥用vue而不用其他框架？"><a href="#怎么上手的vue，以及为啥用vue而不用其他框架？" class="headerlink" title="怎么上手的vue，以及为啥用vue而不用其他框架？"></a>怎么上手的vue，以及为啥用vue而不用其他框架？</h4><h4 id="你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"><a href="#你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？" class="headerlink" title="你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"></a>你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？</h4><h4 id="Vue双向绑定？"><a href="#Vue双向绑定？" class="headerlink" title="Vue双向绑定？"></a>Vue双向绑定？</h4><h4 id="Vuex整个触发过程（actions，state，view）？"><a href="#Vuex整个触发过程（actions，state，view）？" class="headerlink" title="Vuex整个触发过程（actions，state，view）？"></a>Vuex整个触发过程（actions，state，view）？</h4><h4 id="Vue和Vuex有什么差别？"><a href="#Vue和Vuex有什么差别？" class="headerlink" title="Vue和Vuex有什么差别？"></a>Vue和Vuex有什么差别？</h4><h4 id="知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"><a href="#知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？" class="headerlink" title="知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"></a>知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？</h4><h4 id="为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？"><a href="#为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？" class="headerlink" title="为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？"></a>为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？</h4><h4 id="传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"><a href="#传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？" class="headerlink" title="传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"></a>传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？</h4><h4 id="Vue中Compile过程说一下？"><a href="#Vue中Compile过程说一下？" class="headerlink" title="Vue中Compile过程说一下？"></a>Vue中Compile过程说一下？</h4><h4 id="Vue的设计思路你了解吗"><a href="#Vue的设计思路你了解吗" class="headerlink" title="Vue的设计思路你了解吗"></a>Vue的设计思路你了解吗</h4><h4 id="Vue的响应式是怎么实现的？"><a href="#Vue的响应式是怎么实现的？" class="headerlink" title="Vue的响应式是怎么实现的？"></a>Vue的响应式是怎么实现的？</h4><h4 id="proxy数据代理的实现"><a href="#proxy数据代理的实现" class="headerlink" title="proxy数据代理的实现"></a>proxy数据代理的实现</h4>]]></content>
+<h4 id="Vuex整个触发过程（actions，state，view）？"><a href="#Vuex整个触发过程（actions，state，view）？" class="headerlink" title="Vuex整个触发过程（actions，state，view）？"></a>Vuex整个触发过程（actions，state，view）？</h4><p>状态管理三个部分：state、view、actions</p>
+<p>整个vuex的核心是store，vuex的状态是响应式的，当Vue组件从store中读取状态的时候，若store中状态发生变化，那么相应的组件也会相应的得到高效更新。<br>不能直接更改store中的状态，改变store中的状态的唯一途径是显式提交commit mutation</p>
+<p>state：vuex通过store将状态从根组件注入到每个子组件中<br>Getters：从state派生出的状态<br>Mutation：提交mutation是更改vuex的store中状态的唯一方式，必须同步<br>Action：提交的是mutation，而不是直接变更状态，可以包含任意异步操作<br>Modules：将store分割成模块</p>
+<h4 id="Vue和Vuex有什么差别？"><a href="#Vue和Vuex有什么差别？" class="headerlink" title="Vue和Vuex有什么差别？"></a>Vue和Vuex有什么差别？</h4><p>Vuex是Vue的一个插件，是一个专门为Vue应用程序开发的状态管理模式。<br>采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
+<h4 id="React和Vue有什么区别？"><a href="#React和Vue有什么区别？" class="headerlink" title="React和Vue有什么区别？"></a>React和Vue有什么区别？</h4><h4 id="怎么上手的vue，以及为啥用vue而不用其他框架？"><a href="#怎么上手的vue，以及为啥用vue而不用其他框架？" class="headerlink" title="怎么上手的vue，以及为啥用vue而不用其他框架？"></a>怎么上手的vue，以及为啥用vue而不用其他框架？</h4><h4 id="你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"><a href="#你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？" class="headerlink" title="你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"></a>你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？</h4><h4 id="知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"><a href="#知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？" class="headerlink" title="知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"></a>知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？</h4><h4 id="为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？"><a href="#为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？" class="headerlink" title="为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？"></a>为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？</h4><p>单页面应用：将所有的内容放在一个页面上么</p>
+<h4 id="传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"><a href="#传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？" class="headerlink" title="传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"></a>传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？</h4><ul>
+<li>DNS解析：将域名解析成IP地址</li>
+<li>TCP连接：TCP三次握手</li>
+<li>发生Http请求</li>
+<li>服务器处理请求并返回Http报文</li>
+<li>浏览器解析渲染页面</li>
+<li>断开连接：TCP四次挥手</li>
+</ul>
+<h4 id="Vue中Compile过程说一下？"><a href="#Vue中Compile过程说一下？" class="headerlink" title="Vue中Compile过程说一下？"></a>Vue中Compile过程说一下？</h4><p>compile作用是解析模板，生成渲染模板的render</p>
+<h4 id="Vue的设计思路你了解吗"><a href="#Vue的设计思路你了解吗" class="headerlink" title="Vue的设计思路你了解吗"></a>Vue的设计思路你了解吗</h4><p>核心思想是数据驱动和组件化</p>
+<ul>
+<li><p>数据驱动—双向绑定<br>Vue是MVVM框架，DOM是数据的一种自然映射</p>
+</li>
+<li><p>组件化<br>组件化就是实现了扩展Html元素，封装可用的代码</p>
+</li>
+</ul>
+<h4 id="Vue的响应式是怎么实现的？"><a href="#Vue的响应式是怎么实现的？" class="headerlink" title="Vue的响应式是怎么实现的？"></a>Vue的响应式是怎么实现的？</h4><p>使用Object.defineProperty 这个函数来进行监听</p>
+<h4 id="proxy数据代理的实现"><a href="#proxy数据代理的实现" class="headerlink" title="proxy数据代理的实现"></a>proxy数据代理的实现</h4><p>Proxy用于修改某些操作的默认行为,等同于在语言层面做出修改.<br>Proxy在目标对象前架设一层”拦截”.外界对该对象的访问都必须通过这一层拦截,对外界的访问进行过滤和改写</p>
+<p>ES6原生提供了Proxy构造函数,用来生成Proxy实例</p>
+<p>在之前的 Vue2.x 版本中，由于 Object.defineProperty 的限制，所以 我们在使用中遇到了无法监听 属性的添加和删除、数组索引和长度的变更等一系列问题，<br>在最新的  Proxy 属性中很好的解决了这一问题。而且支持 Map、Set、WeakMap 和 WeakSet</p>
+<p>Proxy 对象用于定义基本操作的自定义行为（如属性查找，赋值，枚举，函数调用等）<br>Proxy 就是在操作目标对象之前进行了”代理（或者说劫持）”，可以对外界的操作进行过滤和改写，修改操作的默认行为</p>
+]]></content>
       <categories>
         <category>Interview</category>
       </categories>
@@ -1248,7 +1401,7 @@ Bidirectional streaming RPC
     <url>/articles/2020-02-08-interview-database.html</url>
     <content><![CDATA[<a id="more"></a>
 
-<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h4 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h4><p>什么是MongoDB？<br>是一个数据库，高性能、无模式、文档性、开源性、基于c++开发的、基于分布式文件存储的非关系型数据库。</p>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h4 id="1-MongoDB"><a href="#1-MongoDB" class="headerlink" title="1. MongoDB"></a>1. MongoDB</h4><p>什么是MongoDB？<br>是一个数据库，高性能、无模式、文档性、开源性、基于c++开发的、基于分布式文件存储的非关系型数据库。</p>
 <p>特点：</p>
 <ul>
 <li>面向集合文档的存储，适合存储Bson(json)形式的数据；</li>
@@ -1269,7 +1422,7 @@ Bidirectional streaming RPC
 <li>单机可靠性比较差；</li>
 <li>大数据量持续插入，写入性能有较大波动；</li>
 </ul>
-<h4 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h4><p>关系型数据库</p>
+<h4 id="2-Mysql"><a href="#2-Mysql" class="headerlink" title="2. Mysql"></a>2. Mysql</h4><p>关系型数据库</p>
 <p>优点：</p>
 <ul>
 <li><p>在不同的引擎上有不同的存储方式。</p>
@@ -1280,7 +1433,21 @@ Bidirectional streaming RPC
 <li><p>在海量数据处理的时候效率会显著变慢；</p>
 </li>
 </ul>
-<h4 id="left-join-right-join-inner-join"><a href="#left-join-right-join-inner-join" class="headerlink" title="left join /right join/ inner join"></a>left join /right join/ inner join</h4><p>left join：关键字会从左表返回所有的行，即使右表没有匹配的行；<br>right join：关键字会从右表返回所有的行，即使左表没有匹配的行；<br>inner join：在表中存在至少一个匹配时；</p>
+<h5 id="left-join-right-join-inner-join"><a href="#left-join-right-join-inner-join" class="headerlink" title="left join /right join/ inner join"></a>left join /right join/ inner join</h5><p>left join：关键字会从左表返回所有的行，即使右表没有匹配的行；<br>right join：关键字会从右表返回所有的行，即使左表没有匹配的行；<br>inner join：在表中存在至少一个匹配时；</p>
+<h4 id="3-Redis"><a href="#3-Redis" class="headerlink" title="3. Redis"></a>3. Redis</h4><p>一个开源的，内存中的数据结构存储系统；<br>用作数据库、缓存和消息中间件；<br>支持的常见的5种数据结构：   </p>
+<ul>
+<li>字符串String </li>
+<li>散列Hashes</li>
+<li>列表List </li>
+<li>集合Set </li>
+<li>有序集合Sorted set</li>
+</ul>
+<p>而Redis内置了复制(replication)、LUA脚本、LRU驱动事件、事务和不同级别的磁盘持久化，并通过哨兵和自动分区Cluster提高高可用性，这些才是项目中使用比较多的几个部分。</p>
+<h5 id="Redis缓存"><a href="#Redis缓存" class="headerlink" title="Redis缓存"></a>Redis缓存</h5><p>为什么要缓存呐，其实对于一些频繁访问的数据把它放到缓存中，从而减少了数据库的访问，对于日活比较高的能够很好的达到速度和性能的改善。<br>缓存查询顺序：<br>    在数据获取的时候，一般是先从缓存中取数据；<br>    如果缓存中没有的话，再去数据库取数据。<br>Redis缓存问题：<br>    最主要的几个就是：缓存击穿、缓存穿透和缓存雪崩。</p>
+<h5 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h5><pre><code>当访问数据库中的一个不存在的key的时候，发现没有数据，程序会去数据库的查询，当查不到数据的时候，就不会写入redis缓存，从而导致这个不存在的数据每次请求都会去数据库查询，导致缓存穿透。当数据量比较大的时候，可能导致数据库挂掉。</code></pre><p><em>（画这几张图，也是头大，不知道怎么才能把代码用图体现出来）</em><br><img src="https://img-blog.csdnimg.cn/20190724193444697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21vXzI0Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>解决：<br>   采用布隆过滤器。用一个比较大的bitmap，存储可能访问的key，对不存在的key直接过滤掉；<br>    当数据库查询的值为空，也要设置一个默认值，可以把这个有效时间设置短一点；</p>
+<h5 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h5><pre><code>是说大量的缓存集中的进行失效，导致了缓存穿透，进而所有的查询都在数据库上，数据库很快就承受不住，甚至宕机，导致了缓存雪崩。</code></pre><p>解决：<br>    过期时间均匀分布，而不是集中到一点；<br>    设置两个缓存的key，而具有不同的失效时间，当key1失效之后，访问key2，然后更新key1和key2；<br>    使用分布式锁(redis的Lock方法)，从而当应用发现缓存失效之后，拿到锁的线程才去更新缓存；<br>    mq消息队列的削峰方式，当应用发现缓存失效之后，发送消息，消费者消费后进行更新数据和缓存，后台线程会检测缓存中是否存在缓存，如果存在就不更新</p>
+<p><em>（其实，用户很多很多的哦，大批量）</em><br><img src="https://img-blog.csdnimg.cn/2019072419352042.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21vXzI0Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h5 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h5><pre><code>是指一个key非常热点，在不停的扛着大并发，大并发集中对这一个点进行访问，当这个key在失效的瞬间，持续的大并发就穿破缓存，直接请求数据库，就像在一个屏障上凿开了一个洞。</code></pre><p>解决：<br>   和缓存雪崩的方法其实差不多：都可以用分布式锁来处理。</p>
 ]]></content>
       <categories>
         <category>Interview</category>
@@ -1474,7 +1641,42 @@ Bidirectional streaming RPC
 <li><p>清除浮动</p>
 </li>
 </ul>
-<h4 id="IFC"><a href="#IFC" class="headerlink" title="IFC"></a>IFC</h4><h4 id="对栅格的理解"><a href="#对栅格的理解" class="headerlink" title="对栅格的理解"></a>对栅格的理解</h4><h4 id="1像素边框问题"><a href="#1像素边框问题" class="headerlink" title="1像素边框问题"></a>1像素边框问题</h4><h4 id="rem和em有什么去区别啊？"><a href="#rem和em有什么去区别啊？" class="headerlink" title="rem和em有什么去区别啊？"></a>rem和em有什么去区别啊？</h4><h4 id="LESS-SASS-PostCSS"><a href="#LESS-SASS-PostCSS" class="headerlink" title="LESS, SASS, PostCSS"></a>LESS, SASS, PostCSS</h4><h4 id="简单介绍下盒模型，以及flexbox-弹性布局"><a href="#简单介绍下盒模型，以及flexbox-弹性布局" class="headerlink" title="简单介绍下盒模型，以及flexbox 弹性布局"></a>简单介绍下盒模型，以及flexbox 弹性布局</h4><h4 id="position和float的区别？"><a href="#position和float的区别？" class="headerlink" title="position和float的区别？"></a>position和float的区别？</h4><h4 id="HTML5-有哪些新特性及API"><a href="#HTML5-有哪些新特性及API" class="headerlink" title="HTML5 有哪些新特性及API"></a>HTML5 有哪些新特性及API</h4><h4 id="Canvas的实现原理"><a href="#Canvas的实现原理" class="headerlink" title="Canvas的实现原理"></a>Canvas的实现原理</h4><h4 id="div居中方式"><a href="#div居中方式" class="headerlink" title="div居中方式"></a>div居中方式</h4><ol>
+<h4 id="IFC"><a href="#IFC" class="headerlink" title="IFC"></a>IFC</h4><p>Inline Formatting Contexts  内联格式化上下文<br>IFC的line box（线框）高度由其包含行内元素中最高的实际高度计算而来（不受到竖直方向的padding/margin影响)</p>
+<p>IFC有一下特性：</p>
+<ol>
+<li>IFC中的line box一般左右都贴紧整个IFC，但是会因为float元素而扰乱。float元素会位于IFC与与line box之间，使得line box宽度缩短。 </li>
+<li>IFC中时不可能有块级元素的，当插入块级元素时（如p中插入div）会产生两个匿名块与div分隔开，即产生两个IFC，每个IFC对外表现为块级元素，与div垂直排列。</li>
+</ol>
+<p>那么IFC一般有什么用呢？<br>水平居中：当一个块要在环境中水平居中时，设置其为inline-block则会在外层产生IFC，通过text-align则可以使其水平居中。<br>垂直居中：创建一个IFC，用其中一个元素撑开父元素的高度，然后设置其vertical-align:middle，其他行内元素则可以在此父元素下垂直居中。</p>
+<h4 id="对栅格的理解"><a href="#对栅格的理解" class="headerlink" title="对栅格的理解"></a>对栅格的理解</h4><h4 id="1像素边框问题"><a href="#1像素边框问题" class="headerlink" title="1像素边框问题"></a>1像素边框问题</h4><p>对于不同的移动设备，其物理像素与逻辑像素间存在不同的比例关系。所以我们仅仅在CSS中为border设置1px时，在手机上看起来会显得比较粗，达不到预期效果。</p>
+<p>如何解决1px问题</p>
+<ol>
+<li>媒体查询利用设备像素比缩放，设置小数像素</li>
+<li>viewport + rem 方案</li>
+<li>设置 border-image 方案</li>
+<li>background-image 渐变实现</li>
+<li>box-shadow 方案</li>
+<li>transform: scale(0.5) 方案 - 推荐: 很灵活</li>
+</ol>
+<h4 id="rem和em有什么去区别啊？"><a href="#rem和em有什么去区别啊？" class="headerlink" title="rem和em有什么去区别啊？"></a>rem和em有什么去区别啊？</h4><p>css中单位长度用的最多的是px、em、rem，这三个的区别是：<br>　　px是固定的像素，一旦设置了就无法因为适应页面大小而改变。<br>　　em和rem相对于px更具有灵活性，他们是相对长度单位，意思是长度不是定死了的，更适用于响应式布局。</p>
+<p>对于em和rem的区别一句话概括：em相对于父元素，rem相对于根元素。<br>rem中的r意思是root（根源）</p>
+<p>em<br>    子元素字体大小的em是相对于父元素字体大小<br>    元素的width/height/padding/margin用em的话是相对于该元素的font-size</p>
+<p>rem<br>    rem是全部的长度都相对于根元素，根元素是谁？<html>元素。<br>    通常做法是给html元素设置一个字体大小，然后其他元素的长度单位就为rem</p>
+<h4 id="LESS-SASS-PostCSS"><a href="#LESS-SASS-PostCSS" class="headerlink" title="LESS, SASS, PostCSS"></a>LESS, SASS, PostCSS</h4><p>Sass：<br>一种动态样式语言，Sass语法属于缩排语法，比css比多出好些功能(如变量、嵌套、运算,混入(Mixin)、继承、颜色处理，函数等)，更容易阅读。<br>Sass与Scss是什么关系?<br>Sass的缩排语法，对于写惯css前端的web开发者来说很不直观，也不能将css代码加入到Sass里面，因此sass语法进行了改良，Sass 3就变成了Scss(sassy css)。与原来的语法兼容，只是用{}取代了原来的缩进。</p>
+<p>Less：<br>Less也是一种动态样式语言. 受Sass影响较大,对CSS赋予了动态语言的特性，如变量，继承，运算， 函数. Less 既可以在客户端上运行 (支持IE 6+, Webkit, Firefox)，也可在服务端运行 (借助 Node.js)。</p>
+<h4 id="简单介绍下盒模型，以及flexbox-弹性布局"><a href="#简单介绍下盒模型，以及flexbox-弹性布局" class="headerlink" title="简单介绍下盒模型，以及flexbox 弹性布局"></a>简单介绍下盒模型，以及flexbox 弹性布局</h4><p>块状只需要display属性规定为flex即可。 行内元素也可以指定为flex布局，将display属性设置为inline-flex</p>
+<h4 id="position和float的区别？"><a href="#position和float的区别？" class="headerlink" title="position和float的区别？"></a>position和float的区别？</h4><p>相同：<br>    设置后，对应的模块都会脱离文档流<br>不同点：<br>    position相应的块级元素会覆盖下面的内容（文字，），<br>    而float只会覆盖块级元素，里面的文字会脱离出来<br>    float是浮动定位，position是绝对定位</p>
+<h4 id="HTML5-有哪些新特性及API"><a href="#HTML5-有哪些新特性及API" class="headerlink" title="HTML5 有哪些新特性及API"></a>HTML5 有哪些新特性及API</h4><p>1、document.querySelector()和document.querySelectorAll()方法<br>document.querySelector()：根据css选择器返回第一个匹配的元素，如果没有匹配返回null；<br>document.querySelectorAll(“selector”)：querySelectorAll和querySelector作用一样的，只是querySelectorAll返回的是元素数组，querySelector返回的是一个元素。如果querySelectorAll没有匹配的内容返回的是一个空数组。</p>
+<p>2、HTML5之classList属性<br>classList属性没有出现之前js操作元素class都是使用className,但是在开发一个网站的时候标签的class不只是一个，有可能有很多</p>
+<p>3、HTML5之全屏<br>为了方便用户的阅读或者观看视频，很多的网站实现了全屏功能。FullScreen API 是一个新的JavaScript API,简单而又强大. FullScreen 让我们可以通过编程的方式来向用户请求全屏显示,如果交互完成,随时可以退出全屏状态.</p>
+<p>4、HTML5之页面可见性(Page Visibility)</p>
+<p>5、HTML5 之预加载<br>网站优化一直是项目开发中的重点之中，常用的优化方式主要有：图片懒加载、图片sprite、css合并、js合并、数据本地存储、数据网络缓存等。这些都是项目中经常使用的，HTML5考虑到了这一点，提出了链接预加载的方法<br>预加载是一种浏览器机制，使用浏览器空闲时间来预先下载/加载用户接下来很可能会浏览的页面/资源。页面提供给浏览器需要预加载的集合。<br>浏览器载入当前页面完成后，将会在后台下载需要预加载的页面并添加到缓存中。当用户访问某个预加载的链接时，如果从缓存命中,<br>页面就得以快速呈现。</p>
+<p>6、自定义数据属性<br>HTML5 规定可以为元素添加非标准的属性，但要添加前缀data-，目的是为元素提供与渲染无关的信息，或者提供语义信息。这些属性可以任意添加、随便命名，只要以data-开头即可。</p>
+<p>7、outerHTML 属性<br>在读模式下，outerHTML 返回调用它的元素及所有子节点的HTML 标签。在写模式下，outerHTML会根据指定的HTML 字符串创建新的DOM 子树，然后用这个DOM子树完全替换调用元素。</p>
+<p>8、insertAdjacentHTML()方法<br>插入标记的最后一个新增方式是insertAdjacentHTML()方法。它接收两个参数：插入位置和要插入的HTML 文本。第一个参数必须是下列值之一：<br>    “beforebegin”，在当前元素之前插入一个紧邻的同辈元素；<br>    “afterbegin”，在当前元素之下插入一个新的子元素或在第一个子元素之前再插入新的子元素；<br>    “beforeend”，在当前元素之下插入一个新的子元素或在最后一个子元素之后再插入新的子元素；<br>    “afterend”，在当前元素之后插入一个紧邻的同辈元素。</p>
+<h4 id="Canvas的实现原理"><a href="#Canvas的实现原理" class="headerlink" title="Canvas的实现原理"></a>Canvas的实现原理</h4><p>canvas本身并不具备绘画能力，它本身只是一个画布，是一个容器。绘图能力是基于html5的getContext(“2d”)返回的CanvasRenderingContext2D对象来完成的。</p>
+<p>canvas是一个二维网络，以画布左上角（0,0）为坐标原点，x轴向右延伸，y轴向下延伸。所以canvas画布中的坐标全为正数，没有负数。</p>
+<h4 id="div居中方式"><a href="#div居中方式" class="headerlink" title="div居中方式"></a>div居中方式</h4><ol>
 <li><p>适用于固定宽高的元素</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">position: absolute;</span><br><span class="line">top: 50%;</span><br><span class="line">left: 50%;</span><br><span class="line">margin-top: 高度的一半;</span><br><span class="line">margin-left: 宽度的一半</span><br></pre></td></tr></table></figure></li>
 <li><p>用在居中的元素本身</p>
@@ -1753,11 +1955,57 @@ Bidirectional streaming RPC
 <li>监听连接是否成功</li>
 <li>通过node， 书写接口，对数据库进行增删改查</li>
 </ul>
-<h4 id="pm2-forever-模块的工作原理"><a href="#pm2-forever-模块的工作原理" class="headerlink" title="pm2, forever 模块的工作原理"></a>pm2, forever 模块的工作原理</h4><h4 id="require的模块系统加载方式是什么"><a href="#require的模块系统加载方式是什么" class="headerlink" title="require的模块系统加载方式是什么"></a>require的模块系统加载方式是什么</h4><h4 id="Node-js-多进程部署的原理"><a href="#Node-js-多进程部署的原理" class="headerlink" title="Node.js 多进程部署的原理"></a>Node.js 多进程部署的原理</h4><h4 id="BDD-和-TDD的区别"><a href="#BDD-和-TDD的区别" class="headerlink" title="BDD 和 TDD的区别"></a>BDD 和 TDD的区别</h4><ol start="13">
-<li>node和前端项目怎么解决跨域的？<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;解决跨域问题</span><br><span class="line">        app.use(async(ctx, next) &#x3D;#### &#123;</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;指定服务器端允许进行跨域资源访问的来源域。可以用通配符*表示允许任何域的JavaScript访问资源，但是在响应一个携带身份信息(Credential)的HTTP请求时，必需指定具体的域，不能用通配符</span><br><span class="line">            ctx.set(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;可选。它的值是一个布尔值，表示是否允许客户端跨域请求时携带身份信息(Cookie或者HTTP认证信息)。默认情况下，Cookie不包括在CORS请求之中。当设置成允许请求携带cookie时，需要保证&quot;Access-Control-Allow-Origin&quot;是服务器有的域名，而不能是&quot;*&quot;;如果没有设置这个值，浏览器会忽略此次响应。</span><br><span class="line">            ctx.set(&quot;Access-Control-Allow-Credentials&quot;, true);</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;指定服务器允许进行跨域资源访问的请求方法列表，一般用在响应预检请求上</span><br><span class="line">            ctx.set(&quot;Access-Control-Allow-Methods&quot;, &quot;OPTIONS, GET, PUT, POST, DELETE&quot;);</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;必需。指定服务器允许进行跨域资源访问的请求头列表，一般用在响应预检请求上</span><br><span class="line">            ctx.set(&quot;Access-Control-Allow-Headers&quot;, &quot;x-requested-with, accept, origin, content-type&quot;);</span><br><span class="line">            &#x2F;&#x2F; ctx.set(&quot;X-Powered-By&quot;, &#39; 3.2.1&#39;);</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;告诉客户端返回数据的MIME的类型，这只是一个标识信息,并不是真正的数据文件的一部分</span><br><span class="line">            ctx.set(&quot;Content-Type&quot;, &quot;application&#x2F;json;charset&#x3D;utf-8&quot;);</span><br><span class="line">            </span><br><span class="line">            &#x2F;&#x2F;如果不设置mode，直接设置content-type为application&#x2F;json，则fetch会默认这是跨域模式（mode:&#39;cors&#39;），在跨域POST之前，客户端会先发一条OPTIONS请求来”探探路”，如果服务器允许，再继续POST数据。对于这种OPTIONS请求，需要在服务器配置允许接受OPTIONS请求，这样写就是直接允许了所有的OPTIONS请求，也可以按照需求来判断OPTIONS请求中更详细的信息</span><br><span class="line">            if (ctx.request.method &#x3D;&#x3D; &quot;OPTIONS&quot;) &#123;</span><br><span class="line">                ctx.response.status &#x3D; 200</span><br><span class="line">            &#125;</span><br><span class="line">            await next();</span><br><span class="line">        &#125;);</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<h4 id="pm2-forever-模块的工作原理"><a href="#pm2-forever-模块的工作原理" class="headerlink" title="pm2, forever 模块的工作原理"></a>pm2, forever 模块的工作原理</h4><p>forever：<br>    是一个简单的命令式nodejs的守护进程，能够启动，停止，重启App应用。<br>    forever完全基于命令行操作，在forever进程之下，创建node的子进程，通过monitor监控node子进程的运行情况，一旦文件更新，或者进程挂掉，forever会自动重启node服务器，确保应用正常运行。<br>    需要安装到全局环境下<code>npm install forever -g</code><br>forever管理多个站点，每个站访问量不大，不需要监控</p>
+<p>pm2网站访问量比较大，需要完整的监控界面<br>pm2的特性</p>
+<ul>
+<li>内建负载均衡（Node cluster集群模块）</li>
+<li>后台运行</li>
+<li>0秒停机重载，维护升级时不需要停机</li>
+<li>具有Ununtu和CentOS的启动脚本</li>
+<li>停止不稳定的进程（避免无限循环）</li>
+<li>控制台检测</li>
+<li>提供Http API</li>
+<li>远程控制和实时的接口API</li>
+</ul>
+<h4 id="import、require的模块系统加载方式是什么"><a href="#import、require的模块系统加载方式是什么" class="headerlink" title="import、require的模块系统加载方式是什么"></a>import、require的模块系统加载方式是什么</h4><p>require方法的加载规则：</p>
+<ul>
+<li>优先从缓存中加载</li>
+<li>核心模块</li>
+<li>路径形式的模块</li>
+<li>第三方模块</li>
+</ul>
+<p>ES6标准发布后，module成为标准，标准的使用是以export指令导出接口，以import引入模块，<br>但我们一贯的node模块中，我们采用的是COmmonJS规范，使用requirejs引入模块，export.exports导出接口。</p>
+<p>require时代的模块<br>node编程中最重要的就是模块，模块化编程在js界流行，require统治了ES6之前的所有模块化编程，<br>node的module遵循Commonjs规范，requirejs遵循AMD，</p>
+<p>default关键字：<br>其实是别名的语法糖</p>
+<figure class="highlight plain"><figcaption><span>default function()&#123;&#125;```</span></figcaption><table><tr><td class="code"><pre><span class="line">&#x3D;</span><br></pre></td></tr></table></figure>
+<pre><code>function a(){};
+export { a as default }</code></pre><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#### Node.js 多进程部署的原理</span><br><span class="line">cluster模块用于实现和管理多进程的模块</span><br><span class="line"></span><br><span class="line">#### 如何用Node监听80端口</span><br><span class="line">这题有陷阱！在类Unix系统中你不应该去监听80端口，因为这需要超级用户权限。因此不推荐让你的应用直接监听这个端口。</span><br><span class="line">目前，如果你一定要让你的应用80端口的话，你可以有通过在Node应用的前方再添加一层反向代理（例如nginx）来实现，如下图。否则，建议你直接监听大于1024的端口</span><br><span class="line">反向代理指的是以代理服务器来接收Internet上的连接请求，然后将请求转发给内部网络上的服务器， 并且将服务器返回的结果发送给客户端。</span><br><span class="line"></span><br><span class="line">13. node和前端项目怎么解决跨域的？</span><br></pre></td></tr></table></figure>
+<p>//解决跨域问题<br>        app.use(async(ctx, next) =#### {</p>
+<pre><code>    //指定服务器端允许进行跨域资源访问的来源域。可以用通配符*表示允许任何域的JavaScript访问资源，但是在响应一个携带身份信息(Credential)的HTTP请求时，必需指定具体的域，不能用通配符
+    ctx.set(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);
 
-</li>
-</ol>
+    //可选。它的值是一个布尔值，表示是否允许客户端跨域请求时携带身份信息(Cookie或者HTTP认证信息)。默认情况下，Cookie不包括在CORS请求之中。当设置成允许请求携带cookie时，需要保证&quot;Access-Control-Allow-Origin&quot;是服务器有的域名，而不能是&quot;*&quot;;如果没有设置这个值，浏览器会忽略此次响应。
+    ctx.set(&quot;Access-Control-Allow-Credentials&quot;, true);
+
+    //指定服务器允许进行跨域资源访问的请求方法列表，一般用在响应预检请求上
+    ctx.set(&quot;Access-Control-Allow-Methods&quot;, &quot;OPTIONS, GET, PUT, POST, DELETE&quot;);
+
+    //必需。指定服务器允许进行跨域资源访问的请求头列表，一般用在响应预检请求上
+    ctx.set(&quot;Access-Control-Allow-Headers&quot;, &quot;x-requested-with, accept, origin, content-type&quot;);
+    // ctx.set(&quot;X-Powered-By&quot;, &apos; 3.2.1&apos;);
+
+    //告诉客户端返回数据的MIME的类型，这只是一个标识信息,并不是真正的数据文件的一部分
+    ctx.set(&quot;Content-Type&quot;, &quot;application/json;charset=utf-8&quot;);
+
+    //如果不设置mode，直接设置content-type为application/json，则fetch会默认这是跨域模式（mode:&apos;cors&apos;），在跨域POST之前，客户端会先发一条OPTIONS请求来”探探路”，如果服务器允许，再继续POST数据。对于这种OPTIONS请求，需要在服务器配置允许接受OPTIONS请求，这样写就是直接允许了所有的OPTIONS请求，也可以按照需求来判断OPTIONS请求中更详细的信息
+    if (ctx.request.method == &quot;OPTIONS&quot;) {
+        ctx.response.status = 200
+    }
+    await next();
+});</code></pre><p>复制代码</p>
+<p>```</p>
+<h4 id="BDD-和-TDD的区别"><a href="#BDD-和-TDD的区别" class="headerlink" title="BDD 和 TDD的区别"></a>BDD 和 TDD的区别</h4><p>TDD：测试驱动开发Test-Driven Development<br>    测试驱动开发是敏捷开发中的一项核心实践和技术<br>    原理：在开发功能代码之前，先编写单元测试用例代码</p>
+<p>BDD：行为驱动开发Behavior Driven Development<br>    是一种敏捷软件开发技术<br>    主要是从用户的需求出发，强调系统行为</p>
 ]]></content>
       <categories>
         <category>Interview</category>

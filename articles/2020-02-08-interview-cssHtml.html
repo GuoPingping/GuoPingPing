@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Welcome to my-blog">
 <meta property="og:description" content="前端四种定位的区别 static：默认值 relative：相对定位，相对于自身原有位置进行偏移，仍处于标准文档流中 absolute：绝对定位，相对于最近的已定位的祖先元素，有已定位祖先元素，以最近的祖先元素为标准。如果无已定位祖先元素，以body元素为偏移参照基准，完全脱离了标椎文档流 fixed：固定定位的元素会相对于视窗来定位，这意味着即便页面滚动，它还是会停留在相同的位置。一个固定定">
 <meta property="article:published_time" content="2020-02-08T13:20:52.000Z">
-<meta property="article:modified_time" content="2020-02-11T09:02:43.280Z">
+<meta property="article:modified_time" content="2020-02-11T14:55:59.263Z">
 <meta property="article:author" content="Guopp">
 <meta property="article:tag" content="Interview">
 <meta name="twitter:card" content="summary">
@@ -449,7 +449,42 @@
 <li><p>清除浮动</p>
 </li>
 </ul>
-<h4 id="IFC"><a href="#IFC" class="headerlink" title="IFC"></a>IFC</h4><h4 id="对栅格的理解"><a href="#对栅格的理解" class="headerlink" title="对栅格的理解"></a>对栅格的理解</h4><h4 id="1像素边框问题"><a href="#1像素边框问题" class="headerlink" title="1像素边框问题"></a>1像素边框问题</h4><h4 id="rem和em有什么去区别啊？"><a href="#rem和em有什么去区别啊？" class="headerlink" title="rem和em有什么去区别啊？"></a>rem和em有什么去区别啊？</h4><h4 id="LESS-SASS-PostCSS"><a href="#LESS-SASS-PostCSS" class="headerlink" title="LESS, SASS, PostCSS"></a>LESS, SASS, PostCSS</h4><h4 id="简单介绍下盒模型，以及flexbox-弹性布局"><a href="#简单介绍下盒模型，以及flexbox-弹性布局" class="headerlink" title="简单介绍下盒模型，以及flexbox 弹性布局"></a>简单介绍下盒模型，以及flexbox 弹性布局</h4><h4 id="position和float的区别？"><a href="#position和float的区别？" class="headerlink" title="position和float的区别？"></a>position和float的区别？</h4><h4 id="HTML5-有哪些新特性及API"><a href="#HTML5-有哪些新特性及API" class="headerlink" title="HTML5 有哪些新特性及API"></a>HTML5 有哪些新特性及API</h4><h4 id="Canvas的实现原理"><a href="#Canvas的实现原理" class="headerlink" title="Canvas的实现原理"></a>Canvas的实现原理</h4><h4 id="div居中方式"><a href="#div居中方式" class="headerlink" title="div居中方式"></a>div居中方式</h4><ol>
+<h4 id="IFC"><a href="#IFC" class="headerlink" title="IFC"></a>IFC</h4><p>Inline Formatting Contexts  内联格式化上下文<br>IFC的line box（线框）高度由其包含行内元素中最高的实际高度计算而来（不受到竖直方向的padding/margin影响)</p>
+<p>IFC有一下特性：</p>
+<ol>
+<li>IFC中的line box一般左右都贴紧整个IFC，但是会因为float元素而扰乱。float元素会位于IFC与与line box之间，使得line box宽度缩短。 </li>
+<li>IFC中时不可能有块级元素的，当插入块级元素时（如p中插入div）会产生两个匿名块与div分隔开，即产生两个IFC，每个IFC对外表现为块级元素，与div垂直排列。</li>
+</ol>
+<p>那么IFC一般有什么用呢？<br>水平居中：当一个块要在环境中水平居中时，设置其为inline-block则会在外层产生IFC，通过text-align则可以使其水平居中。<br>垂直居中：创建一个IFC，用其中一个元素撑开父元素的高度，然后设置其vertical-align:middle，其他行内元素则可以在此父元素下垂直居中。</p>
+<h4 id="对栅格的理解"><a href="#对栅格的理解" class="headerlink" title="对栅格的理解"></a>对栅格的理解</h4><h4 id="1像素边框问题"><a href="#1像素边框问题" class="headerlink" title="1像素边框问题"></a>1像素边框问题</h4><p>对于不同的移动设备，其物理像素与逻辑像素间存在不同的比例关系。所以我们仅仅在CSS中为border设置1px时，在手机上看起来会显得比较粗，达不到预期效果。</p>
+<p>如何解决1px问题</p>
+<ol>
+<li>媒体查询利用设备像素比缩放，设置小数像素</li>
+<li>viewport + rem 方案</li>
+<li>设置 border-image 方案</li>
+<li>background-image 渐变实现</li>
+<li>box-shadow 方案</li>
+<li>transform: scale(0.5) 方案 - 推荐: 很灵活</li>
+</ol>
+<h4 id="rem和em有什么去区别啊？"><a href="#rem和em有什么去区别啊？" class="headerlink" title="rem和em有什么去区别啊？"></a>rem和em有什么去区别啊？</h4><p>css中单位长度用的最多的是px、em、rem，这三个的区别是：<br>　　px是固定的像素，一旦设置了就无法因为适应页面大小而改变。<br>　　em和rem相对于px更具有灵活性，他们是相对长度单位，意思是长度不是定死了的，更适用于响应式布局。</p>
+<p>对于em和rem的区别一句话概括：em相对于父元素，rem相对于根元素。<br>rem中的r意思是root（根源）</p>
+<p>em<br>    子元素字体大小的em是相对于父元素字体大小<br>    元素的width/height/padding/margin用em的话是相对于该元素的font-size</p>
+<p>rem<br>    rem是全部的长度都相对于根元素，根元素是谁？<html>元素。<br>    通常做法是给html元素设置一个字体大小，然后其他元素的长度单位就为rem</p>
+<h4 id="LESS-SASS-PostCSS"><a href="#LESS-SASS-PostCSS" class="headerlink" title="LESS, SASS, PostCSS"></a>LESS, SASS, PostCSS</h4><p>Sass：<br>一种动态样式语言，Sass语法属于缩排语法，比css比多出好些功能(如变量、嵌套、运算,混入(Mixin)、继承、颜色处理，函数等)，更容易阅读。<br>Sass与Scss是什么关系?<br>Sass的缩排语法，对于写惯css前端的web开发者来说很不直观，也不能将css代码加入到Sass里面，因此sass语法进行了改良，Sass 3就变成了Scss(sassy css)。与原来的语法兼容，只是用{}取代了原来的缩进。</p>
+<p>Less：<br>Less也是一种动态样式语言. 受Sass影响较大,对CSS赋予了动态语言的特性，如变量，继承，运算， 函数. Less 既可以在客户端上运行 (支持IE 6+, Webkit, Firefox)，也可在服务端运行 (借助 Node.js)。</p>
+<h4 id="简单介绍下盒模型，以及flexbox-弹性布局"><a href="#简单介绍下盒模型，以及flexbox-弹性布局" class="headerlink" title="简单介绍下盒模型，以及flexbox 弹性布局"></a>简单介绍下盒模型，以及flexbox 弹性布局</h4><p>块状只需要display属性规定为flex即可。 行内元素也可以指定为flex布局，将display属性设置为inline-flex</p>
+<h4 id="position和float的区别？"><a href="#position和float的区别？" class="headerlink" title="position和float的区别？"></a>position和float的区别？</h4><p>相同：<br>    设置后，对应的模块都会脱离文档流<br>不同点：<br>    position相应的块级元素会覆盖下面的内容（文字，），<br>    而float只会覆盖块级元素，里面的文字会脱离出来<br>    float是浮动定位，position是绝对定位</p>
+<h4 id="HTML5-有哪些新特性及API"><a href="#HTML5-有哪些新特性及API" class="headerlink" title="HTML5 有哪些新特性及API"></a>HTML5 有哪些新特性及API</h4><p>1、document.querySelector()和document.querySelectorAll()方法<br>document.querySelector()：根据css选择器返回第一个匹配的元素，如果没有匹配返回null；<br>document.querySelectorAll(“selector”)：querySelectorAll和querySelector作用一样的，只是querySelectorAll返回的是元素数组，querySelector返回的是一个元素。如果querySelectorAll没有匹配的内容返回的是一个空数组。</p>
+<p>2、HTML5之classList属性<br>classList属性没有出现之前js操作元素class都是使用className,但是在开发一个网站的时候标签的class不只是一个，有可能有很多</p>
+<p>3、HTML5之全屏<br>为了方便用户的阅读或者观看视频，很多的网站实现了全屏功能。FullScreen API 是一个新的JavaScript API,简单而又强大. FullScreen 让我们可以通过编程的方式来向用户请求全屏显示,如果交互完成,随时可以退出全屏状态.</p>
+<p>4、HTML5之页面可见性(Page Visibility)</p>
+<p>5、HTML5 之预加载<br>网站优化一直是项目开发中的重点之中，常用的优化方式主要有：图片懒加载、图片sprite、css合并、js合并、数据本地存储、数据网络缓存等。这些都是项目中经常使用的，HTML5考虑到了这一点，提出了链接预加载的方法<br>预加载是一种浏览器机制，使用浏览器空闲时间来预先下载/加载用户接下来很可能会浏览的页面/资源。页面提供给浏览器需要预加载的集合。<br>浏览器载入当前页面完成后，将会在后台下载需要预加载的页面并添加到缓存中。当用户访问某个预加载的链接时，如果从缓存命中,<br>页面就得以快速呈现。</p>
+<p>6、自定义数据属性<br>HTML5 规定可以为元素添加非标准的属性，但要添加前缀data-，目的是为元素提供与渲染无关的信息，或者提供语义信息。这些属性可以任意添加、随便命名，只要以data-开头即可。</p>
+<p>7、outerHTML 属性<br>在读模式下，outerHTML 返回调用它的元素及所有子节点的HTML 标签。在写模式下，outerHTML会根据指定的HTML 字符串创建新的DOM 子树，然后用这个DOM子树完全替换调用元素。</p>
+<p>8、insertAdjacentHTML()方法<br>插入标记的最后一个新增方式是insertAdjacentHTML()方法。它接收两个参数：插入位置和要插入的HTML 文本。第一个参数必须是下列值之一：<br>    “beforebegin”，在当前元素之前插入一个紧邻的同辈元素；<br>    “afterbegin”，在当前元素之下插入一个新的子元素或在第一个子元素之前再插入新的子元素；<br>    “beforeend”，在当前元素之下插入一个新的子元素或在最后一个子元素之后再插入新的子元素；<br>    “afterend”，在当前元素之后插入一个紧邻的同辈元素。</p>
+<h4 id="Canvas的实现原理"><a href="#Canvas的实现原理" class="headerlink" title="Canvas的实现原理"></a>Canvas的实现原理</h4><p>canvas本身并不具备绘画能力，它本身只是一个画布，是一个容器。绘图能力是基于html5的getContext(“2d”)返回的CanvasRenderingContext2D对象来完成的。</p>
+<p>canvas是一个二维网络，以画布左上角（0,0）为坐标原点，x轴向右延伸，y轴向下延伸。所以canvas画布中的坐标全为正数，没有负数。</p>
+<h4 id="div居中方式"><a href="#div居中方式" class="headerlink" title="div居中方式"></a>div居中方式</h4><ol>
 <li><p>适用于固定宽高的元素</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">position: absolute;</span><br><span class="line">top: 50%;</span><br><span class="line">left: 50%;</span><br><span class="line">margin-top: 高度的一半;</span><br><span class="line">margin-left: 宽度的一半</span><br></pre></td></tr></table></figure></li>
 <li><p>用在居中的元素本身</p>
