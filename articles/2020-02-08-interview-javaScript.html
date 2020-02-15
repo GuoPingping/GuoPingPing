@@ -14,8 +14,8 @@
 
 <script>
 (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
+        if('1029'){
+            if (prompt('请输入文章密码') !== '1029'){
                 alert('密码错误！');
                 history.back();
             }
@@ -91,14 +91,14 @@
 
 
 
-<meta name="description" content="JavaScriptlet var的区别let声明的变量    不能重复声明    作用域为该语句所在的代码块内    不存在变量提升(会报错)    存在暂时性死域（只能先声明再使用）var声明的变量    能重复声明    作用域为该语句所在的函数内    存在变量提升(变量可以在声明之前使用，值为undefined)； CommonJS中require&#x2F;exports和ES6中impor">
+<meta name="description" content="Welcome to my-blog!!!">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript">
 <meta property="og:url" content="http://gpp-note.top/articles/2020-02-08-interview-javaScript.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="JavaScriptlet var的区别let声明的变量    不能重复声明    作用域为该语句所在的代码块内    不存在变量提升(会报错)    存在暂时性死域（只能先声明再使用）var声明的变量    能重复声明    作用域为该语句所在的函数内    存在变量提升(变量可以在声明之前使用，值为undefined)； CommonJS中require&#x2F;exports和ES6中impor">
+<meta property="og:description" content="Welcome to my-blog!!!">
 <meta property="article:published_time" content="2020-02-08T15:07:46.000Z">
-<meta property="article:modified_time" content="2020-02-11T14:28:35.465Z">
+<meta property="article:modified_time" content="2020-02-15T13:20:50.890Z">
 <meta property="article:author" content="Guopp">
 <meta property="article:tag" content="Interview">
 <meta name="twitter:card" content="summary">
@@ -381,6 +381,10 @@
           
 
           
+              <div class="post-description">
+                  Welcome to my-blog!!!
+              </div>
+          
 
         </div>
       </header>
@@ -397,89 +401,33 @@
       
         <a id="more"></a>
 
-<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h4 id="let-var的区别"><a href="#let-var的区别" class="headerlink" title="let var的区别"></a>let var的区别</h4><p>let声明的变量<br>    不能重复声明<br>    作用域为该语句所在的代码块内<br>    不存在变量提升(会报错)<br>    存在暂时性死域（只能先声明再使用）<br>var声明的变量<br>    能重复声明<br>    作用域为该语句所在的函数内<br>    存在变量提升(变量可以在声明之前使用，值为undefined)；</p>
-<h4 id="CommonJS中require-exports和ES6中import-export区别"><a href="#CommonJS中require-exports和ES6中import-export区别" class="headerlink" title="CommonJS中require/exports和ES6中import/export区别"></a>CommonJS中require/exports和ES6中import/export区别</h4><p>CommonJS模块的重要特性是加载时执行，及脚本代码在require的时候，就会全部执行。<br>一旦出现某个模块被“循环加载”就只输出已经执行的部分，还没有执行的部分是不输出的。</p>
-<p>ES6模块的动态引用，如果使用import从一个模块加载变量，那些变量不会缓存，而是成为<br>一个指向被加载模块的引用。需要开发者自己保证，真正取值的时候能够取到值。</p>
-<p>import/export最终都是编译为require/exports来执行的</p>
-<p>CommonJS规范规定，每个模块内部，module变量代表当前模块。这个变量是一个对象，它的exports属性是对外的接口。加载某个模块，其实是加载该模块的module.exports属性。</p>
-<p>export命令规定的是对外的接口，必须与模块内部的变量建立一一对应关系。</p>
-<h4 id="几种常见模块化规范的简介"><a href="#几种常见模块化规范的简介" class="headerlink" title="几种常见模块化规范的简介"></a>几种常见模块化规范的简介</h4><p>CommonJS规范主要用于服务端编程，加载模块是同步的，这并不适合在浏览器环境，因为同步意味着阻塞加载，浏览器资源是异步加载的。<br>AMD规范在浏览器环境中异步加载模块，而且可以并行加载多个模块。不过，AMD规范开发成本高，代码的阅读和书写比较困难。<br>CMD规范与AMD规范很相似，都用于浏览器编程，依赖就近，延迟执行，可以很容易在Nodejs中运行。<br>ES6在语言标椎的层面上，实现了模块功能，而且实现的相当简单，完全可以取代CommonJS和AMD规范，成为浏览器和服务器通用的模块解决方案。</p>
-<h4 id="模块化开发是怎么做的？"><a href="#模块化开发是怎么做的？" class="headerlink" title="模块化开发是怎么做的？"></a>模块化开发是怎么做的？</h4><p>使用命名空间</p>
-<h4 id="WeakMap和Map的区别？"><a href="#WeakMap和Map的区别？" class="headerlink" title="WeakMap和Map的区别？"></a>WeakMap和Map的区别？</h4><p>WeakMap和Map结构基本类似，唯一的区别是它只接受对象作为键名（null除外），不接受其他类型的值作为键名，而且键名所指向的对象，不计入垃圾回收机制。<br>最大的好处是可以避免内存泄漏。一个仅被WeakMap作为key而引用的对象，会被垃圾回收期回收掉。<br>WeakMap有和Map类似的set(key, value), get(key), has(key), delete(key)和clear()方法，没有任何与迭代有关的属性和方法。</p>
-<h4 id="this"><a href="#this" class="headerlink" title="this"></a>this</h4><h4 id="call-Apply-Bind"><a href="#call-Apply-Bind" class="headerlink" title="call Apply Bind"></a>call Apply Bind</h4><h4 id="原型-原型链"><a href="#原型-原型链" class="headerlink" title="原型 原型链"></a>原型 原型链</h4><h4 id="闭包？"><a href="#闭包？" class="headerlink" title="闭包？"></a>闭包？</h4><p>所有函数都是闭包，闭包就是作用域范围，因为js是函数作用域，所以函数就是闭包。</p>
-<p>是一种函数，能够读取其他函数内部变量的函数。<br>用途：可以读取函数内部的变量，并让这些变量的值始终保持在内存中。</p>
-<h4 id="NaN-typeof后输出Number"><a href="#NaN-typeof后输出Number" class="headerlink" title="NaN typeof后输出Number"></a>NaN typeof后输出Number</h4><h4 id="js的隐形转换和显性转换"><a href="#js的隐形转换和显性转换" class="headerlink" title="js的隐形转换和显性转换"></a>js的隐形转换和显性转换</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">隐性转换为： 1 + &#39;1&#39; &#x3D; &#39;11&#39;</span><br><span class="line">显性转换</span><br><span class="line">Number(&quot;24 cccc&quot;);&#x2F;&#x2F;结果：NaN</span><br><span class="line">ParseInt(&quot;24 cccc&quot;);&#x2F;&#x2F;结果：24</span><br><span class="line">备注：Number的显性转换比较严格，若无法强转则直接报错</span><br><span class="line"></span><br><span class="line">面试官后引伸了两个问题</span><br><span class="line">1 + -&#39;1&#39; + 1 等于什么</span><br><span class="line">等于 0 ，&#39;1&#39;前面的负号把其数字化，变为-1，则后值为1</span><br><span class="line">&#39;A&#39; - &#39;B&#39; 等于什么</span><br><span class="line">NaN</span><br></pre></td></tr></table></figure>
-
-<h4 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h4><p>JSON是一种轻量级的数据传输格式。<br>JSONP（JSON with padding填充式JSON）：<br>    是一种非官方跨域数据交互协议，是应用JSON的一种新方法。<br>    是用来解决跨域请求问题的。<br>    由回调函数和数据两部分组成。</p>
-<p>原理：</p>
-<ul>
-<li>利用script标签的src属性来实现跨域；</li>
-<li>通过将前端方法参数传递到服务端，然后由服务的注入参数之后再返回，实现服务器向客户端通信；</li>
-<li>由于使用script标签的src属性，因此只支持get方法；</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;GoJSONP&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;jquery-1.8.3.min.js&quot;&gt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">    $(document).ready(function()&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            type : &quot;get&quot;,</span><br><span class="line">            async: false,</span><br><span class="line">            url : &quot;http:&#x2F;&#x2F;www.practice-zhao.com&#x2F;student.php?id&#x3D;1&quot;,</span><br><span class="line">            dataType: &quot;jsonp&quot;,</span><br><span class="line">            jsonp:&quot;callback&quot;, &#x2F;&#x2F;请求php的参数名</span><br><span class="line">            jsonpCallback: &quot;jsonhandle&quot;,&#x2F;&#x2F;要执行的回调函数</span><br><span class="line">            success : function(data) &#123;</span><br><span class="line">                alert(&quot;age:&quot; + data.age + &quot;name:&quot; + data.name);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="跨域请求？如何允许跨域？"><a href="#跨域请求？如何允许跨域？" class="headerlink" title="跨域请求？如何允许跨域？"></a>跨域请求？如何允许跨域？</h4><p>向不同的host的请求被称作跨域请求<br>通过设置Cors headers即Access-Control-Allow系列来允许跨域。</p>
-<h4 id="跨域问题如何解决"><a href="#跨域问题如何解决" class="headerlink" title="跨域问题如何解决"></a>跨域问题如何解决</h4><p>同源策略：浏览器安全策略，同协议、IP、端口的脚本才会执行；<br>只要协议、域名、端口有任何一个不同，都被当做是不同的域。</p>
-<p>js跨域是指通过js在不同的域之间进行数据传输或通信。</p>
-<ul>
-<li>通过jsonp跨域：<br>jsonp在页面上引入不同域上的js脚本文件实现请求不同域上的数据。<br>（1）通过script标签引入js文件；<br>（2）js文件载入成功后会执行我们在url参数中指定的参数，并且会把需要的json数据作为参数传入</li>
-<li>通过修改document.domain来跨子域；</li>
-<li>使用window.name来跨域；</li>
-</ul>
-<h4 id="new的过程"><a href="#new的过程" class="headerlink" title="new的过程"></a>new的过程</h4><p>创建一个对象通常需要：</p>
-<ul>
-<li><p>定义构造函数</p>
-</li>
-<li><p>new创建对象实例</p>
-<p>当使用new新建一个对象的时候，以new foo为例：</p>
-</li>
-<li><p>一个新的对象被创建，同时继承了对象类型的原型，即foo.prototype；</p>
-</li>
-<li><p>执行对象类型的构造函数，同时该实例的属性和方法被this引用，即this指向新构造的实例；</p>
-</li>
-<li><p>如果构造函数return了一个新的对象，那么这个对象就会取代整个new出来的结果。<br>  如果没有return对象，返回1所创建的对象，即隐式返回this</p>
-</li>
-</ul>
-<h4 id="浏览器的缓存机制"><a href="#浏览器的缓存机制" class="headerlink" title="浏览器的缓存机制"></a>浏览器的缓存机制</h4><p>浏览器缓存机制可以极大的提升用户体验。</p>
-<p>浏览器缓存就是把一个已经请求过的web资源拷贝一份到浏览器中。<br>缓存会根据进来的请求保存输入内容的副本，当下一个请求到来的时候，如果是相同的url，浏览器会根据缓存机制决定是直接使用副本响应访问请求还是向源服务器再次发起请求。</p>
-<p>使用缓存原因：</p>
-<ul>
-<li>减少网络带宽消耗，降低运营成本；</li>
-<li>降低服务器压力；</li>
-<li>减少网络延迟；</li>
-</ul>
-<p>对于浏览器的缓存来讲，这些规则是在http协议头部和html页面的meta标签中定义的。<br>它们分别从新鲜度和校验值两个维度来规定浏览器是否可以直接使用缓存中的副本，还是需要去源服务器获取新版本。</p>
-<p>过期机制：是缓存副本的有效期。<br>校验值：服务器返回资源的时候，有时在控制头信息带上这个资源的实体标签Etag，它们可以用来作为浏览器再次请求过程中的校验标识，如果不匹配，则资源已被修改或过期，浏览器需要重新获取资源内容。</p>
-<h4 id="js实现判断一个变量是否为整数的函数"><a href="#js实现判断一个变量是否为整数的函数" class="headerlink" title="js实现判断一个变量是否为整数的函数"></a>js实现判断一个变量是否为整数的函数</h4><p> 先判断是否为Number类型，再判断除以1后是否与原值相等。</p>
-<h4 id="JS作用域及This指向"><a href="#JS作用域及This指向" class="headerlink" title="JS作用域及This指向"></a>JS作用域及This指向</h4><p> 作用域:浏览器给js的一个生存环境（栈内存）。<br> 作用域链：js中的关键字var，function都可以提前声明和定义，放在内存地址（堆内存）中。<br>     然后从js从上到下逐行执行，遇到变量就去内存地址查找是否存在这个变量，如果有就用，没有就继续向父级作用域查找知道window下结束，这种查找机制就是作用域链。</p>
-<p>this是js的一个关键字，指定一个对象然后去替代它。<br>看在什么情景下使用它。<br>函数内的this指向行为发生的主体。<br>函数外的this指向window，没有意义。</p>
+<h4 id="1-JS作用域及This指向"><a href="#1-JS作用域及This指向" class="headerlink" title="1. JS作用域及This指向"></a>1. JS作用域及This指向</h4><p>作用域：浏览器给js的一个生存环境（栈内存）。</p>
+<p>作用域链：js中的关键字var，function都可以提前声明和定义，放在内存地址（堆内存）中。<br>然后从js从上到下逐行执行，遇到变量就去内存地址查找是否存在这个变量，如果有就用，没有就继续向父级作用域查找知道window下结束，这种查找机制就是作用域链。</p>
+<p>this：js的一个关键字，指定一个对象然后去替代它。<br>看在什么情景下使用它。<br>函数内的this指向行为发生的主体。<br>函数外的this指向window，没有意义。</p>
 <p>改变this的值：<br>call()、apply()、bind()</p>
-<h4 id="事件捕获和冒泡"><a href="#事件捕获和冒泡" class="headerlink" title="事件捕获和冒泡"></a>事件捕获和冒泡</h4><p>捕获型事件：事件从最不精确的对象开始触发，然后到最精确（从上到下）。</p>
-<p>冒泡型事件：事件按照从最特定的事件目标到最不特定的事件目标的顺序触发（从下到上）。</p>
-<p>类似于把一个漂浮的水面上的物品向水里砸下去，下降再上升的过程。</p>
-<p>两种方式阻止事件冒泡</p>
+<h4 id="2-call-Apply-Bind"><a href="#2-call-Apply-Bind" class="headerlink" title="2. call Apply Bind"></a>2. call Apply Bind</h4><p>作用是改变函数运行时this的指向。</p>
+<p>call：接受逗号分隔的无限多个参数，是修改函数的作用域即this的指向，且立即执行。<br>apply：接受数组作为参数，是修改函数的作用域即this的指向，且立即执行。<br>bind：返回结果是一个新的函数，不会立即执行。</p>
+<h4 id="3-原型、原型链"><a href="#3-原型、原型链" class="headerlink" title="3. 原型、原型链"></a>3. 原型、原型链</h4><p>原型指针<br>prototype：是函数独有的，每个函数上面都有一个属性prototype指向了函数的原型对象Person.pertotype；<br>总是被_proto_所指；</p>
+<p>prototype对象默认有两个属性：</p>
 <ul>
-<li><p>event.stopPropagation()：只阻止了事件往上冒泡，不阻止事件本身。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#div1&quot;).mousedown(function(event)&#123;</span><br><span class="line">	event.stopPropagation();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>return false：不仅阻止了事件往上冒泡，而且阻止了事件本身。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#div1&quot;).mousedown(function(event)&#123;</span><br><span class="line">	return false;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>constructor</li>
+<li><em>proto</em></li>
 </ul>
-<h4 id="原型、原型链"><a href="#原型、原型链" class="headerlink" title="原型、原型链"></a>原型、原型链</h4><p>原型指针<br>prototype：是函数独有的，每个函数上面都有一个属性prototype指向了函数的原型对象Person.pertotype；<br>总是被_proto_所指；<br>prototype对象默认有两个属性：constructor和_proto_；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Person：构造函数</span><br><span class="line">Person.prototype：Person的原型对象，简称原型。</span><br><span class="line">function Person() &#123;&#125;</span><br><span class="line">console.log(Person.prototype);</span><br></pre></td></tr></table></figure>
 
-<p>_proto_：每个实例上面都有一个隐式原型proto指向了函数的原型对象。<br>    是原型链查询中实际用到的，它总是指向prototype。<br>    所有对象都有_proto_属性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    function Person(name, age) &#123;</span><br><span class="line">	this.name &#x3D; name;</span><br><span class="line">	this.age &#x3D; age;</span><br><span class="line">&#125;	</span><br><span class="line">Person.prototype.showName &#x3D; function() &#123;</span><br><span class="line">	return this.name;</span><br><span class="line">&#125;</span><br><span class="line">var p1 &#x3D; new Person(&quot;SpringChang&quot;, 22);</span><br><span class="line">console.log(p1.showName());</span><br></pre></td></tr></table></figure>
+<p>_proto_：每个实例上面都有一个隐式原型proto指向了函数的原型对象。</p>
+<ul>
+<li>是原型链查询中实际用到的，它总是指向prototype。</li>
+<li>所有对象都有_proto_属性。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age) &#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">    this.age &#x3D; age;</span><br><span class="line">&#125;	</span><br><span class="line">Person.prototype.showName &#x3D; function() &#123;</span><br><span class="line">    return this.name;</span><br><span class="line">&#125;</span><br><span class="line">var p1 &#x3D; new Person(&quot;SpringChang&quot;, 22);</span><br><span class="line">console.log(p1.showName());</span><br></pre></td></tr></table></figure>
 
 <p>实例访问属性或方法的时候，遵循以下原则：</p>
 <ul>
 <li>如果实例上面存在，就用实例本身的属性和方法；</li>
 <li>如果实例上面不存在，就顺着_proto_的指向一直往上查找，查找就停止；</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    function Person(name, age) &#123;</span><br><span class="line">	this.name &#x3D; name;</span><br><span class="line">	this.age &#x3D; age;</span><br><span class="line">&#125;	</span><br><span class="line">Person.prototype.showName &#x3D; function() &#123;</span><br><span class="line">	return &quot;你调用的原型上面的方法&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var p1 &#x3D; new Person(&quot;SpringChang&quot;, 22);</span><br><span class="line">p1.showName &#x3D; function() &#123;</span><br><span class="line">	return &quot;你调用的是p2对象上面的方法&quot;;</span><br><span class="line">&#125;</span><br><span class="line">console.log(p1.showName()); &#x2F;&#x2F;输出：你调用的是p1对象上面的方法</span><br><span class="line"></span><br><span class="line">var p2 &#x3D; new Person(&quot;SpringChang&quot;, 22);</span><br><span class="line">console.log(p2.showName()); &#x2F;&#x2F;输出：你调用的原型上面的方法</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age) &#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">    this.age &#x3D; age;</span><br><span class="line">&#125;	</span><br><span class="line">Person.prototype.showName &#x3D; function() &#123;</span><br><span class="line">    return &quot;你调用的原型上面的方法&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var p1 &#x3D; new Person(&quot;SpringChang&quot;, 22);</span><br><span class="line">p1.showName &#x3D; function() &#123;</span><br><span class="line">    return &quot;你调用的是p2对象上面的方法&quot;;</span><br><span class="line">&#125;</span><br><span class="line">console.log(p1.showName()); &#x2F;&#x2F;输出：你调用的是p1对象上面的方法</span><br><span class="line"></span><br><span class="line">var p2 &#x3D; new Person(&quot;SpringChang&quot;, 22);</span><br><span class="line">console.log(p2.showName()); &#x2F;&#x2F;输出：你调用的原型上面的方法</span><br></pre></td></tr></table></figure>
 
 <p>constructor：每个函数的原型对象上面都有一个constructor属性，指向创建对象的构造函数本身。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person.prototype.constructor &#x3D;&#x3D; Person</span><br></pre></td></tr></table></figure>
@@ -488,7 +436,7 @@
 <blockquote>
 <p>每个对象都可以有一个原型_prop，这个原型可以有它自己的原型，以此类推，形成一个原型链。</p>
 </blockquote>
-<h4 id="JS中的继承方式"><a href="#JS中的继承方式" class="headerlink" title="JS中的继承方式"></a>JS中的继承方式</h4><p>面向对象的基本特征：封闭、继承、多态。</p>
+<h4 id="4-JS中的继承方式"><a href="#4-JS中的继承方式" class="headerlink" title="4. JS中的继承方式"></a>4. JS中的继承方式</h4><p>面向对象的基本特征：封闭、继承、多态。</p>
 <p>js中实现继承的方法：</p>
 <ul>
 <li>对象冒充</li>
@@ -496,7 +444,7 @@
 <li>原型链</li>
 <li>混合方式</li>
 </ul>
-<h5 id="对象冒充"><a href="#对象冒充" class="headerlink" title="对象冒充"></a>对象冒充</h5><p> JavaScript对象冒充实现继承：本质上是改变this的指向。<br>原理：</p>
+<h5 id="对象冒充"><a href="#对象冒充" class="headerlink" title="对象冒充"></a>对象冒充</h5><p>JavaScript对象冒充实现继承：本质上是改变this的指向。<br>原理：</p>
 <blockquote>
 <p>构造函数使用this关键字给所有属性和方法赋值，因为构造函数只是一个函数，所以可使classA的构造方法称为ClassB的方法，然后调用它。<br>ClassA就会收到ClassB的构造方法中定义的属性和方法。<br>对象冒充可以支持多重继承，即一个类可以继承多个类。</p>
 </blockquote>
@@ -510,100 +458,201 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function ShowColor(param1,param2)&#123;</span><br><span class="line">    this.getColor&#x3D;function()&#123;</span><br><span class="line">        document.write(this.color+&quot;&lt;br&#x2F;&gt;Two Params : &quot;+param1+&quot; ; &quot;+param2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj &#x3D; new Object;</span><br><span class="line">obj.color&#x3D;&#39;Red&#39;;</span><br><span class="line">ShowColor.apply(obj,new Array(&quot;pm1&quot;,&#39;pm2&#39;));</span><br><span class="line"></span><br><span class="line">obj.getColor();</span><br></pre></td></tr></table></figure>
 
+
 <h5 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function Person(name)&#123;</span><br><span class="line">    this.name&#x3D;name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.GetName&#x3D;function()&#123;</span><br><span class="line">    return this.name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function User(name,password)&#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">    this.password &#x3D; password;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">User.prototype &#x3D; new Person();</span><br><span class="line">User.prototype.GetPassword&#x3D;function()&#123;</span><br><span class="line">    return this.password;</span><br><span class="line">&#125;</span><br><span class="line">User是对User对象构造函数的引用,new Person()使用person构造函数创建了一个Person对象,然后把Person对象的原型置为这个操作的结果.也就是说,当每次new User()时,得到的新User对象都会带有Person对象的所有方法。</span><br></pre></td></tr></table></figure>
 
-<h4 id="箭头函数和普通函数的区别"><a href="#箭头函数和普通函数的区别" class="headerlink" title="箭头函数和普通函数的区别"></a>箭头函数和普通函数的区别</h4><p>箭头函数相当于匿名函数，并且简化了函数意义。<br>但和匿名函数有个明显的区别：<br>    箭头函数内部的this是词法作用域，由上下文确定。<br>箭头函数和es5的函数有什么区别？</p>
+
+<h4 id="5-事件捕获和冒泡"><a href="#5-事件捕获和冒泡" class="headerlink" title="5. 事件捕获和冒泡"></a>5. 事件捕获和冒泡</h4><p>捕获型事件：事件从最不精确的对象开始触发，然后到最精确（从上到下）。</p>
+<p>冒泡型事件：事件按照从最特定的事件目标到最不特定的事件目标的顺序触发（从下到上）。</p>
+<p>类似于把一个漂浮的水面上的物品向水里砸下去，下降再上升的过程。</p>
+<p>两种方式阻止事件冒泡：</p>
 <ul>
-<li><p>箭头函数没有prototype，不绑定this</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; () &#x3D;&gt;&#123;&#125;;</span><br><span class="line">console.log(a.prototype); &#x2F;&#x2F; undefined</span><br><span class="line"></span><br><span class="line">var obj &#x3D; &#123;</span><br><span class="line">    age: 1,</span><br><span class="line">    say: function() &#123;</span><br><span class="line">        setTimeout(function() &#123;</span><br><span class="line">            console.log(this, this.age); &#x2F;&#x2F; window undefined</span><br><span class="line">        &#125;, 0);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj1 &#x3D; &#123;</span><br><span class="line">    age: 1,</span><br><span class="line">    say: function() &#123;</span><br><span class="line">        setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">            &#x2F;&#x2F; this实际是其父级作用域中的this，箭头函数本身的this是不存在的，</span><br><span class="line">            &#x2F;&#x2F; 这就相当于箭头函数的this是在声明的时候就确定了</span><br><span class="line">            console.log(this, this.age); &#x2F;&#x2F; obj1 1</span><br><span class="line">        &#125;, 0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-<li><p>不可以作为构造函数来使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var Person &#x3D; (name) &#x3D;&gt; &#123; &#x2F;&#x2F; Uncaught TypeError: Person is not a constructor</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person &#x3D; new Person(&#39;Jack&#39;);</span><br></pre></td></tr></table></figure>
+<li><p>event.stopPropagation()：只阻止了事件往上冒泡，不阻止事件本身。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#div1&quot;).mousedown(function(event)&#123;</span><br><span class="line">    event.stopPropagation();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>不绑定arguments（如果要使用arguments的时候可以使用rest参数代替）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var foo &#x3D; (val) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(arguments); &#x2F;&#x2F; Uncaught ReferenceError: arguments is not defined</span><br><span class="line">&#125;;</span><br><span class="line">foo();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用rest参数代替</span><br><span class="line">var foo &#x3D; (...args) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(args); &#x2F;&#x2F; [1, 2, 3]</span><br><span class="line">&#125;;</span><br><span class="line">foo(1, 2, 3);</span><br></pre></td></tr></table></figure></li>
+<li><p>return false：不仅阻止了事件往上冒泡，而且阻止了事件本身。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#div1&quot;).mousedown(function(event)&#123;</span><br><span class="line">    return false;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="6-闭包"><a href="#6-闭包" class="headerlink" title="6. 闭包"></a>6. 闭包</h4><p>所有函数都是闭包，闭包就是作用域范围，因为js是函数作用域，所以函数就是闭包。</p>
+<p>是一种函数，能够读取其他函数内部变量的函数。<br>用途：可以读取函数内部的变量，并让这些变量的值始终保持在内存中。</p>
+<h4 id="7-new的过程"><a href="#7-new的过程" class="headerlink" title="7. new的过程"></a>7. new的过程</h4><p>创建一个对象通常需要：</p>
+<ul>
+<li>定义构造函数</li>
+<li>new创建对象实例</li>
+</ul>
+<p>当使用new新建一个对象的时候，以new foo为例：</p>
+<ul>
+<li>一个新的对象被创建，同时继承了对象类型的原型，即foo.prototype；</li>
+<li>执行对象类型的构造函数，同时该实例的属性和方法被this引用，即this指向新构造的实例；</li>
+<li>如果构造函数return了一个新的对象，那么这个对象就会取代整个new出来的结果。<br>如果没有return对象，返回1所创建的对象，即隐式返回this</li>
+</ul>
+<h4 id="8-箭头函数和普通函数的区别"><a href="#8-箭头函数和普通函数的区别" class="headerlink" title="8. 箭头函数和普通函数的区别"></a>8. 箭头函数和普通函数的区别</h4><p>箭头函数相当于匿名函数，并且简化了函数意义。</p>
+<p>但和匿名函数有个明显的区别：</p>
+<blockquote>
+<p>箭头函数内部的this是词法作用域，由上下文确定。</p>
+</blockquote>
+<p>箭头函数和es5的函数有什么区别？</p>
+<ul>
+<li>箭头函数没有prototype，不绑定this</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; () &#x3D;&gt;&#123;&#125;;</span><br><span class="line">console.log(a.prototype); &#x2F;&#x2F; undefined</span><br><span class="line"></span><br><span class="line">var obj &#x3D; &#123;</span><br><span class="line">    age: 1,</span><br><span class="line">    say: function() &#123;</span><br><span class="line">        setTimeout(function() &#123;</span><br><span class="line">            console.log(this, this.age); &#x2F;&#x2F; window undefined</span><br><span class="line">        &#125;, 0);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj1 &#x3D; &#123;</span><br><span class="line">    age: 1,</span><br><span class="line">    say: function() &#123;</span><br><span class="line">        setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">            &#x2F;&#x2F; this实际是其父级作用域中的this，箭头函数本身的this是不存在的，</span><br><span class="line">            &#x2F;&#x2F; 这就相当于箭头函数的this是在声明的时候就确定了</span><br><span class="line">            console.log(this, this.age); &#x2F;&#x2F; obj1 1</span><br><span class="line">        &#125;, 0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不可以作为构造函数来使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var Person &#x3D; (name) &#x3D;&gt; &#123; &#x2F;&#x2F; Uncaught TypeError: Person is not a constructor</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person &#x3D; new Person(&#39;Jack&#39;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不绑定arguments（如果要使用arguments的时候可以使用rest参数代替）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var foo &#x3D; (val) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(arguments); &#x2F;&#x2F; Uncaught ReferenceError: arguments is not defined</span><br><span class="line">&#125;;</span><br><span class="line">foo();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用rest参数代替</span><br><span class="line">var foo &#x3D; (...args) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(args); &#x2F;&#x2F; [1, 2, 3]</span><br><span class="line">&#125;;</span><br><span class="line">foo(1, 2, 3);</span><br></pre></td></tr></table></figure>
+<ul>
 <li><p>不可以使用yield命令，因此箭头函数不能用作Generator函数。</p>
 </li>
 <li><p>箭头函数不支持重命名函数参数，普通函数的函数参数支持重命名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function func1(a, a) &#123;</span><br><span class="line">  console.log(a, arguments); &#x2F;&#x2F; 2 [1,2]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var func2 &#x3D; (a,a) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(a); &#x2F;&#x2F; 报错：在此上下文中不允许重复参数名称</span><br><span class="line">&#125;;</span><br><span class="line">func1(1, 2); func2(1, 2);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>箭头函数相对于普通函数语法更简洁优雅<br>  箭头函数都是匿名函数，并且都不用写function</p>
 </li>
 </ul>
-<h4 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h4><p>基本类型和引用类型</p>
-<p>基本类型：number string boolean undefined null<br>引用类型：array object function</p>
-<p>基本类型：是保存在栈中的简单数据类型<br>引用类型：是保存在堆内存中的对象，即变量中保存的是指向该对象的指针。</p>
-<p>当B复制了A，如果修改A的数据，<br>B的数据发生了变化，就是浅拷贝；<br>否则就是深拷贝。</p>
-<p>实现深拷贝：<br>    array.slice()<br>    concat()<br>    array.from()<br>    object.assign()<br>    JSON.parse(JSON.stringfy(obj))</p>
-<h4 id="事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？"><a href="#事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？" class="headerlink" title="事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？"></a>事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？</h4><p>事件代理（Event Delegation），又称之为事件委托。是JavaScript中常用绑定事件的常用技巧。<br>顾名思义，“事件代理”即是把原本需要绑定在子元素的响应事件（click、keydown……）委托给父元素，让父元素担当事件监听的职务。<br>事件代理的原理是DOM元素的事件冒泡。</p>
-<p>作用：<br>    支持为同一个DOM元素注册多个同类型事件<br>    可将事件分成事件捕获和事件冒泡机制</p>
-<p>优点：<br>    可以大量节省内存占用，减少事件注册，比如在ul上代理所有li的click事件就非常棒<br>    可以实现当新增子对象时无需再次对其绑定（动态绑定事件）</p>
-<h4 id="null和undefined有什么区别？"><a href="#null和undefined有什么区别？" class="headerlink" title="null和undefined有什么区别？"></a>null和undefined有什么区别？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(null&#x3D;&#x3D;undefined)&#x2F;&#x2F;true</span><br><span class="line">console.log(null&#x3D;&#x3D;&#x3D;undefined)&#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
-<p>null和undefined 两者相等，但是当两者做全等比较时，两者又不等</p>
-<p>null： Null类型，代表“空值”，代表一个空对象指针，使用typeof运算得到 “object”，所以你可以认为它是一个特殊的对象值<br>undefined： Undefined类型，当一个声明了一个变量未初始化时，得到的就是undefined</p>
-<p>null表示”没有对象”，即该处不应该有值。典型用法是：<br>（1） 作为函数的参数，表示该函数的参数不是对象。<br>（2） 作为对象原型链的终点。</p>
-<p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。典型用法是：<br>（1）变量被声明了，但没有赋值时，就等于undefined。<br>（2) 调用函数时，应该提供的参数没有提供，该参数等于undefined。<br>（3）对象没有赋值的属性，该属性的值为undefined。<br>（4）函数没有返回值时，默认返回undefined。</p>
-<h4 id="普通函数和构造函数的区别"><a href="#普通函数和构造函数的区别" class="headerlink" title="普通函数和构造函数的区别"></a>普通函数和构造函数的区别</h4><p>1、构造函数也是一个普通函数，创建方式和普通函数一样，但构造函数习惯上首字母大写<br>2、构造函数和普通函数的区别在于：调用方式不一样。作用也不一样（构造函数用来新建实例对象）<br>3、调用方式不一样。<br>     a. 普通函数的调用方式：直接调用 person();<br>     b.构造函数的调用方式：需要使用new关键字来调用 new Person();<br>4、构造函数的函数名与类名相同：Person( ) 这个构造函数，Person 既是函数名，也是这个对象的类名<br>5、内部用this 来构造属性和方法<br>5、构造函数的执行流程<br>    A、立刻在堆内存中创建一个新的对象<br>    B、将新建的对象设置为函数中的this<br>    C、逐个执行函数中的代码<br>    D、将新建的对象作为返回值</p>
-<h4 id="设计模式有了解吗？（比如观察者模式）？"><a href="#设计模式有了解吗？（比如观察者模式）？" class="headerlink" title="设计模式有了解吗？（比如观察者模式）？"></a>设计模式有了解吗？（比如观察者模式）？</h4><p>观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态上发生变化时，会通知所有观察者对象，使它们能够自动更新自己</p>
-<h4 id="CORS原理是什么？"><a href="#CORS原理是什么？" class="headerlink" title="CORS原理是什么？"></a>CORS原理是什么？</h4><p>CORS：全称”跨域资源共享”（Cross-origin resource sharing）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function func1(a, a) &#123;</span><br><span class="line">    console.log(a, arguments); &#x2F;&#x2F; 2 [1,2]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var func2 &#x3D; (a,a) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(a); &#x2F;&#x2F; 报错：在此上下文中不允许重复参数名称</span><br><span class="line">&#125;;</span><br><span class="line">func1(1, 2); func2(1, 2);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>箭头函数相对于普通函数语法更简洁优雅<br>箭头函数都是匿名函数，并且都不用写function</li>
+</ul>
+<h4 id="9-普通函数和构造函数的区别"><a href="#9-普通函数和构造函数的区别" class="headerlink" title="9. 普通函数和构造函数的区别"></a>9. 普通函数和构造函数的区别</h4><ul>
+<li>构造函数也是一个普通函数，创建方式和普通函数一样，但构造函数习惯上首字母大写</li>
+<li>构造函数和普通函数的区别在于：调用方式不一样。作用也不一样（构造函数用来新建实例对象）</li>
+<li>调用方式不一样。<br>  a. 普通函数的调用方式：直接调用 person();<br>  b. 构造函数的调用方式：需要使用new关键字来调用 new Person();</li>
+<li>构造函数的函数名与类名相同：Person( ) 这个构造函数，Person 既是函数名，也是这个对象的类名</li>
+<li>内部用this 来构造属性和方法 </li>
+<li>构造函数的执行流程<br>  a. 立刻在堆内存中创建一个新的对象<br>  b. 将新建的对象设置为函数中的this<br>  c. 逐个执行函数中的代码<br>  d. 将新建的对象作为返回值</li>
+</ul>
+<h4 id="10-JS有没有了解过函数式编程"><a href="#10-JS有没有了解过函数式编程" class="headerlink" title="10. JS有没有了解过函数式编程"></a>10. JS有没有了解过函数式编程</h4><p>函数式编程的一个特点就是，允许把函数本身作为参数传入另一个函数，还允许返回一个函数！</p>
+<h4 id="11-跨域请求？如何允许跨域？"><a href="#11-跨域请求？如何允许跨域？" class="headerlink" title="11. 跨域请求？如何允许跨域？"></a>11. 跨域请求？如何允许跨域？</h4><p>向不同的host的请求被称作跨域请求<br>通过设置Cors headers即Access-Control-Allow系列来允许跨域。</p>
+<h4 id="12-跨域问题如何解决"><a href="#12-跨域问题如何解决" class="headerlink" title="12. 跨域问题如何解决"></a>12. 跨域问题如何解决</h4><p>同源策略：浏览器安全策略，同协议、IP、端口的脚本才会执行；<br>只要协议、域名、端口有任何一个不同，都被当做是不同的域。</p>
+<p>js跨域是指通过js在不同的域之间进行数据传输或通信。</p>
+<ul>
+<li>通过jsonp跨域：<br>jsonp在页面上引入不同域上的js脚本文件实现请求不同域上的数据。<br>  a. 通过script标签引入js文件；<br>  b. js文件载入成功后会执行我们在url参数中指定的参数，并且会把需要的json数据作为参数传入</li>
+<li>通过修改document.domain来跨子域；</li>
+<li>使用window.name来跨域；</li>
+</ul>
+<h4 id="13-JSONP"><a href="#13-JSONP" class="headerlink" title="13. JSONP"></a>13. JSONP</h4><p>JSON是一种轻量级的数据传输格式。<br>JSONP（JSON with padding填充式JSON）：</p>
+<ul>
+<li>是一种非官方跨域数据交互协议，是应用JSON的一种新方法。</li>
+<li>是用来解决跨域请求问题的。</li>
+<li>由回调函数和数据两部分组成。</li>
+</ul>
+<p>原理：</p>
+<ul>
+<li>利用script标签的src属性来实现跨域；</li>
+<li>通过将前端方法参数传递到服务端，然后由服务的注入参数之后再返回，实现服务器向客户端通信；</li>
+<li>由于使用script标签的src属性，因此只支持get方法；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;GoJSONP&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;jquery-1.8.3.min.js&quot;&gt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">    $(document).ready(function()&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            type : &quot;get&quot;,</span><br><span class="line">            async: false,</span><br><span class="line">            url : &quot;http:&#x2F;&#x2F;www.practice-zhao.com&#x2F;student.php?id&#x3D;1&quot;,</span><br><span class="line">            dataType: &quot;jsonp&quot;,</span><br><span class="line">            jsonp:&quot;callback&quot;, &#x2F;&#x2F;请求php的参数名</span><br><span class="line">            jsonpCallback: &quot;jsonhandle&quot;,&#x2F;&#x2F;要执行的回调函数</span><br><span class="line">            success : function(data) &#123;</span><br><span class="line">                alert(&quot;age:&quot; + data.age + &quot;name:&quot; + data.name);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="14-CORS"><a href="#14-CORS" class="headerlink" title="14. CORS"></a>14. CORS</h4><p>CORS：全称”跨域资源共享”（Cross-origin resource sharing）。</p>
 <p>CORS需要浏览器和服务器同时支持，才可以实现跨域请求，目前几乎所有浏览器都支持CORS，IE则不能低于IE10。CORS的整个过程都由浏览器自动完成，前端无需做任何设置，跟平时发送ajax请求并无差异。so，实现CORS的关键在于服务器，只要服务器实现CORS接口，就可以实现跨域通信。</p>
-<p>请求类型：<br>    CORS分为简单请求和非简单请求(需预检请求)两类</p>
+<p>请求类型：</p>
+<blockquote>
+<p>CORS分为简单请求和非简单请求(需预检请求)两类</p>
+</blockquote>
 <p>符合以下条件的，为简单请求</p>
-<p>请求方式使用下列方法之一：<br>    GET<br>    HEAD<br>    POST</p>
-<p>Content-Type 的值仅限于下列三者之一：<br>    text/plain<br>    multipart/form-data<br>    application/x-www-form-urlencoded</p>
+<ol>
+<li>请求方式使用下列方法之一：</li>
+</ol>
+<ul>
+<li>GET</li>
+<li>HEAD</li>
+<li>POST</li>
+</ul>
+<ol start="2">
+<li>Content-Type 的值仅限于下列三者之一：</li>
+</ol>
+<ul>
+<li>text/plain</li>
+<li>multipart/form-data</li>
+<li>application/x-www-form-urlencoded</li>
+</ul>
 <p>当发生符合非简单请求（预检请求）的条件时，浏览器会自动先发送一个options请求，如果发现服务器支持该请求，则会将真正的请求发送到后端，反之，如果浏览器发现服务端并不支持该请求，则会在控制台抛出错误。</p>
 <p>CORS从具体的代码实现上来说比较方便，前端几乎不需要写任何代码就可以支持。主要是靠服务端进行配置。而且是对各种请求方法、各种数据请求类型都是完美支持的。</p>
 <p>CORS需要浏览器和服务器同时支持。目前所有浏览器都支持该功能，IE浏览器不能低于IE10。</p>
 <p>整个CORS通信过程，都是浏览器自动完成，不需要用户参与。对于开发者来说，CORS通信与同源的AJAX通信没有差别，代码完全一样。浏览器一旦发现AJAX请求跨源，就会自动添加一些附加的头信息，有时还会多出一次附加的请求，但用户不会有感觉。</p>
 <p>因此，实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。</p>
-<h4 id="JS有没有了解过函数式编程"><a href="#JS有没有了解过函数式编程" class="headerlink" title="JS有没有了解过函数式编程"></a>JS有没有了解过函数式编程</h4><p>函数式编程的一个特点就是，允许把函数本身作为参数传入另一个函数，还允许返回一个函数！</p>
-<h4 id="postMessage原理"><a href="#postMessage原理" class="headerlink" title="postMessage原理"></a>postMessage原理</h4><h4 id="JS模块化的实践"><a href="#JS模块化的实践" class="headerlink" title="JS模块化的实践"></a>JS模块化的实践</h4><h4 id="实现gulp的功能"><a href="#实现gulp的功能" class="headerlink" title="实现gulp的功能"></a>实现gulp的功能</h4><h4 id="介绍一下ES5的-defineProperty"><a href="#介绍一下ES5的-defineProperty" class="headerlink" title="介绍一下ES5的 defineProperty"></a>介绍一下ES5的 defineProperty</h4><p>Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，<br>并返回这个对象。</p>
-<h4 id="Ajax的工作流程"><a href="#Ajax的工作流程" class="headerlink" title="Ajax的工作流程"></a>Ajax的工作流程</h4><p>实现一个AJAX异步调用和局部刷新,通常需要以下几个步骤:<br>    创建XMLHttpRequest对象,也就是创建一个异步调用对象.<br>    创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.<br>    设置响应HTTP请求状态变化的函数.<br>    发送HTTP请求.<br>    获取异步调用返回的数据.<br>    使用JavaScript和DOM实现局部刷新.</p>
-<h4 id="导致内存泄露的有哪些"><a href="#导致内存泄露的有哪些" class="headerlink" title="导致内存泄露的有哪些"></a>导致内存泄露的有哪些</h4><p>内存泄漏是指不再用到的内存，没有及时释放。既不能使用，又不能回收。</p>
+<h4 id="15-浏览器的缓存机制"><a href="#15-浏览器的缓存机制" class="headerlink" title="15. 浏览器的缓存机制"></a>15. 浏览器的缓存机制</h4><p>浏览器缓存机制可以极大的提升用户体验。</p>
+<p>浏览器缓存就是把一个已经请求过的web资源拷贝一份到浏览器中。<br>缓存会根据进来的请求保存输入内容的副本，当下一个请求到来的时候，如果是相同的url，浏览器会根据缓存机制决定是直接使用副本响应访问请求还是向源服务器再次发起请求。</p>
+<p>使用缓存原因：</p>
+<ul>
+<li>减少网络带宽消耗，降低运营成本；</li>
+<li>降低服务器压力；</li>
+<li>减少网络延迟；</li>
+</ul>
+<p>对于浏览器的缓存来讲，这些规则是在http协议头部和html页面的meta标签中定义的。<br>它们分别从新鲜度和校验值两个维度来规定浏览器是否可以直接使用缓存中的副本，还是需要去源服务器获取新版本。</p>
+<p>过期机制：是缓存副本的有效期。<br>校验值：服务器返回资源的时候，有时在控制头信息带上这个资源的实体标签Etag，它们可以用来作为浏览器再次请求过程中的校验标识，如果不匹配，则资源已被修改或过期，浏览器需要重新获取资源内容。</p>
+<h4 id="16-如何实现预加载，懒加载"><a href="#16-如何实现预加载，懒加载" class="headerlink" title="16. 如何实现预加载，懒加载"></a>16. 如何实现预加载，懒加载</h4><h5 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h5><p>懒加载也就是延迟加载; 当访问一个页面时,先将img标签中的src链接设为同一张图片(这样就只需请求一次,俗称占位图), 将其真正的图片地址存储在img标签的自定义属性中(比如data-src); 当js监听到该图片元素进入可视窗口时,即将自定义属性中的地址存储到src属性中,达到懒加载的效果; 这样做能防止页面一次性向服务器响应大量请求导致服务器响应慢页面卡顿或崩溃等问题</p>
+<ul>
+<li><p>为什么要使用懒加载？<br>  懒加载对于图片较多页面很长的业务场景很适用,可以减少无效资源的加载</p>
+</li>
+<li><p>懒加载的实现步骤<br>  首先,不要将图片地址放到src属性中,而是放到其它属性(data-src)中<br>  页面加载完成后,根据scrollTop判断图片是否在用户的视野内, 如果在,则将data-original属性中的值取出存放到src属性中<br>  在滚动事件中重复判断图片是否进入视野; 如果进入,则将data-original属性中的值取出存放到src属性中<br>  代码实现</p>
+</li>
+</ul>
+<p>利用懒加载和AJAX,我们还可以实现无限滚动查看时间线/ 在滚动页面一段距离后出现回到顶部按钮的效果</p>
+<ul>
+<li>懒加载的优点<br>  显著的提高页面加载速度,又不下载多余的资源节省了流量; 同时更少的图片并发请求数也可以减轻服务器的压力</li>
+</ul>
+<h5 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h5><p>提前加载图片,当用户需要查看时可直接从本地缓存中渲染</p>
+<ul>
+<li><p>为什么要使用预加载？<br>  图片预先加载到浏览器中,访问者可顺利地在网站上冲浪,并享受到极快的加载速度; 这对图片占据很大比例的网站来说十分有利,保证了图片快速/无缝地发布, 也可帮助用户在浏览网站内容时获得更好的用户体验</p>
+</li>
+<li><p>预加载的核心要点如下:<br>  图片等静态资源在使用前提前请求; 资源后续使用时可以从缓存中加载,提升用户体验; 页面展示的依赖关系维护(必需的资源加载完才可以展示页面,防止白屏等)</p>
+</li>
+<li><p>实现预加载主要有三个方法:<br>  用CSS和JavaScript实现预加载<br>  实现预加载图片有很多方法,包括使用CSS/JavaScript/两者的各种组合, 这些技术可根据不同设计场景设计出相应的解决方案,十分高效</p>
+</li>
+</ul>
+<h4 id="17-事件委托"><a href="#17-事件委托" class="headerlink" title="17. 事件委托"></a>17. 事件委托</h4><p>事件代理（Event Delegation），又称之为事件委托。是JavaScript中常用绑定事件的常用技巧。<br>顾名思义，“事件代理”即是把原本需要绑定在子元素的响应事件（click、keydown……）委托给父元素，让父元素担当事件监听的职务。<br>事件代理的原理是DOM元素的事件冒泡。</p>
+<ul>
+<li><p>作用<br>  支持为同一个DOM元素注册多个同类型事件<br>  可将事件分成事件捕获和事件冒泡机制</p>
+</li>
+<li><p>优点<br>  可以大量节省内存占用，减少事件注册，比如在ul上代理所有li的click事件就非常棒<br>  可以实现当新增子对象时无需再次对其绑定（动态绑定事件）</p>
+</li>
+</ul>
+<h4 id="18-设计模式有了解吗？（比如观察者模式）？"><a href="#18-设计模式有了解吗？（比如观察者模式）？" class="headerlink" title="18. 设计模式有了解吗？（比如观察者模式）？"></a>18. 设计模式有了解吗？（比如观察者模式）？</h4><p>观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态上发生变化时，会通知所有观察者对象，使它们能够自动更新自己</p>
+<h4 id="19-Ajax的工作流程"><a href="#19-Ajax的工作流程" class="headerlink" title="19. Ajax的工作流程"></a>19. Ajax的工作流程</h4><p>实现一个AJAX异步调用和局部刷新,通常需要以下几个步骤:</p>
+<ul>
+<li>创建XMLHttpRequest对象,也就是创建一个异步调用对象.</li>
+<li>创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.</li>
+<li>设置响应HTTP请求状态变化的函数.</li>
+<li>发送HTTP请求.</li>
+<li>获取异步调用返回的数据.</li>
+<li>使用JavaScript和DOM实现局部刷新.</li>
+</ul>
+<h4 id="20-导致内存泄露的有哪些"><a href="#20-导致内存泄露的有哪些" class="headerlink" title="20. 导致内存泄露的有哪些"></a>20. 导致内存泄露的有哪些</h4><p>内存泄漏是指不再用到的内存，没有及时释放。既不能使用，又不能回收。</p>
 <p>程序的运行需要内存。对于持续运行的进程，如果不及时释放不再用到的内存，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。</p>
-<p>导致内存泄漏的几种情况</p>
+<p>导致内存泄漏的几种情况：</p>
 <ol>
-<li>意外的全局变量<br>function leaks(){<br>leak = ‘xxxxxx’;//leak 成为一个全局变量，不会被回收<br>}</li>
+<li>意外的全局变量</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function leaks()&#123; </span><br><span class="line">   leak &#x3D; &#39;xxxxxx&#39;;&#x2F;&#x2F;leak 成为一个全局变量，不会被回收</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>调用完函数以后，变量仍然存在,导致泄漏.<br>你可以通过加上 ‘use strict’ 启用严格模式来避免这类问题, 严格模式会阻止你创建意外的全局变量.</p>
 <ol start="2">
 <li>闭包<br>闭包可以维持函数内局部变量，使其得不到释放。<br>解决办法：在函数外部定义事件处理函数，解除闭包。或在闭包中，删除没用的属性以减少对内存的消耗。或在外部函数中删除对DOM的引用</li>
 </ol>
-<p>function bindEvent()<br>{<br>var obj=document.createElement(“XXX”);<br>obj.onclick=function(){<br>//Even if it’s a empty function<br>}<br>obj=null;<br>}<br>3. 未清除 dom 元素的引用<br>dom 元素移除，但 对 dom 元素的引用没有解除，会导致内存泄漏。<br>解决办法：手工移除。</p>
-<p>var elements = {<br>button: document.getElementById(‘button’),<br>image: document.getElementById(‘image’)<br>}</p>
-<p>function doStuff() {<br>image.src = ‘<a href="http://some.url/image&#39;" target="_blank" rel="noopener">http://some.url/image&#39;</a>;<br>button.click();<br>console.log(text.innerHTML);<br>}</p>
-<p>function removeButton() {<br>document.body.removeChild(document.getElementById(‘button’));<br>// 虽然我们用removeChild移除了button, 但是还在elements对象里保存着#button的引用<br>// 换言之, DOM元素还在内存里面.<br>}<br>4.循环引用<br>循环引用 在引用计数策略下会导致内存泄漏，标记清除不会。<br>解决办法：手工解除循环引用。</p>
-<p>function fn() {<br>var a = {};<br>var b = {};<br>a.pro = b;<br>b.pro = a;<br>}<br>fn();</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function bindEvent() </span><br><span class="line">&#123; </span><br><span class="line">    var obj&#x3D;document.createElement(&quot;XXX&quot;); </span><br><span class="line">    obj.onclick&#x3D;function()&#123; </span><br><span class="line">    &#x2F;&#x2F;Even if it&#39;s a empty function </span><br><span class="line">    &#125; </span><br><span class="line">    obj&#x3D;null; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>未清除 dom 元素的引用<br>dom 元素移除，但对dom元素的引用没有解除，会导致内存泄漏。<br>解决办法：手工移除。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var elements &#x3D; &#123;</span><br><span class="line">    button: document.getElementById(&#39;button&#39;),</span><br><span class="line">    image: document.getElementById(&#39;image&#39;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function doStuff() &#123;</span><br><span class="line">    image.src &#x3D; &#39;http:&#x2F;&#x2F;some.url&#x2F;image&#39;;</span><br><span class="line">    button.click();</span><br><span class="line">    console.log(text.innerHTML);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function removeButton() &#123;</span><br><span class="line">    document.body.removeChild(document.getElementById(&#39;button&#39;));</span><br><span class="line">    &#x2F;&#x2F; 虽然我们用removeChild移除了button, 但是还在elements对象里保存着#button的引用</span><br><span class="line">    &#x2F;&#x2F; 换言之, DOM元素还在内存里面.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>循环引用<br>循环引用 在引用计数策略下会导致内存泄漏，标记清除不会。<br>解决办法：手工解除循环引用。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">    var a &#x3D; &#123;&#125;;</span><br><span class="line">    var b &#x3D; &#123;&#125;;</span><br><span class="line">    a.pro &#x3D; b;</span><br><span class="line">    b.pro &#x3D; a;</span><br><span class="line">&#125; </span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
 <p>a和b的引用次数都是2，fn()执行完毕后，两个对象都已经离开环境。<br>在标记清除方式下是没有问题的，但是在引用计数策略下，a和b的引用次数不为0，不会被垃圾回收器回收内存。如果fn函数被大量调用，就会造成内存泄漏。</p>
 <p>IE中的BOM和DOM中的对象使用C++以COM（component Object Model，组件对象模型）对象的形式实现而COM对象的垃圾收集机制采用的是引用计数策略。换句话说，只要在IE中涉及COM对象，就会存在循环引用的问题。</p>
-<p>var element = document.getElementById(“some_element”);<br>var myObject = new Object();<br>myObject.e = element;<br>element.o = myObject;<br>//手工断开它们之间的连接<br>myObject.element=null;<br>element.someObject=null;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var element &#x3D; document.getElementById(&quot;some_element&quot;);</span><br><span class="line">var myObject &#x3D; new Object();</span><br><span class="line">myObject.e &#x3D; element;</span><br><span class="line">element.o &#x3D; myObject;</span><br><span class="line">&#x2F;&#x2F;手工断开它们之间的连接</span><br><span class="line">myObject.element&#x3D;null;</span><br><span class="line">element.someObject&#x3D;null;</span><br></pre></td></tr></table></figure>
 <ol start="5">
-<li>被遗忘的计时器或回调<br>var someResource = getData();<br>setInterval(function() {<br>var node = document.getElementById(‘Node’);<br>if(node) {<br>node.innerHTML = JSON.stringify(someResource));<br>}<br>}, 1000);</li>
+<li>被遗忘的计时器或回调</li>
 </ol>
-<h4 id="如何实现预加载，懒加载"><a href="#如何实现预加载，懒加载" class="headerlink" title="如何实现预加载，懒加载"></a>如何实现预加载，懒加载</h4><p>什么是懒加载</p>
-<p>懒加载也就是延迟加载; 当访问一个页面时,先将img标签中的src链接设为同一张图片(这样就只需请求一次,俗称占位图), 将其真正的图片地址存储在img标签的自定义属性中(比如data-src); 当js监听到该图片元素进入可视窗口时,即将自定义属性中的地址存储到src属性中,达到懒加载的效果; 这样做能防止页面一次性向服务器响应大量请求导致服务器响应慢页面卡顿或崩溃等问题</p>
-<p>为什么要使用懒加载<br>    懒加载对于图片较多页面很长的业务场景很适用,可以减少无效资源的加载</p>
-<p>懒加载的实现步骤<br>    首先,不要将图片地址放到src属性中,而是放到其它属性(data-src)中<br>    页面加载完成后,根据scrollTop判断图片是否在用户的视野内, 如果在,则将data-original属性中的值取出存放到src属性中<br>    在滚动事件中重复判断图片是否进入视野; 如果进入,则将data-original属性中的值取出存放到src属性中<br>    代码实现</p>
-<p>利用懒加载和AJAX,我们还可以实现无限滚动查看时间线/ 在滚动页面一段距离后出现回到顶部按钮的效果</p>
-<p>懒加载的优点<br>    显著的提高页面加载速度,又不下载多余的资源节省了流量; 同时更少的图片并发请求数也可以减轻服务器的压力</p>
-<p>什么是预加载<br>    提前加载图片,当用户需要查看时可直接从本地缓存中渲染</p>
-<p>为什么要使用预加载<br>    图片预先加载到浏览器中,访问者可顺利地在网站上冲浪,并享受到极快的加载速度; 这对图片占据很大比例的网站来说十分有利,保证了图片快速/无缝地发布, 也可帮助用户在浏览网站内容时获得更好的用户体验</p>
-<p>预加载的核心要点如下:<br>    图片等静态资源在使用前提前请求; 资源后续使用时可以从缓存中加载,提升用户体验; 页面展示的依赖关系维护(必需的资源加载完才可以展示页面,防止白屏等)</p>
-<p>实现预加载主要有三个方法:<br>    用CSS和JavaScript实现预加载<br>    实现预加载图片有很多方法,包括使用CSS/JavaScript/两者的各种组合, 这些技术可根据不同设计场景设计出相应的解决方案,十分高效</p>
-<h4 id="ES6模块加载机制"><a href="#ES6模块加载机制" class="headerlink" title="ES6模块加载机制"></a>ES6模块加载机制</h4><p>ES6 实现了模块功能</p>
-<p>将文件当作独立的模块，一个文件一个模块</p>
-<p>每个模块可以导出自己的API成员，也可以导入其他模块或者模块中特定的API</p>
-<p>ES6 模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS 和 AMD 模块，都只能在运行时确定这些东西。比如，CommonJS 模块就是对象，输入时必须查找对象属性。</p>
-<p>所以编译期会检查对导入模块的API或成员的引用</p>
-<p>模块有两个主要特征：</p>
-<p>为创建内部作用域而调用了一个包装函数<br>包装函数的返回值至少包括一个对内部函数的引用，这样就会创建涵盖整个包装函数内部作用域的闭包</p>
-<h4 id="map、each、some、forEach"><a href="#map、each、some、forEach" class="headerlink" title="map、each、some、forEach"></a>map、each、some、forEach</h4><p>map<br>map遍历数组，克隆原数组，对新数组进行操作并返回一个新的数组，滥用map会造成内存浪费；<br>有return；</p>
-<p>each<br>返回原来的数组，不会创建一个新的数组；<br>无return；</p>
-<p>every<br>当内部return false时跳出整个循环；<br>有一项不满足元素，则整个表达式返回false，剩余元素不再执行；</p>
-<p>some<br>当内部return true时跳出整个循环；<br>有一个元素满足条件，则表达式返回true，剩余元素不再执行；</p>
-<p>foreach<br>没有返回值；<br>对原本数组进行操作；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var array &#x3D; [1,2,3,4,5];  </span><br><span class="line">var res &#x3D; _.forEach(array, function (item,index,input) &#123;  </span><br><span class="line">       input[index] &#x3D; item*10;  </span><br><span class="line">&#125;)  </span><br><span class="line">console.log(res);&#x2F;&#x2F;&#x3D;&gt;undefined</span><br><span class="line">console.log(array);&#x2F;&#x2F;&#x3D;&gt;[10,20,30,40,50]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var res &#x3D; _.map(array, function (item,index,input) &#123;  </span><br><span class="line">       input[index] &#x3D; item*10;  </span><br><span class="line">&#125;)  </span><br><span class="line">console.log(res);&#x2F;&#x2F;&#x3D;&gt;[10,20,30,40,50]</span><br><span class="line">console.log(array);&#x2F;&#x2F;&#x3D;&gt;[1,2,3,4,5]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var someResource &#x3D; getData();</span><br><span class="line">setInterval(function() &#123;</span><br><span class="line">    var node &#x3D; document.getElementById(&#39;Node&#39;);</span><br><span class="line">    if(node) &#123;</span><br><span class="line">        node.innerHTML &#x3D; JSON.stringify(someResource));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure>
 
-<h4 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h4><ol>
+<h4 id="21-XSS"><a href="#21-XSS" class="headerlink" title="21. XSS"></a>21. XSS</h4><ol>
 <li><p>什么是XSS？<br> 全称是Cross Site Scripting即跨站脚本。<br> XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。<br> 当目标网站目标用户浏览器渲染Html文档的过程中，出现了不被预期的脚本指令并执行时，XSS就发生了。</p>
 </li>
 <li><p>XSS分类</p>
@@ -618,7 +667,9 @@
 <li><p>DOM XSS（不经过后端，DOM-xss是通过url传入参数去控制触发的）<br>  DOM XSS和反射型XSS、存储型XSS的差别在于DOM XSS的代码并不需要服务器参与，触发XSS靠的是浏览器端的DOM解析，完全是客户端的事情。</p>
 </li>
 </ul>
-<p>3、主要危害</p>
+<ol start="3">
+<li>主要危害</li>
+</ol>
 <ul>
 <li>盗取各类用户账号，如机器登录账号、用户网银账号、各类管理员账号</li>
 <li>控制企业数据、包括读取、篡改、添加、删除企业敏感数据能力</li>
@@ -628,14 +679,31 @@
 <li>网站挂马</li>
 <li>控制受害者机器向其它网站发起攻击</li>
 </ul>
-<p>4、防范手段</p>
+<ol start="4">
+<li>防范手段</li>
+</ol>
 <ul>
 <li>入参字符过滤<br>  在源头控制，把输入的一些不合法的东西都过滤掉，从而保证安全性。<br>  如：移除用户提交的DOM属性onerror，移除用户上传的style节点</li>
 <li>出参进行编码<br>  如果源头没控制好，就得后期补救了：像一些常见的符号，如&lt;&gt;在输出的时候要对其进行转换编码，这样浏览器不会对该标签进行解释执行，同时不影响显示效果</li>
 <li>入参长度限制<br>  xss攻击要达成往往需要较长的字符串，因此对于一些可以预期的输入可以通过限制长度强制截断来预防。</li>
 <li>设置cookie httponly为true</li>
 </ul>
+<h4 id="22-深浅拷贝"><a href="#22-深浅拷贝" class="headerlink" title="22. 深浅拷贝"></a>22. 深浅拷贝</h4><p>基本类型和引用类型</p>
+<p>基本类型：number string boolean undefined null date<br>引用类型：array object function Math（Math和array object function的区别）</p>
+<p>基本类型：是保存在栈中的简单数据类型<br>引用类型：是保存在堆内存中的对象，即变量中保存的是指向该对象的指针。</p>
+<p>当B复制了A，如果修改A的数据，<br>B的数据发生了变化，就是浅拷贝；<br>否则就是深拷贝。</p>
+<p>实现深拷贝：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">array.slice()</span><br><span class="line">concat()</span><br><span class="line">array.from()</span><br><span class="line">object.assign()</span><br><span class="line">JSON.parse(JSON.stringfy(obj))</span><br></pre></td></tr></table></figure>
 
+<h4 id="23-js实现判断一个变量是否为整数的函数"><a href="#23-js实现判断一个变量是否为整数的函数" class="headerlink" title="23. js实现判断一个变量是否为整数的函数"></a>23. js实现判断一个变量是否为整数的函数</h4><p>先判断是否为Number类型，再判断除以1后是否与原值相等。</p>
+<h4 id="24-null和undefined有什么区别？"><a href="#24-null和undefined有什么区别？" class="headerlink" title="24. null和undefined有什么区别？"></a>24. null和undefined有什么区别？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(null&#x3D;&#x3D;undefined)&#x2F;&#x2F;true</span><br><span class="line">console.log(null&#x3D;&#x3D;&#x3D;undefined)&#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+<p>null和undefined 两者相等，但是当两者做全等比较时，两者又不等</p>
+<p>null： Null类型，代表“空值”，代表一个空对象指针，使用typeof运算得到 “object”，所以你可以认为它是一个特殊的对象值<br>undefined： Undefined类型，当一个声明了一个变量未初始化时，得到的就是undefined</p>
+<p>null表示”没有对象”，即该处不应该有值。典型用法是：<br>    a. 作为函数的参数，表示该函数的参数不是对象。<br>    b. 作为对象原型链的终点。</p>
+<p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。典型用法是：<br>    a. 变量被声明了，但没有赋值时，就等于undefined。<br>    b. 调用函数时，应该提供的参数没有提供，该参数等于undefined。<br>    c. 对象没有赋值的属性，该属性的值为undefined。<br>    d. 函数没有返回值时，默认返回undefined。</p>
+<h4 id="25-NaN-typeof后输出Number"><a href="#25-NaN-typeof后输出Number" class="headerlink" title="25. NaN typeof后输出Number"></a>25. NaN typeof后输出Number</h4><h4 id="26-js的隐形转换和显性转换"><a href="#26-js的隐形转换和显性转换" class="headerlink" title="26. js的隐形转换和显性转换"></a>26. js的隐形转换和显性转换</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">隐性转换为： 1 + &#39;1&#39; &#x3D; &#39;11&#39;</span><br><span class="line"></span><br><span class="line">显性转换</span><br><span class="line">Number(&quot;24 cccc&quot;);&#x2F;&#x2F;结果：NaN</span><br><span class="line">ParseInt(&quot;24 cccc&quot;);&#x2F;&#x2F;结果：24</span><br><span class="line">备注：Number的显性转换比较严格，若无法强转则直接报错</span><br><span class="line"></span><br><span class="line">面试官后引伸了两个问题</span><br><span class="line">1 + -&#39;1&#39; + 1 等于什么</span><br><span class="line">等于 0 ，&#39;1&#39;前面的负号把其数字化，变为-1，则后值为1</span><br><span class="line">&#39;A&#39; - &#39;B&#39; 等于什么</span><br><span class="line">NaN</span><br></pre></td></tr></table></figure>
+
+<h4 id="postMessage原理"><a href="#postMessage原理" class="headerlink" title="postMessage原理"></a>postMessage原理</h4><h4 id="JS模块化的实践"><a href="#JS模块化的实践" class="headerlink" title="JS模块化的实践"></a>JS模块化的实践</h4><h4 id="实现gulp的功能"><a href="#实现gulp的功能" class="headerlink" title="实现gulp的功能"></a>实现gulp的功能</h4>
       
     </div>
     
@@ -809,7 +877,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -887,7 +955,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#let-var的区别"><span class="nav-text">let var的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CommonJS中require-exports和ES6中import-export区别"><span class="nav-text">CommonJS中require&#x2F;exports和ES6中import&#x2F;export区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几种常见模块化规范的简介"><span class="nav-text">几种常见模块化规范的简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块化开发是怎么做的？"><span class="nav-text">模块化开发是怎么做的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WeakMap和Map的区别？"><span class="nav-text">WeakMap和Map的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this"><span class="nav-text">this</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#call-Apply-Bind"><span class="nav-text">call Apply Bind</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型-原型链"><span class="nav-text">原型 原型链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包？"><span class="nav-text">闭包？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NaN-typeof后输出Number"><span class="nav-text">NaN typeof后输出Number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js的隐形转换和显性转换"><span class="nav-text">js的隐形转换和显性转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSONP"><span class="nav-text">JSONP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跨域请求？如何允许跨域？"><span class="nav-text">跨域请求？如何允许跨域？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跨域问题如何解决"><span class="nav-text">跨域问题如何解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new的过程"><span class="nav-text">new的过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器的缓存机制"><span class="nav-text">浏览器的缓存机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js实现判断一个变量是否为整数的函数"><span class="nav-text">js实现判断一个变量是否为整数的函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS作用域及This指向"><span class="nav-text">JS作用域及This指向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件捕获和冒泡"><span class="nav-text">事件捕获和冒泡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型、原型链"><span class="nav-text">原型、原型链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS中的继承方式"><span class="nav-text">JS中的继承方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对象冒充"><span class="nav-text">对象冒充</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#call实现对象冒充"><span class="nav-text">call实现对象冒充</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#apply方法实现对象冒充"><span class="nav-text">apply方法实现对象冒充</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原型继承"><span class="nav-text">原型继承</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#箭头函数和普通函数的区别"><span class="nav-text">箭头函数和普通函数的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深浅拷贝"><span class="nav-text">深浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？"><span class="nav-text">事件委托的概念你了解吗？您知道这个概念是怎样的？事件委托主要解决什么问题呢？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null和undefined有什么区别？"><span class="nav-text">null和undefined有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#普通函数和构造函数的区别"><span class="nav-text">普通函数和构造函数的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设计模式有了解吗？（比如观察者模式）？"><span class="nav-text">设计模式有了解吗？（比如观察者模式）？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CORS原理是什么？"><span class="nav-text">CORS原理是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS有没有了解过函数式编程"><span class="nav-text">JS有没有了解过函数式编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#postMessage原理"><span class="nav-text">postMessage原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS模块化的实践"><span class="nav-text">JS模块化的实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现gulp的功能"><span class="nav-text">实现gulp的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍一下ES5的-defineProperty"><span class="nav-text">介绍一下ES5的 defineProperty</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ajax的工作流程"><span class="nav-text">Ajax的工作流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导致内存泄露的有哪些"><span class="nav-text">导致内存泄露的有哪些</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何实现预加载，懒加载"><span class="nav-text">如何实现预加载，懒加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6模块加载机制"><span class="nav-text">ES6模块加载机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map、each、some、forEach"><span class="nav-text">map、each、some、forEach</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS"><span class="nav-text">XSS</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-JS作用域及This指向"><span class="nav-text">1. JS作用域及This指向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-call-Apply-Bind"><span class="nav-text">2. call Apply Bind</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-原型、原型链"><span class="nav-text">3. 原型、原型链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-JS中的继承方式"><span class="nav-text">4. JS中的继承方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对象冒充"><span class="nav-text">对象冒充</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#call实现对象冒充"><span class="nav-text">call实现对象冒充</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#apply方法实现对象冒充"><span class="nav-text">apply方法实现对象冒充</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原型继承"><span class="nav-text">原型继承</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-事件捕获和冒泡"><span class="nav-text">5. 事件捕获和冒泡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-闭包"><span class="nav-text">6. 闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-new的过程"><span class="nav-text">7. new的过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-箭头函数和普通函数的区别"><span class="nav-text">8. 箭头函数和普通函数的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-普通函数和构造函数的区别"><span class="nav-text">9. 普通函数和构造函数的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-JS有没有了解过函数式编程"><span class="nav-text">10. JS有没有了解过函数式编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-跨域请求？如何允许跨域？"><span class="nav-text">11. 跨域请求？如何允许跨域？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-跨域问题如何解决"><span class="nav-text">12. 跨域问题如何解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-JSONP"><span class="nav-text">13. JSONP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-CORS"><span class="nav-text">14. CORS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-浏览器的缓存机制"><span class="nav-text">15. 浏览器的缓存机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-如何实现预加载，懒加载"><span class="nav-text">16. 如何实现预加载，懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#懒加载"><span class="nav-text">懒加载</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#预加载"><span class="nav-text">预加载</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-事件委托"><span class="nav-text">17. 事件委托</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18-设计模式有了解吗？（比如观察者模式）？"><span class="nav-text">18. 设计模式有了解吗？（比如观察者模式）？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-Ajax的工作流程"><span class="nav-text">19. Ajax的工作流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-导致内存泄露的有哪些"><span class="nav-text">20. 导致内存泄露的有哪些</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-XSS"><span class="nav-text">21. XSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-深浅拷贝"><span class="nav-text">22. 深浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#23-js实现判断一个变量是否为整数的函数"><span class="nav-text">23. js实现判断一个变量是否为整数的函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#24-null和undefined有什么区别？"><span class="nav-text">24. null和undefined有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#25-NaN-typeof后输出Number"><span class="nav-text">25. NaN typeof后输出Number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#26-js的隐形转换和显性转换"><span class="nav-text">26. js的隐形转换和显性转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#postMessage原理"><span class="nav-text">postMessage原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS模块化的实践"><span class="nav-text">JS模块化的实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现gulp的功能"><span class="nav-text">实现gulp的功能</span></a></li></ol></div>
             
 
           </div>
@@ -905,7 +973,7 @@
           <h3 class="widget-title">标签</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knex/" rel="tag">Knex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/" rel="tag">Net</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proto3/" rel="tag">Proto3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gRPC/" rel="tag">gRPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knex/" rel="tag">Knex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/" rel="tag">Net</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proto3/" rel="tag">Proto3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gRPC/" rel="tag">gRPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>

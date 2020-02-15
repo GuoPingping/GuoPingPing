@@ -14,8 +14,8 @@
 
 <script>
 (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
+        if('1029'){
+            if (prompt('请输入文章密码') !== '1029'){
                 alert('密码错误！');
                 history.back();
             }
@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Node," />
+  <meta name="keywords" content="Interview," />
 
 
 
@@ -91,16 +91,16 @@
 
 
 
-<meta name="description" content="HTTP要使用HTTP服务器和客户端，必须require(‘http’);">
+<meta name="description" content="Welcome to my-blog!!!">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NodeJs之Http">
-<meta property="og:url" content="http://gpp-note.top/articles/2020-02-02-node-Http.html">
+<meta property="og:title" content="ES6">
+<meta property="og:url" content="http://gpp-note.top/articles/2020-02-12-interview-ES6.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="HTTP要使用HTTP服务器和客户端，必须require(‘http’);">
-<meta property="article:published_time" content="2020-02-02T10:28:32.000Z">
-<meta property="article:modified_time" content="2020-02-05T11:38:37.118Z">
+<meta property="og:description" content="Welcome to my-blog!!!">
+<meta property="article:published_time" content="2020-02-12T09:40:14.000Z">
+<meta property="article:modified_time" content="2020-02-15T13:21:01.355Z">
 <meta property="article:author" content="Guopp">
-<meta property="article:tag" content="Node">
+<meta property="article:tag" content="Interview">
 <meta name="twitter:card" content="summary">
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://gpp-note.top/articles/2020-02-02-node-Http.html"/>
+  <link rel="canonical" href="http://gpp-note.top/articles/2020-02-12-interview-ES6.html"/>
 
 
 
 
 
-  <title>NodeJs之Http | Welcome to my-blog</title>
+  <title>ES6 | Welcome to my-blog</title>
   
 
 
@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-02-node-Http.html">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-12-interview-ES6.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guopp">
@@ -313,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">NodeJs之Http</h1>
+          <h1 class="post-title" itemprop="name headline">ES6</h1>
         
 
         <div class="post-meta">
@@ -325,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-02T18:28:32+08:00">
-                2020-02-02 18:28:32
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-12T17:40:14+08:00">
+                2020-02-12 17:40:14
               </time>
             
 
@@ -348,8 +348,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
+                  <a href="/categories/Interview/" itemprop="url" rel="index">
+                    <span itemprop="name">Interview</span>
                   </a>
                 </span>
 
@@ -366,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/2020-02-02-node-Http.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-02-node-Http.html" itemprop="commentCount"></span>
+                <a href="/articles/2020-02-12-interview-ES6.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-12-interview-ES6.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -380,6 +380,10 @@
 
           
 
+          
+              <div class="post-description">
+                  Welcome to my-blog!!!
+              </div>
           
 
         </div>
@@ -395,35 +399,64 @@
       
 
       
-        <h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>要使用HTTP服务器和客户端，必须require(‘http’);</p>
-<a id="more"></a>
+        <a id="more"></a>
 
-<h4 id="http-Agent类"><a href="#http-Agent类" class="headerlink" title="http.Agent类"></a>http.Agent类</h4><p>Agent负责管理HTTP客户端的链接持久性和重用。</p>
-<p>它为给定的主机和端口维护一个待处理请求队列，为每个请求重用单独的套接字连接，<br>直到队列为空，此时套接字被销毁或放入连接池，以便再次用于请求到同一个主机和端口。</p>
-<p>销毁还是放入连接池取决于keepAlive选项。</p>
-<p>连接池中的连接已启用TCP Keep-Alive，但服务器仍可能关闭空闲连接，<br>这种情况下，它们将从连接池中删除，并且当为该主机和端口发出新的HTTP请求时将建立新的连接。<br>服务器也可以拒绝通过同一连接允许多个请求，在这种情况下，必须为每个请求重新建立连接，<br>并且不能放入连接池。Agent仍将向该服务器发出请求，但每个请求都将通过新连接发生。</p>
-<p>当客户端或服务器关闭连接时，它将从连接池中删除。连接池中任何未使用的套接字都将被销毁，<br>以便当没有未完成的请求时不用保持Nodejs进程运行。</p>
-<p>当不再使用时最好destrory() Agent实例，因为未使用的套接字会消耗操作系统资源。</p>
-<p>当套接字触发close事件或agentRemove事件时，则套接字从代理中删除。<br>当打算长时间保持一个HTTP请求打开而不将其保留在代理中时，可以执行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">http.get(options, (res) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; 做些事情。</span><br><span class="line">&#125;).on(&#39;socket&#39;, (socket) &#x3D;&gt; &#123;</span><br><span class="line">  socket.emit(&#39;agentRemove&#39;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="1-let-var的区别"><a href="#1-let-var的区别" class="headerlink" title="1. let var的区别"></a>1. let var的区别</h4><p>let声明的变量</p>
+<ul>
+<li>不能重复声明</li>
+<li>作用域为该语句所在的代码块内</li>
+<li>不存在变量提升(会报错)</li>
+<li>存在暂时性死域（只能先声明再使用）</li>
+</ul>
+<p>var声明的变量</p>
+<ul>
+<li>能重复声明</li>
+<li>作用域为该语句所在的函数内</li>
+<li>存在变量提升(变量可以在声明之前使用，值为undefined)；</li>
+</ul>
+<h4 id="2-WeakMap和Map的区别？"><a href="#2-WeakMap和Map的区别？" class="headerlink" title="2. WeakMap和Map的区别？"></a>2. WeakMap和Map的区别？</h4><p>WeakMap和Map结构基本类似，唯一的区别是它只接受对象作为键名（null除外），不接受其他类型的值作为键名，而且键名所指向的对象，不计入垃圾回收机制。<br>最大的好处是可以避免内存泄漏。一个仅被WeakMap作为key而引用的对象，会被垃圾回收期回收掉。<br>WeakMap有和Map类似的set(key, value), get(key), has(key), delete(key)和clear()方法，没有任何与迭代有关的属性和方法。</p>
+<h4 id="3-ES6模块加载"><a href="#3-ES6模块加载" class="headerlink" title="3. ES6模块加载"></a>3. ES6模块加载</h4><p>ES6 实现了模块功能，将文件当作独立的模块，一个文件一个模块。<br>每个模块可以导出自己的API成员，也可以导入其他模块或者模块中特定的API</p>
+<p>ES6 模块的设计思想：是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。</p>
+<p>CommonJS和AMD模块，都只能在运行时确定这些东西。比如，CommonJS 模块就是对象，输入时必须查找对象属性。<br>所以编译期会检查对导入模块的API或成员的引用</p>
+<p>模块有两个主要特征：</p>
+<ul>
+<li>为创建内部作用域而调用了一个包装函数</li>
+<li>包装函数的返回值至少包括一个对内部函数的引用，这样就会创建涵盖整个包装函数内部作用域的闭包</li>
+</ul>
+<h4 id="4-require、exports、module-exports、import、export"><a href="#4-require、exports、module-exports、import、export" class="headerlink" title="4. require、exports、module.exports、import、export"></a>4. require、exports、module.exports、import、export</h4><p>使用范围：</p>
+<ul>
+<li>require：node 和 es6 都支持的引入</li>
+<li>module.exports / exports：只有 node 支持的导出</li>
+<li>export / import：只有es6 支持的导出引入</li>
+</ul>
+<p>在node模块里是遵循CommonJS规范的，执行模块文件时，会同时生成一个module对象和一个exports对象，<br>module对象又有一个exports属性，他们初始化时指向同一块{}内存区域，<br>注意是同一块，即exports对象是module.exports的引用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; test.js</span><br><span class="line">var module.exports &#x3D; &#123;&#125;;</span><br><span class="line">var exports &#x3D; module.exports;</span><br><span class="line">console.log(module.exports);         &#x2F;&#x2F; &#123;&#125;</span><br><span class="line">console.log(exports);                &#x2F;&#x2F; &#123;&#125;</span><br><span class="line"></span><br><span class="line">exports.name &#x3D; 2;</span><br><span class="line">console.log(module.exports);         &#x2F;&#x2F; &#123;name: 2&#125;</span><br><span class="line">console.log(exports);                &#x2F;&#x2F; &#123;name: 2&#125;</span><br><span class="line"></span><br><span class="line">var exports &#x3D; &#123;name: 3&#125;;</span><br><span class="line">console.log(module.exports);         &#x2F;&#x2F; &#123;name: 2&#125;</span><br><span class="line">console.log(exports);                &#x2F;&#x2F; &#123;name: 3&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出：其实require导出的内容是module.exports指向的内存块内容，并不是exports的。<br>区分他们之间的区别就是exports只是module.exports的引用，辅助后者添加内容用的。<br>当其中一个指向另一块内存时，两者便没什么关系了。</p>
+<h4 id="5-CommonJS中require-exports和ES6中import-export区别"><a href="#5-CommonJS中require-exports和ES6中import-export区别" class="headerlink" title="5. CommonJS中require/exports和ES6中import/export区别"></a>5. CommonJS中require/exports和ES6中import/export区别</h4><p>CommonJS模块的重要特性是加载时执行，及脚本代码在require的时候，就会全部执行。<br>一旦出现某个模块被“循环加载”就只输出已经执行的部分，还没有执行的部分是不输出的。</p>
+<p>ES6模块的动态引用，如果使用import从一个模块加载变量，那些变量不会缓存，而是成为<br>一个指向被加载模块的引用。需要开发者自己保证，真正取值的时候能够取到值。</p>
+<p>import/export最终都是编译为require/exports来执行的</p>
+<p>CommonJS规范规定，每个模块内部，module变量代表当前模块。这个变量是一个对象，它的exports属性是对外的接口。加载某个模块，其实是加载该模块的module.exports属性。</p>
+<p>export命令规定的是对外的接口，必须与模块内部的变量建立一一对应关系。</p>
+<h4 id="6-几种常见模块化规范的简介"><a href="#6-几种常见模块化规范的简介" class="headerlink" title="6. 几种常见模块化规范的简介"></a>6. 几种常见模块化规范的简介</h4><p>CommonJS规范主要用于服务端编程，加载模块是同步的，这并不适合在浏览器环境，因为同步意味着阻塞加载，浏览器资源是异步加载的。</p>
+<p>AMD规范在浏览器环境中异步加载模块，而且可以并行加载多个模块。不过，AMD规范开发成本高，代码的阅读和书写比较困难。</p>
+<p>CMD规范与AMD规范很相似，都用于浏览器编程，依赖就近，延迟执行，可以很容易在Nodejs中运行。</p>
+<p>ES6在语言标椎的层面上，实现了模块功能，而且实现的相当简单，完全可以取代CommonJS和AMD规范，成为浏览器和服务器通用的模块解决方案。</p>
+<h4 id="7-模块化开发是怎么做的？"><a href="#7-模块化开发是怎么做的？" class="headerlink" title="7. 模块化开发是怎么做的？"></a>7. 模块化开发是怎么做的？</h4><p>使用命名空间</p>
+<h4 id="8-ES5的defineProperty"><a href="#8-ES5的defineProperty" class="headerlink" title="8. ES5的defineProperty"></a>8. ES5的defineProperty</h4><p>Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，<br>并返回这个对象。</p>
+<h4 id="9-map、each、some、forEach"><a href="#9-map、each、some、forEach" class="headerlink" title="9. map、each、some、forEach"></a>9. map、each、some、forEach</h4><ul>
+<li><p>map<br>map遍历数组，克隆原数组，对新数组进行操作并返回一个新的数组，滥用map会造成内存浪费；<br>有return；</p>
+</li>
+<li><p>each<br>返回原来的数组，不会创建一个新的数组；<br>无return；</p>
+</li>
+<li><p>every<br>当内部return false时跳出整个循环；<br>有一项不满足元素，则整个表达式返回false，剩余元素不再执行；</p>
+</li>
+<li><p>some<br>当内部return true时跳出整个循环；<br>有一个元素满足条件，则表达式返回true，剩余元素不再执行；</p>
+</li>
+<li><p>foreach<br>没有返回值；<br>对原本数组进行操作；</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var array &#x3D; [1,2,3,4,5];  </span><br><span class="line">var res &#x3D; _.forEach(array, function (item,index,input) &#123;  </span><br><span class="line">       input[index] &#x3D; item*10;  </span><br><span class="line">&#125;)  </span><br><span class="line">console.log(res);&#x2F;&#x2F;&#x3D;&gt;undefined</span><br><span class="line">console.log(array);&#x2F;&#x2F;&#x3D;&gt;[10,20,30,40,50]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var res &#x3D; _.map(array, function (item,index,input) &#123;  </span><br><span class="line">       input[index] &#x3D; item*10;  </span><br><span class="line">&#125;)  </span><br><span class="line">console.log(res);&#x2F;&#x2F;&#x3D;&gt;[10,20,30,40,50]</span><br><span class="line">console.log(array);&#x2F;&#x2F;&#x3D;&gt;[1,2,3,4,5]</span><br></pre></td></tr></table></figure>
 
-<p>代理也可以用于单个请求，通过提供{agent:false}作为http.get()或http.request()<br>函数的选项，则将使用一次性的具有默认选项的Agent用于客户端的连接。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">http.get(&#123;</span><br><span class="line">  hostname: &#39;localhost&#39;,</span><br><span class="line">  port: 80,</span><br><span class="line">  path: &#39;&#x2F;&#39;,</span><br><span class="line">  agent: false  &#x2F;&#x2F; 仅为此一个请求创建一个新代理。</span><br><span class="line">&#125;, (res) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; 用响应做些事情。</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h5 id="new-Agent-options"><a href="#new-Agent-options" class="headerlink" title="new Agent([options])"></a>new Agent([options])</h5><p>options要在代理上设置的可配置选项集。</p>
-<p>要配置其中任何一个，则必须创建自定义的http.Agent实例。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const http &#x3D; require(&#39;http&#39;);</span><br><span class="line">const keepAliveAgent &#x3D; new http.Agent(&#123; keepAlive: true &#125;);</span><br><span class="line">options.agent &#x3D; keepAliveAgent;</span><br><span class="line">http.request(options, onResponseCallback);</span><br></pre></td></tr></table></figure>
-
-<h5 id="agent-createConnection-options-callback"><a href="#agent-createConnection-options-callback" class="headerlink" title="agent.createConnection(options[, callback])"></a>agent.createConnection(options[, callback])</h5><p>生成用于http请求的套接字或流。</p>
-<h5 id="agent-keepSocketAlive-socket"><a href="#agent-keepSocketAlive-socket" class="headerlink" title="agent.keepSocketAlive(socket)"></a>agent.keepSocketAlive(socket)</h5><p>当socket与请求分离并且可以由Agent保留时调用，默认行为是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">socket.setKeepAlive(true, this.keepAliveMsecs);</span><br><span class="line">socket.unref();</span><br><span class="line">return true;</span><br></pre></td></tr></table></figure>
-
-<h5 id="agent-reuseSocket-socket-request"><a href="#agent-reuseSocket-socket-request" class="headerlink" title="agent.reuseSocket(socket, request)"></a>agent.reuseSocket(socket, request)</h5><p>由于keep-alive选项而在持久化后将socket附加到request时调用。<br>默认行为是<code>socket.ref()</code></p>
-<h5 id="agent-destroy"><a href="#agent-destroy" class="headerlink" title="agent.destroy()"></a>agent.destroy()</h5><p>销毁代理当前使用的所有套接字。</p>
-<h5 id="agent-maxSockets"><a href="#agent-maxSockets" class="headerlink" title="agent.maxSockets"></a>agent.maxSockets</h5><p>决定代理可以为每个来源打开多少并发套接字。</p>
-<h5 id="agent-requests"><a href="#agent-requests" class="headerlink" title="agent.requests"></a>agent.requests</h5><p>一个对象，包含尚未分配给套接字的请求队列，不要修改。</p>
-<h5 id="agent-sockets"><a href="#agent-sockets" class="headerlink" title="agent.sockets"></a>agent.sockets</h5><p>一个对象，包含当前代理正在使用的套接字数组，不要修改。</p>
-<h4 id="http-ClientRequest类"><a href="#http-ClientRequest类" class="headerlink" title="http.ClientRequest类"></a>http.ClientRequest类</h4><h4 id="http-Server类"><a href="#http-Server类" class="headerlink" title="http.Server类"></a>http.Server类</h4><h4 id="http-ServerResponse类"><a href="#http-ServerResponse类" class="headerlink" title="http.ServerResponse类"></a>http.ServerResponse类</h4><h4 id="http-IncomingMessage类"><a href="#http-IncomingMessage类" class="headerlink" title="http.IncomingMessage类"></a>http.IncomingMessage类</h4><h4 id="http-METHODS"><a href="#http-METHODS" class="headerlink" title="http.METHODS"></a>http.METHODS</h4><h4 id="http-STATUS-CODES"><a href="#http-STATUS-CODES" class="headerlink" title="http.STATUS_CODES"></a>http.STATUS_CODES</h4><h4 id="http-createServer-options-requestListener"><a href="#http-createServer-options-requestListener" class="headerlink" title="http.createServer([options][, requestListener])"></a>http.createServer([options][, requestListener])</h4><h4 id="http-get-options-callback"><a href="#http-get-options-callback" class="headerlink" title="http.get(options[,callback])"></a>http.get(options[,callback])</h4><h4 id="http-get-url-options-callback"><a href="#http-get-url-options-callback" class="headerlink" title="http.get(url[,options][,callback])"></a>http.get(url[,options][,callback])</h4><h4 id="http-globalAgent"><a href="#http-globalAgent" class="headerlink" title="http.globalAgent"></a>http.globalAgent</h4><h4 id="http-maxHeaderSize"><a href="#http-maxHeaderSize" class="headerlink" title="http.maxHeaderSize"></a>http.maxHeaderSize</h4><h4 id="http-request-options-callback"><a href="#http-request-options-callback" class="headerlink" title="http.request(options[,callback])"></a>http.request(options[,callback])</h4><h4 id="http-request-url-options-callback"><a href="#http-request-url-options-callback" class="headerlink" title="http.request(url[,options][,callback])"></a>http.request(url[,options][,callback])</h4>
       
     </div>
     
@@ -451,10 +484,10 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>NodeJs之Http</a></p>
+  <p><span>本文标题:</span>ES6</a></p>
   <p><span>文章作者:</span>Guopp</a></p>
-  <p><span>原始链接:</span><a href="/articles/2020-02-02-node-Http.html" title="NodeJs之Http">http://gpp-note.top/articles/2020-02-02-node-Http.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/articles/2020-02-02-node-Http.html"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/articles/2020-02-12-interview-ES6.html" title="ES6">http://gpp-note.top/articles/2020-02-12-interview-ES6.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/articles/2020-02-12-interview-ES6.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者</p>  
 </div>
@@ -488,7 +521,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Node/" rel="tag"># Node</a>
+            <a href="/tags/Interview/" rel="tag"># Interview</a>
           
         </div>
       
@@ -501,8 +534,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/2020-02-02-node-global.html" rel="next" title="NodeJs之global">
-                <i class="fa fa-chevron-left"></i> NodeJs之global
+              <a href="/articles/2020-02-11-linux.html" rel="next" title="linux">
+                <i class="fa fa-chevron-left"></i> linux
               </a>
             
           </div>
@@ -510,10 +543,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/articles/2020-02-05-node-Http-2.html" rel="prev" title="NodeJS之HTTP/2">
-                NodeJS之HTTP/2 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -544,8 +573,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="articles/2020-02-02-node-Http.html"
-           data-title="NodeJs之Http" data-url="http://gpp-note.top/articles/2020-02-02-node-Http.html">
+      <div class="ds-thread" data-thread-key="articles/2020-02-12-interview-ES6.html"
+           data-title="ES6" data-url="http://gpp-note.top/articles/2020-02-12-interview-ES6.html">
       </div>
     </div>
 
@@ -675,7 +704,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP"><span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#http-Agent类"><span class="nav-text">http.Agent类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#new-Agent-options"><span class="nav-text">new Agent([options])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#agent-createConnection-options-callback"><span class="nav-text">agent.createConnection(options[, callback])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#agent-keepSocketAlive-socket"><span class="nav-text">agent.keepSocketAlive(socket)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#agent-reuseSocket-socket-request"><span class="nav-text">agent.reuseSocket(socket, request)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#agent-destroy"><span class="nav-text">agent.destroy()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#agent-maxSockets"><span class="nav-text">agent.maxSockets</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#agent-requests"><span class="nav-text">agent.requests</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#agent-sockets"><span class="nav-text">agent.sockets</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-ClientRequest类"><span class="nav-text">http.ClientRequest类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-Server类"><span class="nav-text">http.Server类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-ServerResponse类"><span class="nav-text">http.ServerResponse类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-IncomingMessage类"><span class="nav-text">http.IncomingMessage类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-METHODS"><span class="nav-text">http.METHODS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-STATUS-CODES"><span class="nav-text">http.STATUS_CODES</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-createServer-options-requestListener"><span class="nav-text">http.createServer([options][, requestListener])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-get-options-callback"><span class="nav-text">http.get(options[,callback])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-get-url-options-callback"><span class="nav-text">http.get(url[,options][,callback])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-globalAgent"><span class="nav-text">http.globalAgent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-maxHeaderSize"><span class="nav-text">http.maxHeaderSize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-request-options-callback"><span class="nav-text">http.request(options[,callback])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-request-url-options-callback"><span class="nav-text">http.request(url[,options][,callback])</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-let-var的区别"><span class="nav-text">1. let var的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-WeakMap和Map的区别？"><span class="nav-text">2. WeakMap和Map的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-ES6模块加载"><span class="nav-text">3. ES6模块加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-require、exports、module-exports、import、export"><span class="nav-text">4. require、exports、module.exports、import、export</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-CommonJS中require-exports和ES6中import-export区别"><span class="nav-text">5. CommonJS中require&#x2F;exports和ES6中import&#x2F;export区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-几种常见模块化规范的简介"><span class="nav-text">6. 几种常见模块化规范的简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-模块化开发是怎么做的？"><span class="nav-text">7. 模块化开发是怎么做的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-ES5的defineProperty"><span class="nav-text">8. ES5的defineProperty</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-map、each、some、forEach"><span class="nav-text">9. map、each、some、forEach</span></a></li></ol></div>
             
 
           </div>

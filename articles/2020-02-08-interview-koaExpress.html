@@ -14,8 +14,8 @@
 
 <script>
 (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
+        if('1029'){
+            if (prompt('请输入文章密码') !== '1029'){
                 alert('密码错误！');
                 history.back();
             }
@@ -91,14 +91,14 @@
 
 
 
-<meta name="description" content="KoaExpressKoa和Express的区别和联系Koa是由Express原班人马打造的，致力于成为一个更小、更富有表现力、更健壮的Web框架。使用koa编写web应用，通过组合不同的generator，可以避免重复繁琐的回调函数嵌套，极大的提升错误处理的效率。koa不在内核方法中绑定任何中间件，它仅提供了一个轻量优雅的函数库，使得编写Web应用变得得心应手。koa是比express更精简">
+<meta name="description" content="Welcome to my-blog!!!">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KoaExpress">
 <meta property="og:url" content="http://gpp-note.top/articles/2020-02-08-interview-koaExpress.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="KoaExpressKoa和Express的区别和联系Koa是由Express原班人马打造的，致力于成为一个更小、更富有表现力、更健壮的Web框架。使用koa编写web应用，通过组合不同的generator，可以避免重复繁琐的回调函数嵌套，极大的提升错误处理的效率。koa不在内核方法中绑定任何中间件，它仅提供了一个轻量优雅的函数库，使得编写Web应用变得得心应手。koa是比express更精简">
+<meta property="og:description" content="Welcome to my-blog!!!">
 <meta property="article:published_time" content="2020-02-08T14:13:23.000Z">
-<meta property="article:modified_time" content="2020-02-11T10:46:28.275Z">
+<meta property="article:modified_time" content="2020-02-15T13:20:45.922Z">
 <meta property="article:author" content="Guopp">
 <meta property="article:tag" content="Interview">
 <meta name="twitter:card" content="summary">
@@ -381,6 +381,10 @@
           
 
           
+              <div class="post-description">
+                  Welcome to my-blog!!!
+              </div>
+          
 
         </div>
       </header>
@@ -397,9 +401,13 @@
       
         <a id="more"></a>
 
-<h2 id="KoaExpress"><a href="#KoaExpress" class="headerlink" title="KoaExpress"></a>KoaExpress</h2><h4 id="Koa和Express的区别和联系"><a href="#Koa和Express的区别和联系" class="headerlink" title="Koa和Express的区别和联系"></a>Koa和Express的区别和联系</h4><p>Koa是由Express原班人马打造的，致力于成为一个更小、更富有表现力、更健壮的Web框架。<br>使用koa编写web应用，通过组合不同的generator，可以避免重复繁琐的回调函数嵌套，极大的提升错误处理的效率。<br>koa不在内核方法中绑定任何中间件，它仅提供了一个轻量优雅的函数库，使得编写Web应用变得得心应手。<br>koa是比express更精简，使用node新特性的中间件框架，有足够的扩展和中间件。</p>
-<h5 id="Koa2和Express中间件的区别"><a href="#Koa2和Express中间件的区别" class="headerlink" title="Koa2和Express中间件的区别"></a>Koa2和Express中间件的区别</h5><p>Koa2<br>    基于node的一个web开发框架，利用co作为底层运行框架，利用Generator的特性，实现“无回调”的异步处理；<br>    ES7;<br>    更小、更富有表现力、更健壮的基石；<br>    利用async函数、Koa丢弃回调函数，增强错误处理；<br>    很小的体积，因为没有捆绑任何中间件；<br>    类似堆栈的方式组织和执行；<br>    低级中间件层中提供高级“语法糖”，提高了互操性、稳健性；</p>
-<p>Express<br>    Node的基础框架，基础Connect中间件，自身封装了路由、视图处理等功能；<br>    线性逻辑，路由和中间件完美融合，清晰明了；<br>    弊端是callback回调方式，不可组合、异常不可捕获；<br>    ES5;<br>    connect的执行流程：<br>    connect的中间件模型是线性的，即一个一个往下执行；</p>
+<h4 id="1-Koa和Express的区别和联系"><a href="#1-Koa和Express的区别和联系" class="headerlink" title="1. Koa和Express的区别和联系"></a>1. Koa和Express的区别和联系</h4><p>Koa是由Express原班人马打造的，致力于成为一个更小、更富有表现力、更健壮的Web框架。<br>使用koa编写web应用，通过组合不同的generator，可以避免重复繁琐的回调函数嵌套，极大的提升错误处理的效率。<br>koa不在内核方法中绑定任何中间件，它仅提供了一个轻量优雅的函数库，使得编写Web应用变得得心应手。<br>koa是比express更精简，使用node新特性的中间件框架，有足够的扩展和中间件。</p>
+<h5 id="Koa2和Express中间件的区别"><a href="#Koa2和Express中间件的区别" class="headerlink" title="Koa2和Express中间件的区别"></a>Koa2和Express中间件的区别</h5><ul>
+<li><p>Koa2<br>  基于node的一个web开发框架，利用co作为底层运行框架，利用Generator的特性，实现“无回调”的异步处理；<br>  ES7;<br>  更小、更富有表现力、更健壮的基石；<br>  利用async函数、Koa丢弃回调函数，增强错误处理；<br>  很小的体积，因为没有捆绑任何中间件；<br>  类似堆栈的方式组织和执行；<br>  低级中间件层中提供高级“语法糖”，提高了互操性、稳健性；</p>
+</li>
+<li><p>Express<br>  Node的基础框架，基础Connect中间件，自身封装了路由、视图处理等功能；<br>  线性逻辑，路由和中间件完美融合，清晰明了；<br>  弊端是callback回调方式，不可组合、异常不可捕获；<br>  ES5;<br>  connect的执行流程：<br>  connect的中间件模型是线性的，即一个一个往下执行；</p>
+</li>
+</ul>
 <ol>
 <li><p>Handler的处理<br>Express普通回调函数，在同一线程上完成当前进程的所有Http请求；<br>Koa利用Generator Function作为响应器，co作为底层运行框架，利用Generator特性，实现“协程响应”；</p>
 </li>
@@ -605,7 +613,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -683,7 +691,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#KoaExpress"><span class="nav-text">KoaExpress</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Koa和Express的区别和联系"><span class="nav-text">Koa和Express的区别和联系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Koa2和Express中间件的区别"><span class="nav-text">Koa2和Express中间件的区别</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Koa和Express的区别和联系"><span class="nav-text">1. Koa和Express的区别和联系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Koa2和Express中间件的区别"><span class="nav-text">Koa2和Express中间件的区别</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -701,7 +709,7 @@
           <h3 class="widget-title">标签</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knex/" rel="tag">Knex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/" rel="tag">Net</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proto3/" rel="tag">Proto3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gRPC/" rel="tag">gRPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knex/" rel="tag">Knex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/" rel="tag">Net</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proto3/" rel="tag">Proto3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gRPC/" rel="tag">gRPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>
