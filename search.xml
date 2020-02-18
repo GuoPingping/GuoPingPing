@@ -1650,7 +1650,29 @@ Bidirectional streaming RPC
 <li><p>在海量数据处理的时候效率会显著变慢；</p>
 </li>
 </ul>
-<h5 id="left-join-right-join-inner-join"><a href="#left-join-right-join-inner-join" class="headerlink" title="left join /right join/ inner join"></a>left join /right join/ inner join</h5><p>left join：关键字会从左表返回所有的行，即使右表没有匹配的行；<br>right join：关键字会从右表返回所有的行，即使左表没有匹配的行；<br>inner join：在表中存在至少一个匹配时；</p>
+<h5 id="Mysql索引"><a href="#Mysql索引" class="headerlink" title="Mysql索引"></a>Mysql索引</h5><p>Mysql索引的建立，可以大大提高Mysql的检索速度。</p>
+<p>索引分为单列索引和组合索引。<br>单列索引：即一个索引只包含单个列，一个表可以有多个单列索引；<br>组合索引：即一个索引包含多个列；</p>
+<p>索引大大提高了查询速度，同时降低更新表的速度，简历索引会占用磁盘空间的索引文件。</p>
+<h6 id="索引是做什么的"><a href="#索引是做什么的" class="headerlink" title="索引是做什么的"></a>索引是做什么的</h6><p>索引用于快速找出在某个列中有一特定值的行。<br>不使用索引，mysql必须从第1条记录开始然后读完整个表直到找出相关的行。表越大，花费的时间越多。<br>如果表中查询的列有一个索引，mysql能快速到达一个位置去搜寻到数据文件的中间，没有必要看所有的数据。<br>大多数mysql索引在B树种存储，只是空间列类型的索引使用R-树，并且Memory表还支持hash索引。<br>、</p>
+<h6 id="索引好复杂，该如何理解索引，有无一个更形象点的例子"><a href="#索引好复杂，该如何理解索引，有无一个更形象点的例子" class="headerlink" title="索引好复杂，该如何理解索引，有无一个更形象点的例子"></a>索引好复杂，该如何理解索引，有无一个更形象点的例子</h6><p>假如一本词典，数据就是书的正文内容，你就是cpu，而索引，则是书的目录。</p>
+<h6 id="索引越多越好"><a href="#索引越多越好" class="headerlink" title="索引越多越好"></a>索引越多越好</h6><p>大多数情况下索引能大幅度提高查询效率，但：<br>数据的变更都需要维护索引，因此更多的索引意味着更多的维护成本<br>更多的索引意味着也需要更多的空间<br>过小的表，建索引可能会更慢</p>
+<h6 id="索引的字段类型问题"><a href="#索引的字段类型问题" class="headerlink" title="索引的字段类型问题"></a>索引的字段类型问题</h6><p>text类型，也可建索引（需要指定长度）<br>myisam存储引擎索引键长度综合不能超过1000字节<br>用来筛选的值尽量保持和索引列同样的数据类型</p>
+<h6 id="like不能用索引"><a href="#like不能用索引" class="headerlink" title="like不能用索引"></a>like不能用索引</h6><p>尽量减少like，但不是绝对不可用<br>除了like，以下操作符也可用到索引：<br>&lt;, &lt;=, =, &gt;=, between, in&lt;&gt;, not in, !=则不行</p>
+<h6 id="什么样的字段不适合建索引"><a href="#什么样的字段不适合建索引" class="headerlink" title="什么样的字段不适合建索引"></a>什么样的字段不适合建索引</h6><p>一般来说，列的值唯一性太小（如性别、类型等），不适合建索引<br>太长的列，可以选择只建立部分索引<br>更新非常频繁的数据不适宜建索引</p>
+<h6 id="一次查询能用多个索引吗"><a href="#一次查询能用多个索引吗" class="headerlink" title="一次查询能用多个索引吗"></a>一次查询能用多个索引吗</h6><p>不能</p>
+<h6 id="多列查询该如何建索引"><a href="#多列查询该如何建索引" class="headerlink" title="多列查询该如何建索引"></a>多列查询该如何建索引</h6><p>一次查询只能用到一个索引，所以首先墙壁a，b各建索引方案a还是b？谁的区分度更高，建谁。或者联合索引也可以。</p>
+<h6 id="联合索引的问题"><a href="#联合索引的问题" class="headerlink" title="联合索引的问题"></a>联合索引的问题</h6><p>大多数情况下，有AB索引了，就可以不用再建一个A索引了。</p>
+<h6 id="哪些常见情况下不能用索引？"><a href="#哪些常见情况下不能用索引？" class="headerlink" title="哪些常见情况下不能用索引？"></a>哪些常见情况下不能用索引？</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">like &quot;%xxx&quot;</span><br><span class="line">not in, !&#x3D;</span><br></pre></td></tr></table></figure>
+<p>队列进行函数运算的情况</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">where index&#x3D;1 or a&#x3D;10</span><br></pre></td></tr></table></figure>
+<p>存了数值的字符串类型字段（如手机号），查询记得不要丢掉值的引号，否则无法用到该字段相关索引，反之没关系。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select * from test where mobile&#x3D;13122930394</span><br></pre></td></tr></table></figure>
+<p>可是无法用到mobile字段的索引（如果mobile是char或vachar类型的话）</p>
+<h6 id="覆盖索引Covering-Indexes拥有更高效率"><a href="#覆盖索引Covering-Indexes拥有更高效率" class="headerlink" title="覆盖索引Covering Indexes拥有更高效率"></a>覆盖索引Covering Indexes拥有更高效率</h6><p>索引包含了所需的全部值的haul，就只select他们，换言之，只select需要用到的字段，如务必要，可避免select * </p>
+<h6 id="NULL的问题"><a href="#NULL的问题" class="headerlink" title="NULL的问题"></a>NULL的问题</h6><p>NULL会导致索引形同虚设，所以在设计表结构时应避免NULL的存在。</p>
+<h6 id="如何查看索引信息，如何分析是否正确用到索引？"><a href="#如何查看索引信息，如何分析是否正确用到索引？" class="headerlink" title="如何查看索引信息，如何分析是否正确用到索引？"></a>如何查看索引信息，如何分析是否正确用到索引？</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show index from tablename</span><br><span class="line">explain select ...</span><br></pre></td></tr></table></figure>
+
+<h6 id="了解自己的系统，不要过早优化"><a href="#了解自己的系统，不要过早优化" class="headerlink" title="了解自己的系统，不要过早优化"></a>了解自己的系统，不要过早优化</h6><h5 id="left-join-right-join-inner-join"><a href="#left-join-right-join-inner-join" class="headerlink" title="left join /right join/ inner join"></a>left join /right join/ inner join</h5><p>left join：关键字会从左表返回所有的行，即使右表没有匹配的行；<br>right join：关键字会从右表返回所有的行，即使左表没有匹配的行；<br>inner join：在表中存在至少一个匹配时；</p>
 <h4 id="3-Redis"><a href="#3-Redis" class="headerlink" title="3. Redis"></a>3. Redis</h4><p>一个完全开源的，遵循BSD协议，内存中的数据结构存储系统，一个高性能的key-value数据库；<br>用作数据库、缓存和消息中间件；</p>
 <p>Redis是单进程单线程的，redis利用队列技术将并发访问变为串行访问，消除了传统数据库串行控制的开销。</p>
 <p>一个字符串类型的值能存储最大容量是512M。</p>
