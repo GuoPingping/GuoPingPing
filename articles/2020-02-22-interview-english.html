@@ -14,8 +14,8 @@
 
 <script>
 (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
+        if('1029'){
+            if (prompt('请输入文章密码') !== '1029'){
                 alert('密码错误！');
                 history.back();
             }
@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="ES6," />
+  <meta name="keywords" content="Interview," />
 
 
 
@@ -91,16 +91,16 @@
 
 
 
-<meta name="description" content="1. Promise对象的特点三种状态：  Pending Resolved（Fulfilled） Rejected一旦状态改变，不会再变，任何时候都可以得到这个结果  状态只有两种改变：  Pending到Resolver Pending到Rejected如果改变已经发生，对Promise对象添加回调函数，也会立即得到这个结果但事件Event不同，如果错过了，再去监听，是得不到结果的状态一改变，">
+<meta name="description" content="Welcome to my-blog!!!">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6之Promise">
-<meta property="og:url" content="http://gpp-note.top/articles/2020-02-11-ES-Promise.html">
+<meta property="og:title" content="English">
+<meta property="og:url" content="http://gpp-note.top/articles/2020-02-22-interview-english.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="1. Promise对象的特点三种状态：  Pending Resolved（Fulfilled） Rejected一旦状态改变，不会再变，任何时候都可以得到这个结果  状态只有两种改变：  Pending到Resolver Pending到Rejected如果改变已经发生，对Promise对象添加回调函数，也会立即得到这个结果但事件Event不同，如果错过了，再去监听，是得不到结果的状态一改变，">
-<meta property="article:published_time" content="2020-02-11T09:27:32.000Z">
-<meta property="article:modified_time" content="2020-02-11T10:20:40.694Z">
+<meta property="og:description" content="Welcome to my-blog!!!">
+<meta property="article:published_time" content="2020-02-22T14:52:40.000Z">
+<meta property="article:modified_time" content="2020-02-24T07:39:27.425Z">
 <meta property="article:author" content="Guopp">
-<meta property="article:tag" content="ES6">
+<meta property="article:tag" content="Interview">
 <meta name="twitter:card" content="summary">
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://gpp-note.top/articles/2020-02-11-ES-Promise.html"/>
+  <link rel="canonical" href="http://gpp-note.top/articles/2020-02-22-interview-english.html"/>
 
 
 
 
 
-  <title>ES6之Promise | Welcome to my-blog</title>
+  <title>English | Welcome to my-blog</title>
   
 
 
@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-11-ES-Promise.html">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-22-interview-english.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guopp">
@@ -313,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ES6之Promise</h1>
+          <h1 class="post-title" itemprop="name headline">English</h1>
         
 
         <div class="post-meta">
@@ -325,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-11T17:27:32+08:00">
-                2020-02-11 17:27:32
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-22T22:52:40+08:00">
+                2020-02-22 22:52:40
               </time>
             
 
@@ -348,8 +348,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
+                  <a href="/categories/Interview/" itemprop="url" rel="index">
+                    <span itemprop="name">Interview</span>
                   </a>
                 </span>
 
@@ -366,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/articles/2020-02-11-ES-Promise.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-11-ES-Promise.html" itemprop="commentCount"></span>
+                <a href="/articles/2020-02-22-interview-english.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-22-interview-english.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -380,6 +380,10 @@
 
           
 
+          
+              <div class="post-description">
+                  Welcome to my-blog!!!
+              </div>
           
 
         </div>
@@ -395,24 +399,66 @@
       
 
       
-        <h4 id="1-Promise对象的特点"><a href="#1-Promise对象的特点" class="headerlink" title="1. Promise对象的特点"></a>1. Promise对象的特点</h4><p>三种状态：</p>
-<ul>
-<li>Pending</li>
-<li>Resolved（Fulfilled）</li>
-<li>Rejected<br>一旦状态改变，不会再变，任何时候都可以得到这个结果</li>
-</ul>
-<p>状态只有两种改变：</p>
-<ul>
-<li>Pending到Resolver</li>
-<li>Pending到Rejected<br>如果改变已经发生，对Promise对象添加回调函数，也会立即得到这个结果<br>但事件Event不同，如果错过了，再去监听，是得不到结果的<br>状态一改变，即调用Promise对象的then方法</li>
-</ul>
-<a id="more"></a>
+        <a id="more"></a>
 
-<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><p>Promise一旦新建就会立即执行，无法中途取消<br>如果不设置回调函数，Promise内部抛出的错误，不会反应到外部<br>当处于Pending状态时，无法得知目前进展到哪个阶段</p>
-<h4 id="2-Promise-all"><a href="#2-Promise-all" class="headerlink" title="2. Promise.all()"></a>2. Promise.all()</h4><pre><code>当在可迭代参数中所有Promise倍resolve，或任意一Promise被reject时，返回一个新的promise</code></pre><h4 id="3-Promise-race"><a href="#3-Promise-race" class="headerlink" title="3. Promise.race()"></a>3. Promise.race()</h4><p>返回一个新的异步的promise，只要有一个完成或失败，新的promise就会立刻完成或失败，<br>并得到那个promise对象的返回值或错误原因</p>
-<p>参数为空，返回的蝾螈都是pending状态</p>
-<h4 id="4-Promise-resolve"><a href="#4-Promise-resolve" class="headerlink" title="4. Promise.resolve()"></a>4. Promise.resolve()</h4><p>返回一个Promise对象</p>
-<h4 id="5-Promise-reject"><a href="#5-Promise-reject" class="headerlink" title="5. Promise.reject()"></a>5. Promise.reject()</h4><p>返回一个新的Promise实例，状态为rejected，因此回调函数会立即执行</p>
+<p>Thank you for giving me this opportunity for this interview</p>
+<p>My name is guopp , and from zhoukou, a city in HeNan provixe<br>I am 26 years old, born inb Henan Provice.</p>
+<p>I think I’m a good team player in project teams.<br>and so on<br>during my college yearss</p>
+<p>there’s all thank you<br>Team player  善于团队协作<br>motivated 积极的 [ˈməʊtɪveɪtɪd]<br>Helpfulness and caring.<br>Adaptability and sense of humor.<br> friendliness.<br>  I like people who possess the “can do” spirit.</p>
+<p>I gained many skills and experiences</p>
+<blockquote>
+<p>what is your greatest strength?<br>I feel that my strengest asset is my ability to stick to things to get them done.<br>what is your greatest weakness?<br>I am such a perfectionist that i will not stop until a job is well done</p>
+</blockquote>
+<blockquote>
+<p>Do you think you are introverted or extroverted?（introverted[ˈɪntrəvɜːtɪd]）<br>i am quite outgoing, i think<br>I wouldn’t call myself introverted though sometimes I’m reserved and enjoy staying all by myself，often and often I like sharing activities with others．</p>
+</blockquote>
+<blockquote>
+<p>How do you get along with others？<br>I keep close contacts with my friends．(contacts[ˈkɒntækt]),We often get together and talk with each other</p>
+</blockquote>
+<blockquote>
+<p>Which schools have you attended？<br>i graduated from Shanghai Second Polytechnic University（Polytechnic[ˌpɒliˈteknɪk]）in 2017（two thousand and seventeen）</p>
+</blockquote>
+<blockquote>
+<p>what’s your major in university<br>software engineering</p>
+</blockquote>
+<blockquote>
+<p>Have you received any certificates ?</p>
+</blockquote>
+<blockquote>
+<p>Have you got any experience in advertisting</p>
+</blockquote>
+<blockquote>
+<p>I am someone who can adapt to any situation</p>
+</blockquote>
+<blockquote>
+<p>If hired , when could you start work?<br>We’ll notify you as soon as possible, when can you start working if we decide to use you ?<br>I’d like to begin to work any time you want<br>when I accepted, i will do my best for the company </p>
+</blockquote>
+<blockquote>
+<p>what do you look for in the job ?<br>what advantages are you seeking from this change of job ?<br>I am hoping to get an offer of a better position, if opportunity knocks, i will take it.</p>
+</blockquote>
+<blockquote>
+<p>what do you want to get from your new job?<br>what do you expect from this job?<br>what is important to you in your job?</p>
+</blockquote>
+<blockquote>
+<p>What’s your marital status ?<br>what’s your plan for the future?<br>what’s your long-range career objective?<br>Do you have a clear career path to follow?<br>What are you long-term goals set for youself?<br>There is no hurry to get married, In order to achieve this goal, I just want to work step by step.<br>I wish to move up to higher positions with acquisition of more experience in the future.<br>I plan to continue working for a long time, My career is the most important to me.<br>I hope to command a skill, to set a solid foundation and to build my interpersonal network.</p>
+</blockquote>
+<blockquote>
+<p>Any other questions ?<br>May I ask about the salary?<br>Do you mind if I ask abount the wages?<br>Are there any additional year-end bonuses?<br>What starting salary would you expect here?<br>The salary I should require would be 21000 a month </p>
+</blockquote>
+<blockquote>
+<p>Could you pleasse tell me something about the wages?<br>I’d like to have the salary which matches my ability<br>I should require a commencing salary of 21000 Yuan a month.<br>Based on my skills and experience, I am looking for 21000 yuan a month.</p>
+</blockquote>
+<p>Good afternoon,my dear manager !</p>
+<p>My name is wang guipeng,I’m very happy and excited for having a face to face interview in your company.</p>
+<p> I hope i can make a good performance today.Now I would like to introduce myself briefly.</p>
+<p>I am 29 years old,born in Anhui province,graduated from the north university of china.</p>
+<p>My major is Software Engneering,and i got my bachelor degree after my graduation in the year of 2013.</p>
+<p>I hava about 5 years work experience,I worked for my first company as a technical support engineer,and I worked for my second company as a function/automation/perfomance test engineer.</p>
+<p>During my tenure, I participated in the skills competition organized by Huawei and won the first place.</p>
+<p>In my daily life,I’m fond of hiking,party,writing blogs.</p>
+<p>I think I’m a good team player and I’m a person of great honesty to others.Also I am able to work under great pressure.</p>
+<p>all right.thank you for giving me the chance!</p>
+<p>After graduation, I spent two companies<br>The first company is to be a Java programmer<br>In life, my personality sunlight, cheerful, like to listen to music, read a book;<br>Work is responsible earnestly, positive initiative, can bear hardships and stand hard work, self-motivated, diligently study, can constantly  improve their ability and comprehensive quality.</p>
 
       
     </div>
@@ -441,10 +487,10 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>ES6之Promise</a></p>
+  <p><span>本文标题:</span>English</a></p>
   <p><span>文章作者:</span>Guopp</a></p>
-  <p><span>原始链接:</span><a href="/articles/2020-02-11-ES-Promise.html" title="ES6之Promise">http://gpp-note.top/articles/2020-02-11-ES-Promise.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/articles/2020-02-11-ES-Promise.html"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/articles/2020-02-22-interview-english.html" title="English">http://gpp-note.top/articles/2020-02-22-interview-english.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/articles/2020-02-22-interview-english.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者</p>  
 </div>
@@ -478,7 +524,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ES6/" rel="tag"># ES6</a>
+            <a href="/tags/Interview/" rel="tag"># Interview</a>
           
         </div>
       
@@ -491,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/articles/2020-02-11-ES-SetMap.html" rel="next" title="ES6之SetMap">
-                <i class="fa fa-chevron-left"></i> ES6之SetMap
+              <a href="/articles/2020-02-16-interview-rabbitmq.html" rel="next" title="Rabbitmq">
+                <i class="fa fa-chevron-left"></i> Rabbitmq
               </a>
             
           </div>
@@ -500,10 +546,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/articles/2020-02-11-ES-asyncAwait.html" rel="prev" title="ES6之asyncAwait">
-                ES6之asyncAwait <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -534,8 +576,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="articles/2020-02-11-ES-Promise.html"
-           data-title="ES6之Promise" data-url="http://gpp-note.top/articles/2020-02-11-ES-Promise.html">
+      <div class="ds-thread" data-thread-key="articles/2020-02-22-interview-english.html"
+           data-title="English" data-url="http://gpp-note.top/articles/2020-02-22-interview-english.html">
       </div>
     </div>
 
@@ -562,17 +604,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -655,22 +688,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Promise对象的特点"><span class="nav-text">1. Promise对象的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点"><span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Promise-all"><span class="nav-text">2. Promise.all()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Promise-race"><span class="nav-text">3. Promise.race()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Promise-resolve"><span class="nav-text">4. Promise.resolve()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Promise-reject"><span class="nav-text">5. Promise.reject()</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

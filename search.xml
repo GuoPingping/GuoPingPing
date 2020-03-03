@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>English</title>
+    <url>/articles/2020-02-22-interview-english.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+<p>Thank you for giving me this opportunity for this interview</p>
+<p>My name is guopp , and from zhoukou, a city in HeNan provixe<br>I am 26 years old, born inb Henan Provice.</p>
+<p>I think I’m a good team player in project teams.<br>and so on<br>during my college yearss</p>
+<p>there’s all thank you<br>Team player  善于团队协作<br>motivated 积极的 [ˈməʊtɪveɪtɪd]<br>Helpfulness and caring.<br>Adaptability and sense of humor.<br> friendliness.<br>  I like people who possess the “can do” spirit.</p>
+<p>I gained many skills and experiences</p>
+<blockquote>
+<p>what is your greatest strength?<br>I feel that my strengest asset is my ability to stick to things to get them done.<br>what is your greatest weakness?<br>I am such a perfectionist that i will not stop until a job is well done</p>
+</blockquote>
+<blockquote>
+<p>Do you think you are introverted or extroverted?（introverted[ˈɪntrəvɜːtɪd]）<br>i am quite outgoing, i think<br>I wouldn’t call myself introverted though sometimes I’m reserved and enjoy staying all by myself，often and often I like sharing activities with others．</p>
+</blockquote>
+<blockquote>
+<p>How do you get along with others？<br>I keep close contacts with my friends．(contacts[ˈkɒntækt]),We often get together and talk with each other</p>
+</blockquote>
+<blockquote>
+<p>Which schools have you attended？<br>i graduated from Shanghai Second Polytechnic University（Polytechnic[ˌpɒliˈteknɪk]）in 2017（two thousand and seventeen）</p>
+</blockquote>
+<blockquote>
+<p>what’s your major in university<br>software engineering</p>
+</blockquote>
+<blockquote>
+<p>Have you received any certificates ?</p>
+</blockquote>
+<blockquote>
+<p>Have you got any experience in advertisting</p>
+</blockquote>
+<blockquote>
+<p>I am someone who can adapt to any situation</p>
+</blockquote>
+<blockquote>
+<p>If hired , when could you start work?<br>We’ll notify you as soon as possible, when can you start working if we decide to use you ?<br>I’d like to begin to work any time you want<br>when I accepted, i will do my best for the company </p>
+</blockquote>
+<blockquote>
+<p>what do you look for in the job ?<br>what advantages are you seeking from this change of job ?<br>I am hoping to get an offer of a better position, if opportunity knocks, i will take it.</p>
+</blockquote>
+<blockquote>
+<p>what do you want to get from your new job?<br>what do you expect from this job?<br>what is important to you in your job?</p>
+</blockquote>
+<blockquote>
+<p>What’s your marital status ?<br>what’s your plan for the future?<br>what’s your long-range career objective?<br>Do you have a clear career path to follow?<br>What are you long-term goals set for youself?<br>There is no hurry to get married, In order to achieve this goal, I just want to work step by step.<br>I wish to move up to higher positions with acquisition of more experience in the future.<br>I plan to continue working for a long time, My career is the most important to me.<br>I hope to command a skill, to set a solid foundation and to build my interpersonal network.</p>
+</blockquote>
+<blockquote>
+<p>Any other questions ?<br>May I ask about the salary?<br>Do you mind if I ask abount the wages?<br>Are there any additional year-end bonuses?<br>What starting salary would you expect here?<br>The salary I should require would be 21000 a month </p>
+</blockquote>
+<blockquote>
+<p>Could you pleasse tell me something about the wages?<br>I’d like to have the salary which matches my ability<br>I should require a commencing salary of 21000 Yuan a month.<br>Based on my skills and experience, I am looking for 21000 yuan a month.</p>
+</blockquote>
+<p>Good afternoon,my dear manager !</p>
+<p>My name is wang guipeng,I’m very happy and excited for having a face to face interview in your company.</p>
+<p> I hope i can make a good performance today.Now I would like to introduce myself briefly.</p>
+<p>I am 29 years old,born in Anhui province,graduated from the north university of china.</p>
+<p>My major is Software Engneering,and i got my bachelor degree after my graduation in the year of 2013.</p>
+<p>I hava about 5 years work experience,I worked for my first company as a technical support engineer,and I worked for my second company as a function/automation/perfomance test engineer.</p>
+<p>During my tenure, I participated in the skills competition organized by Huawei and won the first place.</p>
+<p>In my daily life,I’m fond of hiking,party,writing blogs.</p>
+<p>I think I’m a good team player and I’m a person of great honesty to others.Also I am able to work under great pressure.</p>
+<p>all right.thank you for giving me the chance!</p>
+<p>After graduation, I spent two companies<br>The first company is to be a Java programmer<br>In life, my personality sunlight, cheerful, like to listen to music, read a book;<br>Work is responsible earnestly, positive initiative, can bear hardships and stand hard work, self-motivated, diligently study, can constantly  improve their ability and comprehensive quality.</p>
+]]></content>
+      <categories>
+        <category>Interview</category>
+      </categories>
+      <tags>
+        <tag>Interview</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Rabbitmq</title>
     <url>/articles/2020-02-16-interview-rabbitmq.html</url>
     <content><![CDATA[<a id="more"></a>
@@ -1502,7 +1573,12 @@ Bidirectional streaming RPC
 <h4 id="9-三次握手与四次挥手"><a href="#9-三次握手与四次挥手" class="headerlink" title="9. 三次握手与四次挥手"></a>9. 三次握手与四次挥手</h4><h4 id="10-OSI七层协议？"><a href="#10-OSI七层协议？" class="headerlink" title="10. OSI七层协议？"></a>10. OSI七层协议？</h4><h4 id="11-描述一下HTTP-协议缓存机制"><a href="#11-描述一下HTTP-协议缓存机制" class="headerlink" title="11. 描述一下HTTP 协议缓存机制"></a>11. 描述一下HTTP 协议缓存机制</h4><p>Http缓存主要分为强缓存和协商环迅</p>
 <p>强缓存：所请求的数据在缓存数据库中尚未过期时，不与服务器进行交互，直接使用缓存数据库中的数据。<br>    若缓存未命中时，则重新向服务器请求数据。</p>
 <p>协商缓存：当强缓存过期未命中或响应报文Cache-Control中有must-revalidate标识必须每次请求验证资源的状态时，便使用协商缓存的方式去处理缓存文件。<br>    主要原理是从缓存数据中取出缓存的标识，然后向浏览器发送请求验证请求的数据是否已经更新，如果已更新则返回新的数据，若未更新则使用缓存数据库中的数据。</p>
-<h4 id="12-URL解析"><a href="#12-URL解析" class="headerlink" title="12. URL解析"></a>12. URL解析</h4>]]></content>
+<h4 id="12-URL解析"><a href="#12-URL解析" class="headerlink" title="12. URL解析"></a>12. URL解析</h4><h4 id="13-内存和磁盘的区别"><a href="#13-内存和磁盘的区别" class="headerlink" title="13. 内存和磁盘的区别"></a>13. 内存和磁盘的区别</h4><ul>
+<li>内存<br>又称主存，计算机中的程序的运行都是在内存中运行的，只有计算机在运行，计算机CPU就会把需要的计算数据调到内存中进行运算。<br>内存分为随机存储器（RAM）、只读存储器（ROM）、高速缓存（CACHE）。</li>
+</ul>
+<p>程序运行时，内存和磁盘的作用及相互关系。<br>计算机在运行程序时，必须将磁盘中的内容加载到内存中，不加载是不能运行程序的。<br>在内存中有一部分的数据存的是磁盘的缓存，这样就可以加速磁盘访问速度。就如我们开发程序中使用的缓存作用一样。</p>
+<p>虚拟内存：<br>是指把磁盘中的一部分作为假想的内存使用，windows通过分页式虚拟内存机制：即在不考虑程序构造的情况下将程序按照一定大小的页进行划分，并以页为单位在内存和磁盘间进行置换。一般来说自己计算机的实际内存大小即为当前页文件的大小，这个是可以在电脑中进行设定的。</p>
+]]></content>
       <categories>
         <category>Interview</category>
       </categories>
@@ -1530,7 +1606,7 @@ Bidirectional streaming RPC
 </ol>
 <h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><p>控制整个Vue实例过程时更容易形成好的逻辑。</p>
 <h5 id="第一次加载页面会触发几个钩子？"><a href="#第一次加载页面会触发几个钩子？" class="headerlink" title="第一次加载页面会触发几个钩子？"></a>第一次加载页面会触发几个钩子？</h5><p>四个，beforeCreated、created、beforeMount、mounted。</p>
-<h4 id="2-Vue-router实现原理"><a href="#2-Vue-router实现原理" class="headerlink" title="2. Vue-router实现原理"></a>2. Vue-router实现原理</h4><p>vue-router通过hash与history两种方式实现前端路由，<strong>更新视图但不重新请求页面</strong>是前端路由原理的核心之一。</p>
+<h4 id="2-Vue-router实现原理，包括哪几种导航钩子，如何定义vue-router的动态路由？怎么获取传过来的动态参数"><a href="#2-Vue-router实现原理，包括哪几种导航钩子，如何定义vue-router的动态路由？怎么获取传过来的动态参数" class="headerlink" title="2. Vue-router实现原理，包括哪几种导航钩子，如何定义vue-router的动态路由？怎么获取传过来的动态参数"></a>2. Vue-router实现原理，包括哪几种导航钩子，如何定义vue-router的动态路由？怎么获取传过来的动态参数</h4><p>vue-router通过hash与history两种方式实现前端路由，<strong>更新视图但不重新请求页面</strong>是前端路由原理的核心之一。</p>
 <ul>
 <li>hash：利用URL中的hash（“#”）,在URL后加#，是url中的锚点，代表网页中的一个位置，单单改变#后的部分，浏览器只会加载相应位置的内容，不会重新加载页面。</li>
 <li>history：是Html5新增的方法，不刷新整个页面实现URL跳转。</li>
@@ -1539,11 +1615,19 @@ Bidirectional streaming RPC
 <p>vue-router通过mode参数来决定采用哪一种方式，默认是hash</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import Router from &#39;vue-router&#39;</span><br><span class="line">import routes from &#39;.&#x2F;routes&#39;</span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line">export default new Router(&#123;</span><br><span class="line">  &#x2F;&#x2F; mode: &#39;history&#39;,</span><br><span class="line">  routes</span><br><span class="line">&#125;)</span><br><span class="line">mode：hash</span><br><span class="line">http:&#x2F;&#x2F;localhost:8080&#x2F;#&#x2F;recommend</span><br><span class="line">mode：history</span><br><span class="line">http:&#x2F;&#x2F;localhost:8080&#x2F;recommend</span><br></pre></td></tr></table></figure>
 
-
-<h4 id="3-MVVM框架"><a href="#3-MVVM框架" class="headerlink" title="3. MVVM框架"></a>3. MVVM框架</h4><ul>
+<p>包含三种导航钩子：</p>
+<ul>
+<li>全局导航钩子：router.beforeEach(to, from, next)<br>作用：跳转前进行判断拦截。</li>
+<li>组件内的钩子</li>
+<li>单独路由独享组件</li>
+</ul>
+<p>在router目录下的index.js文件中，对path属性加上/:id。<br>使用router对象的params.id，如：this.$route.params.id</p>
+<h4 id="3-MVVM框架"><a href="#3-MVVM框架" class="headerlink" title="3. MVVM框架"></a>3. MVVM框架</h4><p>一个model+view+viewModel框架，数据模型model、viewModel连接两个</p>
+<ul>
 <li>当前台显示的view发生变化，会实时反应到viewModel上，如果需要，viewModel会通过ajax等方法将改变的数据传递给后台model。</li>
 <li>同时后台model获取过来的数据，通过vm将值响应到前台UI上。</li>
 </ul>
+<p>和其他框架(jquery)的区别：vue数据驱动，通过数据来显示视图而不是节点操作。<br>使用场景：数据操作比较多的场景，更加便捷。</p>
 <h4 id="4-vue-model双向绑定原理"><a href="#4-vue-model双向绑定原理" class="headerlink" title="4. vue-model双向绑定原理"></a>4. vue-model双向绑定原理</h4><p>透过MVVM模式实现vue的双向绑定数据。<br>通过Object.defineProperty实现的。</p>
 <p>当data变化时，通过Object.definePrototype()方法的set进行监控，并调用在此之前已经定义好的data和view，来通知view进行数据的改变。<br>view发生改变则是通过底层的input事件进行data的响应更改。</p>
 <p>vue是通过Object.definePrototype()来实现数据劫持的。</p>
@@ -1569,7 +1653,8 @@ Bidirectional streaming RPC
 <p>浏览器的预检请求结果可以通过设置Access-Control-Max-Age进行缓存。</p>
 </blockquote>
 <h4 id="8-babel"><a href="#8-babel" class="headerlink" title="8. babel"></a>8. babel</h4><p>实现ES6编译为ES5代码</p>
-<h4 id="9-Vue-router跳转和Location-href区别？"><a href="#9-Vue-router跳转和Location-href区别？" class="headerlink" title="9. Vue router跳转和Location.href区别？"></a>9. Vue router跳转和Location.href区别？</h4><p>router是hash改变<br>href是页面跳转，刷新页面</p>
+<h4 id="9-Vue-router跳转和Location-href区别？vue-router是什么？有哪些组件？"><a href="#9-Vue-router跳转和Location-href区别？vue-router是什么？有哪些组件？" class="headerlink" title="9. Vue router跳转和Location.href区别？vue-router是什么？有哪些组件？"></a>9. Vue router跳转和Location.href区别？vue-router是什么？有哪些组件？</h4><p>router是hash改变<br>href是页面跳转，刷新页面</p>
+<p>vue用来写路由一个插件，router-link、router-view</p>
 <h4 id="10-npm-webpack的理解"><a href="#10-npm-webpack的理解" class="headerlink" title="10. npm webpack的理解"></a>10. npm webpack的理解</h4><p>webpack官方文档说是一个module bundler(模块打包器)。<br>webpack能够把vue后缀名的文件打包成浏览器能够识别的js，而这个vue文件装换需要打包器vue-loader;<br>vue-loader打包器是可以从npm上下载的，npm下载文件之后，webpack打包文件时需要在node环境去运行；</p>
 <p>通过webpack对模块进行打包，既保留了单个模块的可维护性，又减少了页面的http请求，减少了页面加载时间，从而增加了页面的显示速度，让整个应用的体验更好。</p>
 <h4 id="11-Vuex整个触发过程（actions，state，view）？"><a href="#11-Vuex整个触发过程（actions，state，view）？" class="headerlink" title="11. Vuex整个触发过程（actions，state，view）？"></a>11. Vuex整个触发过程（actions，state，view）？</h4><p>状态管理三个部分：state、view、actions</p>
@@ -1581,8 +1666,25 @@ Bidirectional streaming RPC
 <li>Action：提交的是mutation，而不是直接变更状态，可以包含任意异步操作</li>
 <li>Modules：将store分割成模块</li>
 </ul>
-<h4 id="12-Vue和Vuex有什么差别？"><a href="#12-Vue和Vuex有什么差别？" class="headerlink" title="12. Vue和Vuex有什么差别？"></a>12. Vue和Vuex有什么差别？</h4><p>Vuex是Vue的一个插件，是一个专门为Vue应用程序开发的状态管理模式。<br>采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
-<h4 id="13-React和Vue有什么区别？"><a href="#13-React和Vue有什么区别？" class="headerlink" title="13. React和Vue有什么区别？"></a>13. React和Vue有什么区别？</h4><h4 id="14-怎么上手的vue，以及为啥用vue而不用其他框架？"><a href="#14-怎么上手的vue，以及为啥用vue而不用其他框架？" class="headerlink" title="14. 怎么上手的vue，以及为啥用vue而不用其他框架？"></a>14. 怎么上手的vue，以及为啥用vue而不用其他框架？</h4><h4 id="15-你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"><a href="#15-你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？" class="headerlink" title="15. 你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"></a>15. 你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？</h4><h4 id="16-知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"><a href="#16-知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？" class="headerlink" title="16. 知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"></a>16. 知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？</h4><h4 id="17-为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？"><a href="#17-为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？" class="headerlink" title="17. 为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？"></a>17. 为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？</h4><p>单页面应用：将所有的内容放在一个页面上么</p>
+<h4 id="12-Vue和Vuex有什么差别？"><a href="#12-Vue和Vuex有什么差别？" class="headerlink" title="12. Vue和Vuex有什么差别？"></a>12. Vue和Vuex有什么差别？</h4><p>Vuex是Vue的一个插件，是一个专门为Vue应用程序开发的状态管理模式。<br>开发模式或框架，通过状态（数据源）集中管理驱动组件的变化</p>
+<p>在main.js中引入store，注入。<br>新建了一个目录store，export。</p>
+<p>应用级的状态集中放在store中，改变状态的方式是提交mutations，这是个同步的事物；<br>异步逻辑应该封装在action中。</p>
+<p>采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。<br>场景有：单页应用中、组件之间的状态、音乐播放、登录状态、加入购物车</p>
+<h4 id="13-React和Vue有什么区别？"><a href="#13-React和Vue有什么区别？" class="headerlink" title="13. React和Vue有什么区别？"></a>13. React和Vue有什么区别？</h4><h4 id="14-怎么上手的vue，以及为啥用vue而不用其他框架？"><a href="#14-怎么上手的vue，以及为啥用vue而不用其他框架？" class="headerlink" title="14. 怎么上手的vue，以及为啥用vue而不用其他框架？"></a>14. 怎么上手的vue，以及为啥用vue而不用其他框架？</h4><h4 id="15-你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"><a href="#15-你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？" class="headerlink" title="15. 你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？"></a>15. 你对vue的源码了解吗，给我讲讲双向绑定原理怎么实现的，详细描述什么时候监听变化的，什么时候触发变化的？</h4><h4 id="16-知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"><a href="#16-知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？" class="headerlink" title="16. 知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？"></a>16. 知道拷贝对象吧，拷贝一个对象能做吗（浅拷贝，深拷贝）？</h4><h4 id="17-为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？vue等单页面应用及优缺点"><a href="#17-为什么你们的页面要用到vue-router呢-，如果没有vue-router，你们还会做单页面应用吗？vue等单页面应用及优缺点" class="headerlink" title="17. 为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？vue等单页面应用及优缺点"></a>17. 为什么你们的页面要用到vue-router呢?，如果没有vue-router，你们还会做单页面应用吗？vue等单页面应用及优缺点</h4><p>单页面应用：将所有的内容放在一个页面上么</p>
+<p>优点：</p>
+<ul>
+<li>具有桌面应用的即时性、网站的可移植性和可访问性；</li>
+<li>用户体验好、快、内容的改变不需要重新加载整个页面；</li>
+<li>基于上面一点，SPA相对对服务器压力小；</li>
+<li>良好的前后端分离。SPA和Restful架构一起使用，后端不再负责模板渲染、输出页面工作，web前端和各种移动终端地位对等，后端API通用化；</li>
+<li>同一套后端程序代码，不用修改就可以用于Web界面、手机、平板等多种客户端；</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>不利于SEO；</li>
+<li>初次加载耗时相对增多；</li>
+<li>导航不可用，如果一定要自行实现前进、后退；</li>
+</ul>
 <h4 id="18-传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"><a href="#18-传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？" class="headerlink" title="18. 传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？"></a>18. 传输模型：浏览器输入url到整个页面显示出来经历的过程？能介绍多细就多细？</h4><ul>
 <li>DNS解析：将域名解析成IP地址</li>
 <li>TCP连接：TCP三次握手</li>
@@ -1604,7 +1706,67 @@ Bidirectional streaming RPC
 <p>ES6原生提供了Proxy构造函数,用来生成Proxy实例</p>
 <p>在之前的 Vue2.x 版本中，由于 Object.defineProperty 的限制，所以 我们在使用中遇到了无法监听 属性的添加和删除、数组索引和长度的变更等一系列问题，<br>在最新的  Proxy 属性中很好的解决了这一问题。而且支持 Map、Set、WeakMap 和 WeakSet</p>
 <p>Proxy 对象用于定义基本操作的自定义行为（如属性查找，赋值，枚举，函数调用等）<br>Proxy 就是在操作目标对象之前进行了”代理（或者说劫持）”，可以对外界的操作进行过滤和改写，修改操作的默认行为</p>
-<h5 id="封装组件"><a href="#封装组件" class="headerlink" title="封装组件"></a>封装组件</h5><p>性能提高</p>
+<h5 id="23-封装组件"><a href="#23-封装组件" class="headerlink" title="23. 封装组件"></a>23. 封装组件</h5><p>性能提高</p>
+<h5 id="24-vue中key的作用"><a href="#24-vue中key的作用" class="headerlink" title="24. vue中key的作用"></a>24. vue中key的作用</h5><p>key的特殊属性主要用在Vue的虚拟DOM算法，在新旧nodes对比时辨识VNodes。<br>如果不使用key，Vue会使用一种最大限度减少动态元素并且尽可能的尝试修复/再利用相同类型元素的算法。<br>使用key，它会基于key的变化重新排列元素顺序，并且会移除key不存在的元素。</p>
+<p>有相同父元素的子元素必须有独特的key。重复的key会造成渲染错误。</p>
+<p>最常见的是结合v-for：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li v-for&#x3D;&quot;item in items&quot; :key&#x3D;&quot;item.id&quot;&gt;&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br></pre></td></tr></table></figure>
+<p>它也可以用于强制替换元素/组件而不是重复使用它。</p>
+<h5 id="25-vue中子组件调用父组件的方法"><a href="#25-vue中子组件调用父组件的方法" class="headerlink" title="25. vue中子组件调用父组件的方法"></a>25. vue中子组件调用父组件的方法</h5><p>this.$emit()</p>
+<h5 id="26-vue"><a href="#26-vue" class="headerlink" title="26. vue"></a>26. vue</h5><h5 id="27-v-if和v-show指令的共同和不同点"><a href="#27-v-if和v-show指令的共同和不同点" class="headerlink" title="27. v-if和v-show指令的共同和不同点"></a>27. v-if和v-show指令的共同和不同点</h5><ul>
+<li>v-show指令是通过修改元素的displayCSS属性让其显示或隐藏；</li>
+<li>v-if指令是直接销毁和重建DOM达到让元素显示和隐藏的效果；</li>
+</ul>
+<h5 id="28-让CSS只在当前组件中起作用"><a href="#28-让CSS只在当前组件中起作用" class="headerlink" title="28. 让CSS只在当前组件中起作用"></a>28. 让CSS只在当前组件中起作用</h5><figure class="highlight plain"><figcaption><span>scoped>```</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">##### 29. &lt;keep-alive&gt;&lt;&#x2F;keep-alive&gt;的作用是什么</span><br><span class="line">&lt;keep-alive&gt;&lt;&#x2F;keep-alive&gt;包裹动态组件时，会缓存不活动的组件实例，主要用于保留组件状态或避免重新渲染。</span><br><span class="line">比如有一个列表和一个详情，那么用户就会经常执行打开详情&#x3D;&gt;返回列表&#x3D;&gt;打开详情…这样的话列表和详情都是一个频率很高的页面，那么就可以对列表组件使用&lt;keep-alive&gt;&lt;&#x2F;keep-alive&gt;进行缓存，</span><br><span class="line">这样用户每次返回列表的时候，都能从缓存中快速渲染，而不是重新渲染</span><br><span class="line"></span><br><span class="line">##### 30. Vue中引入组件的步骤</span><br><span class="line">1. 采用ES6的import...from语法</span><br><span class="line">    或CommonJS的require方法引入组件</span><br><span class="line">  </span><br><span class="line">2. 对组件进行注册</span><br></pre></td></tr></table></figure>
+<p>Vue.component(‘my-component’, template:’<div>a component</div>‘)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">3. 使用组件&lt;my-component&gt;&lt;&#x2F;my-component&gt;</span><br><span class="line"></span><br><span class="line">##### 31. 指令v-el的作用是什么</span><br><span class="line">提供一个在页面上已存在的DOM元素作为Vue实例的挂载目标，可以是CSS选择器，也可以是一个HTMLElement实例。</span><br><span class="line"></span><br><span class="line">##### 32. 在Vue中使用插件的步骤</span><br><span class="line">* 采用ES6的import...from语法</span><br><span class="line">* 使用全局方法Vue.use(plugin)使用插件，可以传入一个选项对象</span><br><span class="line">Vue.use(Myplugin, &#123;someOptions: true&#125;)</span><br><span class="line"></span><br><span class="line">##### 33. vue watch的高级用法--监听对象的属性变化</span><br><span class="line">1. 监听对象需要深度监听，如下可以监听整个msg对象的变化</span><br></pre></td></tr></table></figure>
+<p>watch: {<br>  msg: {<br>    handler(newValue, oldValue) {<br>      console.log(newValue)<br>    },<br>    deep: true<br>  }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2. 监听对象里面某个属性的变化，通过computed做中间层实现</span><br></pre></td></tr></table></figure>
+<p>computed: {<br>　　channel() {<br>　　　　return this.msg.channel<br>　　}<br>  },<br>  watch:{<br>    channel(newValue, oldValue) {<br>　　　　console.log(‘new: %s, old: %s’, newval, oldVal)<br>　　　　//这里面可以执行一旦监听的值发生变化你想做的操作<br>　　}<br>  }</p>
+<p>  ```</p>
+<h5 id="34-active-class是哪个组件的属性？嵌套路由怎么定义"><a href="#34-active-class是哪个组件的属性？嵌套路由怎么定义" class="headerlink" title="34. active-class是哪个组件的属性？嵌套路由怎么定义"></a>34. active-class是哪个组件的属性？嵌套路由怎么定义</h5><p>vue-router模块的router-link组件</p>
+<h5 id="35-scss是什么，特性"><a href="#35-scss是什么，特性" class="headerlink" title="35. scss是什么，特性"></a>35. scss是什么，特性</h5><p>预处理css，把css当成函数编写，定义变量、嵌套。<br>先装css-loader, node-loader, sass-loader等加载器模块，<br>在webpack-base.config.js配置文件中加多一个拓展:extenstion，<br>再加多一个模块：module里面test、loader</p>
+<p>特性：</p>
+<ul>
+<li>可以用变量</li>
+<li>可以用混合器</li>
+<li>可以嵌套</li>
+</ul>
+<h5 id="36-mint-ui是什么？如何使用？至少三个组件使用方法"><a href="#36-mint-ui是什么？如何使用？至少三个组件使用方法" class="headerlink" title="36. mint-ui是什么？如何使用？至少三个组件使用方法"></a>36. mint-ui是什么？如何使用？至少三个组件使用方法</h5><p>基于vue的前端组件库。<br>npm安装，然后import样式和js，vue.use(mintUi)全局引入。<br>在单个组件局部引入：<code>import {Toast} from &#39;mint-ui&#39;</code></p>
+<ul>
+<li>Toast(‘登录成功’)</li>
+<li>mint-header</li>
+<li>mint-swiper</li>
+</ul>
+<h5 id="37-axios是什么？如何使用？描述使用它实现登录功能的流程"><a href="#37-axios是什么？如何使用？描述使用它实现登录功能的流程" class="headerlink" title="37. axios是什么？如何使用？描述使用它实现登录功能的流程"></a>37. axios是什么？如何使用？描述使用它实现登录功能的流程</h5><p>请求后台资源的模块。<br>npm install axios -s装好，然后发送的是跨域，需要配置文件中config/index.js进行配置。<br>js中使用import进来，然后get或post，返回在then函数中如果成功，失败则在catch函数中。</p>
+<h5 id="38-什么是Restful-api？"><a href="#38-什么是Restful-api？" class="headerlink" title="38. 什么是Restful api？"></a>38. 什么是Restful api？</h5><p>一个api的标准，无状态请求。<br>请求的路由地址是固定的，如果是tp5则先路由配置中把资源路由配置好，标准有：post、put、delete</p>
+<h5 id="39-自定义指令（v-check、v-focus）的方法有哪些？有哪些钩子函数？"><a href="#39-自定义指令（v-check、v-focus）的方法有哪些？有哪些钩子函数？" class="headerlink" title="39. 自定义指令（v-check、v-focus）的方法有哪些？有哪些钩子函数？"></a>39. 自定义指令（v-check、v-focus）的方法有哪些？有哪些钩子函数？</h5><p>全局定义指令：在vue对象的directive方法里面有两个参数，一个是指令名称，一个是函数。<br>组件内定义指令：directives<br>钩子函数：bind（绑定事件触发）、inserted（节点插入的时候触发）、updated（组件内相关更新）<br>钩子函数参考：el、binding</p>
+<h5 id="40-导航钩子有哪些，有哪些参数"><a href="#40-导航钩子有哪些，有哪些参数" class="headerlink" title="40. 导航钩子有哪些，有哪些参数"></a>40. 导航钩子有哪些，有哪些参数</h5><p>导航钩子有：</p>
+<ul>
+<li>全局钩子和组件内独享的钩子；</li>
+<li>beforeRouteEnter、afterEnter、beforeRouterUpdate、beforeRouteLeave<br>参数：to（去的路由）、from（离开的路由）、next（一定要用这个函数才能去到下一个路由）</li>
+</ul>
+<h5 id="41-封装vue组件的过程"><a href="#41-封装vue组件的过程" class="headerlink" title="41. 封装vue组件的过程"></a>41. 封装vue组件的过程</h5><p>首先，组件可以提升整个项目的开发效率。能够把页面抽象成多个相对独立的模块，解决了我们传统项目开发：效率低、难维护、复用性等问题。<br>然后，使用Vue.extend方法创建一个组件，然后使用Vue.component方法注册组件。子组件需要数据，可以在props中接受定义。而子组件修改好数据后，想把数据传递给父组件，可以采用emit方法。</p>
+<h5 id="42-vue-loader是什么？使用它的用途有哪些？"><a href="#42-vue-loader是什么？使用它的用途有哪些？" class="headerlink" title="42. vue-loader是什么？使用它的用途有哪些？"></a>42. vue-loader是什么？使用它的用途有哪些？</h5><p>解析vue文件的一个加载器，跟template/js/style转换成js模块。<br>用途：js可以写es6、style样式可以scss或less、template可以加jade等。</p>
+<h5 id="43-vue-cli项目中src目录每个文件夹和文件的用法？"><a href="#43-vue-cli项目中src目录每个文件夹和文件的用法？" class="headerlink" title="43. vue.cli项目中src目录每个文件夹和文件的用法？"></a>43. vue.cli项目中src目录每个文件夹和文件的用法？</h5><p>assets文件夹是放静态资源<br>components是放组件<br>router是定义路由相关的配置<br>view视图<br>app.vue是一个应用主组件<br>main.js是入口文件。</p>
+<h5 id="44-vue-cli是如何自定义的组件？"><a href="#44-vue-cli是如何自定义的组件？" class="headerlink" title="44. vue-cli是如何自定义的组件？"></a>44. vue-cli是如何自定义的组件？</h5><ul>
+<li>在components目录新建组件文件(smithButton.vue)，script一定要export default</li>
+<li>在需要的页面（组件）中导入：import smithButton from ../smithButton.vue</li>
+<li>注入到vue的子组件的components属性上面：components: {smithButton}</li>
+<li>在template视图view中使用，<code>&lt;smith-button&gt;&lt;/smith-button&gt;</code></li>
+</ul>
+<h5 id="45-你对Vuejs的template编译的理解"><a href="#45-你对Vuejs的template编译的理解" class="headerlink" title="45. 你对Vuejs的template编译的理解"></a>45. 你对Vuejs的template编译的理解</h5><p>就是先转换成AST树，再得到的render函数返回VNode（Vue的虚拟DOM节点）。</p>
+<p>首先：通过compile编译器把template编译成AST语法树（abstract syntax tree即：源代码的抽象语法结构的树状表现形式），compile是createCompiler的返回值，createCompiler是以创建编译器。另外compile还负责合并option。</p>
+<p>然后，AST会经过generate（将AST语法树转换成render function字符串的过程）得到render函数，render的返回值是VNode，VNode是Vue的虚拟DOM节点，里面有（标签名、子节点、文本等）</p>
+<h5 id="46-webpack打包原理"><a href="#46-webpack打包原理" class="headerlink" title="46. webpack打包原理"></a>46. webpack打包原理</h5><h5 id="47-gulp构建原理"><a href="#47-gulp构建原理" class="headerlink" title="47. gulp构建原理"></a>47. gulp构建原理</h5><h5 id="vue的优点"><a href="#vue的优点" class="headerlink" title="vue的优点"></a>vue的优点</h5><ul>
+<li>轻量级框架：只关注视图层，是一个构建数据的视图集合，大小只有几十kb；</li>
+<li>简单易学：国人开发，中文文档，不存在语言障碍，易于理解和学习；</li>
+<li>双向数据绑定：保留了angular的特点，在数据操作方面更为简单；</li>
+<li>组件化：保留了react的优点，实现了html的封装和重用，在构建单页面应用方面有着独特的优势；</li>
+<li>视图、数据、结构分离：使数据的更改更为简单，不需要进行逻辑代码的修改，只需要操作数据就能完成相关操作；</li>
+<li>虚拟DOM：dom操作是非常耗费性能的，不再使用原生的dom操作节点，极大解放dom操作，但具体操作的还是dom，不过是换了一种方式；</li>
+<li>运行速度更快：相比较react，同样操作虚拟dom，就性能而言，vue存在很大的优势；</li>
+</ul>
 ]]></content>
       <categories>
         <category>Interview</category>
@@ -2195,6 +2357,33 @@ Bidirectional streaming RPC
 <h4 id="1-node？"><a href="#1-node？" class="headerlink" title="1. node？"></a>1. node？</h4><p>node既是开发平台，也是运行环境，也是新的语言。<br>本身是基于google的JavaScript V8引擎开发的。<br>一个运行在服务端的基于Chrome V8 engine的js运行环境(runtime)。</p>
 <p>简单强大、轻量可扩展。</p>
 <p>简单：node使用的是JavaScript，json来进行编码，人人都会；<br>强大：非阻塞IO，可以适应分块传输数据，较慢的网络环境，尤其擅长高并发访问；<br>轻量：node本身既是代码，又是服务器，前后端使用统一语言；<br>可扩展性：轻松应对多实例，多服务架构，同时拥有海量的第三方应用组件；</p>
+<h5 id="node单线程支持高并发原理？"><a href="#node单线程支持高并发原理？" class="headerlink" title="node单线程支持高并发原理？"></a>node单线程支持高并发原理？</h5><p>node与操作系统交互，我们再JavaScript中调用的方法，最终都会通过process.binding传递到C/C++层面，最终由他们来执行真正的操作，Nodejs即这样与操作系统进行互动；<br>nodejs所谓的单线程，只是主线程是单线程，所有网络请求或者异步任务都交给了内部的线程池去实现，本身只负责不断的往返调度，由事件循环不断驱动事件执行；<br>nodejs之所以单线程可以处理高并发的原因，得益于libuv层的事件循环机制和底层线程池实现；<br>Event loop就是主线程从主线程的事件队列里面不停循环的读取事件，驱动了所有的异步回调函数的执行，Event loop总共7个阶段，每个阶段都有一个任务队列，当所有阶段被顺序执行一次后，event loop完成了一个tick；</p>
+<ul>
+<li><ol>
+<li>node的优点：I/O密集型处理是node的强项，因为node的I/O请求都是异步的<br>异步–发出操作指令，就可以去做别的事情了（主线程不需要等待），所有操作完成后再执行回调；</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>拥有异步I/O的node为什么可以支持高并发？<br>因为I/O操作是由node的工作线程去执行的（nodejs底层的libuv是多线程的线程池来执行io操作），且主线程是不需要等待结果返回的，只要发出指令就可以去忙其他事情了。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>虽然nodejs的I/O操作开启了多线程，但所有线程都是基于node服务进行开启的，并不能充分利用cpu资源<br>pm2进程管理器可以解决这个问题；<br>pm2是一个带有负载均衡功能的Node应用的进程管理器；</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>cpu核数与线程之间的关系<br>在过去单cpu时代，单任务在一个时间点只能执行单一程序。之后发展到多任务阶段，计算机在同一时间点并行执行多任务或多进程。虽然并不是真正意义上的“同一时间点”，而是多个任务或进程共享一个CPU，并交由操作系统来完成多任务间对CPU的运行切换，以使得每个任务都有机会获得一定的时间片运行。而现在多核CPU的情况下，同一时间点可以执行多个任务，具体到这个任务在CPU哪个核上运行，这个就跟操作系统和CPU本身的设计相关了。</li>
+</ol>
+</li>
+</ul>
+<h5 id="node可以免费使用吗？"><a href="#node可以免费使用吗？" class="headerlink" title="node可以免费使用吗？"></a>node可以免费使用吗？</h5><p>是，它是在MIT许可下发布的，可以免费使用。</p>
+<h5 id="Node是单线程应用程序吗？"><a href="#Node是单线程应用程序吗？" class="headerlink" title="Node是单线程应用程序吗？"></a>Node是单线程应用程序吗？</h5><p>是的，Node是一个带有事件循环的单线程应用程序。</p>
+<h4 id="NOde的使用目的是什么"><a href="#NOde的使用目的是什么" class="headerlink" title="NOde的使用目的是什么"></a>NOde的使用目的是什么</h4><ul>
+<li>构建实时Web应用程序</li>
+<li>网络应用</li>
+<li>分布式系统</li>
+<li>通用应用程序</li>
+</ul>
 <h4 id="2-node有哪些特质，与其他服务器端对比"><a href="#2-node有哪些特质，与其他服务器端对比" class="headerlink" title="2. node有哪些特质，与其他服务器端对比"></a>2. node有哪些特质，与其他服务器端对比</h4><p>特征：单线程、事件驱动、非阻塞I/O.<br>适合做一些如：<br>    聊天室、表单提交等不需要大量计算的功能<br>    做一些微信后端开发、或消息系统；</p>
 <ul>
 <li>node无法直接渲染静态页面，提供静态服务；</li>
@@ -2202,10 +2391,27 @@ Bidirectional streaming RPC
 <li>node必须通过路由程序指定文件才能渲染文件；</li>
 <li>node比其他服务端性能更好，速度更快；</li>
 </ul>
-<h4 id="3-node优点？"><a href="#3-node优点？" class="headerlink" title="3. node优点？"></a>3. node优点？</h4><p>高并发；<br>高效、轻量；<br>node是基于事件驱动和非阻塞的I/O模型，所以比较适合处理并发请求，执行效率非常高；</p>
+<h4 id="3-node优点？"><a href="#3-node优点？" class="headerlink" title="3. node优点？"></a>3. node优点？</h4><p>高并发；<br>高效、轻量；<br>node是基于事件驱动和非阻塞的I/O模型，所以比较适合处理并发请求，执行效率非常高；<br>Node非常快，因为它建立在Google Chrome的V8引擎上，它的库在代码执行方面非常快；<br>Node是单线程但高度可扩展的；<br>Node提供了无缓冲的功能，它的应用从不缓冲任何数据，它以块的形式输出数据；</p>
+<h5 id="I-O"><a href="#I-O" class="headerlink" title="I/O"></a>I/O</h5><p>I/O代表输入和输出，它可以访问应用程序之外的任何内容。<br>一旦应用程序启动，它就会加载到机器内存中以允许程序。</p>
+<h5 id="事件循环可以异步完成哪些类型的任务？"><a href="#事件循环可以异步完成哪些类型的任务？" class="headerlink" title="事件循环可以异步完成哪些类型的任务？"></a>事件循环可以异步完成哪些类型的任务？</h5><p>Nodejs中，进程是单线程的，为支持并发，它使用事件和回调。事件循环是一种允许Nodejs执行非阻塞IO操作的机制</p>
+<ul>
+<li>I/O操作</li>
+<li>繁重的计算</li>
+<li>任何需要阻止的东西</li>
+</ul>
+<p>nodejs是单线程single thread运行的，通过一个事件循环event-loop来循环取出消息队列event-queue中的消息进行处理，处理过程基本上就是去调用该消息对应的回调函数，消息队列就是当一个事件状态发生变化时，就将一个消息压入队列中。</p>
+<p>nodejs的事件驱动模型要注意：</p>
+<ul>
+<li>因为是单线程的，所以当顺序执行js文件中代码的时候，事件循环是被暂停的；</li>
+<li>当js文件执行完以后，事件循环开始运行，并从消息队列中取出消息，开始执行回调函数；</li>
+<li>因为是单线程的，所以当回调函数被执行的时候，事件循环是被暂停的；</li>
+<li>当涉及到I/O操作的时候，nodejs会开一个独立的线程来进行一步I/O操作，操作结束以后将消息压入消息队列；</li>
+</ul>
+<h5 id="V8引擎"><a href="#V8引擎" class="headerlink" title="V8引擎"></a>V8引擎</h5><p>V8是谷歌的开源高性能JavaScript引擎，用C++编写，用于谷歌Chrome，Google的开源浏览器和Nodejs等。<br>它实现了ECMA-262中指定的ECMAScript，并在windows7或更高版本，macOS 10.5+及使用IA-32，ARM或MIPS处理器的Linux系统上运行。V8可以独立运行，也可以嵌入到任何C++应用程序中。<br>【JavaScript引擎是一个将用JavaScript编写的代码转换为计算机处理器可以理解的代码的程序。】</p>
 <h4 id="4-node的缺点？"><a href="#4-node的缺点？" class="headerlink" title="4. node的缺点？"></a>4. node的缺点？</h4><ul>
 <li>Node是一个相对新的开源项目，不太稳定，总是在变，而且缺少足够的第三方库的支持；</li>
-<li>不适合CPU密集型应用，会导致主线程阻塞，阻止后续程序运行<br>原因：<br>因为JavaScript单线程原因，如果长时间运行的计算，将会导致cpu时间片不能释放，使得后续I/O无法发起）。<br>解决方案：<br>分解大型运算任务为多个小任务，使得运算能够适时释放，不阻塞I/O调用的发起；</li>
+<li>不适合CPU密集型应用，会导致主线程阻塞，阻止后续程序运行<br>（cpu密集型操作：复杂的运算、图片的操作）<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 密集型操作</span><br><span class="line">for (let i&#x3D;0; i&lt;10000000000; i++) &#123;</span><br><span class="line">    console.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+原因：<br>因为JavaScript单线程原因，如果长时间运行的计算，将会导致cpu时间片不能释放，使得后续I/O无法发起）。<br>node单线程，进行密集型的运算会导致主线程挂起。<br>解决方案：<br>分解大型运算任务为多个小任务，使得运算能够适时释放，不阻塞I/O调用的发起；</li>
 <li>只支持单核CPU，不能充分利用CPU<br>解决方案：<br>（1）Nnigx反向代理，负载均衡，开多个进程，绑定多个端口；<br>（2）开多个进程监听同一个端口，使用cluster模块；</li>
 </ul>
 <h4 id="5-node的组成？"><a href="#5-node的组成？" class="headerlink" title="5. node的组成？"></a>5. node的组成？</h4><ul>
@@ -2269,6 +2475,7 @@ Bidirectional streaming RPC
 </ul>
 <p>作用：异步编程的终极解决方案。</p>
 <p>执行顺序：<br>函数执行时，一旦遇到await就会返回。等到触发的异步操作完成，再接着执行函数体内后面的语句。</p>
+<p>async是对Promise的又一次封装，它有then和catch方法，内部可以有return返回值，返回一个Promise对象，返回值是then的参数。</p>
 <h4 id="26-promise"><a href="#26-promise" class="headerlink" title="26. promise"></a>26. promise</h4><p>Promise内部实现机制：<br>    promise用来实现一步操作，解决了回调地域的问题。<br>    相当于一个容器，里面保存了某些未来才结束的事件的结果。<br>    promise对象的状态不受外部的影响。</p>
 <p>Promise实例生成以后，可以用then方法指定resolved状态和reject状态的回调函数。</p>
 <ul>
@@ -2289,12 +2496,17 @@ Bidirectional streaming RPC
 <li>从pending变为rejected</li>
 </ul>
 <p>Promise.all([])：批量执行；<br>Promise.race()：有任意一个完成就算完成；</p>
+<p>.done()：<br>    Promise对象的回调链，不管以then方法或catch方法结尾，要是最后一个方法抛出错误，都有可能无法捕捉到（因为Promise内部的错误不会冒泡到全局），因此，我们可以提供一个done方法，总是处于回调链的尾端，保证抛出任何可能出现的错误。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">asyncFunc()</span><br><span class="line">    .then()</span><br><span class="line">    .catch()</span><br><span class="line">    .then()</span><br><span class="line">    .done()</span><br></pre></td></tr></table></figure>
+
+<p>.finally()：<br>    用于指定不管Promise对象最后状态如何，都会执行的操作。<br>    与done的最大区别是：它接受一个普通的回调函数作为参数，该函数不管怎样都必须执行。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server.listen(0)</span><br><span class="line">    .then(function() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    .finally(server.stop)</span><br></pre></td></tr></table></figure>
 <h4 id="27-Promise-all、each、map、mapSeries、reduce"><a href="#27-Promise-all、each、map、mapSeries、reduce" class="headerlink" title="27. Promise.all、each、map、mapSeries、reduce"></a>27. Promise.all、each、map、mapSeries、reduce</h4><p>Promise.all:<br>等待所有过程结束；</p>
 <p>Promise.map:<br>结合array.map和Promise.all;<br>加入concurrency参数可以控制同时并发的Promise个数；</p>
 <p>Promise.reduce:<br>从左到右按顺序执行，只有一个Promise执行；</p>
 <p>Promise.mapSeries:<br>和Promise.map类似；<br>但是按顺序执行的；</p>
 <p>Promise.each:<br>顺序执行；<br>返回的数组不是所有Promise的结果，而是传入Promise.each的原始数据数组；</p>
-<h4 id="28-什么是错误优先的回调函数？"><a href="#28-什么是错误优先的回调函数？" class="headerlink" title="28. 什么是错误优先的回调函数？"></a>28. 什么是错误优先的回调函数？</h4><p>错误优先的回调函数用于传递错误和数据。<br>第一个参数始终是一个错误对象，用于检查程序是否发生了错误<br>其余的参数用于传递数据</p>
+<h4 id="28-什么是错误优先的回调函数？"><a href="#28-什么是错误优先的回调函数？" class="headerlink" title="28. 什么是错误优先的回调函数？"></a>28. 什么是错误优先的回调函数？</h4><p>错误优先的回调函数用于同时返回错误和数据。<br>第一个参数始终是一个错误对象，用于检查程序是否发生了错误<br>其余的参数用于传递数据</p>
 <h4 id="29-如何避免回调地狱？"><a href="#29-如何避免回调地狱？" class="headerlink" title="29. 如何避免回调地狱？"></a>29. 如何避免回调地狱？</h4><h4 id="30-简述同步和异步的区别，如何避免回调地狱"><a href="#30-简述同步和异步的区别，如何避免回调地狱" class="headerlink" title="30. 简述同步和异步的区别，如何避免回调地狱"></a>30. 简述同步和异步的区别，如何避免回调地狱</h4><p>同步方法调用一旦开始，调用者必须等到方法调用返回之后，才能继续后续的行为；<br>异步方法调用一旦开始，方法调用就会立即返回，调用者就会继续后续的操作，而异步方法通常会在另外一个线程中，整个过程，不会阻碍调用者的工作。<br>避免回调地狱：</p>
 <ul>
 <li>Promsie</li>
@@ -2401,11 +2613,62 @@ export { a as default }</code></pre><figure class="highlight plain"><table><tr><
     }
     await next();
 });</code></pre><p>复制代码</p>
-<p>```</p>
-<h4 id="50-BDD-和-TDD的区别"><a href="#50-BDD-和-TDD的区别" class="headerlink" title="50. BDD 和 TDD的区别"></a>50. BDD 和 TDD的区别</h4><p>TDD：测试驱动开发Test-Driven Development<br>    测试驱动开发是敏捷开发中的一项核心实践和技术<br>    原理：在开发功能代码之前，先编写单元测试用例代码</p>
-<p>BDD：行为驱动开发Behavior Driven Development<br>    是一种敏捷软件开发技术<br>    主要是从用户的需求出发，强调系统行为\</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#### 50. BDD 和 TDD的区别</span><br><span class="line">TDD：测试驱动开发Test-Driven Development</span><br><span class="line">    测试驱动开发是敏捷开发中的一项核心实践和技术</span><br><span class="line">    原理：在开发功能代码之前，先编写单元测试用例代码</span><br><span class="line"></span><br><span class="line">BDD：行为驱动开发Behavior Driven Development</span><br><span class="line">    是一种敏捷软件开发技术</span><br><span class="line">    主要是从用户的需求出发，强调系统行为\</span><br><span class="line"></span><br><span class="line">#### 控制流函数</span><br><span class="line">控制流函数是在几个异步函数调用之间运行的通用代码；</span><br><span class="line">执行以下工作：</span><br><span class="line">* 控制执行顺序</span><br><span class="line">* 收集数据</span><br><span class="line">* 限制并发</span><br><span class="line">* 调用程序中的下一步</span><br><span class="line"></span><br><span class="line">#### node如何实现多进程？</span><br><span class="line">进程：是计算机系统进行资源分配和调度的基本单位，即计算机每开启一个任务就会创建至少一个进程来处理，有时会创建多个，目的是为了防止一个进程挂掉而应用停止工作。</span><br><span class="line">线程：是程序执行流的最小单元。</span><br><span class="line">Nodejs默认是单进程、单线程的，这个进程称为主进程，可以通过child_process模块创建子进程实现多进程，称这些子进程为“工作进程”。并且归主进程管理，进程之间默认是不能通行的，且所有子进程执行任务都是异步的。</span><br><span class="line"></span><br><span class="line">* spawn实现多进程</span><br><span class="line">根据命令创建子进程，返回子进程对象，可以在子进程对象上注册事件，&#96;&#96;&#96;child_process.spawn(command[, args][, options])&#96;&#96;&#96;。</span><br><span class="line">nodejs中执行一个js文件，如果想在这个文件中再同时（异步）执行另一个js文件，可以使用child_process模块中的spawn来实现，spawn可以帮助我们创建一个子进程：</span><br></pre></td></tr></table></figure>
+<p>// 文件：process.js<br>const { spawn } = require(“child_process”);<br>const path = require(“path”);</p>
+<p>// 创建子进程<br>let child = spawn(“node”, [“sub_process.js”, “–port”, “3000”], {<br>  cwd: path.join(__dirname, “test”) // 指定子进程的当前工作目录<br>});</p>
+<p>// 出现错误触发<br>child.on(“error”, err =&gt; console.log(err));</p>
+<p>// 子进程退出触发<br>child.on(“exit”, () =&gt; console.log(“exit”));</p>
+<p>// 子进程关闭触发<br>child.on(“close”, () =&gt; console.log(“close”));</p>
+<p>// exit<br>// close</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">spawn方法可以帮助我们创建一个子进程，这个子进程就是方法的返回值，spawn接收以下参数：</span><br><span class="line">* command：要运行的命令；</span><br><span class="line">* args：类型为数组，数组内第一项为文件名，后面项为执行文件的命令参数和值；</span><br><span class="line">* options：选项，类型为对象，用于指定子进程的当前工作目录和主进程、子进程的通信规则等；</span><br><span class="line"></span><br><span class="line">error事件在子进程出错时触发；</span><br><span class="line">exit事件在子进程退出时触发；</span><br><span class="line">close事件在子进程关闭后触发；</span><br><span class="line">在子进程任务结束后exit一定触发，close不一定触发；</span><br><span class="line"></span><br><span class="line">spawn定义输入输出</span><br></pre></td></tr></table></figure>
+<p>// 文件：process.js<br>const { spawn } = require(“child_process”);<br>const path = require(“path”);</p>
+<p>// 创建子进程<br>let child = spawn(“node”, [“sub_process.js”, “–port”, “3000”], {<br>  cwd: path.join(__dirname, “test”) // 指定子进程的当前工作目录<br>  // stdin: [process.stdin, process.stdout, process.stderr]<br>  stdio: [0, 1, 2] // 配置0标准输入、1标准输出、2错误输出<br>});<br>// C:\Program Files\nodejs\node.exe,g:\process\test\sub_process.js,–port,3000</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>// 文件：process.js<br>const { spawn } = require(“child_process”);<br>const path = require(“path”);</p>
+<p>// 创建子进程<br>let child1 = spawn(“node”, [“sub_process_1.js”, “–port”, “3000”], {<br>  cwd: path.join(__dirname, “test”),<br>});</p>
+<p>let child2 = spawn(“node”, [“sub_process_2.js”], {<br>  cwd: path.join(__dirname, “test”),<br>});</p>
+<p>// 读取子进程 1 写入的内容，写入子进程 2<br>child1.stdout.on(“data”, data =&gt; child2.stdout.write(data.toString));</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">标准的进程通信：</span><br></pre></td></tr></table></figure>
+<p>// 文件：process.js<br>const { spawn } = require(“spawn”);<br>const path = require(“path”);</p>
+<p>// 创建子进程<br>let child = spawn(“node”, [“sub_process.js”], {<br>  cwd: path.join(__dirname, “test”),<br>  stdio: [0, “pipe”, “ignore”, “ipc”]<br>});</p>
+<p>child.on(“message”, data =&gt; {<br>  console.log(data);</p>
+<p>  // 回复消息给子进程<br>  child.send(“world”);</p>
+<p>  // 杀死子进程，在主进程中操作<br>  // 由于一个主进程可能有多个子进程，所以指定要杀死的子进程需要传入子进程的 pid 属性作为 process.kill 的参数<br>  // process.kill(child.pid);<br>});</p>
+<p>// hello</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line">&#x2F;&#x2F; 文件：~test&#x2F;sub_process.js</span><br><span class="line">&#x2F;&#x2F; 给主进程发送消息</span><br><span class="line">process.send(&quot;hello&quot;);</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 接收主进程回复的消息</span><br><span class="line">process.on(&quot;message&quot;, data &#x3D;&gt; &#123;</span><br><span class="line">  console.log(data);</span><br><span class="line"> </span><br><span class="line">  &#x2F;&#x2F; 退出子进程，在子进程中操作</span><br><span class="line">  process.exit();</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; world</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>fork实现多进程<br>fork是在spawn的基础上又做了一层封装<br>创建一个新的 Node.js 进程，并通过建立 IPC 通信通道来调用指定的模块，该通道允许在父进程与子进程之间发送消息。<br>当父进程调用child_process.fork()创建子进程的时候，先创建IPC管道并监听它，创建成功后再创建子进程，并把IPC管道的文件描述符通过环境变量传递给子进程，子进程启动后根据IPC管道的文件描述符去连接IPC通道，连接成功后，父子进程就能通过IPC管道通信了。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 文件：process.js</span><br><span class="line">const fork &#x3D; require(&quot;child_process&quot;);</span><br><span class="line">const path &#x3D; require(&quot;path&quot;);</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 创建子进程</span><br><span class="line">let child &#x3D; fork(&quot;sub_process.js&quot;, [&quot;--port&quot;, &quot;3000&quot;], &#123;</span><br><span class="line">  cwd: path.join(__dirname, &quot;test&quot;),</span><br><span class="line">  silent: true &#x2F;&#x2F; 代替了stdio，为true时，非标准通信的操作都不会生效，包括标准输入、输出和错误输出。</span><br><span class="line">  &#x2F;&#x2F; 当为false的时候可正常输出，返回值依然为一个子进程。</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">child.send(&quot;hello world&quot;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 文件：~test&#x2F;sub_process.js</span><br><span class="line">&#x2F;&#x2F; 接收主进程发来的消息</span><br><span class="line">process.on(&quot;message&quot;, data &#x3D;&gt; console.log(data));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>execFile和exec实现多进程<br>execFile是基于spawn封装的，可以直接创建子进程进行文件操作，不创建shell直接根据命令创建子进程，<code>child_process.execFile(file[, args][, options][, callback])</code>。<br>exec是基于execFile封装的，可以直接开启子进程执行命令，创建一个shell环境进程并在该shell中运行命令，UNIX上是 ‘/bin/sh’，windows上是’cmd.exe’，可通过options.shell指定程序，<code>child_process.exec(command[, options][, callback])</code>。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; execFile 和 exec</span><br><span class="line">const &#123; execFile, exec &#125; &#x3D; require(&quot;child_process&quot;);</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; execFile 第一个参数为文件的可执行路径或命令，第二个参数为命令的参数集合（数组），第三个参数为 options，最后一个参数为回调函数，回调函数的形参为错误、标准输出和错误输出</span><br><span class="line">let execFileChild &#x3D; execFile(&quot;node&quot;, [&quot;--version&quot;], (err, stdout, stderr) &#x3D;&gt; &#123;</span><br><span class="line">  if (error) throw error;</span><br><span class="line">  console.log(stdout);</span><br><span class="line">  console.log(stderr);</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">let execChild &#x3D; exec(&quot;node --version&quot;, (err, stdout, stderr) &#x3D;&gt; &#123;</span><br><span class="line">  if (err) throw err;</span><br><span class="line">  console.log(stdout);</span><br><span class="line">  console.log(stderr);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>cluster集群<br>开启进程需要消耗内存，所以开启进程的数量要适合，合理运用多进程可以大大提高效率，用多个进程同时监听一个服务，一般开启进程的数量跟CPU核数相同为好，此时多个进程监听的服务会根据请求压力分流处理，也可以通过设置每个子进程处理请求的数量来实现“负载均衡”。</li>
+</ul>
+<ol>
+<li><p>使用ipc（进程间通信Inter-Process Communication）实现集群<br>ipc标准进程通信使用send方法发送消息时第二个参数支持传入一个服务，必须是http服务或tcp服务，子进程通过message事件进行接收，回调的参数分别对应发送的参数，即第一个参数为消息，第二个参数为服务，我们就可以在子进程创建服务并对主进程的服务进行监听和操作，便实现了集群。<br>（send方法、有服务、接收message、创建服务、监听）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 文件：server.js</span><br><span class="line">const os &#x3D; require(&quot;os&quot;); &#x2F;&#x2F; os 模块用于获取系统信息</span><br><span class="line">const http &#x3D; require(&quot;http&quot;);</span><br><span class="line">const path &#x3D; require(&quot;path&quot;);</span><br><span class="line">const &#123; fork &#125; &#x3D; rquire(&quot;child_process&quot;);</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 创建服务</span><br><span class="line">const server &#x3D; createServer((res, req) &#x3D;&gt; &#123;</span><br><span class="line">  res.end(&quot;hello&quot;);</span><br><span class="line">&#125;).listen(3000);</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 根据 CPU 个数创建子进程</span><br><span class="line">os.cpus().forEach(() &#x3D;&gt; &#123;</span><br><span class="line">  fork(&quot;child_server.js&quot;, &#123;</span><br><span class="line">    cwd: path.join(__dirname);</span><br><span class="line">  &#125;).send(&quot;server&quot;, server);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 文件：child_server.js</span><br><span class="line">const http &#x3D; require(&quot;http&quot;);</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 接收来自主进程发来的服务</span><br><span class="line">process.on(&quot;message&quot;, (data, server) &#x3D;&gt; &#123;</span><br><span class="line">  http.createServer((req, res) &#x3D;&gt; &#123;</span><br><span class="line">    res.end(&#96;child$&#123;process.pid&#125;&#96;);</span><br><span class="line">  &#125;).listen(server); &#x2F;&#x2F; 子进程共用主进程的服务</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用cluster实现集群<br>cluster模块是Nodejs提供的用来实现集群的，它将child_process创建子进程的方法集成进去，实现方式要比使用ipc简洁。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 文件：cluster.js</span><br><span class="line">const cluster &#x3D; require(&quot;cluster&quot;);</span><br><span class="line">const http &#x3D; require(&quot;http&quot;);</span><br><span class="line">const os &#x3D; require(&quot;os&quot;);</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 判断当前执行的进程是否为主进程，为主进程则创建子进程，否则用子进程监听服务</span><br><span class="line">if (cluster.isMaster) &#123;</span><br><span class="line">  &#x2F;&#x2F; 主进程通过cluster.fork来创建子进程</span><br><span class="line">  os.cpus().forEach(() &#x3D;&gt; cluster.fork());</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  &#x2F;&#x2F; 创建并监听服务</span><br><span class="line">  http.createServer((req, res) &#x3D;&gt; &#123;</span><br><span class="line">    res.end(&#96;child$&#123;process.pid&#125;&#96;);</span><br><span class="line">  &#125;).listen(3000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="为什么多进程监听同一个端口不报错？"><a href="#为什么多进程监听同一个端口不报错？" class="headerlink" title="为什么多进程监听同一个端口不报错？"></a>为什么多进程监听同一个端口不报错？</h4><p>在TCP端socket套接字监听端口有一个文件描述符，单独启动多个进程时文件描述符不同，导致监听相同端口会报错。<br>Nodejs底层对每个端口监听都设置了标识，在父进程和子进程传递server对象的过程中，将标识传给了对方，因此通过标识他们监听端口用的是同一个文件描述符。<br>在网络请求向服务器发送时，这些进程通过抢占为请求服务。</p>
+<h4 id="多进程需要考虑的问题"><a href="#多进程需要考虑的问题" class="headerlink" title="多进程需要考虑的问题"></a>多进程需要考虑的问题</h4><ul>
+<li>多进程开发<br>cluster模块让多进程的使用变得很容易</li>
+<li>负载均衡<br>多个进程间需要有一个策略来保证资源的合理分配。Node默认机制是采用操作系统的抢占式策略，但也需要根据实际系统的资源使用情况来考虑。</li>
+<li>进程管理<br>为了程序的健壮性以及充分利用CPU资源，我们引入多进程，那么多进程的管理也是一个问题，如：某个子进程异常退出需要自动创建一个新的子进程、让所有的子进程去抢占端口请求会造成性能浪费等。目前开源好用的进程管理工具有pm2。</li>
+<li>状态共享<br>通常在多个应用间需要有一些共享数据，比如：Im系统中记录当前在线的用户。常见做法是通过第三方数据存储来实现，如redis。</li>
+</ul>
 <p>你最喜欢的HTTP框架，并说明原因？<br>babel或者coffee Script的这些编译到JS的语言是如何工作的？<br>关于babel的递归引用JS文件处理的东西<br>JavaScript的Async库基本原理是什么？<br>你写的Functional.js中monad, curry, lazy的解释和意义？<br>JS的东西，什么闭包，Node.js的require依赖顺序什么的<br>说一下关于Node.js的文件读写方式和实现<br>说一下JavaScript几种异步方法和原理？<br>说明addEventListener使用？作用域？<br>谈谈冒泡和捕获事件的区别，应用？</p>
-<p>node如何实现多进程？</p>
 ]]></content>
       <categories>
         <category>Interview</category>
@@ -2431,6 +2694,7 @@ export { a as default }</code></pre><figure class="highlight plain"><table><tr><
 <p>DataStructure：<a href="https://www.gpp-note.top/articles/2020-02-11-interview-dataStructure.html" target="_blank">[DataStructure]</a> </p>
 <p>Algorithm：<a href="https://www.gpp-note.top/articles/2020-02-08-interview-algorithm.html" target="_blank">[Algorithm]</a> </p>
 <p>Rabbitmq：<a href="https://www.gpp-note.top/articles/2020-02-16-interview-rabbitmq.html" target="_blank">[Rabbitmq]</a> </p>
+<p>English：<a href="https://www.gpp-note.top/articles/2020-02-22-interview-english.html" target="_blank">[English]</a> </p>
 <p>阿里一面：<br>    Redis、Mongodb、Mysql项目中的使用<br>    数据分析Echarts<br>    基本类型和引用类型<br>    CSS DOM<br>    http Url解析<br>    http状态码及区别<br>    koa与Express区别 好在哪里 解决了哪些问题<br>    项目中遇到的问题 如何解决的<br>    React和Vue有什么区别？<br>    基础类型和map的区别<br>    node进程 cluster child_process 多进程管理<br>    node性能优化？</p>
 <p>建议：读源码 深入 github星 阿里开源</p>
 ]]></content>
