@@ -282,6 +282,493 @@
   <section id="posts" class="posts-expand">
     
       
+        
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-03-10-rabbitmq.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guopp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to my-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/articles/2020-03-10-rabbitmq.html" itemprop="url">Rabbitmq</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-10T16:28:45+08:00">
+                2020-03-10 16:28:45
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Rabbitmq/" itemprop="url" rel="index">
+                    <span itemprop="name">Rabbitmq</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/articles/2020-03-10-rabbitmq.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-03-10-rabbitmq.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-RabbitMQ介绍"><a href="#1-RabbitMQ介绍" class="headerlink" title="1. RabbitMQ介绍"></a>1. RabbitMQ介绍</h4><p>MQ：<br>    消息队列；<br>RabbitMQ：<br>    MQ的框架消息队列系统，实现消息的发送和接收，一种消息代理和队列的服务器；<br>AMQP(Advanced Message Queuing Protocol)：<br>    高级消息队列协议。提供统一消息服务的应用层标准高级消息队列，是应用层协议的一个开放标准，为面向消息的中间件设计；<br>AMQP的主要特征是：<br>    面向消息、队列、路由、安全性、可靠。</p>
+<h4 id="2-工作模式"><a href="#2-工作模式" class="headerlink" title="2. 工作模式"></a>2. 工作模式</h4><ul>
+<li>消息：<br>  包括两个部分：有效载荷(你想要传输的数据)和标签(描述有效载荷，并决定了谁将获取消息)；</li>
+<li>生产者(消费者)：<br>  发送消息到消息队列；</li>
+<li>消费者：<br>  从消息队列接收消息；</li>
+<li>队列：<br>  存储着即将被消费的消息， 在创建队列时，要指定队列名称；</li>
+<li>交换机交换机和队列：<br>  持久化：将交换机和队列的数据保存在磁盘上，服务器重启或宕机之后仍然存在；<br>  非持久化：将交换机和队列的数据保存在内存上，服务器重启或宕机后不存在(性能高于持久化)；</li>
+</ul>
+<p>根据需求来确定是否需要持久化，上图可以看出，针对每一种交换机有不同的type。<br>交换机的类型：</p>
+<ul>
+<li>默认交换机</li>
+<li>直连交换机(direct)</li>
+<li>主题交换机(topic)</li>
+<li>头交换机(headers)</li>
+<li>扇形交换机(fanout)</li>
+</ul>
+<p>消息确认：</p>
+<ul>
+<li>自动确认：消息发送给应用后立即删除；</li>
+<li>显示确认：待应用发送一个确认回执后再删除消息；</li>
+</ul>
+<h4 id="3-队列模型"><a href="#3-队列模型" class="headerlink" title="3. 队列模型"></a>3. 队列模型</h4><ol>
+<li>点对点消息队列模型：1对1模型</li>
+</ol>
+<p>特点：</p>
+<ul>
+<li>消息一旦被消息，消息队列就被删除；</li>
+<li>生产者和消费者不存在时间上的依赖性；</li>
+<li>消费者接收成功后，需要向队列应答成功；</li>
+</ul>
+<ol start="2">
+<li>发布订阅消息模型：n对n模型<br>特点：</li>
+</ol>
+<ul>
+<li>每个消息可以有多个消费者，发布的消息可以被多个消费者消费；</li>
+<li>发布者和订阅者有时间上的依赖关系；</li>
+<li>针对每个主题的订阅者，必须创建一个订阅者之后，才能消费发布者的消息；</li>
+<li>为了消费消息，订阅者必须保持订阅状态； </li>
+</ul>
+<h4 id="4-消息队列问题"><a href="#4-消息队列问题" class="headerlink" title="4. 消息队列问题"></a>4. 消息队列问题</h4><ol>
+<li>消息不丢失问题<br>消费者挂掉消息丢失–消费者可以通过AMQP 的basic.ack 命令显式地向RabbitMQ 发送一个确认；<br>或者在订阅到队列的时候就将auto_ack 参数设置为true 。<br>当设置了auto_ack=true 时，一旦消费者接收消息，RabbitMQ 会自动视其确认了消息。<br>而当auto_ack=false时，需要消费者通过确认命令告诉RabbitMQ 它已经正确地接收了消息，同时RabbitMQ才能安全地把消息从队列中删除；</li>
+</ol>
+<p>Rabbitmq自己挂掉消息丢失–RabbitMQ 确保持久性消息能从服务器重启中恢复的方式是，将它们写入磁盘上的一个持久化日志文件。<br>当发布一条持久性消息到持久交换器上时， Rabbit 会在消息提交到日志文件后才发送响应；</p>
+<ol start="2">
+<li>异步处理</li>
+</ol>
+<ul>
+<li>引用应用场景：用户注册信息后，写入数据库，需要发送注册短信和注册邮件。</li>
+<li>传统串行方式：300ms，1s可处理3次请求；</li>
+<li>传统并行方式：200ms，1s可处理5次请求；</li>
+<li>消息队列：105ms，1s可处理9次请求；</li>
+</ul>
+<ol start="3">
+<li>应用解耦<br>在项目启动之初是很难预测未来会遇到什么困难的，消息中间件在处理过程中插入了一个隐含的，基于数据的接口层，两边都实现这个接口，这样就允许独立的修改或者扩展两边的处理过程，只要两边遵守相同的接口约束即可。</li>
+</ol>
+<ul>
+<li>传统模式：两个系统耦合，相互依赖，一个系统出现问题，则都会失败；</li>
+<li>消息队列：发货系统发货后，发货系统完成持久化处理，将消息写入消息队列，返回发货成功，订单系统订阅发货的消息，获取发货信息，订单系统根据信息，进行更新操作。发货系统在发货的时候不用关心后续操作了，如果订单系统不能正常使用。也不影响正常发货，实现订单系统与发货系统的应用解耦；</li>
+</ul>
+<ol start="4">
+<li><p>流量削峰<br>对于一些类似淘宝双11这种秒杀活动，访问量剧增，瞬时间流量过大，服务器可能承受不了那么大的流量压力，导致服务宕机，使用消息中间件采用队列的形式，将压力转移到消息队列上，可以减少突发访问压力，不会因为突发的超时负荷要求而崩溃，起到缓冲作用。</p>
+</li>
+<li><p>消息队列积压</p>
+</li>
+</ol>
+<ul>
+<li>ready准备状态，如果消息数比较多，认为是消费者的处理能力不足，通过增加消费者来可以解决；</li>
+<li>unacked未确认状态是因为，消费者取走消息后没有及时做消息确认，没有收到ack的应答，对于开启手动确认机制的，不进行ack则消息会一直以unacked状态留在队列中；<br>或者是消费者处理能力不足。生产者投放消息的速度较快，当消费者按照prefetch_count设置的值取走相应数量的消息时，这些消息都会暂时处于unacked状态；</li>
+</ul>
+<p>当积压很多的时候会导致程序无法消费数据，这时候监控系统就会提示我们了，然后运维或开发自己发现后，就要迅速解决积压问题(有一次提交代码的时候有一个值没有处理好，导致监控飙升)</p>
+<p>解决办法：</p>
+<ul>
+<li>增加消费者的处理能；</li>
+<li>考虑使用队列最大长度限制；</li>
+<li>给消息设置年龄，超时就丢弃；</li>
+<li>默认情况下，rabbitmq消费者为单线程串行消费，设置并发消费两个关键属性concurrentConsumers和prefetchCountoncurrentConsumers设置的是对每个listener在初始化的时候设置的并发消费者的个数，prefetchCount是每次一次性从broker里面取的待消费的消息的个数；</li>
+<li>建立新的queue，消费者同时订阅新旧queue，采用订阅模式；</li>
+<li>生产者端缓存数据，在mq被消费完后再发送到mq，打破发送循环条件，设置合适的qos值，当qos值被用光，而新的ack没有被mq接收时，就可以跳出发送循环，去接收新的消息；消费者主动block接收进程，消费者感受到接收消息过快时主动block，利用block和unblock方法调节接收速率，当接收线程被block时，跳出发送循环。</li>
+<li>新建一个topic，partition是原来的10倍；然后写一个临时的分发数据的consumer程序，这个程序部署上去消费积压的数据，消费之后不做耗时的处理，直接均匀轮询写入临时建立好的10倍数量的queue；接着临时征用10倍的机器来部署consumer，每一批consumer消费一个临时queue的数据；等快速消费完积压数据之后，得恢复原先部署架构，重新用原先的consumer机器来消费消息（目前采用过这种方法来应对紧急消息堆积情况）；</li>
+</ul>
+<ol start="6">
+<li>消息的事务支持<br>即是原子性的，一次处理的多个消息应该在一个事务支持范围内，一个消息失败则即回滚到消息队列中去；</li>
+<li>消息的持久化<br>启用消息持久化后，消息队列宕机重启后，消息可以从持久化存储恢复，消息不丢失，可以继续消费处理；</li>
+<li>消息队列的高可用性<br>遇到宕机、重启等情况，消息队列可能无法服务，所以需要消息队列的高可用的支持，可以采用Rabbitmq的镜像集群模式；</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    
+    <div>
+      
+    </div>
+
+    <div>
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+      
+    
+      
+        
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-03-10-docker.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guopp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to my-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/articles/2020-03-10-docker.html" itemprop="url">Docker</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-10T16:27:35+08:00">
+                2020-03-10 16:27:35
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Docker/" itemprop="url" rel="index">
+                    <span itemprop="name">Docker</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/articles/2020-03-10-docker.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-03-10-docker.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近空闲的时候在看一本书《Docker技术入门与实战》讲的关于Docker的使用，还蛮详细的，现在针对每个章节简单记录一下，好记性不如烂笔头。</p>
+<h4 id="1-初始容器与Docker"><a href="#1-初始容器与Docker" class="headerlink" title="1. 初始容器与Docker"></a>1. 初始容器与Docker</h4><h5 id="Docker是什么"><a href="#Docker是什么" class="headerlink" title="Docker是什么"></a>Docker是什么</h5><p>Docker是基于go语言实现的开源容器项目，一个开源的引擎。</p>
+<p>Docker的目标是：<code>Build，Ship and Run Any App，Anywhere</code>，简单说就是“通过对应用的封装Packaging、分发Distribution、部署Deployment、运行Runtime生命周期进行管理，达到应用组件—<code>一次封装、到处运行的目的</code>”。</p>
+<p>Docker提供高效、敏捷、可移植的、自给自足和轻量级的容器方案，并支持部署到本地环境和多种主流平台。为应用的开发、运行和部署提供了‘一站式’的实用解决方案。<br>Docker提供了各种容器管理工具，用户无需关注底层的操作，可以更简单的管理和使用容器，通过引用分层文件系统构建和高效的镜像机制，降低了迁移难度，极大的提高了用户体验，用户操作Docker容器就像操作应用自身一样简单。<br>Docker容器理解为一种轻量级的沙盒，每个容器内运行着一个应用，不同的容器相互隔离，容器之间也可以通过网络互相通信。</p>
+<h5 id="Docker在开发和运维中的优势"><a href="#Docker在开发和运维中的优势" class="headerlink" title="Docker在开发和运维中的优势"></a>Docker在开发和运维中的优势</h5><ul>
+<li>更快速的交付和部署<br>使用Docker快速构建一套开发环境，快速创建和删除容器，实现快速迭代，大量节约开发、测试和部署的时间。</li>
+<li>更高效的资源利用<br>Docker容器的运行不需要额外的虚拟化管理程序支持，属于内核级的虚拟化，可以实现更高的性能，同时对资源的额外需求很低。</li>
+<li>更轻松的迁移和扩展<br>可以在任意容器运行，包括物理机、虚拟机、公有云、私有云、个人电脑或服务器等，支持主流的操作系统发行版本，这种兼容性让用户可以在不同平台之间轻松的迁移应用。</li>
+<li>更简单的更新管理<br>Dockerfile文件，只需要修改参数就可以实现大量的更新工作，并且修改都以增量的方式被分发和更新，从而实现自动化高效的容器管理。</li>
+</ul>
+<h5 id="Docker与虚拟机比较"><a href="#Docker与虚拟机比较" class="headerlink" title="Docker与虚拟机比较"></a>Docker与虚拟机比较</h5><h4 id="3-核心概念与安装配置"><a href="#3-核心概念与安装配置" class="headerlink" title="3. 核心概念与安装配置"></a>3. 核心概念与安装配置</h4><h5 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h5><p>Docker三大核心：镜像Image、容器Container、仓库Repository</p>
+<ul>
+<li><p>镜像Image<br>类似于虚拟机镜像，一个只读的模板，创建Docker容器的基础。</p>
+</li>
+<li><p>容器Container<br>类似于一个轻量级的沙箱，Docker利用容器运行和隔离应用。<br>容器是从镜像创建的应用运行示例；<br>可以将其启动、开始、停止、删除；<br>容器是彼此相互隔离、互不可见的；<br>可看做一个简易版的Linux环境以及应用在其中的应用程序打包而成的盒子；<br>镜像自身是只读的，容器从镜像启动的时候，会在镜像的最上层创建一个可写层；</p>
+</li>
+<li><p>仓库Repository<br>类似于代码仓库，集中存放镜像文件的场所；<br>分为公开仓库和私有仓库；</p>
+</li>
+</ul>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>balabalabala……，根据不同的环境进行安装，网上也有很多介绍。</p>
+<h4 id="4-使用Docker镜像"><a href="#4-使用Docker镜像" class="headerlink" title="4. 使用Docker镜像"></a>4. 使用Docker镜像</h4><h5 id="获取镜像"><a href="#获取镜像" class="headerlink" title="获取镜像"></a>获取镜像</h5><p>镜像是运行容器的前提，描述一个镜像需要包括“名称+标签”信息。</p>
+<p>可以直接从Docker Hu镜像源直接来下载镜像：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull NAME[:TAG] &#x2F;&#x2F;name是镜像仓库的名称，tag是镜像的标签</span><br><span class="line">&#x2F;&#x2F; 如果不显示指定tag，则会默认latest标签。</span><br><span class="line">-a , --all-tags&#x3D;true | false ：是否获取仓库中所有镜像，默认为否。</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看镜像信息"><a href="#查看镜像信息" class="headerlink" title="查看镜像信息"></a>查看镜像信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images 列出本地主机上已有镜像的基本信息</span><br><span class="line">来自哪个仓库、标签信息、镜像ID(唯一标识镜像)、创建时间、镜像大小(体积越小越优秀)</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用inspect命令查看详细信息"><a href="#使用inspect命令查看详细信息" class="headerlink" title="使用inspect命令查看详细信息"></a>使用inspect命令查看详细信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect NAME[:TAG]</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用history命令查看镜像历史"><a href="#使用history命令查看镜像历史" class="headerlink" title="使用history命令查看镜像历史"></a>使用history命令查看镜像历史</h5><h5 id="搜寻镜像"><a href="#搜寻镜像" class="headerlink" title="搜寻镜像"></a>搜寻镜像</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search 可以搜寻远端仓库中共享的镜像，默认官方仓库中的。</span><br></pre></td></tr></table></figure>
+
+<h5 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi IMAGE [IMAGE...]</span><br></pre></td></tr></table></figure>
+<p>使用标签删除镜像：删除镜像多个标签中的指定标签，不影响镜像文件，当还剩下一个标签的时候，删除则会导致彻底删除镜像；<br>使用镜像ID删除镜像：会先尝试删除指向该镜像的标签，然后删除该镜像文件本身，但当该镜像创建的容器存在时，镜像文件默认是无法被删除的，虽然可以-f强制删除，但正确做法是先删除依赖该镜像的所有容器，再来删除镜像。</p>
+<h5 id="创建镜像"><a href="#创建镜像" class="headerlink" title="创建镜像"></a>创建镜像</h5><p>方法三种：基于已有镜像的容器创建、基于本地模板导入、基于Dockerfile创建。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;基于已有镜像的容器创建</span><br><span class="line">docker commit [options] container [repository[:tag]]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 就有本地模板导入</span><br><span class="line">docker import [options] file | url | - [repository[:tag]]</span><br></pre></td></tr></table></figure>
+
+<h5 id="存出和载入镜像"><a href="#存出和载入镜像" class="headerlink" title="存出和载入镜像"></a>存出和载入镜像</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 存出镜像 导出镜像到本地文件</span><br><span class="line">docker save</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 载入镜像 将导出的tar文件再导入到本地镜像库</span><br><span class="line">docker load</span><br></pre></td></tr></table></figure>
+
+<h5 id="上传镜像"><a href="#上传镜像" class="headerlink" title="上传镜像"></a>上传镜像</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 上传镜像到仓库</span><br><span class="line">docker push Name[:tag]</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-操作Docker容器"><a href="#5-操作Docker容器" class="headerlink" title="5. 操作Docker容器"></a>5. 操作Docker容器</h4><h5 id="创建容器"><a href="#创建容器" class="headerlink" title="创建容器"></a>创建容器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">docker create &#x2F;&#x2F;创建的容器处于停止状态</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;启动容器</span><br><span class="line">docker start af</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;先终止再启动</span><br><span class="line">docker restart</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 新建并启动容器 如果不存在的镜像，会先进行下载，</span><br><span class="line">&#x2F;&#x2F; 利用镜像创建一个容器启动</span><br><span class="line">docker run &#x3D;&#x3D;&#x3D; docker create + docker start</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;获取容器的输出信息</span><br><span class="line">docker logs</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;终止容器</span><br><span class="line">docker stop</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;强制终止容器</span><br><span class="line">docker kill</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;查看所有容器的ID</span><br><span class="line">docker ps -qa</span><br><span class="line"></span><br><span class="line">04-2 进入容器</span><br><span class="line">docker exec</span><br><span class="line">04-3 删除容器</span><br><span class="line">docker rm  &#x2F;&#x2F;删除处于终止或退出状态的容器 正在运行的容器加-f</span><br><span class="line">04-4 导入和导出容器</span><br><span class="line">&#x2F;&#x2F; 导出容器</span><br><span class="line">docker export</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 导入容器</span><br><span class="line">docker import</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-访问Docker仓库"><a href="#6-访问Docker仓库" class="headerlink" title="6. 访问Docker仓库"></a>6. 访问Docker仓库</h4><p>仓库和注册服务器区别：</p>
+<ul>
+<li>注册服务器是存放仓库的具体服务器；</li>
+<li>一个注册服务上可以有多个仓库；</li>
+<li>每个仓库下可以有多个镜像；</li>
+<li>仓库看做一个具体的项目或目录；</li>
+</ul>
+<p>此处省略若干字，哈哈哈，主要是搭建仓库的，可以找资源搭建一下。</p>
+<h5 id="Docker数据管理"><a href="#Docker数据管理" class="headerlink" title="Docker数据管理"></a>Docker数据管理</h5><p>容器中管理数据方式：</p>
+<ul>
+<li>数据卷Data Volumes：容器内数据直接映射到本地主机环境；</li>
+<li>数据卷容器Data Volumes Containers：使用特定容器维护数据卷；</li>
+</ul>
+<h5 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h5><p>数据卷是一个可供容器使用的特殊目录，将主机操作系统目录直接映射进容器，特性：</p>
+<ul>
+<li>数据卷可以在容器之间共享和重用，容器间传递数据将变得高效方便；</li>
+<li>对数据卷内的数据的修改会立马生效，无论是容器内操作还是本地操作；</li>
+<li>对数据卷的更新不会影响镜像，解耦了应用和数据；</li>
+<li>卷会一直存在，直到没有容器使用，可以安全卸载；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个数据卷</span><br><span class="line">&#x2F;&#x2F; -v标记可以在容器内创建一个数据卷</span><br><span class="line">docker run -d -P --name web -v &#x2F;webapp training&#x2F;webapp </span><br><span class="line">python app.py</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; training&#x2F;webapp镜像 web容器 数据卷挂在到&#x2F;webapp目录上</span><br><span class="line">&#x2F;&#x2F; 挂在一个本地的已有目录到容器中作为数据卷</span><br><span class="line">docker run -d -P --name web -v &#x2F;src&#x2F;webapp:&#x2F;opt&#x2F;webapp </span><br><span class="line">training&#x2F;webapp python app.py</span><br></pre></td></tr></table></figure>
+
+<h5 id="数据卷容器"><a href="#数据卷容器" class="headerlink" title="数据卷容器"></a>数据卷容器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">多个容器之间共享一些持续更新的数据，就要使用数据卷容器</span><br><span class="line">&#x2F;&#x2F; 创建一个数据卷容器dbdata，并在其中创建一个数据卷</span><br><span class="line">&#x2F;&#x2F; 挂在&#x2F;dbdatadocker run it -v &#x2F;dbdata --name dbdata ubuntu</span><br><span class="line">&#x2F;&#x2F; 使用--volumes-from来挂在dbdata容器中的书卷</span><br><span class="line">docker run -it --volumes-from --name db1 ubuntu</span><br></pre></td></tr></table></figure>
+
+<h5 id="利用数据卷容器来迁移数据"><a href="#利用数据卷容器来迁移数据" class="headerlink" title="利用数据卷容器来迁移数据"></a>利用数据卷容器来迁移数据</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 备份 </span><br><span class="line">&#x2F;&#x2F; 利用ubuntu镜像创建容器worker，并挂在到dbdata容器的容器卷</span><br><span class="line">&#x2F;&#x2F; -v $(pwd):&#x2F;backup参数挂在本地的当前目录到worker容器的&#x2F;backup目录</span><br><span class="line">&#x2F;&#x2F; worker启动后，tar cvf &#x2F;backup&#x2F;backup.tar &#x2F;dbdata命令将&#x2F;dbdata</span><br><span class="line">&#x2F;&#x2F; 下内容备份为容器内的&#x2F;backup&#x2F;backup.tar</span><br><span class="line">docker run --volumes-from dbdata -v $(pwd):&#x2F;backup </span><br><span class="line">--name worker ubuntu tar cvf &#x2F;backup&#x2F;backup.tar &#x2F;dbdata</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 恢复</span><br><span class="line">docker run -v &#x2F;dbdata --name dbdata2 ubuntu &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-端口映射与容器互联"><a href="#7-端口映射与容器互联" class="headerlink" title="7. 端口映射与容器互联"></a>7. 端口映射与容器互联</h4><p>Docker提供了两个很方便的功能来满足服务访问的基本需求：</p>
+<ul>
+<li>允许映射容器内应用的服务端口到本地宿主主机；</li>
+<li>互联机制实现多个容器间通过容器名来快速访问；</li>
+</ul>
+<h5 id="端口映射实现访问容器"><a href="#端口映射实现访问容器" class="headerlink" title="端口映射实现访问容器"></a>端口映射实现访问容器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 查看映射端口号配置</span><br><span class="line">docker port</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 映射到所有接口地址</span><br><span class="line">docker run -d -p 5000:5000 training&#x2F;webapp python app.py</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 映射到指定地址的指定端口号</span><br><span class="line">docker run -d -p 127.0.0.1:5000:5000 training&#x2F;webapp</span><br><span class="line"> python app.py</span><br><span class="line"> </span><br><span class="line"> &#x2F;&#x2F; 映射到指定地址的任意端口号</span><br><span class="line"> docker run -d -p 127.0.0.1::5000 training&#x2F;webapp python </span><br><span class="line"> app.py</span><br></pre></td></tr></table></figure>
+
+<h5 id="互联机制实现便捷互访"><a href="#互联机制实现便捷互访" class="headerlink" title="互联机制实现便捷互访"></a>互联机制实现便捷互访</h5><p>容器的互联是一种让多个容器中应用进行快速交互的方式。会在源和接收容器之间创建连接关系，接收容器可以通过容器名快速访问到源容器，而不用指定具体的IP地址。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; db容器和web容器建立互联关系，</span><br><span class="line">&#x2F;&#x2F; --link name:alias</span><br><span class="line">docker run -d -P --name web --link db:db </span><br><span class="line">training&#x2F;webapppython app.py</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-使用Dockerfile创建镜像"><a href="#8-使用Dockerfile创建镜像" class="headerlink" title="8. 使用Dockerfile创建镜像"></a>8. 使用Dockerfile创建镜像</h4><p>Dockerfile是一个文本格式的配置文件，可以用它快速创建自定义的镜像。</p>
+<h5 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h5><p>分为四个部分：<br>    基础镜像信息、维护者信息、镜像操作指令、容器启动时执行指令</p>
+<h5 id="创建镜像-1"><a href="#创建镜像-1" class="headerlink" title="创建镜像"></a>创建镜像</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 指定Dockerfile所在路径&#x2F;tmp&#x2F;docker_builder </span><br><span class="line">&#x2F;&#x2F; 生成镜像标签build_repo&#x2F;first_image</span><br><span class="line">docker build -t build_repo&#x2F;first_image &#x2F;tmp&#x2F;docker_builder</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+    
+    <div>
+      
+    </div>
+
+    <div>
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+      
+    
+      
     
       
     
@@ -1129,343 +1616,11 @@
 
       
     
-      
-        
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-11-ES-class.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Guopp">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to my-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/articles/2020-02-11-ES-class.html" itemprop="url">ES6之class</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-11T17:31:07+08:00">
-                2020-02-11 17:31:07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/articles/2020-02-11-ES-class.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-11-ES-class.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="1-class"><a href="#1-class" class="headerlink" title="1. class"></a>1. class</h4><p>constructor定义构造方法，this关键字代表实例对象。<br>类的一般方法都定义在类的prototype属性上面。<br>类的实例上面调用方法，其实就是调用原型上的方法。<br>类的内部所有定义的方法，都是不可枚举的。<br>类的静态方法只能用类类调用，不能用类的实例调用。<br>如果在实例上调用静态方法，会抛出错误，表示不存在该方法。<br>父类的静态方法，可以被子类继承。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/articles/2020-02-11-ES-class.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-    <div>
-      
-    </div>
-
-    <div>
-        
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-      
-    
-      
-        
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-02-11-ES-asyncAwait.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Guopp">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to my-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/articles/2020-02-11-ES-asyncAwait.html" itemprop="url">ES6之asyncAwait</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-11T17:30:10+08:00">
-                2020-02-11 17:30:10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/articles/2020-02-11-ES-asyncAwait.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-02-11-ES-asyncAwait.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="1-async"><a href="#1-async" class="headerlink" title="1. async"></a>1. async</h4><p>async函数返回一个Promise对象，可以使用then方法添加回调函数。<br>当函数执行的时候，一旦遇到await就会先返回，等到异步操作完成，再接着执行函数体内后面的语句。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/articles/2020-02-11-ES-asyncAwait.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-    <div>
-      
-    </div>
-
-    <div>
-        
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-      
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
 
 
@@ -1511,7 +1666,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1522,7 +1677,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1533,7 +1688,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1591,7 +1746,7 @@
           <h3 class="widget-title">标签</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knex/" rel="tag">Knex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/" rel="tag">Net</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proto3/" rel="tag">Proto3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gRPC/" rel="tag">gRPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knex/" rel="tag">Knex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/" rel="tag">Net</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proto3/" rel="tag">Proto3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rabbitmq/" rel="tag">Rabbitmq</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gRPC/" rel="tag">gRPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>
