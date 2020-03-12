@@ -1704,7 +1704,42 @@ Bidirectional streaming RPC
 </ul>
 <p>在以上描述的系统架构中，如果发号器用Redis实现，则Redis是系统的瓶颈与单点，因此，利用数据库分片的设计思想，可部署多个发号器实例，每个实例负责特定号段的发号，比如部署10台Redis，每台分别负责号段尾号为0-9的发号，注意此时发号器的步长则应该设置为10（实例个数）。</p>
 <p>另外，也可将长链接与短链接映射关系的存储进行分片，由于没有一个中心化的存储位置，因此需要开发额外的服务，用于查找短链接对应的原始链接的存储节点，这样才能去正确的节点上找到映射关系。</p>
-<h4 id="postMessage原理"><a href="#postMessage原理" class="headerlink" title="postMessage原理"></a>postMessage原理</h4><h4 id="JS模块化的实践"><a href="#JS模块化的实践" class="headerlink" title="JS模块化的实践"></a>JS模块化的实践</h4><h4 id="实现gulp的功能"><a href="#实现gulp的功能" class="headerlink" title="实现gulp的功能"></a>实现gulp的功能</h4>]]></content>
+<h4 id="JS模块化的实践"><a href="#JS模块化的实践" class="headerlink" title="JS模块化的实践"></a>JS模块化的实践</h4><p>开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。</p>
+<p>JS 模块化方案有 CommonJS、AMD、CMD 以及 ES6 Module，还有个 UMD 方案。</p>
+<ul>
+<li>CommonJs<br>CommonJS 是服务器端的模块化方案，nodeJs 就采用了这种方案。在 CommonJS 规范中，一个文件即一个模块，用module.exports和exports定义模块输出的接口，用require加载模块。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; math.js</span><br><span class="line">function add(a, b) &#123;</span><br><span class="line">  return a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    add: add</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 也可以这样写</span><br><span class="line">exports.add &#x3D; (a, b) &#x3D;&gt; a+b;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>CommonJs采用同步加载方式，对于服务器和本地环境来说，同步加载是非常快的，但对于浏览器来说，就不行了，限于网络因素，异步加载才是比较好的方案。</p>
+<ul>
+<li><p>AMD<br>为了解决浏览器模块化的问题，AMD 和 CMD 这两个异步加载方案被提出，requireJS可以说是 AMD 方案的最佳实践。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; index.html</span><br><span class="line">&#x2F;&#x2F; before</span><br><span class="line">&lt;script src&#x3D;&quot;...&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;...&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;...&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    </span><br><span class="line">&#x2F;&#x2F; AMD - requireJS</span><br><span class="line">&lt;script src&#x3D;&quot;require.js&quot; data-main&#x3D;&quot;main.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<p>在 requireJS 中用define定义模块，require载入模块，require.config用来配置路径。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; math.js</span><br><span class="line">&#x2F;&#x2F; define(id?, dependencies?, factory)</span><br><span class="line">define(() &#x3D;&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    add: (a, b) &#x3D;&gt; a+b</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; main.js</span><br><span class="line">require.config(&#123;</span><br><span class="line">    baseUrl: &#39;js&#x2F;lib&#39;,</span><br><span class="line">    paths: &#123;</span><br><span class="line">        &#x2F;&#x2F; 左边是模块ID，右边是路径</span><br><span class="line">        &#x2F;&#x2F; 这里的路径是 js&#x2F;lib&#x2F;jquery.js</span><br><span class="line">        jquery: &#39;jquery&#39;,</span><br><span class="line">        &#x2F;&#x2F; 这里的路径是 js&#x2F;lib&#x2F;math.js</span><br><span class="line">        math: &#39;math&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; require([modlue], callback)</span><br><span class="line">require([&#39;jquery&#39;, &#39;math&#39;], ($, math) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; do something</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，AMD 方案是依赖前置的，提前执行。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; AMD 依赖前置，提前执行</span><br><span class="line">define([&#39;a&#39;, &#39;b&#39;], function(a, b)&#123;</span><br><span class="line">    &#x2F;&#x2F; a 和 b谁先加载完，谁就先执行</span><br><span class="line">    &#x2F;&#x2F; 并不按照代码顺序同步执行</span><br><span class="line">    a.doSomething();</span><br><span class="line">    b.doSomething();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CMD<br>与 AMD 不同，CMD 是依赖就近，延迟执行，requireJS 也支持 CMD 写法。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; CMD 依赖就近，延迟执行</span><br><span class="line">define(function(require, exports, module)&#123;</span><br><span class="line">    &#x2F;&#x2F; 需要 a 时，才执行 a</span><br><span class="line">    var a &#x3D; require(&quot;a&quot;);</span><br><span class="line">    a.doSomething();</span><br><span class="line">    &#x2F;&#x2F; 需要 b 时，才执行 b</span><br><span class="line">    var b &#x3D; require(&quot;b&quot;);</span><br><span class="line">    b.doSomething()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，两者只是对依赖模块的执行时机不一样，并非加载时机不一样，模块的加载时机都是一样的，它们都是异步加载的。AMD是模块加载完就会执行模块，所有模块都加载执行完就进入require的回调函数，CMD 则是所有模块都加载完，但不执行，等到require这个模块时才执行。</p>
+</li>
+<li><p>ES6 Module<br>ES6 在语言标准层面定义模块化规范，而且简洁明了，完全可以取代 CommonJS 和 AMD 规范，成为浏览器和服务器通用的模块解决方案。</p>
+</li>
+</ul>
+<p>ES6 Module 主要使用export输出，import加载。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; math.js</span><br><span class="line">let PI &#x3D; 3.1415;</span><br><span class="line">let circleArea &#x3D; (x) &#x3D;&gt; x*PI;</span><br><span class="line"></span><br><span class="line">export &#123;PI, circleArea&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 也可以这样写</span><br><span class="line">export let PI &#x3D; 3.1415;</span><br><span class="line">export let circleArea &#x3D; (x) &#x3D;&gt; x*PI;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; main.js</span><br><span class="line">import &#123;PI, circleArea&#125; from &#39;.&#x2F;math.js&#39;</span><br><span class="line">circleArea(1); &#x2F;&#x2F; 3.1415</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 也可以这样写</span><br><span class="line">import * as math from &#39;.&#x2F;math.js&#39;</span><br><span class="line">math.circleArea(1); &#x2F;&#x2F; 3.1415</span><br></pre></td></tr></table></figure>
+<p>还有一个export default命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 使用 export default 输出的模块只能有一个输出</span><br><span class="line">export default () &#x3D;&gt; concole.log(&#39;hhh&#39;);</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，CommonJS 输出的是值的拷贝，对于基本数据类型是直接拷贝，即缓存模块，但复杂数据类型是浅拷贝，因此修改一个模块中的值，是会改变另一个模块的值的。 require模块的时候，就会执行整个模块，即运行时加载，然后exports输出，缓存输出值，再次require时，会直接在缓存内取值。</p>
+<p>而 ES6 Module 是编译时加载，import加载的是值的引用，加载进来的值是不能被修改的，即值是只读的，而且不论是基本数据类型还是复杂数据类型，修改原模块的值，import得到的值也是会改变，即值是动态的。</p>
+<p>CommonJS 输出的是一个值的拷贝，ES6 模块输出的是值的引用。<br>CommonJS 是运行时加载，ES6 模块是编译时输出接口。<br>至于循环加载问题（a 依赖 b，b 依赖 c，c 依赖 a）:</p>
+<p>CommonJS 循环加载时，因为是属于加载时执行，所以一旦出现某个模块被”循环加载”，就只输出已经执行的部分，还未执行的部分就不输出。而对于 ES6 Module来说，因为是动态引用，所以出现循环加载时，只要两个模块之间存在某个引用，即取值的时候能够真正的取到值，代码就能够执行。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; node 环境</span><br><span class="line">&#x2F;&#x2F; a.mjs</span><br><span class="line">import &#123;bar&#125; from &#39;.&#x2F;b&#39;;</span><br><span class="line">console.log(&#39;a.mjs&#39;);</span><br><span class="line">console.log(bar());</span><br><span class="line">function foo() &#123; return &#39;foo&#39; &#125;</span><br><span class="line">export &#123;foo&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; b.mjs</span><br><span class="line">import &#123;foo&#125; from &#39;.&#x2F;a&#39;;</span><br><span class="line">console.log(&#39;b.mjs&#39;);</span><br><span class="line">console.log(foo());</span><br><span class="line">function bar() &#123; return &#39;bar&#39; &#125;</span><br><span class="line">export &#123;bar&#125;;</span><br><span class="line">&#x2F;* 结果</span><br><span class="line">b.mjs</span><br><span class="line">foo</span><br><span class="line">a.mjs</span><br><span class="line">bar</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+<p>执行a.mjs不会报错，因为函数声明会提升，在执行import {bar} from ‘./b’时，函数foo就已经有定义了，所以b.mjs加载的时候不会报错。这也意味着，如果把函数foo改写成函数表达式，也会报错。</p>
+]]></content>
       <categories>
         <category>Interview</category>
       </categories>
@@ -2914,7 +2949,26 @@ export { a as default }</code></pre><figure class="highlight plain"><table><tr><
 <li>进程管理<br>为了程序的健壮性以及充分利用CPU资源，我们引入多进程，那么多进程的管理也是一个问题，如：某个子进程异常退出需要自动创建一个新的子进程、让所有的子进程去抢占端口请求会造成性能浪费等。目前开源好用的进程管理工具有pm2。</li>
 <li>状态共享<br>通常在多个应用间需要有一些共享数据，比如：Im系统中记录当前在线的用户。常见做法是通过第三方数据存储来实现，如redis。</li>
 </ul>
-<p>你最喜欢的HTTP框架，并说明原因？<br>babel或者coffee Script的这些编译到JS的语言是如何工作的？<br>关于babel的递归引用JS文件处理的东西<br>JavaScript的Async库基本原理是什么？<br>你写的Functional.js中monad, curry, lazy的解释和意义？<br>JS的东西，什么闭包，Node.js的require依赖顺序什么的<br>说一下关于Node.js的文件读写方式和实现<br>说一下JavaScript几种异步方法和原理？<br>说明addEventListener使用？作用域？<br>谈谈冒泡和捕获事件的区别，应用？</p>
+<h4 id="说一下JavaScript几种异步方法和原理？"><a href="#说一下JavaScript几种异步方法和原理？" class="headerlink" title="说一下JavaScript几种异步方法和原理？"></a>说一下JavaScript几种异步方法和原理？</h4><h5 id="在浏览器端"><a href="#在浏览器端" class="headerlink" title="在浏览器端"></a>在浏览器端</h5><ul>
+<li><p>定时器<br>定时器被执行时，由浏览器的定时器执行定时计数，而不是JavaScript执行线程负责计数。<br>定时器线程在定时时间触发延时事件并将延时事件推入JavaScript事件队列。当JavaScript主线程同步代码执行完毕时，会去轮询该事件队列，取出最开始事件的处理函数推入主线程中执行。因此，JavaScript的定时器并不是准时触发的。</p>
+</li>
+<li><p>ajax<br>ajax请求和定时器一样，同样是委托浏览器线程代为执行耗时任务，这里是由浏览器的Http请求线程发起对服务器的请求，在请求得到响应之后触发请求完成事件，将回调函数推入事件队列等待执行。</p>
+</li>
+</ul>
+<h5 id="NodeJs端"><a href="#NodeJs端" class="headerlink" title="NodeJs端"></a>NodeJs端</h5><p>Nodejs的异步实现和浏览器实现有所不同。<br>在Nodejs中libuv为Nodejs提供了跨平台、线程池、事件池、异步I/O等能力，是Nodejs如此强大的关键。<br>Libuv为上层的Nodejs提供了统一的API调用，使其不用考虑平台差距，隐藏了底层实现。<br>Libuv本身就是异步和事件驱动的，所以，当我们将I/O操作的请求传给Libuv之后，Libuv开启线程来执行这次的I/O调用，并在执行完成后，传回给JavaScript进行后续处理。</p>
+<p>总结来说，一个异步的I/O的大致实现流程如下：<br>发起I/O调用：</p>
+<ul>
+<li>用户通过JavaScript代码调用Nodejs核心模块，将参数和回调传入核心模块；</li>
+<li>Nodejs核心模块将传入参数和回调封装为一个请求对象；</li>
+<li>将这个请求对象推入到I/O线程池中等待执行；</li>
+<li>JavaScript发起的异步调用结束，JavaScript线程继续执行后续操作；</li>
+</ul>
+<p>执行回调：</p>
+<ul>
+<li>异步任务完成之后，将结果存放在请求对象的result属性上，并发出操作完成通知；</li>
+<li>每次事件循环时会检查I/O线程池中是否存在已经完成的I/O操作，如果有就将请求事件加入到I/O观察者队列当中（事件队列），之后当做事件处理；</li>
+<li>处理I/O观察者事件时，会将之前封装在请求对象中的回调函数取出，并将result参数传入执行，以完成JavaScript回调的目的。</li>
+</ul>
 ]]></content>
       <categories>
         <category>Interview</category>
