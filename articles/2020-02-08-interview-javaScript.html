@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Welcome to my-blog">
 <meta property="og:description" content="Welcome to my-blog!!!">
 <meta property="article:published_time" content="2020-02-08T15:07:46.000Z">
-<meta property="article:modified_time" content="2020-03-12T08:32:29.091Z">
+<meta property="article:modified_time" content="2020-04-25T13:09:07.809Z">
 <meta property="article:author" content="Guopp">
 <meta property="article:tag" content="Interview">
 <meta name="twitter:card" content="summary">
@@ -769,6 +769,91 @@
 <p>CommonJS 循环加载时，因为是属于加载时执行，所以一旦出现某个模块被”循环加载”，就只输出已经执行的部分，还未执行的部分就不输出。而对于 ES6 Module来说，因为是动态引用，所以出现循环加载时，只要两个模块之间存在某个引用，即取值的时候能够真正的取到值，代码就能够执行。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; node 环境</span><br><span class="line">&#x2F;&#x2F; a.mjs</span><br><span class="line">import &#123;bar&#125; from &#39;.&#x2F;b&#39;;</span><br><span class="line">console.log(&#39;a.mjs&#39;);</span><br><span class="line">console.log(bar());</span><br><span class="line">function foo() &#123; return &#39;foo&#39; &#125;</span><br><span class="line">export &#123;foo&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; b.mjs</span><br><span class="line">import &#123;foo&#125; from &#39;.&#x2F;a&#39;;</span><br><span class="line">console.log(&#39;b.mjs&#39;);</span><br><span class="line">console.log(foo());</span><br><span class="line">function bar() &#123; return &#39;bar&#39; &#125;</span><br><span class="line">export &#123;bar&#125;;</span><br><span class="line">&#x2F;* 结果</span><br><span class="line">b.mjs</span><br><span class="line">foo</span><br><span class="line">a.mjs</span><br><span class="line">bar</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
 <p>执行a.mjs不会报错，因为函数声明会提升，在执行import {bar} from ‘./b’时，函数foo就已经有定义了，所以b.mjs加载的时候不会报错。这也意味着，如果把函数foo改写成函数表达式，也会报错。</p>
+<p>11 + “test” = “12test”</p>
+<p>对大小写敏感</p>
+<p>break：用于跳出循环，会继续执行循环之后的代码<br>continue：跳过循环中的一个迭代</p>
+<p>js会忽略多余的空格；</p>
+<ol>
+<li><p>一条语句，多个变量</p>
+<figure class="highlight plain"><figcaption><span>lastname</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. 声明也可横跨多行</span><br></pre></td></tr></table></figure>
+<p>var lastname=”Doe”,<br>age=30,<br>job=”carpenter”;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3. 一条语句中声明的多个不可以赋同一个值</span><br><span class="line">&#96;&#96;&#96;var x,y,z&#x3D;1;</span><br></pre></td></tr></table></figure>
+<p>x,y为undefined，z为1</p>
+</li>
+<li><p>Value=undefined</p>
+<figure class="highlight plain"><figcaption><span>a```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5. 重新声明JavaScript变量，该变量的值不会丢失</span><br><span class="line">&#96;&#96;&#96;var a&#x3D;1;</span><br><span class="line">var a</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>JavaScript数据类型<br>值类型（基本类型）：字符串String、数字Number、布尔Boolean、对空Null、未定义undefined、Symbol；</p>
+<p>引用数据类型：对象Object、数组Array、函数Function；</p>
+<blockquote>
+<p>Symbol是ES6引入了一种新的原始数据类型，表示独一无二的值。</p>
+</blockquote>
+<p>JavaScript拥有动态类型，相同的变量可以用作不同的类型<br>Undefined表示变量不含有值<br>可以使用Null来清空变量</p>
+<p>对象方法：<br>对象的方法定义了一个函数，并作为对象的属性存储。<br>对象通过添加()调用（作为一个函数）</p>
+<p>JavaScript变量的生存期：<br>JavaScript变量的生命期从它们被声明的时间开始。<br>局部变量会在函数运行以后被删除。<br>全局变量会在页面关闭后被删除。</p>
+<p>JavaScript运算符：<br>++ –</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x&#x3D;1</span><br><span class="line">x&#x3D;++y     y&#x3D;1</span><br><span class="line">x&#x3D;y++     y&#x3D;2</span><br><span class="line"></span><br><span class="line">x&#x3D;5+5;   10</span><br><span class="line">y&#x3D;&quot;5&quot;+5;    55</span><br><span class="line">z&#x3D;&quot;Hello&quot;+5;  Hello5</span><br></pre></td></tr></table></figure>
+
+<p>JavaScript循环：<br>for…in：遍历对象的属性；</p>
+<p>typeof：检测变量的数据类型<br>typeof undefined            // undefined<br>typeof null                 // object<br>null === undefined          // false<br>null == undefined           // true<br>typeof NaN                  // 返回 numbertypeof false  </p>
+<p>在JavaScript中有5种不同的数据类型：<br>string<br>number<br>boolean<br>object<br>function</p>
+<p>3种对象类型：<br>Object<br>Date<br>Array</p>
+<p>2个不包含任何值的数据类型：<br>null<br>undefined</p>
+<p>NaN：指示某个数不是合法数；<br>isNaN()来确定某个值是否是数；</p>
+<p>Infinity（-Infinity）：JavaScript在计算数时超出最大可能数范围时返回的值；<br>除以0也会生成Infinity；<br>typeof Intinity = number</p>
+<p>请注意：<br>NaN 的数据类型是 number<br>数组(Array)的数据类型是 object<br>日期(Date)的数据类型为 object<br>null 的数据类型是 object<br>未定义变量的数据类型为 undefined</p>
+<p>constructor属性：<br>返回所有JavaScript变量的构造函数；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&quot;John&quot;.constructor                </span><br><span class="line">&#x2F;&#x2F; 返回函数 String()  &#123; [native code] &#125;</span><br><span class="line">(3.14).constructor                </span><br><span class="line">&#x2F;&#x2F; 返回函数 Number()  &#123; [native code] &#125;</span><br><span class="line">false.constructor                 </span><br><span class="line">&#x2F;&#x2F; 返回函数 Boolean() &#123; [native code] &#125;</span><br><span class="line">[1,2,3,4].constructor             </span><br><span class="line">&#x2F;&#x2F; 返回函数 Array()   &#123; [native code] &#125;</span><br><span class="line">&#123;name:&#39;John&#39;, age:34&#125;.constructor </span><br><span class="line">&#x2F;&#x2F; 返回函数 Object()  &#123; [native code] &#125;</span><br><span class="line">new Date().constructor            </span><br><span class="line">&#x2F;&#x2F; 返回函数 Date()    &#123; [native code] &#125;</span><br><span class="line">function () &#123;&#125;.constructor        </span><br><span class="line">&#x2F;&#x2F; 返回函数 Function()&#123; [native code] &#125;</span><br></pre></td></tr></table></figure>
+
+<p>将数字转换为字符串：<br>全局方法String()可以将数字转换为字符串；<br>Number();<br>.toString()<br>.toFixed()：返回字符串值，包含了指定位数小数的数字；<br>.valueOf()：以数值返回数值；</p>
+<p>将日期转换为字符串：<br>Date()<br>String()<br>toString()</p>
+<p>getDate()：从Date对象返回一个月中的某一天（1<del>31）；<br>getDay()：从Date对象返回一周中的某一天（0</del>6）；<br>getFullYear()：从Date对象以四位数字返回年份；<br>getHours()：返回Date对象的小时（0<del>23）；<br>getMilliseconds()：返回Date对象的毫秒（0</del>999）；<br>getMinutes()：返回Date对象的分钟（0<del>59）；<br>getMonth()：返回月份（0</del>11）；<br>getSeconds()：返回对象的秒数（0~59）；<br>getTime()：返回1970年1月1日至今的毫秒数；</p>
+<p>将字符串转换为数字：<br>Number()：<br>    空字符串转换为0；<br>    其他的字符串转换为NaN（不是数字）；</p>
+<p>parseFloat()：解析一个字符串，并返回一个浮点数；<br>parseInt()：解析一个字符串，并返回一个整数；</p>
+<p>Number也可以将布尔值转换为数字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Number(false)   0</span><br><span class="line">Number(true)    1</span><br></pre></td></tr></table></figure>
+
+<p>自动转换类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5 + null    5</span><br><span class="line">&quot;5&quot; + null  &quot;5null&quot;</span><br><span class="line">&quot;5&quot; + 1     &quot;51&quot;</span><br><span class="line">&quot;5&quot; - 1      4</span><br><span class="line">&quot;5&quot; * &quot;2&quot;    10</span><br></pre></td></tr></table></figure>
+
+<p>数组和对象的区别：<br>数组使用数字索引；<br>对象使用命名索引；<br>数组是特殊类型的对象，具有数字索引；</p>
+<p>JavaScript数组方法：<br>toString()：将数组转换为逗号分隔的字符串；<br>join()：将所有数组元素结合为一个字符串；<br>pop()：从数组中删除最后一个元素；<br>push()：向数组添加一个新的元素；<br>shift()：删除首个数组元素，并把所有其他元素“位移”到更低的索引；<br>unshift()：在开头向数组添加新元素，并“反向位移”旧元素；<br>delete元素符可以删除元素；<br>splice()：可以用于向数组添加新项；<br>concat()：<br>    合并（连接）现有数组来创建一个新数组；<br>    不会更改现有数组。它总是返回一个新数组；<br>    可以使用任意数量的数组参数；</p>
+<p>slice()：<br>    用数组的某个片段切出新数组；<br>    接收2个参数，从开始参数选取元素，直到结束参数为止；</p>
+<p>数组排序：<br>sort()：以字母顺序对数组进行排序；<br>reverse()：反转数组中的元素；或降序对数组进行排序；</p>
+<p>比值函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function(a, b) &#123; return a-b &#125;</span><br></pre></td></tr></table></figure>
+
+<p>排序对象数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var objs &#x3D; [</span><br><span class="line">    &#123;year： 2017&#125;,</span><br><span class="line">    &#123;year： 2018&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">objs.sort(function(a, b) &#123; return a.year - b.year &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>Array.forEach()：为每个数组元素调用一次函数；<br>Array.map()：<br>    为每个数组元素执行函数来创建新数组；<br>    不会对没有值的数组元素执行函数；<br>    不会更改原始数组；</p>
+<p>Array.filter()：<br>    创建一个包含通过测试的数组元素的新数组；</p>
+<p>Array.reduce()：<br>reduce()在每个数组元素上运行函数，以生产（减少它）单个值；<br>reduce()在数组中从左到右工作；不会减少原始数组；</p>
+<p>Array.every()：<br>检查所有数组值是否通过测试；</p>
+<p>Array.some()：<br>检查某些数组值是否通过了测试；</p>
+<p>Array.indexOf()：<br>在数组中搜索元素值并返回其位置；</p>
+<p>Array.find()：<br>返回通过测试函数的第一个数组元素的值；</p>
+<p>Array.findIndex()：<br>返回通过测试函数的第一个数组元素的索引；</p>
+<p>Math：<br>Math.round()：四舍五入为最接近的整数；<br>Math.pow(x, y)：x的y次幂；<br>Math.sqrt()：平方根；<br>Math.abs()：绝对值；<br>Math.ceil()：上舍入最近的整数；<br>Math.floor()：下舍入最近的整数；<br>Math.random()：介于0（包括）与1（不包括）之间的随机数；<br>Math.random()：总是返回1的数；<br>Math.floor(Math.random() * 10)：返回随机整数（0~9）；<br>Math.floor(Math.random() * 10) + 1：返回1到10之间的数；<br>Math.floor(Math.random() * (max-min)) + min ：返回min(包括)和max(不包括)之间的随机数；</p>
+<p>Boolean：<br>Boolean(1 &gt; 2) false<br>0, -0, “”, undefined, null, false, NaN, 布尔值都为false。</p>
+<p>this：<br>JavaScript this关键词指的是它所属的对象。<br>它拥有不同的值，具体取决于它的使用位置：</p>
+<ul>
+<li>在方法中，this指的是所有者对象；</li>
+<li>单独的情况下，this指的是全局对象；</li>
+<li>在函数中，this指的是全局对象；</li>
+<li>在函数中，严格模式下，this是undefined；</li>
+<li>在事件中，this指的是接收事件的元素；<br>call()和apply()可以将this引用到任何对象。</li>
+</ul>
+<p>方法中的this：<br>在对象方法中，this指的是此方法的拥有者；</p>
+<p>对象访问器：Getter和Setter</p>
+<ul>
+<li>提供了更简洁的语法</li>
+<li>允许属性和方法的语法相同</li>
+<li>可以确保更好的数据质量</li>
+<li>有利于后台工作</li>
+</ul>
 
       
     </div>
@@ -943,7 +1028,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">74</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -954,7 +1039,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -965,7 +1050,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1039,7 +1124,7 @@
           <h3 class="widget-title">标签</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knex/" rel="tag">Knex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/" rel="tag">Net</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proto3/" rel="tag">Proto3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rabbitmq/" rel="tag">Rabbitmq</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gRPC/" rel="tag">gRPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front/" rel="tag">Front</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knex/" rel="tag">Knex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/" rel="tag">Net</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proto3/" rel="tag">Proto3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rabbitmq/" rel="tag">Rabbitmq</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gRPC/" rel="tag">gRPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>

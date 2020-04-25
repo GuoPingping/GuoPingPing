@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Welcome to my-blog">
 <meta property="og:description" content="1. 创建索引123#### 2. 查询索引&#96;&#96;&#96;db.user.getIndexes(&amp;#123;&amp;#125;)">
 <meta property="article:published_time" content="2020-02-11T09:11:24.000Z">
-<meta property="article:modified_time" content="2020-02-11T10:15:12.730Z">
+<meta property="article:modified_time" content="2020-04-25T13:10:24.882Z">
 <meta property="article:author" content="Guopp">
 <meta property="article:tag" content="Mongodb">
 <meta name="twitter:card" content="summary">
@@ -411,6 +411,58 @@
 <p>{<br>    “setName” : “数据库名”,<br>    “setVersion” : 25,<br>    “ismaster” : false, // 所在库是否为主库<br>    “secondary” : true, // 所在库是否为从库<br>    “hosts” : [ // 数据库hosts<br>        “<strong>***</strong>:27017”,<br>        “<strong>***</strong>:27017”,<br>        “<strong>***</strong>:27017”<br>    ],<br>    “primary” : “<strong>***</strong>:27017”, // 主库<br>    “me” : “<strong>**</strong>:27017”,<br>    “maxBsonObjectSize” : 16777216,<br>    “maxMessageSizeBytes” : 48000000,<br>    “maxWriteBatchSize” : 1000,<br>    “localTime” : ISODate(“2020-02-11T09:18:17.240Z”),<br>    “maxWireVersion” : 3,<br>    “minWireVersion” : 0,<br>    “ok” : 1.0<br>}</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 5. 获取ObjectId的时间</span><br><span class="line">&#96;&#96;&#96; ObjectId(&#39;5d01777700de3b32269aefe4&#39;).getTimestamp()</span><br></pre></td></tr></table></figure>
 <p>结果：<code>ISODate(&quot;2019-06-12T22:06:47Z&quot;)</code></p>
+<p>无论是MongoDB还是Mysql，都存在着主键的定义。</p>
+<p>Mongodb，主键名为“_id”</p>
+<p>Mysql，主键的指定是在Mysql插入数据时指明PRIMARY KEY来定义的。</p>
+<ol>
+<li>数据库的平均插入速率：Mongodb指定_id插入 &gt; Mysql不指定主键插入 &gt; Mysql指定主键插入 &gt; MongoDB指定_id插入；</li>
+<li>MongoDB在指定_id与不指定_id插入时速度相差很大，而Mysql的差别却小很多。</li>
+</ol>
+<p>分析：</p>
+<ol>
+<li>在指定_id或主键时，两种数据库在插入时要对索引值进行处理，并查找数据库中是否存在相同的键值，这会减慢插入的速率；</li>
+<li>在Mongodb中，指定索引插入比不指定慢很多，因为Mongodb里每一条数据的_id是唯一的，不指定时，其_id是系统自动计算生成的。Mongodb通过计算机特征值、时间、进程ID与随机数来确保生成的id是唯一的。而在指定id插入时，Mongodb每插一条数据，都需要检查此id可不可用，当数据库中数据条数太多的时候，这一步的查询开销会拖慢整个数据库的插入速度；</li>
+<li>Mongodb会充分使用系统内存作为缓存，插入时，Mongodb会尽可能的在内存块写不进去数据之后，再将数据持久化保存到硬盘上。</li>
+</ol>
+<p>结论：</p>
+<ol>
+<li>相比Mysql，Mongodb数据库更适合那些读作业较重的任务模型。Mongodb能充分利用机器的内存资源。如果机器的内存资源丰富的话，Mongodb的查询效率会快很多；</li>
+<li>推荐采用不带id的插入方式，然后对相关的字段作索引来查询；</li>
+<li>Mongodb适合那些对数据库具体数据格式不明确或数据库数据格式经常变化的需求模型，而且对开发者十分友好；</li>
+<li>Mongodb自带一个分布式文件系统，很方便部署到服务器机群上。Mongodb里有一个shard的概念，就是方便了服务器分片使用的。每增加一台shard，Mongodb的插入性能会以接近倍数的方式增长，磁盘容量也很可以很方便扩充；</li>
+<li>Mongodb还自带了对map-reduce运算框架的支持，这也很方便进行数据的统计；</li>
+</ol>
+<h4 id="Mongodb的索引"><a href="#Mongodb的索引" class="headerlink" title="Mongodb的索引"></a>Mongodb的索引</h4><ol>
+<li>单键索引</li>
+<li>复合索引</li>
+<li>多键索引</li>
+<li>哈希索引</li>
+</ol>
+<h5 id="Mongodb索引的管理"><a href="#Mongodb索引的管理" class="headerlink" title="Mongodb索引的管理"></a>Mongodb索引的管理</h5><p>索引的本质是一个排序的列表，在这个列表中存储着索引的值和包含这个值的数据的物理地址，索引可以大大加快查询的速度，这是因为使用索引后可以不再扫描全表来定位某行的数据，而是通过索引表找到该行数据的物理地址，然后通过地址来访问相应的数据。</p>
+<p>索引可以加快数据检索、排序、分组的速度，减少I/O，但是索引也不是越多越好，因为索引本身也是数据表，需要占用存储空间，同时索引需要数据库进行维护，当我们对索引列的值进行增删改查操作时，数据库需要更新索引表，这会增加数据库的压力。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个索引</span><br><span class="line">db.tables.createIndex(&#123;age: -1&#125;)</span><br><span class="line">&#x2F;&#x2F; 查看所有索引</span><br><span class="line">db.tables.getIndexes()</span><br><span class="line">&#x2F;&#x2F; 删除特定的索引</span><br><span class="line">db.tables.dropIndex(&#123;age: -1&#125;)</span><br><span class="line">&#x2F;&#x2F; 删除所有的索引</span><br><span class="line">db.tables.dropIndexes()</span><br></pre></td></tr></table></figure>
+
+<h5 id="常用的索引"><a href="#常用的索引" class="headerlink" title="常用的索引"></a>常用的索引</h5><ol>
+<li><p>唯一索引<br>强制要求索引字段没有重复值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.tables.createIndex(&#123;name: 1&#125;, &#123;unique: true&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>局部索引<br>只对collection的一部分添加索引。<br>创建索引的时候，根据过滤条件判断是否为document添加索引，对于没有添加索引的文档查找时采用的是全表扫描，对添加了索引的文档查找时使用索引。</p>
+</li>
+<li><p>稀疏索引<br>在有索引字段的document上添加索引。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.tables.createIndex(&#123;name: 1&#125;, &#123; sparse: true&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>TTL索引<br>TTL indexes：特殊的单键索引，用于设置document的过期时间，过期自动删除。<br>TTL索引只能设置在date类型字段上，过期时间为字段值+expireAfterSeconds；</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;添加测试数据</span><br><span class="line">db.logs.insertMany([</span><br><span class="line">       &#123;_id:1,createtime:new Date(),msg:&quot;log1&quot;&#125;,</span><br><span class="line">       &#123;_id:2,createtime:new Date(),msg:&quot;log2&quot;&#125;,</span><br><span class="line">       &#123;_id:3,createtime:new Date(),msg:&quot;log3&quot;&#125;,</span><br><span class="line">       &#123;_id:4,createtime:new Date(),msg:&quot;log4&quot;&#125;</span><br><span class="line">       ])</span><br><span class="line">       &#x2F;&#x2F;在createtime字段添加TTL索引，过期时间是120s</span><br><span class="line">       db.logs.createIndex(&#123;createtime:1&#125;, &#123; expireAfterSeconds: 120 &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;logs中的document在创建后的120s后过期，会被mongoDB自动删除</span><br></pre></td></tr></table></figure>
+
+
+<p>redis：</p>
+<p>缓存更新：一种机制，怎么样保证缓存中的key是实时有效的，以及及时的更新数据资源。</p>
+<p>解决办法：</p>
+<ul>
+<li>缓存服务器自带的缓存失效策略</li>
+<li>自定义：定时去清理过期的缓存；当用户请求过来时，再判断这个请求所用到的缓存是否过期，过期的话就去底层系统得到数据并更新缓存；</li>
+</ul>
+<p>缓存降级：<br>发生场景：<br>       当访问量剧增、服务出现问题（如响应时间慢或不响应）或非核心服务影响到核心流程的性能时，仍然需要保证服务还是可用的，即使是有损服务。系统可以根据一些关键数据进行自动降级，也可以配置开关实现人工降级。降级的最终目的是保证核心服务可用，即使是有损的。而且有些服务是无法降级的（如加入购物车、结算等）。<br>解决办法：<br>       在进行降级之前要对系统进行梳理，看看系统是不是可以丢车保帅；从而梳理出哪些必须誓死保护，哪些可以降级；比如可以参考日志级别设置预案：<br>       * 一般：比如有些服务偶尔因为网络抖动或服务正在上线而超时，可以自动降级；<br>       * 警告：有些服务在一段时间内成功率有波动，可以自动降级或人工降级，并发送告警；<br>       * 错误：比如可用率低于90%，或者数据库连接池被打爆了，或者访问突然猛增到系统能承受的最大阈值，此时可以根据情况自动降级或者人工降级；<br>       * 严重错误：比如因为特殊原因数据错误了，此时需要紧急人工降级。</p>
 
       
     </div>
@@ -585,7 +637,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">74</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -596,7 +648,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -607,7 +659,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -663,7 +715,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-创建索引"><span class="nav-text">1. 创建索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-索引类型"><span class="nav-text">3. 索引类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-查询数据库主从库"><span class="nav-text">4. 查询数据库主从库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-创建索引"><span class="nav-text">1. 创建索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-索引类型"><span class="nav-text">3. 索引类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-查询数据库主从库"><span class="nav-text">4. 查询数据库主从库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mongodb的索引"><span class="nav-text">Mongodb的索引</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Mongodb索引的管理"><span class="nav-text">Mongodb索引的管理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常用的索引"><span class="nav-text">常用的索引</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -681,7 +733,7 @@
           <h3 class="widget-title">标签</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knex/" rel="tag">Knex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/" rel="tag">Net</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proto3/" rel="tag">Proto3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rabbitmq/" rel="tag">Rabbitmq</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gRPC/" rel="tag">gRPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front/" rel="tag">Front</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knex/" rel="tag">Knex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/" rel="tag">Net</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proto3/" rel="tag">Proto3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rabbitmq/" rel="tag">Rabbitmq</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code-tools/" rel="tag">code-tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gRPC/" rel="tag">gRPC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/" rel="tag">node_modules</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>

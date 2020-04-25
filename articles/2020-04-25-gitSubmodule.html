@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="," />
+  <meta name="keywords" content="Git," />
 
 
 
@@ -91,16 +91,16 @@
 
 
 
-<meta name="description" content="关于学习 关于成长">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://gpp-note.top/categories/index.html">
+<meta name="description" content="1. 使用场景基于公司的项目会越来越多，常常需要提取一个公共的类库提供给多个项目使用，但是这个library怎么和git在一起方便管理呢？我们需要解决下面几个问题：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gitSubmodule">
+<meta property="og:url" content="http://gpp-note.top/articles/2020-04-25-gitSubmodule.html">
 <meta property="og:site_name" content="Welcome to my-blog">
-<meta property="og:description" content="关于学习 关于成长">
-<meta property="article:published_time" content="2020-01-29T11:27:39.000Z">
-<meta property="article:modified_time" content="2020-01-31T14:19:08.904Z">
+<meta property="og:description" content="1. 使用场景基于公司的项目会越来越多，常常需要提取一个公共的类库提供给多个项目使用，但是这个library怎么和git在一起方便管理呢？我们需要解决下面几个问题：">
+<meta property="article:published_time" content="2020-04-25T13:01:07.000Z">
+<meta property="article:modified_time" content="2020-04-25T13:07:16.443Z">
 <meta property="article:author" content="Guopp">
-<meta property="article:tag" content="categories">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://gpp-note.top/categories/"/>
+  <link rel="canonical" href="http://gpp-note.top/articles/2020-04-25-gitSubmodule.html"/>
 
 
 
 
 
-  <title>分类 | Welcome to my-blog</title>
+  <title>gitSubmodule | Welcome to my-blog</title>
   
 
 
@@ -284,40 +284,270 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gpp-note.top/articles/2020-04-25-gitSubmodule.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guopp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to my-blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">分类</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 14 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ES6/">ES6</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Interview/">Interview</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node/">Node</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rabbitmq/">Rabbitmq</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/code-tools/">code-tools</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gRPC/">gRPC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-modules/">node_modules</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">2</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">gitSubmodule</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-25T21:01:07+08:00">
+                2020-04-25 21:01:07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/articles/2020-04-25-gitSubmodule.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="articles/2020-04-25-gitSubmodule.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h4 id="1-使用场景"><a href="#1-使用场景" class="headerlink" title="1. 使用场景"></a>1. 使用场景</h4><p>基于公司的项目会越来越多，常常需要提取一个公共的类库提供给多个项目使用，但是这个library怎么和git在一起方便管理呢？<br>我们需要解决下面几个问题：</p>
+<a id="more"></a>
+
+<p>如何在git项目中导入library库?<br>library库在其他的项目中被修改了可以更新到远程的代码库中?<br>其他项目如何获取到library库最新的提交?<br>如何在clone的时候能够自动导入library库?<br>解决以上问题，可以考虑使用git的 Submodule来解决。</p>
+<h4 id="2-什么是Submodule"><a href="#2-什么是Submodule" class="headerlink" title="2. 什么是Submodule?"></a>2. 什么是Submodule?</h4><figure class="highlight plain"><figcaption><span>Submodule``` 是一个很好的多项目使用共同类库的工具，他允许类库项目做为repository,子项目做为一个单独的git项目存在父项目中，子项目可以有自己的独立的commit，push，pull。而父项目以Submodule的形式包含子项目，父项目可以指定子项目header，父项目中会的提交信息包含Submodule的信息，再clone父项目的时候可以把Submodule初始化。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在项目中使用Submodule</span><br><span class="line"></span><br><span class="line">使用git命令可以直接添加Submodule：</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;git submodule add git@github.com:jjz&#x2F;pod-library.git pod-library</span><br></pre></td></tr></table></figure>
+<p>使用 git status命令可以看到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">    On branch master</span><br><span class="line">    Changes to be committed:</span><br><span class="line">    </span><br><span class="line">        new file:   .gitmodules</span><br><span class="line">        new file:   pod-library</span><br></pre></td></tr></table></figure>
+<p>可以看到多了两个需要提交的文件：.gitmodules和 pod-library<br>.gitmodules 内容包含Submodule的主要信息，指定reposirory,指定路径:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[submodule &quot;pod-library&quot;]</span><br><span class="line">    path &#x3D; pod-library</span><br><span class="line">    url &#x3D; git@github.com:jjz&#x2F;pod-library.git</span><br></pre></td></tr></table></figure>
+<p>可以看到记录了子项目的目录和子项目的git地址信息。<br>pod-libray内容只保护子项目的commit id，就能指定到对于的git header上,例如:</p>
+<figure class="highlight plain"><figcaption><span>commit 4ac42d2f8b9ba0c2f0f2f2ec87ddbd529275fea5```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4ac42d2f8b9ba0c2f0f2f2ec87ddbd529275fea5就是子项目的commit id，父项目的git并不会记录Submodule的文件变动，它是按照commit git指定Submodule的git header。</span><br><span class="line"></span><br><span class="line">另外,这两个文件都需要提交到父项目的git中。</span><br><span class="line"></span><br><span class="line">还可以这样使用命令添加Submodule</span><br></pre></td></tr></table></figure>
+<p>git add .gitmodules pod-ibrary<br>git commit -m “pod-library submodule”<br>git submodule init<br>修改Submodule</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">首先需要确认有对Submodule的commit权限。</span><br><span class="line">进入Submodule目录里面:</span><br><span class="line">&#96;&#96;&#96;cd pod-library&#x2F;</span><br></pre></td></tr></table></figure>
+<p>修改其中的一个文件看下文件的可以用git status查看变动:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">modified: pod-library&#x2F;UseAFHTTP.h</span><br></pre></td></tr></table></figure>
+
+<p>提交Submodule的更改内容：</p>
+<figure class="highlight plain"><figcaption><span>commit -a -m'test submodule'```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">然后push 到远程服务器:</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;git push</span><br></pre></td></tr></table></figure>
+<p>然后再回到父目录,提交Submodule在父项目中的变动：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">git status</span><br><span class="line">on branch master</span><br></pre></td></tr></table></figure>
+<p>modified: pod-library (new commits)<br>可以看到pod-library中已经变更为Submodule最新的commit id:</p>
+<figure class="highlight plain"><figcaption><span>commit 330417cf3fc1d2c42092b20506b0d296d90d0b5f```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">需要把Submodule的变动信息推送到父项目的远程服务器</span><br></pre></td></tr></table></figure>
+<p>git commit -m’update submodule’<br>git push</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">这样就把子模块的变更信息以及子模块的变更信息提交到远程服务器了，从远程服务器上更新下来的内容就是最新提交的内容了。</span><br><span class="line"></span><br><span class="line">更新Submodule</span><br><span class="line"></span><br><span class="line">更新Submodule有两种方式:</span><br><span class="line">在父项目的目录下直接运行</span><br></pre></td></tr></table></figure>
+<p>git submodule foreach git pull</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在Submodule的目录下面更新</span><br><span class="line"></span><br><span class="line">&gt;cd pod-library</span><br><span class="line">git pull</span><br><span class="line">可以看到在Submodule的目录中,使用git和单独的一个项目是一样的,注意更新Submodule的时候如果有新的commit id产生，需要在父项目产生一个新的提交，pod-libray文件中的 Subproject commit会变为最新的commit id。</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;clone Submodule</span><br></pre></td></tr></table></figure>
+<p>clone Submodule有两种方式 一种是采用递归的方式clone整个项目，一种是clone父项目，再更新子项目。<br>采用递归参数 –recursive</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:jjz&#x2F;pod-project.git --recursive</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">loning into &#39;pod-project&#39;...</span><br><span class="line">remote: Counting objects: 57, done.</span><br><span class="line">remote: Compressing objects: 100% (45&#x2F;45), done.</span><br><span class="line">remote: Total 57 (delta 13), reused 49 (delta 8), pack-reused 0</span><br><span class="line">Receiving objects: 100% (57&#x2F;57), 18.79 KiB | 0 bytes&#x2F;s, done.</span><br><span class="line">Resolving deltas: 100% (13&#x2F;13), done.</span><br><span class="line">Checking connectivity... done.</span><br><span class="line">Submodule &#39;pod-library&#39; (git@github.com:jjz&#x2F;pod-library.git) registered for path &#39;pod-library&#39;</span><br><span class="line">Cloning into &#39;pod-library&#39;...</span><br><span class="line">remote: Counting objects: 34, done.</span><br><span class="line">remote: Compressing objects: 100% (25&#x2F;25), done.</span><br><span class="line">remote: Total 34 (delta 8), reused 30 (delta 7), pack-reused 0</span><br><span class="line">Receiving objects: 100% (34&#x2F;34), 12.95 KiB | 0 bytes&#x2F;s, done.</span><br><span class="line">Resolving deltas: 100% (8&#x2F;8), done.</span><br><span class="line">Checking connectivity... done.</span><br><span class="line">Submodule path &#39;pod-library&#39;: checked out &#39;330417cf3fc1d2c</span><br><span class="line"></span><br><span class="line">42092b20506b0d296d90d0b5f&#39;</span><br></pre></td></tr></table></figure>
+<p>可以看到init Submodule 会自动被clone下来</p>
+<p>2.第二种方法先clone父项目，再初始化Submodule</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:jjz&#x2F;pod-project.git</span><br><span class="line">cd pod-project</span><br><span class="line">git submodule init</span><br></pre></td></tr></table></figure>
+<p>输出:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Submodule &#39;pod-library&#39; (git@github.com:jjz&#x2F;pod-library.git) </span><br><span class="line">registered for path &#39;pod-library&#39;</span><br></pre></td></tr></table></figure>
+<p>更新Submodule:</p>
+<figure class="highlight plain"><figcaption><span>submodule update```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">运行结果：</span><br></pre></td></tr></table></figure>
+<p>  Cloning into ‘pod-library’…<br>  remote: Counting objects: 34, done.<br>  remote: Compressing objects: 100% (25/25), done.<br>  remote: Total 34 (delta 8), reused 30 (delta 7), pack-reused 0<br>  Receiving objects: 100% (34/34), 12.95 KiB | 0 bytes/s, done.<br>  Resolving deltas: 100% (8/8), done.<br>  Checking connectivity… done.<br>  Submodule path ‘pod-library’: checked out ‘330417cf3fc1d2c42092b20506b0d296d90d0b5f’</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">删除Submodule</span><br><span class="line"></span><br><span class="line">git 并不支持直接删除Submodule需要手动删除对应的文件:</span><br></pre></td></tr></table></figure>
+<p>cd pod-project<br>git rm –cached pod-library<br>rm -rf pod-library<br>rm .gitmodules<br>更改git的配置文件config:<br>vim .git/config</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可以看到Submodule的配置信息：</span><br></pre></td></tr></table></figure>
+<p>[submodule “pod-library”]<br>  url = <a href="mailto:git@github.com">git@github.com</a>:jjz/pod-library.git`<br>``<br>删除submodule相关的内容,然后提交到远程服务器:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -a -m &#39;remove pod-library submodule&#39;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
     
     
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <div>
+        
+            
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>gitSubmodule</a></p>
+  <p><span>文章作者:</span>Guopp</a></p>
+  <p><span>原始链接:</span><a href="/articles/2020-04-25-gitSubmodule.html" title="gitSubmodule">http://gpp-note.top/articles/2020-04-25-gitSubmodule.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gpp-note.top/articles/2020-04-25-gitSubmodule.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+
+
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/articles/2020-03-10-rabbitmq.html" rel="next" title="Rabbitmq">
+                <i class="fa fa-chevron-left"></i> Rabbitmq
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/articles/2020-04-25-React.html" rel="prev" title="React">
+                React <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -329,8 +559,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="categories/index.html"
-           data-title="分类" data-url="http://gpp-note.top/categories/index.html">
+      <div class="ds-thread" data-thread-key="articles/2020-04-25-gitSubmodule.html"
+           data-title="gitSubmodule" data-url="http://gpp-note.top/articles/2020-04-25-gitSubmodule.html">
       </div>
     </div>
 
@@ -357,8 +587,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -441,6 +680,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-使用场景"><span class="nav-text">1. 使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-什么是Submodule"><span class="nav-text">2. 什么是Submodule?</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
